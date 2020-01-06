@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ErrorCodes>
+  <Segment Name="System Error" BeginCode="800F2000" EndCode="800F2100">
+  </Segment>
+  <Segment Name="Generic Error" BeginCode="800F2101" EndCode="800F2200">
+  </Segment>
+
+  <Segment Name="Framework" BeginCode="800F3000" EndCode="800F3100">
+    <ErrorCode Name="ConcurrencyException" Value="800F3000" Msg="数据库更新时发生并发错误" />
+    
+  </Segment>
+</ErrorCodes>
+

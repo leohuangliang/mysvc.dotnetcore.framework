@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Permissions>
+    <Permission Name="AccountManage" Display="账号管理" Roles="all"></Permission>
+    <Permission Name="UserList" Display="员工列表" Roles="WalletOwner,WalletAdmin">
+      <Permission Name="AddUser" Display="添加员工" Roles="WalletOwner,WalletAdmin"></Permission>
+      <Permission Name="ViewUser" Display="查看员工资料" Roles="WalletOwner,WalletAdmin"></Permission>
+      <Permission Name="EditUser" Display="编辑员工资料" Roles="WalletOwner,WalletAdmin"></Permission>
+      <Permission Name="DeleteUser" Display="删除员工" Roles="WalletOwner,WalletAdmin"></Permission>
+    </Permission>
+</Permissions>

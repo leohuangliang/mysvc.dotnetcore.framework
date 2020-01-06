@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+	  <TargetFramework>netstandard2.0</TargetFramework>
+	  <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB</RootNamespace>
+	  <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB</AssemblyName>
+	  <Copyright>@2018 Capmarvel</Copyright>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<WarningLevel>
+			3
+		</WarningLevel>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="DotNetCore.CAP" Version="2.6.0" />
+		<PackageReference Include="DotNetCore.CAP.MongoDB" Version="2.6.0" />
+		<PackageReference Include="MediatR" Version="7.0.0" />
+		<PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+		<PackageReference Include="MongoDB.Driver" Version="2.8.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
+		<ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />
+	</ItemGroup>
+</Project>

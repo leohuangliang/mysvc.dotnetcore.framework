@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Capmarvel.Framework.Applications.Common</id>
+    <version>1.0.0</version>
+    <title>Capmarvel.Framework.Applications.Common</title>
+    <authors>Edward.Wang</authors>
+    <owners>Edward.Wang</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>应用层通用类型及辅助类</description>
+    <releaseNotes>
+1.0.0 包含了一些通用类型，自定义字段的定义，自定义查询的通用定义
+    </releaseNotes>
+    <copyright>Copyright 2018  (c) Capmarvel. All rights reserved.</copyright>
+    <tags>Capmarvel </tags>
+    <serviceable>true</serviceable>
+    <dependencies>
+      <dependency id="Capmarvel.Framework.Domain.Common" version="1.0.0" />
+    </dependencies>
+
+  </metadata>
+  <files>
+    <file src="bin\Release\netstandard2.0\Capmarvel.Framework.Applications.Common.dll" target="lib\netstandard2.0\Capmarvel.Framework.Applications.Common.dll" />
+    <file src="bin\Release\netstandard2.0\Capmarvel.Framework.Applications.Common.pdb" target="lib\netstandard2.0\Capmarvel.Framework.Applications.Common.pdb" />
+    <file src="bin\Release\netstandard2.0\Capmarvel.Framework.Applications.Common.xml" target="lib\netstandard2.0\Capmarvel.Framework.Applications.Common.xml" />
+  </files>
+</package>

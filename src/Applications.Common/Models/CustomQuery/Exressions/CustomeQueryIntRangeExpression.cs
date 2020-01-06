@@ -1,0 +1,16 @@
+﻿using System;
+using Capmarvel.Framework.Applications.Common.Constants;
+
+namespace Capmarvel.Framework.Applications.Common.Models.CustomQuery.Exressions
+{
+    /// <summary>
+    /// 自定义查询-整型数据范围查询表达式（between and）
+    /// </summary>
+    public class CustomeQueryIntRangeExpression : CustomeQueryRangeExpression<int>
+    {
+        public CustomeQueryIntRangeExpression()
+        {
+            Type = CustomeQueryExpressionType.INT_RANGE;
+        }
+    }
+}

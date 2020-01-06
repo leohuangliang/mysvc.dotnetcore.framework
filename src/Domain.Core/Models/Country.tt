@@ -1,0 +1,91 @@
+﻿<#@ template language="C#" hostspecific="true" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+using System.Collections.Generic;
+namespace Capmarvel.Framework.Domain.Core.Models
+{
+    public class Country
+    {
+        public string Name { get; private set; }
+        public string TwoLetterCode { get; private set; }
+        public string ThreeLetterCode { get; private set; }
+        public string NumericCode { get; private set; }
+
+        private Country(string name, string twoLetterCode, string threeLetterCode, string numericCode)
+        {
+            Name = name;
+            TwoLetterCode = twoLetterCode;
+            ThreeLetterCode = threeLetterCode;
+            NumericCode = numericCode;
+        }
+
+        /// <summary>
+        /// 国家字典
+        /// </summary>
+        public static readonly Dictionary<string, Country> List = new Dictionary<string, Country>()
+        {
+        
+<#
+    
+	var path = Host.ResolvePath(string.Empty);
+	var file = Path.Combine(path, "country.txt");
+	using (StreamReader reader = new StreamReader(file))
+	{
+		reader.ReadLine();
+		while (!reader.EndOfStream)
+		{
+			string line = reader.ReadLine();
+			string[] keyValue = line.Split('\t');
+            if(keyValue[0] == "name")
+            {
+                continue;
+            }
+			string name = keyValue[0];
+			string alpha_2 = keyValue[1];
+			string alpha_3 = keyValue[2];
+			string country_code = keyValue[3];
+#>
+            { <#=alpha_2 #>,  new Country("<#=name #>", "<#=alpha_2 #>", "<#=alpha_3 #>", "<#=country_code #>")},
+<#
+        }
+	}
+#>
+        };
+
+
+<#
+    
+	var path1 = Host.ResolvePath(string.Empty);
+	var file1 = Path.Combine(path1, "country.txt");
+	using (StreamReader reader = new StreamReader(file1))
+	{
+		reader.ReadLine();
+		while (!reader.EndOfStream)
+		{
+			string line = reader.ReadLine();
+			string[] keyValue = line.Split('\t');
+            if(keyValue[0] == "name")
+            {
+                continue;
+            }
+			string name = keyValue[0];
+			string alpha_2 = keyValue[1];
+			string alpha_3 = keyValue[2];
+			string country_code = keyValue[3];
+#>
+        /// <summary>
+        /// <#= name #>
+        /// </summary>
+        public const string  <#= alpha_2 #> = "<#= alpha_2 #>";
+<#
+		}
+	}
+#>
+
+    }
+}
+

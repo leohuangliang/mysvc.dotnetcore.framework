@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Json.NewtonsoftJson</RootNamespace>
+    <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson</AssemblyName>
+    <Copyright>@2018 Capmarvel</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />
+  </ItemGroup>
+</Project>

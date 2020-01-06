@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Auth.ClientTestApi</name>
+    </assembly>
+    <members>
+        <member name="M:Auth.ClientTestApi.AuthenticationExtensions.AddCustomAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            增加自定义权限
+            </summary>
+        </member>
+        <member name="T:Auth.ClientTestApi.AuthorizeExtension">
+            <summary>
+            Swagger相关权限的扩展
+            </summary>
+        </member>
+        <member name="M:Auth.ClientTestApi.AuthorizeExtension.AddCustomSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            增加自定义的Swagger扩展
+            </summary>
+        </member>
+        <member name="T:Auth.ClientTestApi.AuthorizeExtension.AuthorizeCheckOperationFilter">
+            <summary>
+            Swagger调用时的权限验证
+            </summary>
+        </member>
+    </members>
+</doc>

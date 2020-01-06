@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant</name>
+    </assembly>
+    <members>
+        <member name="P:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.AuthServiceOptions.GetUserProfilePath">
+            <summary>
+            获取用户Profile API相对路径
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions.Error.Names.TokenExpired">
+            <summary>
+            Token过期，请重新登录
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions.Error.Names.RequestPermissionFailed">
+            <summary>
+            获取权限失败
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions.Error.Names.RequestUserProfileFailed">
+            <summary>
+            获取用户信息失败
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions.Error.Codes.TokenExpired">
+            <summary>
+            token-expired
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions.Error.Codes.RequestPermissionFailed">
+            <summary>
+            request-permission-failed
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions.Error.Codes.RequestUserProfileFailed">
+            <summary>
+            request-userProfile-failed
+            </summary>
+        </member>
+        <member name="M:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.PermissionAttribute.#ctor(System.String[])">
+            <summary>
+            权限且关系
+            </summary>
+            <param name="permissions"></param>
+        </member>
+        <member name="M:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.PermissionAttribute.#ctor(System.Boolean,System.String[])">
+            <summary>
+            权限且/或关系
+            </summary>
+            <param name="permissions"></param>
+            <param name="isOr">true=或关系;false=且关系</param>
+        </member>
+        <member name="T:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission">
+            <summary>
+            权限码定义
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission.AccountManage">
+            <summary>
+            账号管理
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission.UserList">
+            <summary>
+            员工列表
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission.AddUser">
+            <summary>
+            添加员工
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission.ViewUser">
+            <summary>
+            查看员工资料
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission.EditUser">
+            <summary>
+            编辑员工资料
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission.DeleteUser">
+            <summary>
+            删除员工
+            </summary>
+        </member>
+        <member name="M:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.PermissionManage.GetPermissions(System.String)">
+            <summary>
+            根据角色获取Permission
+            </summary>
+            <param name="role">角色</param>
+            <returns></returns>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.RoleConst.WalletOwner">
+            <summary>
+            钱包所有人
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.RoleConst.WalletAdmin">
+            <summary>
+            钱包管理员
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.RoleConst.FinancialStaff">
+            <summary>
+            财务
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.RoleConst.OperationalStaff">
+            <summary>
+            运营人员
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.RoleConst.ViewOnly">
+            <summary>
+            ViewOnly
+            </summary>
+        </member>
+        <member name="M:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserIdentityService.MapTenantUser">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserProfile.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserProfile.FullName">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserProfile.RegisterTime">
+            <summary>
+            注册时间
+            </summary>
+        </member>
+        <member name="P:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserProfile.PhoneNumber">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserProfile.DialCode">
+            <summary>
+            区号
+            </summary>
+        </member>
+        <member name="P:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserProfile.PhoneNumberConfirmed">
+            <summary>
+            手机号是否绑定
+            </summary>
+        </member>
+        <member name="P:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserProfile.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserProfile.EmailConfirmed">
+            <summary>
+            邮箱是否确认
+            </summary>
+        </member>
+        <member name="P:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserProfile.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+    </members>
+</doc>

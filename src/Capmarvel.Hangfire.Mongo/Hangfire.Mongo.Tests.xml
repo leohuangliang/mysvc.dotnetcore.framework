@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hangfire.Mongo</name>
+    </assembly>
+    <members>
+        <member name="T:Hangfire.Mongo.Database.HangfireDbContext">
+            <summary>
+            Represents Mongo database context for Hangfire
+            </summary>
+        </member>
+        <member name="M:Hangfire.Mongo.Database.HangfireDbContext.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructs context with connection string and database name
+            </summary>
+            <param name="connectionString">Connection string for Mongo database</param>
+            <param name="databaseName">Database name</param>
+            <param name="prefix">Collections prefix</param>
+        </member>
+        <member name="M:Hangfire.Mongo.Database.HangfireDbContext.#ctor(MongoDB.Driver.MongoDatabase)">
+            <summary>
+            Constructs context with existing Mongo database connection
+            </summary>
+            <param name="database">Database connection</param>
+        </member>
+        <member name="M:Hangfire.Mongo.Database.HangfireDbContext.Init">
+            <summary>
+            Initializes intial collections schema for Hangfire
+            </summary>
+        </member>
+        <member name="P:Hangfire.Mongo.Database.HangfireDbContext.ConnectionId">
+            <summary>
+            Mongo database connection identifier
+            </summary>
+        </member>
+        <member name="P:Hangfire.Mongo.Database.HangfireDbContext.DistributedLock">
+            <summary>
+            Reference to collection which contains distributed locks
+            </summary>
+        </member>
+        <member name="P:Hangfire.Mongo.Database.HangfireDbContext.Hash">
+            <summary>
+            Reference to collection which contains hashes
+            </summary>
+        </member>
+        <member name="P:Hangfire.Mongo.Database.HangfireDbContext.Job">
+            <summary>
+            Reference to collection which contains jobs
+            </summary>
+        </member>
+        <member name="P:Hangfire.Mongo.Database.HangfireDbContext.JobParameter">
+            <summary>
+            Reference to collection which contains jobs parameters
+            </summary>
+        </member>
+        <member name="P:Hangfire.Mongo.Database.HangfireDbContext.JobQueue">
+            <summary>
+            Reference to collection which contains jobs queues
+            </summary>
+        </member>
+        <member name="P:Hangfire.Mongo.Database.HangfireDbContext.List">
+            <summary>
+            Reference to collection which contains lists
+            </summary>
+        </member>
+        <member name="P:Hangfire.Mongo.Database.HangfireDbContext.Schema">
+            <summary>
+            Reference to collection which contains schemas
+            </summary>
+        </member>
+        <member name="P:Hangfire.Mongo.Database.HangfireDbContext.Server">
+            <summary>
+            Reference to collection which contains servers information
+            </summary>
+        </member>
+        <member name="P:Hangfire.Mongo.Database.HangfireDbContext.Set">
+            <summary>
+            Reference to collection which contains sets
+            </summary>
+        </member>
+        <member name="P:Hangfire.Mongo.Database.HangfireDbContext.State">
+            <summary>
+            Reference to collection which contains states
+            </summary>
+        </member>
+        <member name="M:Hangfire.Mongo.MongoBootstrapperConfigurationExtensions.UseMongoStorage(Hangfire.IBootstrapperConfiguration,System.String,System.String)">
+            <summary>
+            Configure Hangfire to use MongoDB storage
+            </summary>
+            <param name="configuration">Configuration</param>
+            <param name="connectionString">Connection string for Mongo database, for example 'mongodb://username:passwordY@host:port'</param>
+            <param name="databaseName">Name of database at Mongo server</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hangfire.Mongo.MongoBootstrapperConfigurationExtensions.UseMongoStorage(Hangfire.IBootstrapperConfiguration,System.String,System.String,Hangfire.Mongo.MongoStorageOptions)">
+            <summary>
+            Configure Hangfire to use MongoDB storage
+            </summary>
+            <param name="configuration">Configuration</param>
+            <param name="connectionString">Connection string for Mongo database, for example 'mongodb://username:passwordY@host:port'</param>
+            <param name="databaseName">Name of database at Mongo server</param>
+            <param name="options">Storage options</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hangfire.Mongo.MongoUtils.AutoIncrementIdGenerator">
+            <summary>
+            Represents ID generator for Mongo database
+            </summary>
+        </member>
+        <member name="M:Hangfire.Mongo.MongoUtils.AutoIncrementIdGenerator.#ctor">
+            <summary>
+            Constructs ID generator with empty prefix
+            </summary>
+        </member>
+        <member name="M:Hangfire.Mongo.MongoUtils.AutoIncrementIdGenerator.#ctor(System.String)">
+            <summary>
+            Constructs ID generator with specified prefix
+            </summary>
+            <param name="prefix">Collection name prefix</param>
+        </member>
+        <member name="M:Hangfire.Mongo.MongoUtils.AutoIncrementIdGenerator.GenerateId(System.Object,System.Object)">
+            <summary>
+            Generates next ID from sequence
+            </summary>
+            <param name="container">Container which stores identifiers</param>
+            <param name="document">Document which stores identifier</param>
+            <returns>Generated identifier</returns>
+        </member>
+        <member name="M:Hangfire.Mongo.MongoUtils.AutoIncrementIdGenerator.IsEmpty(System.Object)">
+            <summary>
+            Checks wheter specified identifier is empty
+            </summary>
+            <param name="id">Identifier</param>
+            <returns>True if identifier is empty; false otherwise</returns>
+        </member>
+        <member name="T:Hangfire.Mongo.MongoUtils.MongoExtensions">
+            <summary>
+            Helper utilities to work with Mongo database
+            </summary>
+        </member>
+        <member name="M:Hangfire.Mongo.MongoUtils.MongoExtensions.GetServerTimeUtc(MongoDB.Driver.MongoDatabase)">
+            <summary>
+            Retreives server time in UTC zone
+            </summary>
+            <param name="database">Mongo database</param>
+            <returns>Server time</returns>
+        </member>
+        <member name="M:Hangfire.Mongo.MongoUtils.MongoExtensions.GetServerTimeUtc(Hangfire.Mongo.Database.HangfireDbContext)">
+            <summary>
+            Retreives server time in UTC zone
+            </summary>
+            <param name="dbContext">Hangfire database context</param>
+            <returns>Server time</returns>
+        </member>
+    </members>
+</doc>

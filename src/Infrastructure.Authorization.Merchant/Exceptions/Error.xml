@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--错误编码按“段”分，每一段长度为0x100-->
+<ErrorCodes>
+  <Segment Name=" Authorization validate Error">
+    <ErrorCode Name="TokenExpired" Code="token-expired" Message="Token过期，请重新登录" />
+    <ErrorCode Name="RequestPermissionFailed" Code="request-permission-failed" Message="获取权限失败" />
+    <ErrorCode Name="RequestUserProfileFailed" Code="request-userProfile-failed" Message="获取用户信息失败" />
+  </Segment>
+</ErrorCodes>
