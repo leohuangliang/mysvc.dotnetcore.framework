@@ -12,14 +12,14 @@
 		</WarningLevel>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="DotNetCore.CAP" Version="2.6.0" />
-		<PackageReference Include="DotNetCore.CAP.MongoDB" Version="2.6.0" />
-		<PackageReference Include="MediatR" Version="7.0.0" />
-		<PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
-		<PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
-		<PackageReference Include="MongoDB.Driver" Version="2.8.0" />
+		<PackageReference Include="DotNetCore.CAP" Version="3.0.0" />
+		<PackageReference Include="DotNetCore.CAP.MongoDB" Version="3.0.0" />
+		<PackageReference Include="MediatR" Version="8.0.0" />
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="3.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.0" />
+		<PackageReference Include="MongoDB.Driver" Version="2.10.0" />
 	</ItemGroup>
   
 	<ItemGroup>

@@ -1,4 +1,5 @@
-﻿using DotNetCore.CAP.Abstractions;
+﻿
+using DotNetCore.CAP.Internal;
 using System;
 using System.Collections.Generic;
 using System.Text;

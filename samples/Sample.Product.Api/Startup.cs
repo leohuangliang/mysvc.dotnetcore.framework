@@ -1,20 +1,18 @@
-﻿using System;
-using System.IO;
-using Autofac;
+﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.PlatformAbstractions;
+using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
 using Sample.Product.Api.DI.AutofacModules;
 using Sample.Product.Application.IntegrationEvents.EventHandling;
-using Sample.Product.Application.IntegrationEvents.Events;
 using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.IO;
 
 namespace Sample.Product.Api
 {
@@ -55,12 +53,13 @@ namespace Sample.Product.Api
             });
 
             //添加AutoMapper的支持
-            services.AddAutoMapper();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddTransient<OrderCreatedIntegrationEventHandler>();
 
             services.AddCap(x => {
-                x.UseDashboard();
+                
+                //x.UseDashboard();
                 x.UseMongoDB(o => {
                     o.DatabaseConnection = "mongodb://admin:12345678@127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/?connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1";
                     o.DatabaseName = "SampleProduct";
@@ -112,7 +111,11 @@ namespace Sample.Product.Api
             });
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+
+            app.UseRouting();
+            app.UseEndpoints(endpoints => {
+                endpoints.MapControllers();
+            });
         }
     }
 }

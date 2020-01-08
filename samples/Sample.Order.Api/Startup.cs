@@ -1,18 +1,16 @@
-﻿using System;
-using System.IO;
-using Autofac;
+﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.PlatformAbstractions;
+using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
 using Sample.Order.Api.DI.AutofacModules;
-using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.IO;
 
 namespace Sample.Order.Api
 {
@@ -28,7 +26,7 @@ namespace Sample.Order.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().AddNewtonsoftJson().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             //配置数据库连接, MQ
             services.Configure<MongoDBSettings>(Configuration.GetSection("MongoDBForWrite")); //默认读写
@@ -39,7 +37,7 @@ namespace Sample.Order.Api
             //增加Swagger
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "Sample Order Service API", Version = "v1" });
+                c.SwaggerDoc("v1", new  Microsoft.OpenApi.Models.OpenApiInfo { Title = "Sample Order Service API", Version = "v1" });
 
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
                 var xmlPath = Path.Combine(basePath, "Sample.Order.Api.xml");
@@ -53,10 +51,10 @@ namespace Sample.Order.Api
             });
 
             //添加AutoMapper的支持
-            services.AddAutoMapper();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddCap(x => {
-                x.UseDashboard();
+                //x.UseDashboard();
                 x.UseMongoDB(o => {
                     o.DatabaseConnection = "mongodb://admin:12345678@127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/?connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1";
                     o.DatabaseName = "SampleOrder";
@@ -109,8 +107,11 @@ namespace Sample.Order.Api
             });
 
             app.UseHttpsRedirection();
-            app.UseMvc();
-            
+            app.UseRouting();
+            app.UseEndpoints(endpoints => {
+                endpoints.MapControllers();
+            });
+
         }
     }
 }
