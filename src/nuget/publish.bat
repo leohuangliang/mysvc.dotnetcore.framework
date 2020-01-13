@@ -9,5 +9,6 @@ nuget.exe push nuget-packages\Infrastructure.Authorization.Merchant\MySvc.DotNet
 nuget.exe push nuget-packages\Infrastructure.Crosscutting\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Infrastructure.Crosscutting.EventBus.Cap\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus.Cap.%LatestVersion%.nupkg -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Infrastructure.Crosscutting.Json.NewtonsoftJson\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
+nuget.exe push nuget-packages\Infrastructure.Crosscutting.Cache.StackExchangeRedis\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Cache.StackExchangeRedis.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Infrastructure.Data.MongoDB\MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Infrastructure.Job.Hangfire\MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json

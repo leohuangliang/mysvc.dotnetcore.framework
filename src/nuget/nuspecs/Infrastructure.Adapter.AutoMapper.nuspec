@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Adapter.AutoMapper
 		</id>
 		<version>
-			1.2.0
+			1.2.1
 		</version>
 		<title>
 			MySvc.DotNetCore.Framework.Infrastructure.Adapter.AutoMapper
@@ -43,17 +43,18 @@
 			1.2.0
 		</releaseNotes>
 		<copyright>
-			Copyright 2018  (c) Capmarvel. All rights reserved.
+			Copyright 2018  (c) MySVC.cc All rights reserved.
 		</copyright>
 		<tags>
-			Capmarvel
+			MySVC.cc
+
 		</tags>
 		<serviceable>
 			true
 		</serviceable>
 		<dependencies>
 			<dependency id="AutoMapper" version="8.1.0" />
-			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="1.2.0" />
+			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="1.2.1" />
 		</dependencies>
 	</metadata>
 	<files>
