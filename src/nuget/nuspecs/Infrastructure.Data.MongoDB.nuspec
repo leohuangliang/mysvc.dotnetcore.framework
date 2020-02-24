@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
 		</id>
 		<version>
-			1.2.1
+			1.2.2
 		</version>
 		<title>
 			MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
@@ -41,12 +41,13 @@
 1.2.0-beta3
 1.2.0
 1.2.1
+1.2.2
 		</releaseNotes>
 		<copyright>
-			Copyright 2018  (c) Capmarvel. All rights reserved.
+			Copyright 2018  (c) MySVC.cc All rights reserved.
 		</copyright>
 		<tags>
-			Capmarvel
+			MySVC.cc
 		</tags>
 		<serviceable>
 			true
@@ -56,8 +57,8 @@
 			<dependency id="Microsoft.CSharp" version="4.5.0" />
 			<dependency id="Microsoft.Extensions.Options" version="2.2.0" />
 			<dependency id="MongoDB.Driver" version="2.8.0" />
-			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="1.2.0" />
-			<dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="1.2.0" />
+			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="1.2.1" />
+			<dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="1.2.1" />
 			<dependency id="DotNetCore.CAP" version="2.6.0" />
 			<dependency id="DotNetCore.CAP.MongoDB" version="2.6.0" />
 		</dependencies>

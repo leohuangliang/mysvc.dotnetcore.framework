@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
 		</id>
 		<version>
-			1.2.0
+			1.2.1
 		</version>
 		<title>
 			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
@@ -62,10 +62,10 @@
 			1.2.0
 		</releaseNotes>
 		<copyright>
-			Copyright 2018  (c) Capmarvel. All rights reserved.
+			Copyright 2018  (c)  MySVC.cc All rights reserved.
 		</copyright>
 		<tags>
-			Capmarvel
+			MySVC.cc
 		</tags>
 		<serviceable>
 			true
@@ -74,7 +74,7 @@
 			<dependency id="Microsoft.AspNetCore.Mvc" version="2.2.0" />
 			<dependency id="Microsoft.AspNetCore.Authorization" version="2.2.0" />
 			<dependency id="Microsoft.Extensions.Http" version="2.2.0" />
-			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="1.2.0" />
+			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="1.2.1" />
 			<dependency id="Microsoft.Extensions.Caching.Redis" version="2.2.0" />
 		</dependencies>
 	</metadata>
