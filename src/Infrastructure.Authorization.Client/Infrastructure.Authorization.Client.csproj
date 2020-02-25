@@ -6,9 +6,7 @@
     <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client</RootNamespace>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\Code\capmarvel\wallet-framework-core\src\Infrastructure.Authorization.Client\Capmarvel.Framework.Infrastructure.Authorization.Client.xml</DocumentationFile>
-  </PropertyGroup>
+
 
   <ItemGroup>
     <None Remove="Permissions\Permission.xml" />
@@ -19,9 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.2" />
   </ItemGroup>
 
   <ItemGroup>

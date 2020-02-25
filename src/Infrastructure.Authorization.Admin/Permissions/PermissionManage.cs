@@ -33,7 +33,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.Permissi
                     Console.WriteLine(i);
                 }
 
-                using (Stream stream = typeof(PermissionManage).GetTypeInfo().Assembly.GetManifestResourceStream("Capmarvel.Framework.Infrastructure.Authorization.Admin.Permissions.Permission.xml"))
+                using (Stream stream = typeof(PermissionManage).GetTypeInfo().Assembly.GetManifestResourceStream("MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.Permissions.Permission.xml"))
                 {
                     if (stream == null)
                     {

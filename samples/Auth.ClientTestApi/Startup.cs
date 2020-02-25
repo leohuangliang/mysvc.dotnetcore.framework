@@ -42,6 +42,7 @@ namespace Auth.ClientTestApi
 
                 //    options.SerializerSettings.Converters = convers;
                 //})
+                .AddNewtonsoftJson()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddCustomAuthentication(Configuration);
@@ -57,9 +58,9 @@ namespace Auth.ClientTestApi
                 x.BaseAddress = new Uri(authServiceHostAddress);
             });
 
-            services.AddDistributedRedisCache(options =>
+            services.AddStackExchangeRedisCache(opts =>
             {
-                options.Configuration = Configuration.GetValue<string>("RedisConnectionString");
+                opts.Configuration = Configuration.GetValue<string>("RedisConnectionString");
             });
 
         }
@@ -81,8 +82,12 @@ namespace Auth.ClientTestApi
                 c.OAuthAppName("AuthClientTestApi Swagger UI");
 
             });
+            app.UseHttpsRedirection();
 
-            app.UseMvc();
+            app.UseRouting();
+            app.UseEndpoints(endpoints => {
+                endpoints.MapControllers();
+            });
         }
     }
 }

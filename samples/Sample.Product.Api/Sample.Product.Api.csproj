@@ -21,9 +21,9 @@
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="5.0.1" />
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
-    <PackageReference Include="DotNetCore.CAP" Version="3.0.0" />
-    <PackageReference Include="DotNetCore.CAP.MongoDB" Version="3.0.0" />
-    <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="3.0.0" />
+    <PackageReference Include="DotNetCore.CAP" Version="3.0.2" />
+    <PackageReference Include="DotNetCore.CAP.MongoDB" Version="3.0.2" />
+    <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="3.0.2" />
     <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
 

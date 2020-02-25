@@ -39,7 +39,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CK1.Capmarvel.Framework.Infrastructure.Crosscutting.Helpers.CheckResources", typeof(CheckResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers.CheckResources", typeof(CheckResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

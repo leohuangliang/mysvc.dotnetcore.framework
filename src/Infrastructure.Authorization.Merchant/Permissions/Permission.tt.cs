@@ -16,7 +16,9 @@
 // </auto-generated>
 //---------------------------------------------------------------------------------------
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions
+using System;
+
+namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Permissions
 {	
 
 

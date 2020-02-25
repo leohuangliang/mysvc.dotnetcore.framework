@@ -34,7 +34,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permi
                     Console.WriteLine(i);
                 }
 
-                using (Stream stream = typeof(PermissionManage).GetTypeInfo().Assembly.GetManifestResourceStream("Capmarvel.Framework.Infrastructure.Authorization.Client.Permissions.Permission.xml"))
+                using (Stream stream = typeof(PermissionManage).GetTypeInfo().Assembly.GetManifestResourceStream("MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Permissions.Permission.xml"))
                 {
                     if (stream == null)
                     {

@@ -1,4 +1,4 @@
-set LatestVersion=1.2.1
+set LatestVersion=3.1.0
 
 nuget setapikey oy2krio3vzunlbfzz4uapb3d2fnwggwute7zt7s5fohj5m -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Domain.Core\MySvc.DotNetCore.Framework.Domain.Core.%LatestVersion%.nupkg   -Source https://api.nuget.org/v3/index.json

@@ -10,12 +10,10 @@
     <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\Capmarvel.Framework.Infrastructure.Crosscutting.EventBus.Cap.xml</DocumentationFile>
-  </PropertyGroup>
+
 
   <ItemGroup>
-    <PackageReference Include="DotNetCore.CAP" Version="3.0.0" />
+    <PackageReference Include="DotNetCore.CAP" Version="3.0.2" />
   </ItemGroup>
 
   <ItemGroup>

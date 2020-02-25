@@ -1,10 +1,10 @@
 ﻿//using System.Collections.Generic;
 //using System.Security.Authentication;
 //using System.Threading.Tasks;
-//using Capmarvel.Framework.Infrastructure.Crosscutting.Json;
+//using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
 //using Microsoft.AspNetCore.Http;
 
-//namespace Capmarvel.Framework.Infrastructure.Authorization.Client
+//namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
 //{
 //    /// <summary>
 //    /// 对外开放Api获取当前用户

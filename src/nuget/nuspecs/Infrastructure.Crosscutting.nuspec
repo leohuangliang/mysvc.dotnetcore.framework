@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Crosscutting
 		</id>
 		<version>
-			1.2.1
+			3.1.0
 		</version>
 		<title>
 			MySvc.DotNetCore.Framework.Infrastructure.Crosscutting
@@ -45,6 +45,7 @@
 1.2.0-beta3
 1.2.0 
 1.2.1
+3.1.0 升级到net core 3.1
 		</releaseNotes>
 		<copyright>
 			Copyright 2018  (c) MySVC.cc All rights reserved.
@@ -56,9 +57,10 @@
 			true
 		</serviceable>
 		<dependencies>
-			<dependency id="Microsoft.CSharp" version="4.5.0" />
-			<dependency id="Microsoft.AspNetCore.Cryptography.KeyDerivation" version="2.2.0" />
-			<dependency id="DotNetCore.CAP" version="2.6.0" />
+			<dependency id="Microsoft.CSharp" version="4.7.0" />
+			<dependency id="Microsoft.AspNetCore.Cryptography.KeyDerivation" version="3.1.2" />
+			<dependency id="DotNetCore.CAP" version="3.0.2" />
+			<dependency id="Microsoft.Extensions.Caching.Abstractions" version="3.1.2" />
 		</dependencies>
 	</metadata>
 	<files>
