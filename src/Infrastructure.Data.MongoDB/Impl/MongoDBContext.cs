@@ -16,8 +16,6 @@ using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using Microsoft.Extensions.Logging;
-using DotNetCore.CAP;
-
 using Microsoft.Extensions.DependencyInjection;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
 using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
@@ -29,7 +27,6 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
     /// </summary>
     public class MongoDBContext : DBContext, IMongoDBContext
     {
-        private readonly ICapPublisher _capPublisher;
         private readonly IMediator _mediator;
 
         /// <summary>
@@ -38,7 +35,6 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
         private readonly ILogger<MongoDBContext> _logger;
 
         public MongoDBContext(IOptions<MongoDBSettings> mongoDBSettingsAccessor,
-            ICapPublisher capPublisher,
             IMediator mediator, ILogger<MongoDBContext> logger)
         {
             if (mongoDBSettingsAccessor is null)
@@ -47,7 +43,6 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
             }
 
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _capPublisher = capPublisher ?? throw new ArgumentNullException(nameof(capPublisher));
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
 
             var mongoDbSettings = mongoDBSettingsAccessor.Value;
@@ -390,11 +385,10 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
             
             if (!Session.IsInTransaction)
             {
-                Session = Client.StartTransaction(_capPublisher, false);
-                //Session.StartTransaction(new TransactionOptions(
-                //    ReadConcern.Majority,
-                //    ReadPreference.Primary,
-                //    WriteConcern.WMajority));
+                Session.StartTransaction(new TransactionOptions(
+                    ReadConcern.Majority,
+                    ReadPreference.Primary,
+                    WriteConcern.WMajority));
 
                 Committed = false;
             }

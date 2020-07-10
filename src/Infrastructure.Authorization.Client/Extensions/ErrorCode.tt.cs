@@ -16,49 +16,47 @@
 // </auto-generated>
 //---------------------------------------------------------------------------------------
 
-using System;
-
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.Exceptions
-{	
-	public static class Error
+namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Extensions
+{
+    public static class Error
     {
-		public static class Names
-		{
-				/// <summary>
-				/// Token过期，请重新登录
-				/// </summary>
-				public const string TokenExpired = "Token过期，请重新登录";
+        public static class Names
+        {
+            /// <summary>
+            /// Token过期，请重新登录
+            /// </summary>
+            public const string TokenExpired = "Token过期，请重新登录";
 
-				/// <summary>
-				/// 获取权限失败
-				/// </summary>
-				public const string RequestPermissionFailed = "获取权限失败";
+            /// <summary>
+            /// 获取权限失败
+            /// </summary>
+            public const string RequestPermissionFailed = "获取权限失败";
 
-				/// <summary>
-				/// 获取用户信息失败
-				/// </summary>
-				public const string RequestUserProfileFailed = "获取用户信息失败";
+            /// <summary>
+            /// 获取用户信息失败
+            /// </summary>
+            public const string RequestUserProfileFailed = "获取用户信息失败";
 
-					}
+        }
 
-		public static class Codes
-		{
-			/// <summary>
-			/// token-expired
-			/// </summary>
-			public const string TokenExpired = "token-expired";
+        public static class Codes
+        {
+            /// <summary>
+            /// token-expired
+            /// </summary>
+            public const string TokenExpired = "token-expired";
 
-			/// <summary>
-			/// request-permission-failed
-			/// </summary>
-			public const string RequestPermissionFailed = "request-permission-failed";
+            /// <summary>
+            /// request-permission-failed
+            /// </summary>
+            public const string RequestPermissionFailed = "request-permission-failed";
 
-			/// <summary>
-			/// request-userProfile-failed
-			/// </summary>
-			public const string RequestUserProfileFailed = "request-userProfile-failed";
+            /// <summary>
+            /// request-userProfile-failed
+            /// </summary>
+            public const string RequestUserProfileFailed = "request-userProfile-failed";
 
-				}
+        }
 
     }
 }

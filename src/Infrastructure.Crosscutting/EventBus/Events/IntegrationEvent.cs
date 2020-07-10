@@ -16,7 +16,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus.Events
         /// <summary>
         /// 事件唯一标识
         /// </summary>
-        public  Guid Id { get; }
+        public Guid Id { get; }
 
         /// <summary>
         /// 事件创建的时间

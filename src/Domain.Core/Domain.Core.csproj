@@ -6,7 +6,6 @@
     <AssemblyName>MySvc.DotNetCore.Framework.Domain.Core</AssemblyName>
     <Copyright>@2018 Mysvc.cc</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
     <UserSecretsId>ee9a7f2d-dc08-4960-ab3d-3a7fbab591ab</UserSecretsId>
   </PropertyGroup>
 
@@ -17,12 +16,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\netstandard2.0\BFE.Framework.Domain.Core.xml</DocumentationFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="DomainServices\**" />
-    <EmbeddedResource Remove="DomainServices\**" />
-    <None Remove="DomainServices\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="8.0.0" />

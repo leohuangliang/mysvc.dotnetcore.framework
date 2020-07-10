@@ -12,7 +12,6 @@ using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Exceptions;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
 using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
 using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl;
-using DotNetCore.CAP;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -33,7 +32,6 @@ namespace Infrastructure.Data.MongoDB.Tests
         private IMediator _mediator;
         private readonly ITestOutputHelper _output;
         private readonly Mock<ILogger<MongoDBContext>> _mockLogger;
-        private ICapPublisher _capPublisher;
         public PersonTest(ITestOutputHelper output)
         {
             _options = Options.Create<MongoDBSettings>(new MongoDBSettings()
@@ -58,7 +56,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         public async Task Insert_Test()
         {
 
-            var context = new MongoDBContext(_options, _capPublisher, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Person { Name = "test" };
             context.BeginTransaction();
@@ -74,7 +72,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Insert_EmployeeTest()
         {
-            var context = new MongoDBContext(_options, _capPublisher, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Employee { Name = "test", EmployeeNo = "1" };
             context.BeginTransaction();
@@ -94,7 +92,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Insert_Employee_Version_Test()
         {
-            var context = new MongoDBContext(_options, _capPublisher, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Employee { Name = "test", EmployeeNo = "1", RowVersion = BitConverter.GetBytes(DateTime.UtcNow.Ticks) };
             context.BeginTransaction();
@@ -113,7 +111,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Insert_Employee_Version_Exception_Test()
         {
-            var context = new MongoDBContext(_options, _capPublisher, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Person() { Name = "test" };
 
@@ -147,7 +145,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Query_Test()
         {
-            var context = new MongoDBContext(_options, _capPublisher, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Person() { Name = "test" };
 
@@ -164,25 +162,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         {
             var services = new ServiceCollection()
                 .AddLogging();
-            services.AddCap(x =>
-            {
-                x.UseMongoDB(o =>
-                {
-                    o.DatabaseConnection = _connectionString;
-                    o.DatabaseName = _dbName;
-                    o.PublishedCollection = "cap.published";
-                    o.ReceivedCollection = "cap.received";
-                });
-                x.UseRabbitMQ(o =>
-                {
-                    o.HostName = "127.0.0.1";
-                    o.Port = 5672;
-                    o.UserName = "admin";
-                    o.Password = "admin123456";
-                    o.VirtualHost = "framework-core";
-                    o.ExchangeName = "framework-core-test";
-                });
-            });
+
 
             var builder = new ContainerBuilder();
             builder.Populate(services);
@@ -239,7 +219,6 @@ namespace Infrastructure.Data.MongoDB.Tests
            });
             _mediator = container.Resolve<IMediator>();
             _container = container;
-            _capPublisher = container.Resolve<ICapPublisher>();
         }
 
         private List<string> GetCollectionNames()
@@ -265,7 +244,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Query_Test_2()
         {
-            var context = new MongoDBContext(_options, _capPublisher, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
 
 

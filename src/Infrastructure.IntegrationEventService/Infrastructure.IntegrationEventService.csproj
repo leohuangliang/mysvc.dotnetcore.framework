@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService</AssemblyName>
+    <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService</RootNamespace>
+    <Copyright>@2018 MySvc.cc</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <ItemGroup>
+
+    <PackageReference Include="MassTransit" Version="7.0.0" />
+
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
+    <ProjectReference Include="..\Infrastructure.Crosscutting.Json.NewtonsoftJson\Infrastructure.Crosscutting.Json.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />
+  </ItemGroup>
+
+</Project>

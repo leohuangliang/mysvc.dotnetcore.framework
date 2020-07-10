@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Domain.Core\Domain.Core.csproj" />
-    <ProjectReference Include="..\..\src\Infrastructure.Crosscutting.EventBus.Cap\Infrastructure.Crosscutting.EventBus.Cap.csproj" />
     <ProjectReference Include="..\..\src\Infrastructure.Crosscutting.Json.NewtonsoftJson\Infrastructure.Crosscutting.Json.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\..\src\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />
     <ProjectReference Include="..\..\src\Infrastructure.Data.MongoDB\Infrastructure.Data.MongoDB.csproj" />

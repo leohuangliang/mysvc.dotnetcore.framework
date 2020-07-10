@@ -3,7 +3,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using MySvc.DotNetCore.Framework.Domain.Core;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Adapter;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
 using MediatR;
 using Sample.Order.Application.Extensions;
 using Sample.Order.Domain.AggregatesModel.OrderAggregate;
@@ -22,7 +21,7 @@ namespace Sample.Order.Application.Commands.Handlers
 
         private readonly ITypeAdapter _typeAdapter;
 
-        
+
 
 
         public CreateOrderCommandHandler(IDBContext dbContext, IOrderRepository orderRepository, ITypeAdapter typeAdapter)
@@ -34,7 +33,7 @@ namespace Sample.Order.Application.Commands.Handlers
 
         public async Task<ViewModels.Order> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
         {
-            
+
             _dbContext.BeginTransaction();
 
             var orderItemList = new List<OrderItem>();

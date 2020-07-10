@@ -34,7 +34,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Infrastructure.Adapter.AutoMapper\Infrastructure.Adapter.AutoMapper.csproj" />
-    <ProjectReference Include="..\..\src\Infrastructure.Crosscutting.EventBus.Cap\Infrastructure.Crosscutting.EventBus.Cap.csproj" />
     <ProjectReference Include="..\..\src\Infrastructure.Crosscutting.Json.NewtonsoftJson\Infrastructure.Crosscutting.Json.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\Sample.Order.Application.Adapter.AutoMapper\Sample.Order.Application.Adapter.AutoMapper.csproj" />
     <ProjectReference Include="..\Sample.Order.Application\Sample.Order.Application.csproj" />

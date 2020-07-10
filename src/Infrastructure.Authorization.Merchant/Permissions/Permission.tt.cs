@@ -16,47 +16,45 @@
 // </auto-generated>
 //---------------------------------------------------------------------------------------
 
-using System;
-
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Permissions
-{	
+namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions
+{
 
 
-	/// <summary>
+    /// <summary>
     /// 权限码定义
     /// </summary>
-	public static class Permission
+    public static class Permission
     {
-		
-		/// <summary>
-		/// 账号管理
-		/// </summary>
-		public const string AccountManage = "AccountManage";
-		
-		/// <summary>
-		/// 员工列表
-		/// </summary>
-		public const string UserList = "UserList";
-		
-		/// <summary>
-		/// 添加员工
-		/// </summary>
-		public const string AddUser = "AddUser";
-		
-		/// <summary>
-		/// 查看员工资料
-		/// </summary>
-		public const string ViewUser = "ViewUser";
-		
-		/// <summary>
-		/// 编辑员工资料
-		/// </summary>
-		public const string EditUser = "EditUser";
-		
-		/// <summary>
-		/// 删除员工
-		/// </summary>
-		public const string DeleteUser = "DeleteUser";
-		
-	}
+
+        /// <summary>
+        /// 账号管理
+        /// </summary>
+        public const string AccountManage = "AccountManage";
+
+        /// <summary>
+        /// 员工列表
+        /// </summary>
+        public const string UserList = "UserList";
+
+        /// <summary>
+        /// 添加员工
+        /// </summary>
+        public const string AddUser = "AddUser";
+
+        /// <summary>
+        /// 查看员工资料
+        /// </summary>
+        public const string ViewUser = "ViewUser";
+
+        /// <summary>
+        /// 编辑员工资料
+        /// </summary>
+        public const string EditUser = "EditUser";
+
+        /// <summary>
+        /// 删除员工
+        /// </summary>
+        public const string DeleteUser = "DeleteUser";
+
+    }
 }
