@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using MySvc.DotNetCore.Framework.Domain.Core;
 using MySvc.DotNetCore.Framework.Domain.Core.Attributes;
 using MySvc.DotNetCore.Framework.Domain.Core.Specification;
@@ -19,18 +20,20 @@ using Moq;
 using Xunit;
 using Xunit.Abstractions;
 using Xunit.Sdk;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.Data.MongoDB.Tests
 {
     public class PersonTest
     {
-        private readonly string _connectionString = "mongodb://127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/?connect=replicaSet";
+        private readonly string _connectionString = "mongodb://admin:admin123456@127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/?connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1";
         private readonly string _dbName = "framework-core-test";
         private readonly IOptions<MongoDBSettings> _options;
-        private readonly IMediator _mediator;
+        private IContainer _container;
+        private IMediator _mediator;
         private readonly ITestOutputHelper _output;
         private readonly Mock<ILogger<MongoDBContext>> _mockLogger;
-        private Mock<ICapPublisher> _mockCapPublisher;
+        private ICapPublisher _capPublisher;
         public PersonTest(ITestOutputHelper output)
         {
             _options = Options.Create<MongoDBSettings>(new MongoDBSettings()
@@ -39,7 +42,7 @@ namespace Infrastructure.Data.MongoDB.Tests
                 Database = _dbName
             });
             _output = output;
-            _mediator = BuildMediator();
+            Build();
             MongoDBContext.RegisterConventions();
             new MongoDBManager(_options).CreateCollections();
 
@@ -48,21 +51,21 @@ namespace Infrastructure.Data.MongoDB.Tests
             _mockLogger.Setup(m => m.Log(It.IsAny<LogLevel>(), It.IsAny<EventId>(), It.IsAny<MongoDBContext>(),
                 It.IsAny<Exception>(), It.IsAny<Func<MongoDBContext, Exception, string>>()));
             _mockLogger.Setup(m => m.IsEnabled(It.IsAny<LogLevel>())).Returns(true);
-            _mockCapPublisher = new Mock<ICapPublisher>();
+
         }
 
         [Fact]
         public async Task Insert_Test()
         {
 
-            var context = new MongoDBContext(_options, _mockCapPublisher.Object, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_options, _capPublisher, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Person { Name = "test" };
             context.BeginTransaction();
             await personRepository.AddAsync(person);
             await context.CommitAsync();
 
-            var person2 = await  personRepository.GetByKeyAsync(person.Id);
+            var person2 = await personRepository.GetByKeyAsync(person.Id);
 
             Assert.Equal(person2.Name, person.Name);
 
@@ -71,16 +74,16 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Insert_EmployeeTest()
         {
-            var context = new MongoDBContext(_options, _mockCapPublisher.Object, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_options, _capPublisher, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Employee { Name = "test", EmployeeNo = "1" };
             context.BeginTransaction();
-            await  personRepository.AddAsync(person);
+            await personRepository.AddAsync(person);
             await context.CommitAsync();
 
             var person2 = await personRepository.GetByKeyAsync(person.Id);
 
-            Assert.Equal((string) person2.Name, person.Name);
+            Assert.Equal((string)person2.Name, person.Name);
 
             var employee2 = person2 as Employee;
             Assert.NotNull(employee2);
@@ -91,7 +94,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Insert_Employee_Version_Test()
         {
-            var context = new MongoDBContext(_options, _mockCapPublisher.Object, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_options, _capPublisher, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Employee { Name = "test", EmployeeNo = "1", RowVersion = BitConverter.GetBytes(DateTime.UtcNow.Ticks) };
             context.BeginTransaction();
@@ -110,14 +113,14 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Insert_Employee_Version_Exception_Test()
         {
-            var context = new MongoDBContext(_options, _mockCapPublisher.Object, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_options, _capPublisher, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Person() { Name = "test" };
 
             context.BeginTransaction();
             await personRepository.AddAsync(person);
             await context.CommitAsync();
-            
+
             Person person1 = await personRepository.GetByKeyAsync(person.Id);
             byte[] version1 = person1.RowVersion;
 
@@ -132,19 +135,19 @@ namespace Infrastructure.Data.MongoDB.Tests
 
 
             person1 = await personRepository.GetByKeyAsync(person.Id);
-            
+
             Assert.NotEqual(version1, person1.RowVersion);
 
             context.BeginTransaction();
             person2.Name = "concurrency";
-            
+
             await Assert.ThrowsAnyAsync<ConcurrencyException>(() => personRepository.UpdateAsync(person2));
         }
 
         [Fact]
         public async Task Query_Test()
         {
-            var context = new MongoDBContext(_options, _mockCapPublisher.Object, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_options, _capPublisher, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Person() { Name = "test" };
 
@@ -157,9 +160,33 @@ namespace Infrastructure.Data.MongoDB.Tests
 
         }
 
-        private IMediator BuildMediator()
+        private void Build()
         {
+            var services = new ServiceCollection()
+                .AddLogging();
+            services.AddCap(x =>
+            {
+                x.UseMongoDB(o =>
+                {
+                    o.DatabaseConnection = _connectionString;
+                    o.DatabaseName = _dbName;
+                    o.PublishedCollection = "cap.published";
+                    o.ReceivedCollection = "cap.received";
+                });
+                x.UseRabbitMQ(o =>
+                {
+                    o.HostName = "127.0.0.1";
+                    o.Port = 5672;
+                    o.UserName = "admin";
+                    o.Password = "admin123456";
+                    o.VirtualHost = "framework-core";
+                    o.ExchangeName = "framework-core-test";
+                });
+            });
+
             var builder = new ContainerBuilder();
+            builder.Populate(services);
+
             builder.RegisterAssemblyTypes(typeof(IMediator).GetTypeInfo().Assembly).AsImplementedInterfaces();
 
             var mediatrOpenTypes = new[]
@@ -177,6 +204,7 @@ namespace Infrastructure.Data.MongoDB.Tests
             }
 
             builder.RegisterInstance(_output).As<ITestOutputHelper>();
+
 
             // It appears Autofac returns the last registered types first
             //builder.RegisterGeneric(typeof(RequestPostProcessorBehavior<,>)).As(typeof(IPipelineBehavior<,>));
@@ -204,9 +232,14 @@ namespace Infrastructure.Data.MongoDB.Tests
             //    .Resolve<IEnumerable<IPipelineBehavior<Ping, Pong>>>()
             //    .ToList();
 
-            var mediator = container.Resolve<IMediator>();
-
-            return mediator;
+            builder.Register<ServiceFactory>(ctx =>
+           {
+               var c = ctx.Resolve<IComponentContext>();
+               return t => c.Resolve(t);
+           });
+            _mediator = container.Resolve<IMediator>();
+            _container = container;
+            _capPublisher = container.Resolve<ICapPublisher>();
         }
 
         private List<string> GetCollectionNames()
@@ -232,9 +265,9 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Query_Test_2()
         {
-            var context = new MongoDBContext(_options, _mockCapPublisher.Object, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_options, _capPublisher, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
-            
+
 
 
             var person2 = await personRepository.GetByKeyAsync(Guid.NewGuid().ToString());
