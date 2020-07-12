@@ -11,6 +11,11 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
     public class ValueObject<TValueObject> : IEquatable<TValueObject>
         where TValueObject : ValueObject<TValueObject>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public bool Equals(TValueObject other)
         {
             if ((object)other == null)
@@ -45,6 +50,11 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
             return true;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj == null)
@@ -60,6 +70,10 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
             return false;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             var hashCode = 31;
@@ -96,6 +110,12 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
             return hashCode;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static bool operator ==(ValueObject<TValueObject> left, ValueObject<TValueObject> right)
         {
             if (Equals(left, null))
@@ -103,6 +123,12 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
             return left.Equals(right);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static bool operator !=(ValueObject<TValueObject> left, ValueObject<TValueObject> right)
         {
 

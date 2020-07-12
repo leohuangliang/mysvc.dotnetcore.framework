@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace Auth.ClientTestApi
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AuthenticationExtensions
     {
         /// <summary>

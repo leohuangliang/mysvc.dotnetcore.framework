@@ -3,7 +3,6 @@ using MySvc.DotNetCore.Framework.Domain.Core;
 using MySvc.DotNetCore.Framework.Infrastructure.Adapter.AutoMapper;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Adapter;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus.Cap;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
 using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
 using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl;
@@ -16,6 +15,10 @@ namespace Sample.Order.Api.DI.AutofacModules
     /// </summary>
     public class CommonModule : Module
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="builder"></param>
         protected override void Load(ContainerBuilder builder)
         {
             //JSON转换器
@@ -23,10 +26,6 @@ namespace Sample.Order.Api.DI.AutofacModules
 
             //注册类型适配转换器
             builder.RegisterType<AutomapperTypeAdapter>().As<ITypeAdapter>().SingleInstance();
-
-
-            builder.RegisterType<CapEventBus>().As<IEventBus>()
-                .SingleInstance();
         }
     }
 }

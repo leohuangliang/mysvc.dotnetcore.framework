@@ -3,6 +3,7 @@ using Autofac;
 using MediatR;
 using MediatR.Pipeline;
 using Sample.Order.Application.Commands;
+using Sample.Order.Application.Commands.Handlers;
 
 namespace Sample.Order.Api.DI.AutofacModules
 {
@@ -11,6 +12,10 @@ namespace Sample.Order.Api.DI.AutofacModules
     /// </summary>
     public class MediatorModule : Autofac.Module
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="builder"></param>
         protected override void Load(ContainerBuilder builder)
         {
             //自动装配 IMediator 所在程序集中的所有的公共的，具体类将被注册。
@@ -24,7 +29,7 @@ namespace Sample.Order.Api.DI.AutofacModules
 
             foreach (var mediatrOpenType in mediatrOpenTypes)
             {
-                builder.RegisterAssemblyTypes(typeof(CreateOrderCommand).GetTypeInfo().Assembly)
+                builder.RegisterAssemblyTypes(typeof(CreateOrderCommandHandler).Assembly)
                     .AsClosedTypesOf(mediatrOpenType)
                     .AsImplementedInterfaces();
             }

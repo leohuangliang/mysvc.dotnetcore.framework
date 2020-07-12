@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
+using MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService;
 using Sample.Order.Application.Queries;
 
 namespace Sample.Order.Api.DI.AutofacModules
@@ -8,10 +10,16 @@ namespace Sample.Order.Api.DI.AutofacModules
     /// </summary>
     public class ApplicationModule : Autofac.Module
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="builder"></param>
         protected override void Load(ContainerBuilder builder)
         {
             // Register the Queries
             builder.RegisterType<OrderQueries>().As<IOrderQueries>().InstancePerLifetimeScope();
+
+            builder.RegisterType<IntegrationEventService>().As<IIntegrationEventService>().InstancePerLifetimeScope();
         }
     }
 }

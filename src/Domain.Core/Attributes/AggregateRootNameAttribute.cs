@@ -2,6 +2,9 @@ using System;
 
 namespace MySvc.DotNetCore.Framework.Domain.Core.Attributes
 {
+    /// <summary>
+    /// 聚合根名称属性类
+    /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class AggregateRootNameAttribute : Attribute
     {

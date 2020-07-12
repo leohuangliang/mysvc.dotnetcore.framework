@@ -13,22 +13,39 @@ using Sample.Product.Application.IntegrationEvents.EventHandling;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.IO;
+using Microsoft.Extensions.Hosting;
+using Sample.Product.Api.Extensions;
+using Sample.Product.Application.Adapter.AutoMapper.Profiles;
 
 namespace Sample.Product.Api
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="services"></param>
+        public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddControllers();
 
             //配置数据库连接, MQ
             services.Configure<MongoDBSettings>(Configuration.GetSection("MongoDBForWrite")); //默认读写
@@ -36,62 +53,38 @@ namespace Sample.Product.Api
             services.Configure<MongoDBSettings>("MongoDBForRead", Configuration.GetSection("MongoDBForRead"));
             //services.Configure<RabbitMQEventBusSettings>(Configuration.GetSection("RabbitMQEventBus"));
 
-            //增加Swagger
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info { Title = "Sample Product Service API", Version = "v1" });
 
-                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
-                var xmlPath = Path.Combine(basePath, "Sample.Product.Api.xml");
-                c.IncludeXmlComments(xmlPath);
-            });
-            //配置Swagger
-            services.ConfigureSwaggerGen(options =>
-            {
-                // UseFullTypeNameInSchemaIds replacement for .NET Core
-                options.CustomSchemaIds(x => x.FullName);
-            });
 
             //添加AutoMapper的支持
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddAutoMapper(typeof(ProductProfile).Assembly);
 
-            services.AddTransient<OrderCreatedIntegrationEventHandler>();
+            services.AddCustomSwaggers();
+            services.AddCustomMassTransit(Configuration);
 
-            services.AddCap(x => {
-                
-                //x.UseDashboard();
-                x.UseMongoDB(o => {
-                    o.DatabaseConnection = "mongodb://admin:12345678@127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/?connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1";
-                    o.DatabaseName = "SampleProduct";
-                    o.PublishedCollection = "cap.published";
-                    o.ReceivedCollection = "cap.received";
-                });
-                x.DefaultGroup = "sampleProduct";
-                x.UseRabbitMQ(o => {
-                    o.HostName = "127.0.0.1";
-                    o.Port = 5672;
-                    o.UserName = "admin";
-                    o.Password = "admin123456";
-                    o.VirtualHost = "frameworksample";
-                    o.ExchangeName = "frameworksample-exchange";
-                });
+        }
 
-            });
-
-            //Autofac 容器
-            var containerBuilder = new ContainerBuilder();
-            containerBuilder.Populate(services);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="builder"></param>
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            // Register your own things directly with Autofac, like:
+            //builder.RegisterModule(new MyApplicationModule());
             //注册各个模块
-            containerBuilder.RegisterModule(new CommonModule());
-            containerBuilder.RegisterModule(new RepositoryModule());
-            containerBuilder.RegisterModule(new ApplicationModule());
-            containerBuilder.RegisterModule(new MediatorModule());
-
-            return new AutofacServiceProvider(containerBuilder.Build());
+            builder.RegisterModule(new CommonModule());
+            builder.RegisterModule(new RepositoryModule());
+            builder.RegisterModule(new ApplicationModule());
+            builder.RegisterModule(new MediatorModule());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -104,16 +97,11 @@ namespace Sample.Product.Api
 
 
             //启动Swagger
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sample Product Service API V1");
-            });
-
+            app.UseCustomSwaggers();
             app.UseHttpsRedirection();
-
             app.UseRouting();
-            app.UseEndpoints(endpoints => {
+            app.UseEndpoints(endpoints =>
+            {
                 endpoints.MapControllers();
             });
         }

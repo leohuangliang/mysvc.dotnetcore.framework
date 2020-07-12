@@ -12,20 +12,27 @@ namespace Catalog.API.Applications.DomainEventHandlers.ProductPriceChanged
 {
     public class ProductPriceChangedDomainEventHandler : IDomainEventHandler<ProductPriceChangedDomainEvent>
     {
-        private readonly IEventBus _eventBus;
+        private readonly IIntegrationEventService _integrationEventService;
 
-        public ProductPriceChangedDomainEventHandler(IEventBus eventBus)
+        public ProductPriceChangedDomainEventHandler(IIntegrationEventService integrationEventService)
         {
-            _eventBus = eventBus ?? throw new ArgumentNullException(nameof(eventBus));
+            _integrationEventService = integrationEventService ?? throw new ArgumentNullException(nameof(integrationEventService));
         }
 
 
         public async Task Handle(ProductPriceChangedDomainEvent notification, CancellationToken cancellationToken)
         {
-            await _eventBus.Publish(
-                new ProductPriceChangedIntegrationEvent
-                    (notification.SKU,notification.NewPrice,notification.OldPrice));
-            
+
+            await _integrationEventService.PublishIntegrationEventWithoutSave<IProductPriceChangedIntegrationEvent>(
+                    new
+                    {
+                        Id = Guid.NewGuid(),
+                        CreatedTime = DateTime.UtcNow,
+                        SKU = notification.SKU,
+                        NewPrice = notification.NewPrice,
+                        OldPrice = notification.OldPrice
+                    });
+
         }
     }
 }

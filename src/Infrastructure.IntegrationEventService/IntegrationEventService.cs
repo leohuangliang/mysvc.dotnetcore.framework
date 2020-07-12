@@ -8,7 +8,6 @@ using MySvc.DotNetCore.Framework.Domain.Core;
 using MySvc.DotNetCore.Framework.Domain.Core.Impl;
 using MySvc.DotNetCore.Framework.Domain.Core.Specification;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus.Events;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
 
 namespace MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService
@@ -21,7 +20,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService
         private readonly ILogger<IntegrationEventService> _logger;
         private readonly IJsonConverter _jsonConverter;
 
-        private readonly Queue<IIntegrationEvent> _messageQueue = new Queue<IIntegrationEvent>();
+        private readonly Queue<KeyValuePair<Guid, dynamic>> _messageQueue;
 
         public IntegrationEventService(IPublishEndpoint publishEndpoint,
             IIntegrationEventLogRepository integrationEventLogRepository,
@@ -29,7 +28,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService
             ILogger<IntegrationEventService> logger,
             IJsonConverter jsonConverter)
         {
-            _messageQueue = new Queue<IIntegrationEvent>();
+            _messageQueue = new Queue<KeyValuePair<Guid, dynamic>>();
             _publishEndpoint = publishEndpoint ?? throw new ArgumentNullException(nameof(publishEndpoint));
             if (integrationEventLogRepository != null) _integrationEventLogRepository = integrationEventLogRepository;
             if (integrationEventLogManager != null) _integrationEventLogManager = integrationEventLogManager;
@@ -41,54 +40,34 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService
         /// 保存事件，确保在本地事物内完成
         /// </summary>
         /// <param name="event">集成事件</param>
-        public async Task SaveIntegrationEvent(IIntegrationEvent @event)
+        public async Task SaveIntegrationEvent<T>(T @event) where T : class
         {
-            var exist = await _integrationEventLogRepository.ExistsAsync(
-                    Specification<IntegrationEventLog>.Eval(c => c.EventId == @event.Id));
 
-            if (!exist)
-            {
-                var integrationEventLog = new IntegrationEventLog(@event.Id, @event.CreatedTime, @event.GetType().FullName,
-                    _jsonConverter.SerializeObject(@event));
-                await _integrationEventLogRepository.AddAsync(integrationEventLog);
-                //事件入内存队列
-                _messageQueue.Enqueue(@event);
-            }
+            var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, @event.GetType().FullName,
+                _jsonConverter.SerializeObject(@event));
+            await _integrationEventLogRepository.AddAsync(integrationEventLog);
+            //事件入内存队列
+
+            _messageQueue.Enqueue(new KeyValuePair<Guid, dynamic>(integrationEventLog.EventId, @event));
+
         }
 
         /// <summary>
         /// 批量保存集成事件
         /// </summary>
         /// <param name="evts">集成事件对象列表</param>
-        public async Task SaveIntegrationEvent(IList<IIntegrationEvent> evts)
+        public async Task SaveIntegrationEvent<T>(IList<T> evts) where T : class
         {
             if (evts != null && evts.Any())
             {
-                var eventIds = evts.Select(x => x.Id).Distinct().ToList();
-                //查询已经保存的集成事件
-                var exists = (await _integrationEventLogRepository.GetListAsync(
-                    Specification<IntegrationEventLog>.Eval(c => eventIds.Contains(c.EventId)))).ToList();
-
-                if (exists.Any())
+                foreach (var integrationEvent in evts)
                 {
-                    var existIds = exists.Select(x => x.Id).ToList();
-
-                    //保留未保存的集成事件
-                    evts = evts.Where(x => !existIds.Contains(x.Id.ToString())).ToList();
-                }
-
-                var integrationEventLogs = evts.Select(x => new IntegrationEventLog(x.Id, x.CreatedTime,
-                    x.GetType().FullName, _jsonConverter.SerializeObject(x))).ToList();
-
-                if (integrationEventLogs.Any())
-                {
-                    await _integrationEventLogRepository.AddAsync(integrationEventLogs);
-
+                    var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, integrationEvent.GetType().FullName,
+                        _jsonConverter.SerializeObject(integrationEvent));
+                    await _integrationEventLogRepository.AddAsync(integrationEventLog);
                     //事件入内存队列
-                    foreach (var evt in evts)
-                    {
-                        _messageQueue.Enqueue(evt);
-                    }
+
+                    _messageQueue.Enqueue(new KeyValuePair<Guid, dynamic>(integrationEventLog.EventId, integrationEvent));
                 }
             }
         }
@@ -102,34 +81,25 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService
             {
                 while (_messageQueue.Count > 0)
                 {
-                    var @event = _messageQueue.Dequeue();
-                    _publishEndpoint.Publish(@event); //脱离DBContext上下文，不依赖事务
-                    _integrationEventLogManager.MarkEventLogAsPublishedAsync(@event);
+                    var kvp = _messageQueue.Dequeue();
+
+                    _publishEndpoint.Publish(kvp.Value); //脱离DBContext上下文，不依赖事务
+                    _integrationEventLogManager.MarkEventLogAsPublishedAsync(kvp.Key);
                 }
             });
 
             return task;
         }
 
-        /// <summary>
-        /// 直接发布集成事件（此操作，不保存集成事件）
-        /// </summary>
-        /// <param name="events">集成事件</param>
-        public Task PublishIntegrationEvents(IList<IIntegrationEvent> events)
+        public Task PublishIntegrationEventWithoutSave<T>(T @event) where T : class
         {
-            if (events != null && events.Count > 0)
+            if (@event != null)
             {
-                var localEvents = events.ToList();
-                Task.Run(() =>
-                {
-                    foreach (var @event in localEvents)
-                    {
-                        _publishEndpoint.Publish(@event);
-                    }
-                });
+                _publishEndpoint.Publish<T>(@event);
             }
 
             return Task.CompletedTask;
+
         }
     }
 }

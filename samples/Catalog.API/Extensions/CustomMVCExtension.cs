@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Catalog.API.Extensions
 {
-    public static  class CustomMVCExtension
+    public static class CustomMVCExtension
     {
         public static IServiceCollection AddCustomMVC(this IServiceCollection services, IConfiguration configuration)
         {
@@ -30,7 +30,7 @@ namespace Catalog.API.Extensions
             //    }
             //});
 
-            
+
             services.AddMvc(options =>
             {
                 options.EnableEndpointRouting = false;

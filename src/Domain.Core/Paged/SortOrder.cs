@@ -1,5 +1,8 @@
 ﻿namespace MySvc.DotNetCore.Framework.Domain.Core.Paged
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum SortOrder
     {
         /// <summary>

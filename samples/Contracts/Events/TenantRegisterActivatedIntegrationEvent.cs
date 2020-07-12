@@ -1,14 +1,12 @@
-﻿using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus.Events;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
-namespace Sample.Order.Application.IntegrationEvents.Events
+namespace Contracts.Events
 {
-    public class TenantRegisterActivatedIntegrationEvent : IntegrationEvent
+    public class TenantRegisterActivatedIntegrationEvent
     {
         public TenantRegisterActivatedIntegrationEvent(string tenantCode, string tenantOwnerUserName, DateTime createTime, DateTime activationTime)
         {
+
             this.TenantCode = tenantCode;
             this.TenantOwnerUserName = tenantOwnerUserName;
             this.CreateTime = createTime;
@@ -33,5 +31,6 @@ namespace Sample.Order.Application.IntegrationEvents.Events
         /// 激活时间
         /// </summary>
         public DateTime ActivationTime { get; private set; }
+
     }
 }

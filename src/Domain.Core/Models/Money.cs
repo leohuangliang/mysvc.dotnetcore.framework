@@ -10,6 +10,11 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Models
     public class Money : ValueObject<Money>
     {
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currency"></param>
+        /// <param name="amount"></param>
         public Money(Currency currency, decimal amount)
         {
             Amount = amount;
@@ -26,16 +31,31 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Models
         /// </summary>
         public decimal Amount { get; private set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public Money Clone()
         {
             return new Money(this.Currency, this.Amount);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{this.Amount} {this.Currency.GetName()}";
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public static Money operator +(Money left, Money right)
         {
             Money amountInfo = null;
@@ -51,6 +71,13 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Models
             return amountInfo;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public static Money operator -(Money left, Money right)
         {
             Money amountInfo = null;

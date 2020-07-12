@@ -11,6 +11,10 @@ namespace Sample.Product.Api.DI.AutofacModules
     /// </summary>
     public class MediatorModule : Autofac.Module
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="builder"></param>
         protected override void Load(ContainerBuilder builder)
         {
             //自动装配 IMediator 所在程序集中的所有的公共的，具体类将被注册。

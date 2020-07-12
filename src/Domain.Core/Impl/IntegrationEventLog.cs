@@ -9,6 +9,13 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
     [AggregateRootName("IntegrationEventLogs")]
     public class IntegrationEventLog : AggregateRoot
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="eventId">事件ID</param>
+        /// <param name="eventCreatedTime">事件创建时间</param>
+        /// <param name="eventTypeFullName">事件完整类型</param>
+        /// <param name="eventContent">事件内容</param>
         public IntegrationEventLog(
             Guid eventId,
             DateTime eventCreatedTime,
@@ -71,23 +78,41 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
         /// </summary>
         public DateTime? EventPublishedFailedTime { get; private set; }
 
+        /// <summary>
+        /// 设置已发送
+        /// </summary>
         public void SetPublished()
         {
             State = EventStateEnum.Published;
             EventPublishedTime = DateTime.UtcNow;
         }
 
-        public void SetPublishedFailed()
+        /// <summary>
+        /// 设置发布失败
+        /// </summary>
+        public void SetPublishFailed()
         {
-            State = EventStateEnum.PublishedFailed;
+            State = EventStateEnum.PublishFailed;
             EventPublishedFailedTime = DateTime.UtcNow;
         }
     }
 
+    /// <summary>
+    /// 事件状态枚举
+    /// </summary>
     public enum EventStateEnum
     {
+        /// <summary>
+        /// 未发送
+        /// </summary>
         NotPublished,
+        /// <summary>
+        /// 已发送
+        /// </summary>
         Published,
-        PublishedFailed
+        /// <summary>
+        /// 发送失败
+        /// </summary>
+        PublishFailed
     }
 }

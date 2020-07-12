@@ -1,11 +1,10 @@
 ﻿using Autofac;
 using Autofac.Core;
+using Microsoft.Extensions.Options;
 using MySvc.DotNetCore.Framework.Domain.Core;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
 using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
 using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl;
-using Microsoft.Extensions.Options;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
 using Sample.Order.Domain.Repositories;
 using Sample.Order.Repository.MongoDB;
 
@@ -16,6 +15,10 @@ namespace Sample.Order.Api.DI.AutofacModules
     /// </summary>
     public class RepositoryModule : Module
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="builder"></param>
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<MongoDBManager>().SingleInstance();
@@ -39,6 +42,11 @@ namespace Sample.Order.Api.DI.AutofacModules
              * 配置领域仓储
              */
             builder.RegisterType<OrderRepository>().As<IOrderRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<IntegrationEventLogRepository>().As<IIntegrationEventLogRepository>()
+                .InstancePerLifetimeScope();
+            builder.RegisterType<IntegrationEventLogManager>().As<IIntegrationEventLogManager>()
+                .InstancePerLifetimeScope();
+
 
             /*
              * 配置只读仓储

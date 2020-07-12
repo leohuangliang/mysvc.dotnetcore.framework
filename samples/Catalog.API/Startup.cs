@@ -33,33 +33,33 @@ namespace Catalog.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            
-           services.AddCustomMVC(Configuration)
-                .AddCustomMongoDBContext()
-                .AddCustomOptions(Configuration)
-                .AddIntegrationServices(Configuration)
-                .AddEventBus(Configuration)
-                .AddSwagger();
 
-            services.AddCap(x => {
-                //x.UseDashboard();
-                x.UseMongoDB(o => {
-                    o.DatabaseConnection = "mongodb://admin:12345678@127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/?connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1";
-                    o.DatabaseName = "SampleCatalog";
-                    o.PublishedCollection = "cap.published";
-                    o.ReceivedCollection = "cap.received";
-                });
-                x.DefaultGroup = "sampleCatalog";
-                x.UseRabbitMQ(o => {
-                    o.HostName = "127.0.0.1";
-                    o.Port = 5672;
-                    o.UserName = "admin";
-                    o.Password = "admin123456";
-                    o.VirtualHost = "frameworksample";
-                    o.ExchangeName = "frameworksample-exchange";
-                });
+            services.AddCustomMVC(Configuration)
+                 .AddCustomMongoDBContext()
+                 .AddCustomOptions(Configuration)
+                 .AddIntegrationServices(Configuration)
+                 .AddEventBus(Configuration)
+                 .AddSwagger();
 
-            });
+            //services.AddCap(x => {
+            //    //x.UseDashboard();
+            //    x.UseMongoDB(o => {
+            //        o.DatabaseConnection = "mongodb://admin:12345678@127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/?connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1";
+            //        o.DatabaseName = "SampleCatalog";
+            //        o.PublishedCollection = "cap.published";
+            //        o.ReceivedCollection = "cap.received";
+            //    });
+            //    x.DefaultGroup = "sampleCatalog";
+            //    x.UseRabbitMQ(o => {
+            //        o.HostName = "127.0.0.1";
+            //        o.Port = 5672;
+            //        o.UserName = "admin";
+            //        o.Password = "admin123456";
+            //        o.VirtualHost = "frameworksample";
+            //        o.ExchangeName = "frameworksample-exchange";
+            //    });
+
+            //});
 
             var container = new ContainerBuilder();
             container.Populate(services);
@@ -88,13 +88,14 @@ namespace Catalog.API
             }
 
             app.UseCors("CorsPolicy");
-            
+
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints => {
+            app.UseEndpoints(endpoints =>
+            {
                 endpoints.MapControllers();
             });
 
@@ -111,6 +112,6 @@ namespace Catalog.API
             //eventBus.Subscribe<OrderStatusChangedToAwaitingValidationIntegrationEvent, OrderStatusChangedToAwaitingValidationIntegrationEventHandler>();
             //eventBus.Subscribe<OrderStatusChangedToPaidIntegrationEvent, OrderStatusChangedToPaidIntegrationEventHandler>();
         }
-        
+
     }
 }

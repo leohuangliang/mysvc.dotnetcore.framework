@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus.Events;
 
-namespace Sample.Order.Application.IntegrationEvents.Events
+namespace Contracts.Events
 {
     /// <summary>
     /// 订单创建成功的集成事件
     /// </summary>
-    public class OrderCreatedIntegrationEvent : IntegrationEvent
+    public class OrderCreatedIntegrationEvent
     {
         public OrderCreatedIntegrationEvent(string orderNo, DateTime orderTime, IList<OrderItem> orderItems)
         {
@@ -20,16 +19,17 @@ namespace Sample.Order.Application.IntegrationEvents.Events
         /// 订单编号
         /// </summary>
         public string OrderNo { get; private set; }
- 
+
         /// <summary>
         /// 下单时间
         /// </summary>
         public DateTime OrderTime { get; private set; }
-  
+
         /// <summary>
         /// 订单项
         /// </summary>
         public IList<OrderItem> OrderItems { get; private set; }
+
     }
 
     public class OrderItem
