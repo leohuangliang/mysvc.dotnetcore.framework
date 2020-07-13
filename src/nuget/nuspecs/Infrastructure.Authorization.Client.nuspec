@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
 		</id>
 		<version>
-			3.1.0
+			3.2.0
 		</version>
 		<title>
 			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
@@ -61,6 +61,7 @@
 			1.2.0-beta3
 			1.2.0
 			3.1.0
+			3.2.0
 		</releaseNotes>
 		<copyright>
 			Copyright 2018  (c)  MySVC.cc All rights reserved.
@@ -74,7 +75,7 @@
 		<dependencies>
 			<dependency id="Microsoft.AspNetCore.Mvc.Core" version="2.2.5" />
 			<dependency id="Microsoft.Extensions.Http" version="3.1.2" />
-			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.1.0" />
+			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.2.0" />
 		</dependencies>
 	</metadata>
 	<files>

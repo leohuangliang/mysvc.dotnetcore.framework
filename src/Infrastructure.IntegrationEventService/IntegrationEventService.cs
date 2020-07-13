@@ -101,5 +101,15 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService
             return Task.CompletedTask;
 
         }
+        public Task PublishIntegrationEventWithoutSave(object @event)
+        {
+            if (@event != null)
+            {
+                _publishEndpoint.Publish(@event);
+            }
+
+            return Task.CompletedTask;
+
+        }
     }
 }

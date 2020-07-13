@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
 		</id>
 		<version>
-			3.1.0
+			3.2.0
 		</version>
 		<title>
 			MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
@@ -43,6 +43,7 @@
 1.2.1
 1.2.2
 3.1.0
+3.2.0
 		</releaseNotes>
 		<copyright>
 			Copyright 2018  (c) MySVC.cc All rights reserved.
@@ -62,8 +63,7 @@
 			<dependency id="MongoDB.Driver" version="2.10.2" />
 			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.1.0" />
 			<dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="3.1.0" />
-			<dependency id="DotNetCore.CAP" version="3.0.2" />
-			<dependency id="DotNetCore.CAP.MongoDB" version="3.0.2" />
+			
 		</dependencies>
 	</metadata>
 	<files>

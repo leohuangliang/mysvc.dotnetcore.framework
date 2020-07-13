@@ -26,5 +26,6 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus
 
         Task PublishIntegrationEventWithoutSave<T>(T @event) where T : class;
 
+        Task PublishIntegrationEventWithoutSave(object @event);
     }
 }

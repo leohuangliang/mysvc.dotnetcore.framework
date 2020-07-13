@@ -23,11 +23,9 @@ namespace Catalog.API.Applications.DomainEventHandlers.ProductPriceChanged
         public async Task Handle(ProductPriceChangedDomainEvent notification, CancellationToken cancellationToken)
         {
 
-            await _integrationEventService.PublishIntegrationEventWithoutSave<IProductPriceChangedIntegrationEvent>(
+            await _integrationEventService.PublishIntegrationEventWithoutSave(
                     new
                     {
-                        Id = Guid.NewGuid(),
-                        CreatedTime = DateTime.UtcNow,
                         SKU = notification.SKU,
                         NewPrice = notification.NewPrice,
                         OldPrice = notification.OldPrice

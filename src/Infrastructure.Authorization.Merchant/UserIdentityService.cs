@@ -15,6 +15,9 @@ using Microsoft.Extensions.Primitives;
 
 namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class UserIdentityService : IUserIdentityService
     {
         private IHttpContextAccessor _contextAccessor;
@@ -24,6 +27,15 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
         private readonly ILogger<UserIdentityService> _logger;
         private readonly IOptions<AuthServiceOptions> _authServiceOptionsAccessor;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="contextAccessor"></param>
+        /// <param name="distributedCache"></param>
+        /// <param name="jsonConverter"></param>
+        /// <param name="httpClientFactory"></param>
+        /// <param name="logger"></param>
+        /// <param name="authServiceOptionsAccessor"></param>
         public UserIdentityService(
             IHttpContextAccessor contextAccessor,
             IDistributedCache distributedCache,
@@ -42,6 +54,11 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
             _authServiceOptionsAccessor = authServiceOptionsAccessor ?? throw new ArgumentNullException(nameof(authServiceOptionsAccessor));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="AuthenticationException"></exception>
         public UserIdentity GetUserIdentity()
         {
             if (!_contextAccessor.HttpContext.User.Identity.IsAuthenticated)
@@ -53,6 +70,13 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
             return tenantUser;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="AuthenticationException"></exception>
+        /// <exception cref="AuthValidationError"></exception>
         public async Task<UserIdentity> GetUserIdentityAsync()
         {
 
