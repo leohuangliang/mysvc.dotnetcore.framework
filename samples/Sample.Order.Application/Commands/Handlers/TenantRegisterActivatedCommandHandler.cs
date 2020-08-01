@@ -32,8 +32,14 @@ namespace Sample.Order.Application.Commands.Handlers
         {
             _dbContext.BeginTransaction();
             //保存集成事件
-            await _integrationEventService.SaveIntegrationEvent(
-                new TenantRegisterActivatedIntegrationEvent(command.TenantCode, command.TenantOwnerUserName, command.CreateTime, command.ActivationTime));
+            await _integrationEventService.SaveIntegrationEvent<TenantRegisterActivatedIntegrationEvent>(
+                new TenantRegisterActivatedIntegrationEvent
+                {
+                    TenantCode = command.TenantCode,
+                    TenantOwnerUserName = command.TenantOwnerUserName,
+                    CreateTime = command.CreateTime,
+                    ActivationTime = command.ActivationTime
+                });
 
             await _dbContext.CommitAsync();
             await _integrationEventService.PublishAllAsync();

@@ -28,14 +28,20 @@ namespace Sample.Order.Application.DomainEventHandlers
             //处理领域相关的事情
 
             //保存集成事件
-            await _integrationEventService.SaveIntegrationEvent(
-                new OrderCreatedIntegrationEvent(order.OrderNo, order.OrderTime,
-                    order.OrderItems.Select(x => new OrderItem()
-                    {
-                        SKU = x.Product.SKU,
-                        Title = x.Product.Title,
-                        Units = x.Units
-                    }).ToList()));
+
+            var orderItems = order.OrderItems.Select(x => new OrderItem
+            {
+                SKU = x.Product.SKU,
+                Title = x.Product.Title,
+                Units = x.Units
+            }).ToArray();
+            await _integrationEventService.SaveIntegrationEvent<OrderCreatedIntegrationEvent>(
+                new OrderCreatedIntegrationEvent
+                {
+                    OrderNo = order.OrderNo,
+                    OrderTime = order.OrderTime,
+                    OrderItems = orderItems
+                });
         }
     }
 }

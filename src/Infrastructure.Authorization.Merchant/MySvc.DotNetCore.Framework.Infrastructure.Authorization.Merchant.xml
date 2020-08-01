@@ -52,6 +52,34 @@
             <param name="permissions"></param>
             <param name="isOr">true=或关系;false=且关系</param>
         </member>
+        <member name="T:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.PermissionsAuthorizationRequirement">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.PermissionsAuthorizationRequirement.RequiredPermissions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.PermissionsAuthorizationRequirement.IsOr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.PermissionsAuthorizationRequirement.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="requiredPermissions"></param>
+        </member>
+        <member name="M:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.PermissionsAuthorizationRequirement.#ctor(System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="requiredPermissions"></param>
+            <param name="isOr"></param>
+        </member>
         <member name="T:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission">
             <summary>
             权限码定义
@@ -118,6 +146,38 @@
             <summary>
             ViewOnly
             </summary>
+        </member>
+        <member name="T:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserIdentityService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserIdentityService.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,Microsoft.Extensions.Caching.Distributed.IDistributedCache,MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json.IJsonConverter,System.Net.Http.IHttpClientFactory,Microsoft.Extensions.Logging.ILogger{MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserIdentityService},Microsoft.Extensions.Options.IOptions{MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.AuthServiceOptions})">
+            <summary>
+            
+            </summary>
+            <param name="contextAccessor"></param>
+            <param name="distributedCache"></param>
+            <param name="jsonConverter"></param>
+            <param name="httpClientFactory"></param>
+            <param name="logger"></param>
+            <param name="authServiceOptionsAccessor"></param>
+        </member>
+        <member name="M:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserIdentityService.GetUserIdentity">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Security.Authentication.AuthenticationException"></exception>
+        </member>
+        <member name="M:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserIdentityService.GetUserIdentityAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.Security.Authentication.AuthenticationException"></exception>
+            <exception cref="T:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions.AuthValidationError"></exception>
         </member>
         <member name="M:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserIdentityService.MapTenantUser">
             <summary>

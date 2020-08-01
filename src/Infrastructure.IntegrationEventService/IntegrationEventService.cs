@@ -20,7 +20,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService
         private readonly ILogger<IntegrationEventService> _logger;
         private readonly IJsonConverter _jsonConverter;
 
-        private readonly Queue<KeyValuePair<Guid, dynamic>> _messageQueue;
+        private readonly Queue<KeyValuePair<Guid, object>> _messageQueue;
 
         public IntegrationEventService(IPublishEndpoint publishEndpoint,
             IIntegrationEventLogRepository integrationEventLogRepository,
@@ -40,10 +40,26 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService
         /// 保存事件，确保在本地事物内完成
         /// </summary>
         /// <param name="event">集成事件</param>
-        public async Task SaveIntegrationEvent<T>(T @event) where T : class
+        public async Task SaveIntegrationEvent<T>(T @event) where T : class, new()
         {
 
             var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, @event.GetType().FullName,
+                _jsonConverter.SerializeObject(@event));
+            await _integrationEventLogRepository.AddAsync(integrationEventLog);
+            //事件入内存队列
+
+            _messageQueue.Enqueue(new KeyValuePair<Guid, object>(integrationEventLog.EventId, @event));
+
+        }
+
+        /// <summary>
+        /// 保存事件，确保在本地事物内完成
+        /// </summary>
+        /// <param name="event">集成事件</param>
+        public async Task SaveIntegrationEvent<T>(object @event) where T : class, new()
+        {
+
+            var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, typeof(T).FullName,
                 _jsonConverter.SerializeObject(@event));
             await _integrationEventLogRepository.AddAsync(integrationEventLog);
             //事件入内存队列
@@ -56,13 +72,33 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService
         /// 批量保存集成事件
         /// </summary>
         /// <param name="evts">集成事件对象列表</param>
-        public async Task SaveIntegrationEvent<T>(IList<T> evts) where T : class
+        public async Task SaveIntegrationEvent<T>(IList<T> evts) where T : class, new()
         {
             if (evts != null && evts.Any())
             {
                 foreach (var integrationEvent in evts)
                 {
                     var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, integrationEvent.GetType().FullName,
+                        _jsonConverter.SerializeObject(integrationEvent));
+                    await _integrationEventLogRepository.AddAsync(integrationEventLog);
+                    //事件入内存队列
+
+                    _messageQueue.Enqueue(new KeyValuePair<Guid, dynamic>(integrationEventLog.EventId, integrationEvent));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 批量保存集成事件
+        /// </summary>
+        /// <param name="evts">集成事件对象列表</param>
+        public async Task SaveIntegrationEvent<T>(IList<object> evts) where T : class, new()
+        {
+            if (evts != null && evts.Any())
+            {
+                foreach (var integrationEvent in evts)
+                {
+                    var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, typeof(T).FullName,
                         _jsonConverter.SerializeObject(integrationEvent));
                     await _integrationEventLogRepository.AddAsync(integrationEventLog);
                     //事件入内存队列
@@ -83,7 +119,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService
                 {
                     var kvp = _messageQueue.Dequeue();
 
-                    _publishEndpoint.Publish(kvp.Value); //脱离DBContext上下文，不依赖事务
+                    _publishEndpoint.Publish(kvp.Value); 
                     _integrationEventLogManager.MarkEventLogAsPublishedAsync(kvp.Key);
                 }
             });
@@ -91,7 +127,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService
             return task;
         }
 
-        public Task PublishIntegrationEventWithoutSave<T>(T @event) where T : class
+        public Task PublishIntegrationEventWithoutSave<T>(T @event) where T : class, new()
         {
             if (@event != null)
             {
@@ -101,7 +137,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService
             return Task.CompletedTask;
 
         }
-        public Task PublishIntegrationEventWithoutSave(object @event)
+        public Task PublishIntegrationEventWithoutSave<T>(object @event) where T : class, new()
         {
             if (@event != null)
             {

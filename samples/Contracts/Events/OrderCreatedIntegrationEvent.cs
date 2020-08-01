@@ -8,27 +8,22 @@ namespace Contracts.Events
     /// </summary>
     public class OrderCreatedIntegrationEvent
     {
-        public OrderCreatedIntegrationEvent(string orderNo, DateTime orderTime, IList<OrderItem> orderItems)
-        {
-            OrderNo = orderNo;
-            OrderTime = orderTime;
-            OrderItems = orderItems;
-        }
+
 
         /// <summary>
         /// 订单编号
         /// </summary>
-        public string OrderNo { get; private set; }
+        public string OrderNo { get; set; }
 
         /// <summary>
         /// 下单时间
         /// </summary>
-        public DateTime OrderTime { get; private set; }
+        public DateTime OrderTime { get; set; }
 
         /// <summary>
         /// 订单项
         /// </summary>
-        public IList<OrderItem> OrderItems { get; private set; }
+        public OrderItem[] OrderItems { get; set; }
 
     }
 

@@ -20,7 +20,7 @@ namespace Sample.Product.Api.Extensions
         {
             services.AddMassTransit(x =>
             {
-
+                
                 x.SetKebabCaseEndpointNameFormatter();
                 x.AddConsumers(typeof(OrderCreatedIntegrationEventHandler));
                 x.UsingRabbitMq((context, cfg) =>
