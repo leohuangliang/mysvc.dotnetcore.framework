@@ -9,36 +9,6 @@
             获取用户Profile API相对路径
             </summary>
         </member>
-        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions.Error.Names.TokenExpired">
-            <summary>
-            Token过期，请重新登录
-            </summary>
-        </member>
-        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions.Error.Names.RequestPermissionFailed">
-            <summary>
-            获取权限失败
-            </summary>
-        </member>
-        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions.Error.Names.RequestUserProfileFailed">
-            <summary>
-            获取用户信息失败
-            </summary>
-        </member>
-        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions.Error.Codes.TokenExpired">
-            <summary>
-            token-expired
-            </summary>
-        </member>
-        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions.Error.Codes.RequestPermissionFailed">
-            <summary>
-            request-permission-failed
-            </summary>
-        </member>
-        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions.Error.Codes.RequestUserProfileFailed">
-            <summary>
-            request-userProfile-failed
-            </summary>
-        </member>
         <member name="M:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.PermissionAttribute.#ctor(System.String[])">
             <summary>
             权限且关系
@@ -79,41 +49,6 @@
             </summary>
             <param name="requiredPermissions"></param>
             <param name="isOr"></param>
-        </member>
-        <member name="T:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission">
-            <summary>
-            权限码定义
-            </summary>
-        </member>
-        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission.AccountManage">
-            <summary>
-            账号管理
-            </summary>
-        </member>
-        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission.UserList">
-            <summary>
-            员工列表
-            </summary>
-        </member>
-        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission.AddUser">
-            <summary>
-            添加员工
-            </summary>
-        </member>
-        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission.ViewUser">
-            <summary>
-            查看员工资料
-            </summary>
-        </member>
-        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission.EditUser">
-            <summary>
-            编辑员工资料
-            </summary>
-        </member>
-        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.Permission.DeleteUser">
-            <summary>
-            删除员工
-            </summary>
         </member>
         <member name="M:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions.PermissionManage.GetPermissions(System.String)">
             <summary>
@@ -228,6 +163,36 @@
         <member name="P:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserProfile.Role">
             <summary>
             角色
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Exceptions.Error.Names.TokenExpired">
+            <summary>
+            Token过期，请重新登录
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Exceptions.Error.Names.RequestPermissionFailed">
+            <summary>
+            获取权限失败
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Exceptions.Error.Names.RequestUserProfileFailed">
+            <summary>
+            获取用户信息失败
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Exceptions.Error.Codes.TokenExpired">
+            <summary>
+            token-expired
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Exceptions.Error.Codes.RequestPermissionFailed">
+            <summary>
+            request-permission-failed
+            </summary>
+        </member>
+        <member name="F:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Exceptions.Error.Codes.RequestUserProfileFailed">
+            <summary>
+            request-userProfile-failed
             </summary>
         </member>
     </members>
