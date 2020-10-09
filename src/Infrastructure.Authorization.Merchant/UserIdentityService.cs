@@ -20,7 +20,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
     /// </summary>
     public class UserIdentityService : IUserIdentityService
     {
-        private IHttpContextAccessor _contextAccessor;
+        private readonly IHttpContextAccessor _contextAccessor;
         private readonly IDistributedCache _distributedCache;
         private readonly IJsonConverter _jsonConverter;
         private readonly IHttpClientFactory _httpClientFactory;

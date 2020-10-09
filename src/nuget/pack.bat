@@ -1,6 +1,5 @@
 dotnet build -c Release ..\..\mysvc.dotnetcore.framework.sln
 nuget pack nuspecs\Domain.Core.nuspec -OutputDirectory nuget-packages\Domain.Core
-nuget pack nuspecs\Infrastructure.Adapter.AutoMapper.nuspec -OutputDirectory nuget-packages\Infrastructure.Adapter.AutoMapper
 nuget pack nuspecs\Infrastructure.Authorization.Client.nuspec -OutputDirectory nuget-packages\Infrastructure.Authorization.Client
 nuget pack nuspecs\Infrastructure.Authorization.Admin.nuspec -OutputDirectory nuget-packages\Infrastructure.Authorization.Admin
 nuget pack nuspecs\Infrastructure.Authorization.Merchant.nuspec -OutputDirectory nuget-packages\Infrastructure.Authorization.Merchant

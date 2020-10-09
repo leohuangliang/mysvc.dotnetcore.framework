@@ -23,8 +23,8 @@ namespace Catalog.API.Applications.DomainEventHandlers.ProductPriceChanged
         public async Task Handle(ProductPriceChangedDomainEvent notification, CancellationToken cancellationToken)
         {
 
-            await _integrationEventService.PublishIntegrationEventWithoutSave(
-                    new
+            await _integrationEventService.PublishIntegrationEventWithoutSave<ProductPriceChangedIntegrationEvent>(
+                    new ProductPriceChangedIntegrationEvent
                     {
                         SKU = notification.SKU,
                         NewPrice = notification.NewPrice,

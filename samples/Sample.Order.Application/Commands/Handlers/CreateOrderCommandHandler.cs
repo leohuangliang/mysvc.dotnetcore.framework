@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Adapter;
 using MediatR;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
 using Sample.Order.Application.Extensions;
@@ -21,15 +21,15 @@ namespace Sample.Order.Application.Commands.Handlers
 
         private readonly IOrderRepository _orderRepository;
 
-        private readonly ITypeAdapter _typeAdapter;
+        private readonly IMapper _mapper;
         private readonly IIntegrationEventService _integrationEventService;
 
 
-        public CreateOrderCommandHandler(IDBContext dbContext, IOrderRepository orderRepository, ITypeAdapter typeAdapter, IIntegrationEventService integrationEventService)
+        public CreateOrderCommandHandler(IDBContext dbContext, IOrderRepository orderRepository, IMapper mapper, IIntegrationEventService integrationEventService)
         {
             _dbContext = dbContext;
             _orderRepository = orderRepository;
-            _typeAdapter = typeAdapter;
+            _mapper = mapper;
             _integrationEventService = integrationEventService ?? throw new ArgumentNullException(nameof(integrationEventService));
         }
 
@@ -52,7 +52,7 @@ namespace Sample.Order.Application.Commands.Handlers
             await _orderRepository.AddAsync(order);
             await _dbContext.CommitAsync();
             await _integrationEventService.PublishAllAsync();
-            return _typeAdapter.Adapt<ViewModels.Order>(order);
+            return _mapper.Map<ViewModels.Order>(order);
         }
     }
 }

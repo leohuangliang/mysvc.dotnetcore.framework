@@ -1,10 +1,10 @@
 ﻿using Contracts.Events;
 using MediatR;
 using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Adapter;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace Sample.Order.Application.Commands.Handlers
 {
@@ -14,16 +14,12 @@ namespace Sample.Order.Application.Commands.Handlers
     public class TenantRegisterActivatedCommandHandler : IRequestHandler<TenantRegisterActivatedCommand, bool>
     {
         private readonly IDBContext _dbContext;
-
-
-        private readonly ITypeAdapter _typeAdapter;
         private readonly IIntegrationEventService _integrationEventService;
 
-        public TenantRegisterActivatedCommandHandler(IDBContext dbContext, ITypeAdapter typeAdapter, IIntegrationEventService integrationEventService)
+        public TenantRegisterActivatedCommandHandler(IDBContext dbContext,IIntegrationEventService integrationEventService)
         {
             _dbContext = dbContext;
 
-            _typeAdapter = typeAdapter;
             _integrationEventService = integrationEventService ?? throw new System.ArgumentNullException(nameof(integrationEventService));
 
         }

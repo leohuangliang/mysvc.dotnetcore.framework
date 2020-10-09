@@ -13,7 +13,7 @@ using System;
 using System.IO;
 using Microsoft.Extensions.Hosting;
 using Sample.Order.Api.Extensions;
-using Sample.Order.Application.Adapter.AutoMapper.Profiles;
+using Sample.Order.Application.Profiles;
 
 namespace Sample.Order.Api
 {

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Sample.Order.Application.Adapter.AutoMapper.Profiles
+namespace Sample.Order.Application.Profiles
 {
     /// <summary>
     /// 订单类型的转换配置

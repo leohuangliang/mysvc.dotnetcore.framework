@@ -2,33 +2,19 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin</id>
-    <version>3.2.1</version>
+    <version>3.2.3</version>
     <title>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>用户端权限控制</description>
-    <releaseNotes>1.1.5-beta2 Create
-			1.1.5-beta3 upgrate
-			1.1.5-beta4 临时屏蔽权限判断，下一个版本重构
-			1.1.8 统一版本
-			1.1.9 升级Nuget版本
-			1.1.10 升级Nuget版本
-			1.1.11 升级Nuget版本
-			1.2.0-beta1
-			1.2.0-beta2
-			1.2.0-beta3
-			1.2.0
-			3.1.0 升级到.net core 3.1
-      3.1.1 修改类库
-      3.2.0
-      3.2.1
+    <releaseNotes>
     </releaseNotes>
     <copyright>Copyright 2018  (c) MySVC.cc All rights reserved.</copyright>
     <tags>MySVC.cc</tags>
     <serviceable>true</serviceable>
     <dependencies>
-      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.2.1" />
+      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.2.3" />
 
     </dependencies>
 

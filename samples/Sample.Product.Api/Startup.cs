@@ -15,7 +15,7 @@ using System;
 using System.IO;
 using Microsoft.Extensions.Hosting;
 using Sample.Product.Api.Extensions;
-using Sample.Product.Application.Adapter.AutoMapper.Profiles;
+using Sample.Product.Application.Profiles;
 
 namespace Sample.Product.Api
 {

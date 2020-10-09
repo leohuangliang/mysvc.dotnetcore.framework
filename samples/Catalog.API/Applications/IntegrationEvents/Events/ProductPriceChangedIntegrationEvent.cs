@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace Catalog.API.Applications.IntegrationEvents.Events
 {
-    public interface IProductPriceChangedIntegrationEvent
+    public class ProductPriceChangedIntegrationEvent
     {
-
-        string SKU { get; }
-        decimal NewPrice { get; }
-        decimal OldPrice { get; }
+        public string SKU { get; set; }
+        public decimal NewPrice { get; set; }
+        public decimal OldPrice { get; set; }
     }
 }
