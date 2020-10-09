@@ -25,6 +25,16 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
             }
         }
 
+        public void GenerateId(IEntityIdGenerator entityIdGenerater)
+        {
+            if (entityIdGenerater is null)
+            {
+                throw new ArgumentNullException(nameof(entityIdGenerater));
+            }
+
+            this.Id = entityIdGenerater.GenerateId();
+        }
+
 
         /// <summary>
         ///     Check if this entity is transient, ie, without identity at this moment
