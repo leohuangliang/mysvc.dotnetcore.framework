@@ -21,11 +21,9 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
     public class MongoDBRepository<TAggregateRoot> : ReadOnlyMongoDBRepository<TAggregateRoot>, IRepository<TAggregateRoot>
         where TAggregateRoot : class, IAggregateRoot
     {
-        protected readonly IMongoDBContext _mongoDBContext;
 
         public MongoDBRepository(IMongoDBContext context) : base(context, true)
         {
-            _mongoDBContext = context;
         }
 
         /// <summary>

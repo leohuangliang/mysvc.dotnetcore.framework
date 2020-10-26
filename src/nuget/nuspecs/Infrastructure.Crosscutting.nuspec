@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Crosscutting
 		</id>
 		<version>
-			1.2.1
+			3.2.3
 		</version>
 		<title>
 			MySvc.DotNetCore.Framework.Infrastructure.Crosscutting
@@ -23,28 +23,7 @@
 			面向切面的一个基础类库
 		</description>
 		<releaseNotes>
-			1.0.0 Create
-			1.1.0 升级到.net core 2.2
-			1.1.1 fixbug
-			1.1.2 fixbug
-			1.1.3 fixbug
-			1.1.4 fixbug
-			1.1.5-beta1 upgrate
-			1.1.5-beta2 fixbug
-			1.1.5-beta3 fixbug
-1.1.5-beta4 fixbug
-1.1.8 统一版本
-1.1.9 统一版本
-1.1.10 统一版本
-1.1.11 统一版本
-1.1.12 增加Job
-1.1.13-beta1 增加Job
-1.1.14  增加decimal helper
-			1.2.0-beta1 升级EventBus到cap 
-1.2.0-beta2
-1.2.0-beta3
-1.2.0 
-1.2.1
+			
 		</releaseNotes>
 		<copyright>
 			Copyright 2018  (c) MySVC.cc All rights reserved.
@@ -56,9 +35,9 @@
 			true
 		</serviceable>
 		<dependencies>
-			<dependency id="Microsoft.CSharp" version="4.5.0" />
-			<dependency id="Microsoft.AspNetCore.Cryptography.KeyDerivation" version="2.2.0" />
-			<dependency id="DotNetCore.CAP" version="2.6.0" />
+			<dependency id="Microsoft.CSharp" version="4.7.0" />
+			<dependency id="Microsoft.AspNetCore.Cryptography.KeyDerivation" version="3.1.2" />
+			<dependency id="Microsoft.Extensions.Caching.Abstractions" version="3.1.2" />
 		</dependencies>
 	</metadata>
 	<files>

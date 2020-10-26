@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Adapter;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
 using MediatR;
+using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
 using Sample.Order.Application.Extensions;
 using Sample.Order.Domain.AggregatesModel.OrderAggregate;
 using Sample.Order.Domain.Repositories;
@@ -20,21 +21,21 @@ namespace Sample.Order.Application.Commands.Handlers
 
         private readonly IOrderRepository _orderRepository;
 
-        private readonly ITypeAdapter _typeAdapter;
+        private readonly IMapper _mapper;
+        private readonly IIntegrationEventService _integrationEventService;
 
-        
 
-
-        public CreateOrderCommandHandler(IDBContext dbContext, IOrderRepository orderRepository, ITypeAdapter typeAdapter)
+        public CreateOrderCommandHandler(IDBContext dbContext, IOrderRepository orderRepository, IMapper mapper, IIntegrationEventService integrationEventService)
         {
             _dbContext = dbContext;
             _orderRepository = orderRepository;
-            _typeAdapter = typeAdapter;
+            _mapper = mapper;
+            _integrationEventService = integrationEventService ?? throw new ArgumentNullException(nameof(integrationEventService));
         }
 
         public async Task<ViewModels.Order> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
         {
-            
+
             _dbContext.BeginTransaction();
 
             var orderItemList = new List<OrderItem>();
@@ -50,7 +51,8 @@ namespace Sample.Order.Application.Commands.Handlers
 
             await _orderRepository.AddAsync(order);
             await _dbContext.CommitAsync();
-            return _typeAdapter.Adapt<ViewModels.Order>(order);
+            await _integrationEventService.PublishAllAsync();
+            return _mapper.Map<ViewModels.Order>(order);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 
@@ -16,21 +17,19 @@ namespace Sample.Order.Api.Extensions
         /// <summary>
         /// 初始化MongoDB的Collection
         /// </summary>
-        public static IWebHost MigrateMongoDB(this IWebHost webHost)
+        public static IHost MigrateMongoDB(this IHost webHost)
         {
             using (var scope = webHost.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-                var maongoDbManager = services.GetService<MongoDBManager>();
+                var mongoDbManager = services.GetService<MongoDBManager>();
                 var logger = services.GetRequiredService<ILogger<MongoDBManager>>();
 
                 try
                 {
                     logger.LogInformation($"Migrating database");
 
-                    
-                    maongoDbManager.CreateCollections();
-                    
+                    mongoDbManager.CreateCollections();
 
                     logger.LogInformation($"Migrated database associated");
                 }

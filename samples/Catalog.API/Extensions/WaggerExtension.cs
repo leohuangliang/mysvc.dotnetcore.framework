@@ -12,8 +12,7 @@ namespace Catalog.API.Extensions
         {
             services.AddSwaggerGen(options =>
             {
-                options.DescribeAllEnumsAsStrings();
-                options.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info
+                options.SwaggerDoc("v1", new  Microsoft.OpenApi.Models.OpenApiInfo
                 {
                     Title = "BEF  - Catalog HTTP API",
                     Version = "v1",

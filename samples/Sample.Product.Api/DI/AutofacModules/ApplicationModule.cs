@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Autofac;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
+using MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService;
 using Sample.Product.Application.IntegrationEvents.EventHandling;
 using Sample.Product.Application.Queries;
 
@@ -11,14 +12,16 @@ namespace Sample.Product.Api.DI.AutofacModules
     /// </summary>
     public class ApplicationModule : Autofac.Module
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="builder"></param>
         protected override void Load(ContainerBuilder builder)
         {
             // Register the Queries
             builder.RegisterType<ProductQueries>().As<IProductQueries>().InstancePerLifetimeScope();
 
-            //// Register the Integration Event Handler
-            //builder.RegisterAssemblyTypes(typeof(OrderCreatedIntegrationEventHandler).GetTypeInfo().Assembly)
-            //    .AsClosedTypesOf(typeof(IIntegrationEventHandler<>));
+            builder.RegisterType<IntegrationEventService>().As<IIntegrationEventService>().InstancePerLifetimeScope();
         }
     }
 }

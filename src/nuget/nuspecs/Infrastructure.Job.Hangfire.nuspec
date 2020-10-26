@@ -2,26 +2,21 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire</id>
-    <version>1.2.1</version>
+    <version>3.2.3</version>
     <title>MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>基于Hangfire 实现job</description>
     <releaseNotes>
-    1.0.0  Create
-    1.0.1-bate1 
-    1.2.0-beta1
-    1.2.0-beta2
-    1.2.0-beta3
-    1.2.0
-    1.2.1
+    
      </releaseNotes>
     <copyright>Copyright 2018  (c) MySVC.cc All rights reserved.</copyright>
     <tags>MySVC.cc</tags>
     <dependencies>
-      <dependency id="Hangfire.Core" version="1.7.2" />
-      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="1.2.1" />
+      <dependency id="Hangfire.Core" version="1.7.9" />
+      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.2.3" />
+
     </dependencies>
   </metadata>
   <files>

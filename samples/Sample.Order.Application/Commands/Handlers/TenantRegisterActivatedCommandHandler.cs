@@ -1,14 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Contracts.Events;
+using MediatR;
+using MySvc.DotNetCore.Framework.Domain.Core;
+using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
 using System.Threading;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Adapter;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
-using MediatR;
-using Sample.Order.Application.Extensions;
-using Sample.Order.Application.IntegrationEvents.Events;
-using Sample.Order.Domain.AggregatesModel.OrderAggregate;
-using Sample.Order.Domain.Repositories;
+using AutoMapper;
 
 namespace Sample.Order.Application.Commands.Handlers
 {
@@ -18,28 +14,31 @@ namespace Sample.Order.Application.Commands.Handlers
     public class TenantRegisterActivatedCommandHandler : IRequestHandler<TenantRegisterActivatedCommand, bool>
     {
         private readonly IDBContext _dbContext;
+        private readonly IIntegrationEventService _integrationEventService;
 
-
-        private readonly ITypeAdapter _typeAdapter;
-        private readonly IEventBus _eventBus;
-
-        public TenantRegisterActivatedCommandHandler(IDBContext dbContext, ITypeAdapter typeAdapter, IEventBus eventBus)
+        public TenantRegisterActivatedCommandHandler(IDBContext dbContext,IIntegrationEventService integrationEventService)
         {
             _dbContext = dbContext;
-            
-            _typeAdapter = typeAdapter;
-            _eventBus = eventBus ?? throw new System.ArgumentNullException(nameof(eventBus));
-            
+
+            _integrationEventService = integrationEventService ?? throw new System.ArgumentNullException(nameof(integrationEventService));
+
         }
 
         public async Task<bool> Handle(TenantRegisterActivatedCommand command, CancellationToken cancellationToken)
         {
             _dbContext.BeginTransaction();
             //保存集成事件
-            await _eventBus.Publish(
-                new TenantRegisterActivatedIntegrationEvent(command.TenantCode,command.TenantOwnerUserName,command.CreateTime,command.ActivationTime));
+            await _integrationEventService.SaveIntegrationEvent<TenantRegisterActivatedIntegrationEvent>(
+                new TenantRegisterActivatedIntegrationEvent
+                {
+                    TenantCode = command.TenantCode,
+                    TenantOwnerUserName = command.TenantOwnerUserName,
+                    CreateTime = command.CreateTime,
+                    ActivationTime = command.ActivationTime
+                });
 
             await _dbContext.CommitAsync();
+            await _integrationEventService.PublishAllAsync();
             return true;
         }
     }

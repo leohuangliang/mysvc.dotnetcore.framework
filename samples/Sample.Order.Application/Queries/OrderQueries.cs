@@ -1,23 +1,23 @@
-﻿using System.Threading.Tasks;
+﻿using AutoMapper;
 using MySvc.DotNetCore.Framework.Domain.Core.Specification;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Adapter;
 using Sample.Order.Domain.Repositories;
+using System.Threading.Tasks;
 
 namespace Sample.Order.Application.Queries
 {
     /// <summary>
-    /// 订单查询器
+    /// 订单查询器RG
     /// </summary>
     public class OrderQueries : IOrderQueries
     {
         private readonly IOrderReadOnlyRepository _orderReadOnlyRepository;
 
-        private readonly ITypeAdapter _typeAdapter;
+        private readonly IMapper _mapper;
 
-        public OrderQueries(IOrderReadOnlyRepository orderReadOnlyRepository, ITypeAdapter typeAdapter)
+        public OrderQueries(IOrderReadOnlyRepository orderReadOnlyRepository, IMapper mapper)
         {
             _orderReadOnlyRepository = orderReadOnlyRepository;
-            _typeAdapter = typeAdapter;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace Sample.Order.Application.Queries
             var order = await _orderReadOnlyRepository.GetAsync(
                 Specification<Domain.AggregatesModel.OrderAggregate.Order>.Eval(x => x.OrderNo == orderNo));
 
-            return _typeAdapter.Adapt<ViewModels.Order>(order);
+            return _mapper.Map<ViewModels.Order>(order);
         }
     }
 }

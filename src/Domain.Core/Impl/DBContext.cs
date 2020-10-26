@@ -7,16 +7,31 @@ using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting;
 
 namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class DBContext : DisposableObject, IDBContext
     {
         #region Private Fields
         private readonly Guid _id = Guid.NewGuid();
+        /// <summary>
+        /// 
+        /// </summary>
         protected readonly AsyncLocal<Dictionary<string, object>> _localNewCollection =
             new AsyncLocal<Dictionary<string, object>> { Value = new Dictionary<string, object>() };
+        /// <summary>
+        /// 
+        /// </summary>
         protected readonly AsyncLocal<Dictionary<string, object>> _localModifiedCollection =
             new AsyncLocal<Dictionary<string, object>> { Value = new Dictionary<string, object>() };
+        /// <summary>
+        /// 
+        /// </summary>
         protected readonly AsyncLocal<Dictionary<string, object>> _localDeletedCollection =
             new AsyncLocal<Dictionary<string, object>> { Value = new Dictionary<string, object>() };
+        /// <summary>
+        /// 
+        /// </summary>
         protected readonly AsyncLocal<bool> _localCommitted =
             new AsyncLocal<bool> { Value = true };
         private readonly object _sync = new object();
@@ -24,6 +39,9 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
 
         #region Ctor
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected DBContext()
         {
         }
@@ -209,6 +227,9 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
             protected set { _localCommitted.Value = value; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public abstract void BeginTransaction();
 
         /// <summary>

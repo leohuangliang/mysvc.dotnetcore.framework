@@ -8,6 +8,10 @@ using MySvc.DotNetCore.Framework.Domain.Core.Specification;
 
 namespace MySvc.DotNetCore.Framework.Domain.Core
 {
+    /// <summary>
+    /// 只读仓储接口
+    /// </summary>
+    /// <typeparam name="TAggregateRoot"></typeparam>
     public interface IReadOnlyRepository<TAggregateRoot>
         where TAggregateRoot : class, IAggregateRoot
     {

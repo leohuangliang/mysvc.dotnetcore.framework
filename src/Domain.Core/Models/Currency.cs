@@ -5,6 +5,9 @@ using System.Text;
 
 namespace MySvc.DotNetCore.Framework.Domain.Core.Models
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum Currency
     {
         /// <summary>
@@ -93,8 +96,17 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Models
         SGD,
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public static class CurrencyHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currencyString"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidCastException"></exception>
         public static Currency GetCurrency(string currencyString)
         {
 

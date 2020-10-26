@@ -1,17 +1,18 @@
 ﻿using AutoMapper;
 
-namespace Sample.Order.Application.Adapter.AutoMapper.Profiles
+namespace Sample.Order.Application.Profiles
 {
     /// <summary>
-    /// 产品类型的转换配置
+    /// 订单类型的转换配置
     /// </summary>
-    public class ProductProfile : Profile
+    public class OrderProfile : Profile
     {
-        public ProductProfile()
+        public OrderProfile()
         {
             this.CreateMap<Domain.AggregatesModel.OrderAggregate.Order, ViewModels.Order>();
             this.CreateMap<Domain.AggregatesModel.OrderAggregate.OrderItem, ViewModels.OrderItem>();
             this.CreateMap<Domain.AggregatesModel.OrderAggregate.ProductInfo, ViewModels.ProductInfo>();
+            this.CreateMap<Domain.Common.Models.Address, Common.Models.Address>();
         }
     }
 }

@@ -1,13 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
-using System.Text;
 
 namespace MySvc.DotNetCore.Framework.Domain.Core.Helpers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class EnumHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="em"></param>
+        /// <returns></returns>
         public static string GetDescription(this Enum em)
         {
             Type type = em.GetType();
@@ -23,6 +29,11 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Helpers
             return name;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="em"></param>
+        /// <returns></returns>
         public static string GetName(this Enum em)
         {
             return Enum.GetName(em.GetType(), em);

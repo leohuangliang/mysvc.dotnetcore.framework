@@ -12,25 +12,38 @@ using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
+using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Exceptions;
 
 namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class UserIdentityService : IUserIdentityService
     {
-        private IHttpContextAccessor _contextAccessor;
+        private readonly IHttpContextAccessor _contextAccessor;
         private readonly IDistributedCache _distributedCache;
         private readonly IJsonConverter _jsonConverter;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILogger<UserIdentityService> _logger;
         private readonly IOptions<AuthServiceOptions> _authServiceOptionsAccessor;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="contextAccessor"></param>
+        /// <param name="distributedCache"></param>
+        /// <param name="jsonConverter"></param>
+        /// <param name="httpClientFactory"></param>
+        /// <param name="logger"></param>
+        /// <param name="authServiceOptionsAccessor"></param>
         public UserIdentityService(
             IHttpContextAccessor contextAccessor,
             IDistributedCache distributedCache,
             IJsonConverter jsonConverter,
             IHttpClientFactory httpClientFactory,
             ILogger<UserIdentityService> logger,
-            
+
             IOptions<AuthServiceOptions> authServiceOptionsAccessor)
         {
             _contextAccessor = contextAccessor ?? throw new ArgumentNullException(nameof(contextAccessor));
@@ -42,20 +55,32 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
             _authServiceOptionsAccessor = authServiceOptionsAccessor ?? throw new ArgumentNullException(nameof(authServiceOptionsAccessor));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="AuthenticationException"></exception>
         public UserIdentity GetUserIdentity()
         {
             if (!_contextAccessor.HttpContext.User.Identity.IsAuthenticated)
             {
                 throw new AuthenticationException("unauthorized");
             }
-            
+
             var tenantUser = MapTenantUser();
             return tenantUser;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="AuthenticationException"></exception>
+        /// <exception cref="AuthValidationError"></exception>
         public async Task<UserIdentity> GetUserIdentityAsync()
         {
-            
+
             if (_contextAccessor.HttpContext == null)
             {
                 _logger.LogError("_contextAccessor.HttpContext is null");
@@ -74,12 +99,12 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
 
             string tenantUserId = _contextAccessor.HttpContext.User.GetClaimValue("sub");
             string tenantCode = _contextAccessor.HttpContext.User.GetClaimValue("tenantcode");
-            
+
             string clientId = _contextAccessor.HttpContext.User.GetClaimValue("client_id");
 
             if (tenantCode.IsNullOrBlank())
             {
-                tenantCode= _contextAccessor.HttpContext.User.GetClaimValue("client_tenantcode");
+                tenantCode = _contextAccessor.HttpContext.User.GetClaimValue("client_tenantcode");
             }
 
             string cacheKey = $"user_profile_{tenantUserId}";
@@ -99,9 +124,9 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
                     {
                         throw new ArgumentNullException(nameof(authClient), "authservice_httpClient_Config_NoFound");
                     }
-                    
+
                     authClient.DefaultRequestHeaders.Add("Authorization", authorization.ToString());
-                    
+
                     _logger.LogInformation($"获取鉴权信息(BaseAddress:{authClient.BaseAddress}, Path:{_authServiceOptionsAccessor.Value.GetUserProfilePath}, Token:{authorization.ToString()}");
                     HttpResponseMessage response = await authClient.GetAsync(_authServiceOptionsAccessor.Value.GetUserProfilePath);
                     string stringData = _jsonConverter.SerializeObject(response);
@@ -121,7 +146,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex,"");
+                    _logger.LogError(ex, "");
                     throw new AuthValidationError(Error.Codes.RequestUserProfileFailed, Error.Names.RequestUserProfileFailed, ex);
                 }
             }
@@ -165,9 +190,9 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
             bool.TryParse(email_verified, out bool_email_verified);
 
             bool bool_phone_number_verified = false;
-            bool.TryParse(phone_number_verified, out  bool_phone_number_verified);
+            bool.TryParse(phone_number_verified, out bool_phone_number_verified);
 
-            var userIdentity =  new UserIdentity(tenantUserId, tenantCode, userName, fullName,
+            var userIdentity = new UserIdentity(tenantUserId, tenantCode, userName, fullName,
                 email, bool_email_verified, dialcode, phone_number, bool_phone_number_verified, role, clientId);
 
             _logger.LogDebug(_jsonConverter.SerializeObject(userIdentity));

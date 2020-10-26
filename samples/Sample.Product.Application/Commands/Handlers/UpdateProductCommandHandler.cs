@@ -1,10 +1,10 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
+﻿using MediatR;
 using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Adapter;
-using MediatR;
 using Sample.Product.Domain.AggregatesModel.ProductAggregate.Specifications;
 using Sample.Product.Domain.Repositories;
+using System.Threading;
+using System.Threading.Tasks;
+using AutoMapper;
 
 namespace Sample.Product.Application.Commands.Handlers
 {
@@ -17,13 +17,13 @@ namespace Sample.Product.Application.Commands.Handlers
 
         private readonly IProductRepository _productRepository;
 
-        private readonly ITypeAdapter _typeAdapter;
+        private readonly IMapper _mapper;
 
-        public UpdateProductCommandHandler(IDBContext dbContext, IProductRepository productRepository, ITypeAdapter typeAdapter)
+        public UpdateProductCommandHandler(IDBContext dbContext, IProductRepository productRepository, IMapper mapper)
         {
             _dbContext = dbContext;
             _productRepository = productRepository;
-            _typeAdapter = typeAdapter;
+            _mapper = mapper;
         }
 
         public async Task<Unit> Handle(UpdateProductCommand command, CancellationToken cancellationToken)

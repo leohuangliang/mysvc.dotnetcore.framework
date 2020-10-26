@@ -7,8 +7,12 @@ using MediatR;
 
 namespace MySvc.DotNetCore.Framework.Domain.Core.DomainEvents
 {
+    /// <summary>
+    /// 领域事件处理器
+    /// </summary>
+    /// <typeparam name="TDomainEvent"></typeparam>
     public interface IDomainEventHandler<in TDomainEvent> : INotificationHandler<TDomainEvent> where TDomainEvent : IDomainEvent
     {
-        
+
     }
 }

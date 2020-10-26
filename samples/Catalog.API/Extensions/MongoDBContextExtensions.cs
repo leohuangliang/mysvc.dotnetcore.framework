@@ -11,13 +11,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
 
 namespace Catalog.API.Extensions
 {
     public static class MongoDBContextExtensions
     {
-        public static IWebHost MigrateMongoDBContext(this IWebHost webHost) 
+        public static IWebHost MigrateMongoDBContext(this IWebHost webHost)
         {
             using (var scope = webHost.Services.CreateScope())
             {
@@ -29,10 +28,10 @@ namespace Catalog.API.Extensions
                 {
                     logger.LogInformation($"Migrating database");
 
-                   
+
                     //创建集合
                     maongoDbManager.CreateCollections();
-                   
+
 
                     logger.LogInformation($"Migrated database associated");
                 }

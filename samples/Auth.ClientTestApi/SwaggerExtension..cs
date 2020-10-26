@@ -1,4 +1,5 @@
-﻿using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client;
+﻿using System;
+using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,7 +9,8 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Operation = Swashbuckle.AspNetCore.Swagger.Operation;
+using System.Reflection;
+using Microsoft.OpenApi.Models;
 
 namespace Auth.ClientTestApi
 {
@@ -25,22 +27,26 @@ namespace Auth.ClientTestApi
             services.AddSwaggerGen(options =>
             {
                 
-                options.AddSecurityDefinition("oauth2", new OAuth2Scheme
+                options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
                 {
-                    Type = "oauth2",
-                    Flow = "implicit",
-                    AuthorizationUrl = $"{configuration.GetValue<string>("AuthHostAddress")}/connect/authorize",
-                    TokenUrl = $"{configuration.GetValue<string>("AuthHostAddress")}/connect/token",
-                    Scopes = new Dictionary<string, string>()
+                    Type = SecuritySchemeType.OAuth2,
+                    Flows = new OpenApiOAuthFlows
                     {
-                        { "AuthClientTestApi", "Auth.ClientTestApi"},
-                        { "clientIdentityApi","client Identity Service Api"}
-
-                    }
+                        Implicit = new OpenApiOAuthFlow
+                        {
+                            AuthorizationUrl = new Uri($"{configuration.GetValue<string>("AuthHostAddress")}/connect/authorize", UriKind.Relative),
+                            TokenUrl = new Uri($"{configuration.GetValue<string>("AuthHostAddress")}/connect/token"),
+                            Scopes = new Dictionary<string, string>
+                            {
+                                { "AuthClientTestApi", "Auth.ClientTestApi"},
+                                { "clientIdentityApi","client Identity Service Api"}
+                            }
+                        }
+                    },
+                  
                 });
 
-                options.DescribeAllEnumsAsStrings();
-                options.SwaggerDoc("v1", new Info { Title = "Client Service API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Client Service API", Version = "v1" });
 
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
                 var xmlPathApi = Path.Combine(basePath, "Auth.ClientTestApi.xml");
@@ -69,25 +75,35 @@ namespace Auth.ClientTestApi
         /// </summary>
         public class AuthorizeCheckOperationFilter : IOperationFilter
         {
-            public void Apply(Operation operation, OperationFilterContext context)
+            public void Apply(OpenApiOperation operation, OperationFilterContext context)
             {
                 // Check for authorize attribute
-                var hasAuthorize = context.ApiDescription.ControllerAttributes().OfType<AuthorizeAttribute>().Any() ||
-                                   context.ApiDescription.ActionAttributes().OfType<AuthorizeAttribute>().Any() ||
-                                   context.ApiDescription.ActionAttributes().OfType<PermissionAttribute>().Any();
+                var hasAuthorize = context.MethodInfo.DeclaringType.GetTypeInfo().GetCustomAttributes(true)
+                .OfType<AuthorizeAttribute>().Any() ||
+                                   context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any() ||
+                                   context.MethodInfo.GetCustomAttributes(true).OfType<PermissionAttribute>().Any();
 
                 if (hasAuthorize)
                 {
-                    operation.Responses.Add("401", new Response { Description = "Unauthorized" });
-                    operation.Responses.Add("403", new Response { Description = "Forbidden" });
+                    operation.Responses.Add("401", new OpenApiResponse { Description = "Unauthorized" });
+                    operation.Responses.Add("403", new OpenApiResponse { Description = "Forbidden" });
 
-                    operation.Security = new List<IDictionary<string, IEnumerable<string>>>();
-                    operation.Security.Add(new Dictionary<string, IEnumerable<string>>
+                    var oAuthScheme = new OpenApiSecurityScheme
                     {
-                        { "oauth2", new [] { "AuthClientTestApi" } }
-                    });
+                        Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "oauth2" }
+                    };
+                    operation.Security = new List<OpenApiSecurityRequirement>()
+                    {
+                        new OpenApiSecurityRequirement
+                        {
+                            [ oAuthScheme ] =  new [] { "AuthClientTestApi" }
+                        }
+                    };
+                    
                 }
             }
+
+           
         }
     }
 }

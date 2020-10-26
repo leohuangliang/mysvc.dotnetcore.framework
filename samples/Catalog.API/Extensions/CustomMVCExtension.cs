@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Catalog.API.Extensions
 {
-    public static  class CustomMVCExtension
+    public static class CustomMVCExtension
     {
         public static IServiceCollection AddCustomMVC(this IServiceCollection services, IConfiguration configuration)
         {
@@ -30,17 +30,21 @@ namespace Catalog.API.Extensions
             //    }
             //});
 
+
             services.AddMvc(options =>
             {
+                options.EnableEndpointRouting = false;
                 options.Filters.Add(typeof(HttpGlobalExceptionFilter));
             })
-            .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+            .AddNewtonsoftJson()
+            .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
             .AddControllersAsServices();
 
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
+                    builder => builder.WithOrigins("http://localhost:5000",
+                                                   "https://localhost:5001")
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .AllowCredentials());

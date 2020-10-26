@@ -4,9 +4,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>MySvc.DotNetCore.Framework.Domain.Core</RootNamespace>
     <AssemblyName>MySvc.DotNetCore.Framework.Domain.Core</AssemblyName>
-    <Copyright>@2018 Capmarvel</Copyright>
+    <Copyright>@2018 Mysvc.cc</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <UserSecretsId>ee9a7f2d-dc08-4960-ab3d-3a7fbab591ab</UserSecretsId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -18,13 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="DomainServices\**" />
-    <EmbeddedResource Remove="DomainServices\**" />
-    <None Remove="DomainServices\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="MediatR" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>

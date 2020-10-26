@@ -15,7 +15,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
 using Xunit.Abstractions;
-using DotNetCore.CAP;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
 
 namespace Infrastructure.Data.MongoDB.Tests
@@ -27,7 +26,6 @@ namespace Infrastructure.Data.MongoDB.Tests
         private readonly ITestOutputHelper _output;
         private readonly IMediator _mediator;
         private readonly Mock<ILogger<MongoDBContext>> _mockLogger;
-        private Mock<ICapPublisher> _mockCapPublisher;
         public DomainEventTest(ITestOutputHelper output)
         {
             _output = output;
@@ -38,7 +36,6 @@ namespace Infrastructure.Data.MongoDB.Tests
                 It.IsAny<Exception>(), It.IsAny<Func<MongoDBContext, Exception, string>>()));
             _mockLogger.Setup(m => m.IsEnabled(It.IsAny<LogLevel>())).Returns(true);
 
-            _mockCapPublisher = new Mock<ICapPublisher>();
         }
 
         [Fact]
@@ -49,15 +46,15 @@ namespace Infrastructure.Data.MongoDB.Tests
                 ConnectionString = _connectionString,
                 Database = _dbName
             });
-            var context = new MongoDBContext(options, _mockCapPublisher.Object, _mediator,_mockLogger.Object);
+            var context = new MongoDBContext(options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
-            Employee employee = new Employee() { Name = "Employee1", EmployeeNo = "1"};
+            Employee employee = new Employee() { Name = "Employee1", EmployeeNo = "1" };
             context.BeginTransaction();
             await personRepository.AddAsync(employee);
             await context.CommitAsync();
 
             context.BeginTransaction();
-            var employee2 = await personRepository.GetByKeyAsync(employee.Id) as Employee ;
+            var employee2 = await personRepository.GetByKeyAsync(employee.Id) as Employee;
             employee2.Dimission();
             await personRepository.UpdateAsync(employee2);
             await context.CommitAsync();

@@ -4,14 +4,24 @@ using MySvc.DotNetCore.Framework.Domain.Core.DomainEvents;
 namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
 {
 
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class AggregateRoot : Entity, IAggregateRoot
     {
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected AggregateRoot() : base()
         {
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
         protected AggregateRoot(string id) : base(id)
         {
 
@@ -19,6 +29,9 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
 
         private List<IDomainEvent> _domainEvents;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public IReadOnlyCollection<IDomainEvent> DomainEvents
         {
             get
@@ -28,17 +41,28 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="domainEvent"></param>
         public void AddDomainEvent(IDomainEvent domainEvent)
         {
             _domainEvents = _domainEvents ?? new List<IDomainEvent>();
             _domainEvents.Add(domainEvent);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void ClearDomainEvents()
         {
             _domainEvents?.Clear();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="domainEvent"></param>
         public void RemoveDomainEvent(IDomainEvent domainEvent)
         {
             _domainEvents?.Remove(domainEvent);
@@ -78,6 +102,12 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
             return base.Id.GetHashCode();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static bool operator ==(AggregateRoot left, AggregateRoot right)
         {
             if (Equals(left, null))
@@ -85,6 +115,12 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
             return left.Equals(right);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static bool operator !=(AggregateRoot left, AggregateRoot right)
         {
             return !(left == right);

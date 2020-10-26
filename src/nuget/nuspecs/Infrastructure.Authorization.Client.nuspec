@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
 		</id>
 		<version>
-			1.2.1
+			3.2.3
 		</version>
 		<title>
 			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
@@ -23,43 +23,7 @@
 			用户端权限控制
 		</description>
 		<releaseNotes>
-			1.0.0 Create
-			1.1.0 upgrate .net core to 2.2
-			1.1.1 fixbug
-			1.1.2 fixbug
-			1.1.3 拆分到一个独立项目
-			1.1.4 fixbug
-			1.1.5 fixbug
-			1.1.6 增加HasPermission方法
-			1.1.7-beta1 增加修改员工资料权限
-			1.1.7-beta2 删除租户名称
-			1.1.7-beta3 fixbug
-			1.1.7-beta4 增加RoleEnum
-			1.1.7-beta5 upgrate
-			1.1.7-beta6 fixbug
-			1.1.7-beta7 fixbug
-			1.1.7-beta8 增加是否设置支付密码字段
-			1.1.7-beta10 临时屏蔽权限判断
-			1.1.8 统一版本
-			1.1.9 升级Nuget版本
-			1.1.10 升级Nuget版本
-			1.1.11 升级Nuget版本
-			1.1.12-beta1 升级客户端鉴权类库
-			1.1.12-beta2 修复包引用问题
-			1.1.12-beta3 test
-			1.1.12-beta4 test
-			1.1.12-beta5 test
-			1.1.12 支持远程鉴权
-			1.1.13-beta1
-			1.1.13-beta2 修复鉴权
-			1.1.13-beta3 修复鉴权
-			1.1.13-beta5 修复鉴权
-			1.1.13-beta6 修复鉴权
-			1.1.14
-			1.2.0-beta1
-			1.2.0-beta2
-			1.2.0-beta3
-			1.2.0
+			
 		</releaseNotes>
 		<copyright>
 			Copyright 2018  (c)  MySVC.cc All rights reserved.
@@ -71,11 +35,9 @@
 			true
 		</serviceable>
 		<dependencies>
-			<dependency id="Microsoft.AspNetCore.Mvc" version="2.2.0" />
-			<dependency id="Microsoft.AspNetCore.Authorization" version="2.2.0" />
-			<dependency id="Microsoft.Extensions.Http" version="2.2.0" />
-			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="1.2.1" />
-			<dependency id="Microsoft.Extensions.Caching.Redis" version="2.2.0" />
+			<dependency id="Microsoft.AspNetCore.Mvc.Core" version="2.2.5" />
+			<dependency id="Microsoft.Extensions.Http" version="3.1.2" />
+			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.2.3" />
 		</dependencies>
 	</metadata>
 	<files>

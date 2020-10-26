@@ -1,10 +1,9 @@
-﻿using System;
+﻿using AutoMapper;
+using MediatR;
+using MySvc.DotNetCore.Framework.Domain.Core;
+using Sample.Product.Domain.Repositories;
 using System.Threading;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Adapter;
-using MediatR;
-using Sample.Product.Domain.Repositories;
 using DomainProduct = Sample.Product.Domain.AggregatesModel.ProductAggregate;
 
 namespace Sample.Product.Application.Commands.Handlers
@@ -18,13 +17,13 @@ namespace Sample.Product.Application.Commands.Handlers
 
         private readonly IProductRepository _productRepository;
 
-        private readonly ITypeAdapter _typeAdapter;
+        private readonly IMapper _mapper;
 
-        public CreateProductCommandHandler(IDBContext dbContext, IProductRepository productRepository, ITypeAdapter typeAdapter)
+        public CreateProductCommandHandler(IDBContext dbContext, IProductRepository productRepository, IMapper mapper)
         {
             _dbContext = dbContext;
             _productRepository = productRepository;
-            _typeAdapter = typeAdapter;
+            _mapper = mapper;
         }
 
         public async Task<ViewModels.Product> Handle(CreateProductCommand command, CancellationToken cancellationToken)
@@ -39,7 +38,7 @@ namespace Sample.Product.Application.Commands.Handlers
             
             await _dbContext.CommitAsync();
 
-            return _typeAdapter.Adapt<ViewModels.Product>(product);
+            return _mapper.Map<ViewModels.Product>(product);
         }
     }
 }

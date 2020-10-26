@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Sample.Product.Application.Adapter.AutoMapper.Profiles
+namespace Sample.Product.Application.Profiles
 {
     /// <summary>
     /// 产品类型的转换配置

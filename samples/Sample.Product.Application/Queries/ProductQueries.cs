@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Domain.Core.Paged;
+﻿using MySvc.DotNetCore.Framework.Domain.Core.Paged;
 using MySvc.DotNetCore.Framework.Domain.Core.Specification;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Adapter;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
 using Sample.Product.Application.Queries.Criteria;
 using Sample.Product.Domain.AggregatesModel.ProductAggregate.Specifications;
 using Sample.Product.Domain.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
+using AutoMapper;
 
 namespace Sample.Product.Application.Queries
 {
@@ -16,12 +16,12 @@ namespace Sample.Product.Application.Queries
     {
         private readonly IProductRepository _productRepository;
 
-        private readonly ITypeAdapter _typeAdapter;
+        private readonly IMapper _mapper;
 
-        public ProductQueries(IProductRepository productRepository, ITypeAdapter typeAdapter)
+        public ProductQueries(IProductRepository productRepository, IMapper mapper)
         {
             _productRepository = productRepository;
-            _typeAdapter = typeAdapter;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace Sample.Product.Application.Queries
         public async Task<ViewModels.Product> GetProductBySku(string sku)
         {
             var product = await _productRepository.GetAsync(new MatchProductBySKUSpecification(sku));
-            return _typeAdapter.Adapt<ViewModels.Product>(product);
+            return _mapper.Map<ViewModels.Product>(product);
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace Sample.Product.Application.Queries
             var products = new List<ViewModels.Product>();
             foreach (var product in result.Data)
             {
-                products.Add(_typeAdapter.Adapt<ViewModels.Product>(product));
+                products.Add(_mapper.Map<ViewModels.Product>(product));
             }
 
             return new PagedQueryResult<ViewModels.Product>()
