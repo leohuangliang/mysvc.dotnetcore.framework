@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
 		</id>
 		<version>
-			3.2.3
+			3.3.0-beta1
 		</version>
 		<title>
 			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
@@ -35,9 +35,8 @@
 			true
 		</serviceable>
 		<dependencies>
-			<dependency id="Microsoft.AspNetCore.Mvc.Core" version="2.2.5" />
-			<dependency id="Microsoft.Extensions.Http" version="3.1.2" />
-			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.2.3" />
+			<dependency id="Microsoft.Extensions.Http" version="3.1.8" />
+			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.3.0-beta1" />
 		</dependencies>
 	</metadata>
 	<files>

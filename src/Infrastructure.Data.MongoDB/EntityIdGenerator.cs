@@ -1,6 +1,7 @@
-﻿using DotNetCore.CAP.Infrastructure;
+﻿
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.IdGenerators;
-using MySvc.DotNetCore.Framework.Domain.Core.Impl;
+using MySvc.DotNetCore.Framework.Domain.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +12,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
     {
         public string GenerateId()
         {
-            return ObjectId.GenerateNewStringId();
+            return ObjectId.GenerateNewId().ToString();
         }
     }
 }

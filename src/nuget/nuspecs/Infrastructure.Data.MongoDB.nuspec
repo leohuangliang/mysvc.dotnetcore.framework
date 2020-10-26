@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
 		</id>
 		<version>
-			3.2.3
+			3.3.0-beta1
 		</version>
 		<title>
 			MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
@@ -35,14 +35,14 @@
 			true
 		</serviceable>
 		<dependencies>
-			<dependency id="MediatR" version="8.0.0" />
+			<dependency id="MediatR" version="9.0.0" />
 			<dependency id="Microsoft.CSharp" version="4.7.0" />
-			<dependency id="Microsoft.Extensions.Options" version="3.1.2" />
-			<dependency id="Microsoft.Extensions.DependencyInjection" version="3.1.2" />
-			<dependency id="Microsoft.Extensions.Logging" version="3.1.2" />
-			<dependency id="MongoDB.Driver" version="2.10.2" />
-			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.2.3" />
-			<dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="3.2.3" />
+			<dependency id="Microsoft.Extensions.Options" version="3.1.8" />
+			<dependency id="Microsoft.Extensions.DependencyInjection" version="3.1.8" />
+			<dependency id="Microsoft.Extensions.Logging" version="3.1.8" />
+			<dependency id="MongoDB.Driver" version="2.11.2" />
+			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.3.0-beta1" />
+			<dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="3.3.0-beta1" />
 			
 		</dependencies>
 	</metadata>

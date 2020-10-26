@@ -33,17 +33,6 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
         /// </summary>
         public byte[] RowVersion { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public void GenerateId()
-        {
-            if (string.IsNullOrEmpty(this.Id))
-            {
-                this.Id = Guid.NewGuid().ToString();
-            }
-        }
-
         public void GenerateId(IEntityIdGenerator entityIdGenerater)
         {
             if (entityIdGenerater is null)

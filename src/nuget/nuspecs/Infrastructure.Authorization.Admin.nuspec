@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin</id>
-    <version>3.2.3</version>
+    <version>3.3.0-beta1</version>
     <title>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -14,14 +14,14 @@
     <tags>MySVC.cc</tags>
     <serviceable>true</serviceable>
     <dependencies>
-      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.2.3" />
+      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.3.0-beta1" />
 
     </dependencies>
 
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\netcoreapp3.1\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.deps.json" target="lib\netcoreapp3.1\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.deps.json" />
-    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\netcoreapp3.1\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.dll" target="lib\netcoreapp3.1\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.dll" />
-    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\netcoreapp3.1\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.pdb" target="lib\netcoreapp3.1\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.pdb" />
+    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\netstandard2.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.deps.json" target="lib\netstandard2.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.deps.json" />
+    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\netstandard2.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.dll" target="lib\netstandard2.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.dll" />
+    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\netstandard2.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.pdb" target="lib\netstandard2.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.pdb" />
   </files>
 </package>

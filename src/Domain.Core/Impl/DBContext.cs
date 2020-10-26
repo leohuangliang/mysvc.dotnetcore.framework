@@ -35,6 +35,7 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
         protected readonly AsyncLocal<bool> _localCommitted =
             new AsyncLocal<bool> { Value = true };
         private readonly object _sync = new object();
+        private readonly IEntityIdGenerator _entityIdGenerater;
         #endregion
 
         #region Ctor
@@ -42,8 +43,9 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
         /// <summary>
         /// 
         /// </summary>
-        protected DBContext()
+        protected DBContext(IEntityIdGenerator entityIdGenerater)
         {
+            _entityIdGenerater = entityIdGenerater ?? throw new ArgumentNullException(nameof(entityIdGenerater));
         }
         #endregion
 
@@ -102,7 +104,7 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
         {
             if (obj.IsTransient())
             {
-                obj.GenerateId();
+                obj.GenerateId(_entityIdGenerater);
             }
             if (_localModifiedCollection.Value.ContainsKey(obj.Id))
                 throw new InvalidOperationException("The object cannot be registered as a new object since it was marked as modified.");
@@ -114,11 +116,7 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
             await Task.CompletedTask;
         }
 
-        /// <summary> 
-        /// ÅúÁ¿½«Ö¸¶¨µÄ¾ÛºÏ¸ù±ê×¢Îª¡°ÐÂ½¨¡±×´Ì¬¡£
-        /// </summary>
-        /// <typeparam name="TAggregateRoot">ÐèÒª±ê×¢×´Ì¬µÄ¾ÛºÏ¸ùÀàÐÍ¡£</typeparam>
-        /// <param name="objs">ÐèÒª±ê×¢×´Ì¬µÄ¾ÛºÏ¸ùÁÐ±í¡£</param>
+
         public virtual async Task RegisterNew<TAggregateRoot>(IList<TAggregateRoot> objs)
             where TAggregateRoot : class, IAggregateRoot
         {
@@ -140,7 +138,7 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
         {
             if (obj.IsTransient())
             {
-                obj.GenerateId();
+                obj.GenerateId(_entityIdGenerater);
             }
             if (_localDeletedCollection.Value.ContainsKey(obj.Id))
                 throw new InvalidOperationException("The object cannot be registered as a modified object since it was marked as deleted.");
@@ -151,11 +149,7 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
             await Task.CompletedTask;
         }
 
-        /// <summary>
-        /// ÅúÁ¿½«Ö¸¶¨µÄ¾ÛºÏ¸ù±ê×¢Îª¡°¸ü¸Ä¡±×´Ì¬¡£
-        /// </summary>
-        /// <typeparam name="TAggregateRoot">ÐèÒª±ê×¢×´Ì¬µÄ¾ÛºÏ¸ùÀàÐÍ¡£</typeparam>
-        /// <param name="objs">ÐèÒª±ê×¢×´Ì¬µÄ¾ÛºÏ¸ùÁÐ±í¡£</param>
+
         public virtual async Task RegisterModified<TAggregateRoot>(IList<TAggregateRoot> objs)
             where TAggregateRoot : class, IAggregateRoot
         {
@@ -177,7 +171,7 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
         {
             if (obj.IsTransient())
             {
-                obj.GenerateId();
+                obj.GenerateId(_entityIdGenerater);
             }
             if (_localNewCollection.Value.ContainsKey(obj.Id))
             {
@@ -196,11 +190,7 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
             await Task.CompletedTask;
         }
 
-        /// <summary>
-        /// ÅúÁ¿½«Ö¸¶¨µÄ¾ÛºÏ¸ù±ê×¢Îª¡°É¾³ý¡±×´Ì¬¡£
-        /// </summary>
-        /// <typeparam name="TAggregateRoot">ÐèÒª±ê×¢×´Ì¬µÄ¾ÛºÏ¸ùÀàÐÍ¡£</typeparam>
-        /// <param name="objs">ÐèÒª±ê×¢×´Ì¬µÄ¾ÛºÏ¸ùÁÐ±í¡£</param>
+
         public virtual async Task RegisterDeleted<TAggregateRoot>(IList<TAggregateRoot> objs)
             where TAggregateRoot : class, IAggregateRoot
         {

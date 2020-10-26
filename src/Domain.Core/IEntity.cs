@@ -16,10 +16,8 @@ namespace MySvc.DotNetCore.Framework.Domain.Core
         /// 
         /// </summary>
         Byte[] RowVersion { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        void GenerateId();
+
+        void GenerateId(IEntityIdGenerator entityIdGenerator);
     }
     /// <summary>
     /// 

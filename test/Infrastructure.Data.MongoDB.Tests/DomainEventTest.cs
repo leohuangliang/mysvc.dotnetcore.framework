@@ -16,20 +16,23 @@ using Microsoft.Extensions.Options;
 using Moq;
 using Xunit.Abstractions;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
+using MySvc.DotNetCore.Framework.Domain.Core;
 
 namespace Infrastructure.Data.MongoDB.Tests
 {
     public class DomainEventTest
     {
-        private readonly string _connectionString = "mongodb://127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/?connect=replicaSet";
+        private readonly string _connectionString = "mongodb://admin:admin123456@127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/?connect=replicaSet";
         private readonly string _dbName = "framework-core-test";
         private readonly ITestOutputHelper _output;
         private readonly IMediator _mediator;
         private readonly Mock<ILogger<MongoDBContext>> _mockLogger;
+        private readonly IEntityIdGenerator _entityIdGenerator;
         public DomainEventTest(ITestOutputHelper output)
         {
             _output = output;
             _mediator = BuildMediator();
+            _entityIdGenerator = new EntityIdGenerator();
             _mockLogger = new Mock<ILogger<MongoDBContext>>();
             //ILogger 很多扩展方法，但是扩展方法无法moq，直接moq最底部
             _mockLogger.Setup(m => m.Log(It.IsAny<LogLevel>(), It.IsAny<EventId>(), It.IsAny<MongoDBContext>(),
@@ -46,7 +49,7 @@ namespace Infrastructure.Data.MongoDB.Tests
                 ConnectionString = _connectionString,
                 Database = _dbName
             });
-            var context = new MongoDBContext(options, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_entityIdGenerator,options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Employee employee = new Employee() { Name = "Employee1", EmployeeNo = "1" };
             context.BeginTransaction();

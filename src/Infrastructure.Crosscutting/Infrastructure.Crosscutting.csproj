@@ -18,9 +18,9 @@
     <Version>1.0.1</Version>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="3.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="3.1.8" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="3.1.8" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Exceptions\ErrorCode.tt">

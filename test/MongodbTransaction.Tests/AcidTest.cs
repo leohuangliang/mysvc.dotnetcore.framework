@@ -14,8 +14,8 @@ namespace MongodbTransaction.Tests
 {
     public class AcidTest
     {
-        // private readonly string _connectionString = "mongodb://127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/?connect=replicaSet";
-        private readonly string _connectionString = "mongodb://testdb_admin:testdb_admin@172.96.207.204:27017,172.96.207.204:27018,172.96.207.204:27019/?replicaSet=capmarvelRepSet";
+         private readonly string _connectionString = "mongodb://admin:admin123456@127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/?connect=replicaSet";
+        //private readonly string _connectionString = "mongodb://testdb_admin:testdb_admin@172.96.207.204:27017,172.96.207.204:27018,172.96.207.204:27019/?replicaSet=capmarvelRepSet";
         private readonly string _dbName = "testdb";
         private readonly IOptions<MongoDBSettings> _options;
 

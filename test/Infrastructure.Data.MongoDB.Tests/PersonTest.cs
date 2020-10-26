@@ -32,6 +32,8 @@ namespace Infrastructure.Data.MongoDB.Tests
         private IMediator _mediator;
         private readonly ITestOutputHelper _output;
         private readonly Mock<ILogger<MongoDBContext>> _mockLogger;
+        private readonly IEntityIdGenerator _entityIdGenerator;
+
         public PersonTest(ITestOutputHelper output)
         {
             _options = Options.Create<MongoDBSettings>(new MongoDBSettings()
@@ -40,6 +42,8 @@ namespace Infrastructure.Data.MongoDB.Tests
                 Database = _dbName
             });
             _output = output;
+            _entityIdGenerator = new EntityIdGenerator();
+
             Build();
             MongoDBContext.RegisterConventions();
             new MongoDBManager(_options).CreateCollections();
@@ -56,7 +60,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         public async Task Insert_Test()
         {
 
-            var context = new MongoDBContext(_options, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_entityIdGenerator,_options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Person { Name = "test" };
             context.BeginTransaction();
@@ -72,7 +76,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Insert_EmployeeTest()
         {
-            var context = new MongoDBContext(_options, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Employee { Name = "test", EmployeeNo = "1" };
             context.BeginTransaction();
@@ -92,7 +96,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Insert_Employee_Version_Test()
         {
-            var context = new MongoDBContext(_options, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Employee { Name = "test", EmployeeNo = "1", RowVersion = BitConverter.GetBytes(DateTime.UtcNow.Ticks) };
             context.BeginTransaction();
@@ -111,7 +115,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Insert_Employee_Version_Exception_Test()
         {
-            var context = new MongoDBContext(_options, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Person() { Name = "test" };
 
@@ -145,7 +149,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Query_Test()
         {
-            var context = new MongoDBContext(_options, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Person() { Name = "test" };
 
@@ -244,7 +248,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Query_Test_2()
         {
-            var context = new MongoDBContext(_options, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
 
 

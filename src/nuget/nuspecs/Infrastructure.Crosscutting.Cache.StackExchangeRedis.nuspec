@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Cache.StackExchangeRedis
 		</id>
 		<version>
-			3.2.3
+			3.3.0-beta1
 
 		</version>
 		<title>
@@ -35,8 +35,8 @@
 			true
 		</serviceable>
 		<dependencies>
-			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.2.3" />
-			<dependency id="Microsoft.Extensions.Caching.StackExchangeRedis" version="3.1.2" />
+			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.3.0-beta1" />
+			<dependency id="Microsoft.Extensions.Caching.StackExchangeRedis" version="3.1.8" />
 		</dependencies>
 	</metadata>
 	<files>

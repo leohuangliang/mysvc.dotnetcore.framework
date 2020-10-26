@@ -27,6 +27,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
     /// </summary>
     public class MongoDBContext : DBContext, IMongoDBContext
     {
+        private readonly IEntityIdGenerator _entityIdGenerator;
         private readonly IMediator _mediator;
 
         /// <summary>
@@ -34,8 +35,8 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
         /// </summary>
         private readonly ILogger<MongoDBContext> _logger;
 
-        public MongoDBContext(IOptions<MongoDBSettings> mongoDBSettingsAccessor,
-            IMediator mediator, ILogger<MongoDBContext> logger)
+        public MongoDBContext(IEntityIdGenerator entityIdGenerator, IOptions<MongoDBSettings> mongoDBSettingsAccessor,
+            IMediator mediator, ILogger<MongoDBContext> logger) : base(entityIdGenerator)
         {
             if (mongoDBSettingsAccessor is null)
             {
@@ -43,6 +44,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
             }
 
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _entityIdGenerator = entityIdGenerator ?? throw new ArgumentNullException(nameof(entityIdGenerator));
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
 
             var mongoDbSettings = mongoDBSettingsAccessor.Value;
@@ -89,7 +91,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
             {
                 if (obj.IsTransient())
                 {
-                    obj.GenerateId();
+                    obj.GenerateId(_entityIdGenerator);
                 }
                 obj.RowVersion = BitConverter.GetBytes(DateTime.UtcNow.Ticks);
 
@@ -139,7 +141,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
                     {
                         if (obj.IsTransient())
                         {
-                            obj.GenerateId();
+                            obj.GenerateId(_entityIdGenerator);
                         }
 
                         obj.RowVersion = BitConverter.GetBytes(DateTime.UtcNow.Ticks);
