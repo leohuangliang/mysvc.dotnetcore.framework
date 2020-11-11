@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
 		</id>
 		<version>
-			5.0.0-beta1
+			5.0.0-beta2
 		</version>
 		<title>
 			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
@@ -37,7 +37,7 @@
 		<dependencies>
 			
 			<dependency id="Microsoft.Extensions.Http" version="3.1.8" />
-			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta1" />
+			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta2" />
 		</dependencies>
 	</metadata>
 	<files>
