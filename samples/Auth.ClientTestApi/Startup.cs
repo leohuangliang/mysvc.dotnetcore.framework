@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
 using MySvc.DotNetCore.Framework.Infrastructure.Json.NewtonsoftJson;
@@ -15,12 +16,14 @@ namespace Auth.ClientTestApi
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration,IWebHostEnvironment webHostEnvironment)
         {
             Configuration = configuration;
+            this.WebHostEnvironment = webHostEnvironment;
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment WebHostEnvironment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -43,10 +46,10 @@ namespace Auth.ClientTestApi
                 //    options.SerializerSettings.Converters = convers;
                 //})
                 .AddNewtonsoftJson()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+                .SetCompatibilityVersion(CompatibilityVersion.Latest);
 
             services.AddCustomAuthentication(Configuration);
-            services.AddCustomSwagger(Configuration);
+            services.AddCustomSwagger(Configuration, this.WebHostEnvironment);
             services.Configure<AuthServiceOptions>(Configuration.GetSection("AuthServiceOptions"));
             services.AddScoped<IUserIdentityService, UserIdentityService>();
             services.AddSingleton<IJsonConverter, NewtonsoftJsonConverter>(); 
@@ -66,9 +69,9 @@ namespace Auth.ClientTestApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
+            if (WebHostEnvironment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }

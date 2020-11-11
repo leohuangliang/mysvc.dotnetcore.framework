@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire</id>
-    <version>3.3.0-beta1</version>
+    <version>5.0.0-beta1</version>
     <title>MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -14,14 +14,14 @@
     <copyright>Copyright 2018  (c) MySVC.cc All rights reserved.</copyright>
     <tags>MySVC.cc</tags>
     <dependencies>
-      <dependency id="Hangfire.Core" version="1.7.15" />
-      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.3.0-beta1" />
+      <dependency id="Hangfire.Core" version="1.7.17" />
+      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta1" />
 
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.Job.Hangfire\bin\Release\netstandard2.0\MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire.dll" target="lib\netstandard2.0\MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire.dll" />
-    <file src="..\..\Infrastructure.Job.Hangfire\bin\Release\netstandard2.0\MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire.pdb" target="lib\netstandard2.0\MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire.pdb" />
+    <file src="..\..\Infrastructure.Job.Hangfire\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire.dll" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire.dll" />
+    <file src="..\..\Infrastructure.Job.Hangfire\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire.pdb" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire.pdb" />
 		
   </files>
 </package>

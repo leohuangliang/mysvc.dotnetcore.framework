@@ -3,7 +3,6 @@ using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.PlatformAbstractions;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Generic;
@@ -11,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Auth.ClientTestApi
 {
@@ -22,7 +22,7 @@ namespace Auth.ClientTestApi
         /// <summary>
         /// 增加自定义的Swagger扩展
         /// </summary>
-        public static IServiceCollection AddCustomSwagger(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddCustomSwagger(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment hostingEnvironment)
         {
             services.AddSwaggerGen(options =>
             {
@@ -48,7 +48,7 @@ namespace Auth.ClientTestApi
 
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "Client Service API", Version = "v1" });
 
-                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+                var basePath = hostingEnvironment.ContentRootPath;
                 var xmlPathApi = Path.Combine(basePath, "Auth.ClientTestApi.xml");
                 
                 options.IncludeXmlComments(xmlPathApi);

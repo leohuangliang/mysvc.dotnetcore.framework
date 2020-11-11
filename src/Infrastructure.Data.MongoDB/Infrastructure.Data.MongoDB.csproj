@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-	  <TargetFramework>netstandard2.0</TargetFramework>
+	  <TargetFramework>net5.0</TargetFramework>
 	  <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB</RootNamespace>
 	  <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB</AssemblyName>
 	  <Copyright>@2018 MySvc.cc</Copyright>
@@ -15,10 +15,10 @@
 	
 		<PackageReference Include="MediatR" Version="9.0.0" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.8" />
-		<PackageReference Include="Microsoft.Extensions.Options" Version="3.1.8" />
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.8" />
-		<PackageReference Include="MongoDB.Driver" Version="2.11.2" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+		<PackageReference Include="MongoDB.Driver" Version="2.11.4" />
 	</ItemGroup>
   
 	<ItemGroup>

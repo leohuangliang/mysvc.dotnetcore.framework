@@ -1,46 +1,27 @@
-<?xml version="1.0"?>
-<package>
-	<metadata>
-		<id>
-			MySvc.DotNetCore.Framework.Domain.Core
-		</id>
-		<version>
-			3.3.0-beta1
-		</version>
-		<title>
-			MySvc.DotNetCore.Framework.Domain.Core
-		</title>
-		<authors>
-			liang.huang
-		</authors>
-		<owners>
-			liang.huang
-		</owners>
-		<requireLicenseAcceptance>
-			false
-		</requireLicenseAcceptance>
-		<description>
-			领域模型相关基础实现
-		</description>
-		<releaseNotes>
-			
-		</releaseNotes>
-		<copyright>
-			Copyright 2018  (c) MySVC.cc  All rights reserved.
-		</copyright>
-		<tags>
-			MySVC.cc
-		</tags>
-		<serviceable>
-			true
-		</serviceable>
-		<dependencies>
-			<dependency id="MediatR" version="9.0.0" />
-			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.3.0-beta1" />
-		</dependencies>
-	</metadata>
-	<files>
-		<file src="..\..\Domain.Core\bin\Release\netstandard2.0\MySvc.DotNetCore.Framework.Domain.Core.dll" target="lib\netstandard2.0\MySvc.DotNetCore.Framework.Domain.Core.dll" />
-		<file src="..\..\Domain.Core\bin\Release\netstandard2.0\MySvc.DotNetCore.Framework.Domain.Core.pdb" target="lib\netstandard2.0\MySvc.DotNetCore.Framework.Domain.Core.pdb" />
-	</files>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>MySvc.DotNetCore.Framework.Domain.Core</id>
+    <version>5.0.0-beta1</version>
+    <title>MySvc.DotNetCore.Framework.Domain.Core</title>
+    <authors>liang.huang</authors>
+    <owners>liang.huang</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>领域模型相关基础实现</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2018  (c) MySVC.cc  All rights reserved.</copyright>
+    <tags>MySVC.cc</tags>
+    <serviceable>true</serviceable>
+    <dependencies>
+     
+    <dependency id="MediatR" version="9.0.0" />
+      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta1" />
+    
+      
+    </dependencies> 
+  </metadata>
+  <files>
+    <file src="..\..\Domain.Core\bin\Release\net5.0\MySvc.DotNetCore.Framework.Domain.Core.dll" target="lib\net5.0\MySvc.DotNetCore.Framework.Domain.Core.dll" />
+    <file src="..\..\Domain.Core\bin\Release\net5.0\MySvc.DotNetCore.Framework.Domain.Core.pdb" target="lib\net5.0\MySvc.DotNetCore.Framework.Domain.Core.pdb" />
+  </files>
 </package>

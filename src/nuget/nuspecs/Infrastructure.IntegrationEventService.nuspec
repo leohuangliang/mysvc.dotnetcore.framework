@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService</id>
-    <version>3.3.0-beta1</version>
+    <version>5.0.0-beta1</version>
     <title>MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -14,16 +14,16 @@
     <copyright>Copyright 2018  (c) MySVC.cc All rights reserved.</copyright>
     <tags>MySVC.cc</tags>
     <dependencies>
-      <dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="3.3.0-beta1" />
-      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson" version="3.3.0-beta1" />
-      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="3.3.0-beta1" />
-      <dependency id="MassTransit" version="7.0.4" />
-      <dependency id="Microsoft.Extensions.Logging" version="3.1.8" />
+      <dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="5.0.0-beta1" />
+      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson" version="5.0.0-beta1" />
+      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta1" />
+      <dependency id="MassTransit" version="7.0.6" />
+      <dependency id="Microsoft.Extensions.Logging" version="5.0.0" />
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.IntegrationEventService\bin\Release\netstandard2.0\MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService.dll" target="lib\netstandard2.0\MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService.dll" />
-    <file src="..\..\Infrastructure.IntegrationEventService\bin\Release\netstandard2.0\MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService.pdb" target="lib\netstandard2.0\MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService.pdb" />
+    <file src="..\..\Infrastructure.IntegrationEventService\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService.dll" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService.dll" />
+    <file src="..\..\Infrastructure.IntegrationEventService\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService.pdb" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService.pdb" />
 		
   </files>
 </package>
