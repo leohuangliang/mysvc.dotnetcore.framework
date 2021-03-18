@@ -12,7 +12,6 @@ using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
-using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Exceptions;
 
 namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
 {

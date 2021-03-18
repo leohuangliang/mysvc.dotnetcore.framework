@@ -11,7 +11,7 @@ namespace Sample.Product.Domain.AggregatesModel.ProductAggregate
     {
         private Product()
         {
-
+            
         }
 
         public Product(string sku, string title, int stockQty)
@@ -19,6 +19,7 @@ namespace Sample.Product.Domain.AggregatesModel.ProductAggregate
             SKU = sku;
             Title = title;
             StockQty = stockQty;
+            Mark = "sdfdfs";
         }
 
         /// <summary>
@@ -40,6 +41,8 @@ namespace Sample.Product.Domain.AggregatesModel.ProductAggregate
         /// 产品描述
         /// </summary>
         public string Desc { get; set; }
+        
+        public string Mark { get; init; }
 
         public void ChangeTitle(string title)
         {

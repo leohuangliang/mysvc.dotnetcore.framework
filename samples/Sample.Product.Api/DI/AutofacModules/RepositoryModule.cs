@@ -22,6 +22,8 @@ namespace Sample.Product.Api.DI.AutofacModules
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<MongoDBManager>().SingleInstance();
+            builder.RegisterType<EntityIdGenerator>()
+                .As<IEntityIdGenerator>().SingleInstance();
 
             //默认用于读写
             builder.RegisterType<MongoDBContext>()

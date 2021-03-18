@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService</id>
-    <version>5.0.0-beta2</version>
+    <version>5.0.0-beta4</version>
     <title>MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -14,9 +14,9 @@
     <copyright>Copyright 2018  (c) MySVC.cc All rights reserved.</copyright>
     <tags>MySVC.cc</tags>
     <dependencies>
-      <dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="5.0.0-beta2" />
-      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson" version="5.0.0-beta2" />
-      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta2" />
+      <dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="5.0.0-beta4" />
+      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson" version="5.0.0-beta4" />
+      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta4" />
       <dependency id="MassTransit" version="7.0.6" />
       <dependency id="Microsoft.Extensions.Logging" version="5.0.0" />
     </dependencies>

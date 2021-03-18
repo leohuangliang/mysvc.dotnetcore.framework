@@ -63,6 +63,41 @@ namespace MongodbTransaction.Tests
         }
 
         [Fact]
+        public void Single_Insert_Product()
+        {
+            IMongoClient client = new MongoClient(_connectionString);
+
+            var database = client.GetDatabase(_dbName);
+            using (IClientSession session = client.StartSession())
+            {
+                session.StartTransaction();
+                var collection = database.GetCollection<Product>("products");
+                var product = new Product() { Name = "test" , Catalog = new Catalog("a","b")};
+                try
+                {
+                    collection.InsertOne(product);
+
+                    session.CommitTransaction();
+                }
+                catch (Exception e)
+                {
+                    session.AbortTransaction();
+                    throw;
+                }
+
+                var find = collection.AsQueryable().FirstOrDefault(c => c.Id == product.Id);
+                Assert.NotNull(find);
+                Assert.Equal(product.Name, find.Name);
+
+                Assert.NotNull(find.Catalog);
+                Assert.Equal(product.Catalog.FirstName, find.Catalog.FirstName);
+                Assert.Equal(product.Catalog.LastName, find.Catalog.LastName);
+                Assert.Equal(product.Catalog, find.Catalog);
+                _output.WriteLine("OK");
+            }
+        }
+
+        [Fact]
         public void Insert_Multi()
         {
             IMongoClient client = new MongoClient(_connectionString);
@@ -374,9 +409,24 @@ namespace MongodbTransaction.Tests
         public Product()
         {
             Id = Guid.NewGuid().ToString();
+
         }
 
         public string Id { get; private set; }
         public string Name { get; set; }
+
+        public Catalog Catalog { get; set; }
+    }
+
+    public record Catalog 
+    {
+        public string FirstName { get; }
+        public string LastName { get; }
+
+        public Catalog(string firstName, string lastName)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+        }
     }
 }

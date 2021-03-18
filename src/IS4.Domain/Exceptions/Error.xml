@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ErrorCodes>
+  <Segment Name="System Error">
+  </Segment>
+  <Segment Name="Generic Error">
+  </Segment>
+
+  <Segment Name="IdentityDomain" >
+      <ErrorCode Name="PasswordMismatch" Code="password-mismatch" Message="密码错误" />
+
+  </Segment>
+</ErrorCodes>
+

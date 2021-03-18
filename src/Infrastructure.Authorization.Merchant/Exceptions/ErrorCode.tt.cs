@@ -16,9 +16,7 @@
 // </auto-generated>
 //---------------------------------------------------------------------------------------
 
-using System;
-
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Exceptions
+namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions
 {	
 	public static class Error
     {
