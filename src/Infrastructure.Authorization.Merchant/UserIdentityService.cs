@@ -98,6 +98,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
 
             string tenantUserId = _contextAccessor.HttpContext.User.GetClaimValue("sub");
             string tenantCode = _contextAccessor.HttpContext.User.GetClaimValue("tenantcode");
+            string tenantName = _contextAccessor.HttpContext.User.GetClaimValue("tenantname");
 
             string clientId = _contextAccessor.HttpContext.User.GetClaimValue("client_id");
 
@@ -152,7 +153,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
 
             if (userProfile == null) throw new AuthValidationError(Error.Codes.RequestUserProfileFailed, Error.Names.RequestUserProfileFailed);
 
-            return new UserIdentity(tenantUserId, tenantCode, clientId, userProfile);
+            return new UserIdentity(tenantUserId, tenantCode, clientId, userProfile){ TenantName = tenantName};
         }
 
         /// <summary>
@@ -165,6 +166,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
             string clientId = _contextAccessor.HttpContext.User.GetClaimValue("client_id");
             string tenantUserId = _contextAccessor.HttpContext.User.GetClaimValue("sub");
             string tenantCode = _contextAccessor.HttpContext.User.GetClaimValue("tenantcode");
+            string tenantName = _contextAccessor.HttpContext.User.GetClaimValue("tenantname");
 
             if (tenantCode.IsNullOrBlank())
             {
@@ -192,7 +194,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
             bool.TryParse(phone_number_verified, out bool_phone_number_verified);
 
             var userIdentity = new UserIdentity(tenantUserId, tenantCode, userName, fullName,
-                email, bool_email_verified, dialcode, phone_number, bool_phone_number_verified, role, clientId);
+                email, bool_email_verified, dialcode, phone_number, bool_phone_number_verified, role, clientId){ TenantName = tenantName };
 
             _logger.LogDebug(_jsonConverter.SerializeObject(userIdentity));
             return userIdentity;

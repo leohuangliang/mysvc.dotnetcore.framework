@@ -1,4 +1,4 @@
-set LatestVersion=5.0.0-beta4
+set LatestVersion=5.0.0-beta5
 
 nuget setapikey oy2ogou3rx273j4dhqvat7qug3ozl5xuvezs7d6eswk6qu -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Domain.Core\MySvc.DotNetCore.Framework.Domain.Core.%LatestVersion%.nupkg   -Source https://api.nuget.org/v3/index.json

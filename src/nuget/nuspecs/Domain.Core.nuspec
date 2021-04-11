@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
   <metadata>
     <id>MySvc.DotNetCore.Framework.Domain.Core</id>
-    <version>5.0.0-beta4</version>
+    <version>5.0.0-beta5</version>
     <title>MySvc.DotNetCore.Framework.Domain.Core</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -13,12 +13,10 @@
     <tags>MySVC.cc</tags>
     <serviceable>true</serviceable>
     <dependencies>
-     
-    <dependency id="MediatR" version="9.0.0" />
-      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta4" />
-    
-      
-    </dependencies> 
+      <dependency id="MediatR" version="9.0.0" />
+      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta5" />
+    </dependencies>
+
   </metadata>
   <files>
     <file src="..\..\Domain.Core\bin\Release\net5.0\MySvc.DotNetCore.Framework.Domain.Core.dll" target="lib\net5.0\MySvc.DotNetCore.Framework.Domain.Core.dll" />

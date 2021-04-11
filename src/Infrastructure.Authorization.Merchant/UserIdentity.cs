@@ -38,21 +38,21 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
             this.Role = userProfile.Role;
         }
 
-        public string TenantUserId { get; private set; }
-        public string TenantCode { get; private set; }
+        public string TenantUserId { get;  init; }
+        public string TenantCode { get; init; }
+        public string TenantName { get; init; }
+        public string ClientId { get; init; }
 
-        public string ClientId { get; private set; }
+        public string UserName { get; init; }
+        public string FullName { get; init; }
 
-        public string UserName { get; private set; }
-        public string FullName { get; private set; }
+        public string Email { get; init; }
+        public bool ConfirmEmail { get; init; }
+        public string DialCode { get; init; }
+        public string PhoneNumber { get; init; }
 
-        public string Email { get; private set; }
-        public bool ConfirmEmail { get; private set; }
-        public string DialCode { get; private set; }
-        public string PhoneNumber { get; private set; }
+        public bool ConfirmPhoneNumber { get; init; }
 
-        public bool ConfirmPhoneNumber { get; private set; }
-
-        public string Role { get; private set; }
+        public string Role { get; init; }
     }
 }
