@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31213.239
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayPalCoreSDK", "PayPalCoreSDK\PayPalCoreSDK.csproj", "{6743B9B9-3F79-4D61-8FC8-86A63AF3860E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayPalMerchantSDK", "PayPalMerchantSDK\PayPalMerchantSDK.csproj", "{F7BBF565-80A6-469A-BD3C-43353FB85357}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6743B9B9-3F79-4D61-8FC8-86A63AF3860E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6743B9B9-3F79-4D61-8FC8-86A63AF3860E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6743B9B9-3F79-4D61-8FC8-86A63AF3860E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6743B9B9-3F79-4D61-8FC8-86A63AF3860E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7BBF565-80A6-469A-BD3C-43353FB85357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7BBF565-80A6-469A-BD3C-43353FB85357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7BBF565-80A6-469A-BD3C-43353FB85357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7BBF565-80A6-469A-BD3C-43353FB85357}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0BF3FBB-C03E-4B47-AB99-32C1AEEAD780}
+	EndGlobalSection
+EndGlobal

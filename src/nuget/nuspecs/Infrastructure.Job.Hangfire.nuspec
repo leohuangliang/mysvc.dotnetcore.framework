@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire</id>
-    <version>5.0.0-beta5</version>
+    <version>5.0.0-beta6</version>
     <title>MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -15,7 +15,7 @@
     <tags>MySVC.cc</tags>
     <dependencies>
       <dependency id="Hangfire.Core" version="1.7.17" />
-      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta5" />
+      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta6" />
 
     </dependencies>
   </metadata>

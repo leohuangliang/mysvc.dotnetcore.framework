@@ -464,6 +464,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="additionConventions">Additional conventions that needs to be registered.</param>
         public static void RegisterConventions(IEnumerable<IConvention> additionConventions = null)
         {
+            ConventionRegistryHelper.ReplaceDefaultConventionPack();
             var conventionPack = new ConventionPack();
             conventionPack.Add(new NamedIdMemberConvention("id", "_id"));
             conventionPack.Add(new IgnoreExtraElementsConvention(true));

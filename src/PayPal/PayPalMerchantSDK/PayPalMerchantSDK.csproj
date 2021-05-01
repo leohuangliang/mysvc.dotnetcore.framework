@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>MySvc.DotNetCore.PayPalMerchantSDK</AssemblyName>
+    <RootNamespace>MySvc.DotNetCore.PayPalMerchantSDK</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PayPalCoreSDK\PayPalCoreSDK.csproj" />
+  </ItemGroup>
+
+</Project>

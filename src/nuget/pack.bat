@@ -11,3 +11,4 @@ nuget pack nuspecs\Infrastructure.IntegrationEventService.nuspec -OutputDirector
 
 nuget pack nuspecs\IS4.Domain.nuspec -OutputDirectory nuget-packages\IS4.Domain
 nuget pack nuspecs\Infrastructure.IdentityServer4.MongoDB.nuspec -OutputDirectory nuget-packages\Infrastructure.IdentityServer4.MongoDB
+

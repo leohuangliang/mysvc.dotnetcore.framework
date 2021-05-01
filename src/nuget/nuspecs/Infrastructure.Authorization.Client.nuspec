@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
 		</id>
 		<version>
-			5.0.0-beta5
+			5.0.0-beta6
 		</version>
 		<title>
 			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
