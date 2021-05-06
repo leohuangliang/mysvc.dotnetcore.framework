@@ -6,6 +6,7 @@ using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using System.Security.Claims;
 
 namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
 {
@@ -31,7 +32,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
 
             var user = MapUser();
             List<string> permissions = PermissionManage.GetPermissions(user.Role);
-            return new UserIdentity(user.UserId, user.UserName, user.FullName, user.Email, user.PhoneNumber, user.Role, permissions);
+            return new UserIdentity(user.UserId, user.UserName, user.FullName, user.Email, user.ConfirmEmail, user.DialCode, user.PhoneNumber, user.ConfirmPhoneNumber, user.Role, permissions);
         }
 
         /// <summary>
@@ -40,31 +41,22 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
         /// <returns></returns>
         private UserIdentity MapUser()
         {
-            string userId = _contextAccessor.HttpContext.User.FindFirst("sub").Value;
-            string userName = _contextAccessor.HttpContext.User.FindFirst("unique_name").Value;
+            string userId = _contextAccessor.HttpContext.User.GetClaimValue("sub");
+            string userName = _contextAccessor.HttpContext.User.GetClaimValue(ClaimTypes.Name);
+            string role = _contextAccessor.HttpContext.User.GetClaimValue(ClaimTypes.Role);
+            string fullName = _contextAccessor.HttpContext.User.GetClaimValue("full_name");
+            string email = _contextAccessor.HttpContext.User.GetClaimValue(ClaimTypes.Email);
+            string dialcode = _contextAccessor.HttpContext.User.GetClaimValue("dialcode");
+            string phone_number = _contextAccessor.HttpContext.User.GetClaimValue("phone_number");
+            string email_verified = _contextAccessor.HttpContext.User.GetClaimValue("email_verified");
+            string phone_number_verified = _contextAccessor.HttpContext.User.GetClaimValue("phone_number_verified");
 
-            var roleClaim = _contextAccessor.HttpContext.User.FindFirst("role");
-            string role = "";
-            if (roleClaim != null)
-            {
-                role = _contextAccessor.HttpContext.User.FindFirst("role").Value;
-            }
+            bool bool_email_verified = false;
+            bool.TryParse(email_verified, out bool_email_verified);
 
-            var fullNameClaim = _contextAccessor.HttpContext.User.FindFirst("full_name");
-            string fullName = "";
-            if (fullNameClaim != null)
-            {
-                fullName = _contextAccessor.HttpContext.User.FindFirst("full_name").Value;
-            }
-
-            var email = _contextAccessor.HttpContext.User.FindFirst("email").Value;
-            var phone_number = _contextAccessor.HttpContext.User.FindFirst("phone_number").Value;
-
-            if (userId.IsNullOrBlank()  || userName.IsNullOrBlank())
-            {
-                throw new AuthenticationException("unauthorized");
-            }
-            return new UserIdentity(userId, userName, fullName, email, phone_number, role, new List<string>());
+            bool bool_phone_number_verified = false;
+            bool.TryParse(phone_number_verified, out bool_phone_number_verified);
+            return new UserIdentity(userId, userName, fullName, email, bool_email_verified, dialcode, phone_number, bool_phone_number_verified, role, new List<string>());
         }
     }
 }

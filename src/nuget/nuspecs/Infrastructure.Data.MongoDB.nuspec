@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
 		</id>
 		<version>
-			5.0.0-beta6
+			5.0.0-beta9
 		</version>
 		<title>
 			MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
@@ -41,8 +41,8 @@
 			<dependency id="Microsoft.Extensions.DependencyInjection" version="5.0.0" />
 			<dependency id="Microsoft.Extensions.Logging" version="5.0.0" />
 			<dependency id="MongoDB.Driver" version="2.11.4" />
-			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta6" />
-			<dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="5.0.0-beta6" />
+			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta9" />
+			<dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="5.0.0-beta9" />
 			
 		</dependencies>
 	</metadata>

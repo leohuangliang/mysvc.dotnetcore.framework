@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson
 		</id>
 		<version>
-			5.0.0-beta6
+			5.0.0-beta9
 
 		</version>
 		<title>
@@ -36,7 +36,7 @@
 			true
 		</serviceable>
 		<dependencies>
-			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta6" />
+			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.0-beta9" />
 			<dependency id="Newtonsoft.Json" version="12.0.3" />
 		</dependencies>
 	</metadata>

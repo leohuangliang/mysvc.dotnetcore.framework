@@ -12,6 +12,7 @@ using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
+using System.Security.Claims;
 
 namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
 {
@@ -172,11 +173,11 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
             {
                 tenantCode = _contextAccessor.HttpContext.User.GetClaimValue("client_tenantcode");
             }
-
-            string userName = _contextAccessor.HttpContext.User.GetClaimValue("unique_name");
-            string role = _contextAccessor.HttpContext.User.GetClaimValue("role");
+            string userName = _contextAccessor.HttpContext.User.GetClaimValue(ClaimTypes.Name);
+            
+            string role = _contextAccessor.HttpContext.User.GetClaimValue(ClaimTypes.Role);
             string fullName = _contextAccessor.HttpContext.User.GetClaimValue("full_name");
-            string email = _contextAccessor.HttpContext.User.GetClaimValue("email");
+            string email = _contextAccessor.HttpContext.User.GetClaimValue(ClaimTypes.Email);
             string dialcode = _contextAccessor.HttpContext.User.GetClaimValue("dialcode");
             string phone_number = _contextAccessor.HttpContext.User.GetClaimValue("phone_number");
             string email_verified = _contextAccessor.HttpContext.User.GetClaimValue("email_verified");

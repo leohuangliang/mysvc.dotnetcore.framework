@@ -7,7 +7,10 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
     {
         public UserIdentity(string userId,  string userName, string fullName,
             string email,
+            bool confirmEmail,
+            string dialCode,
             string phoneNumber,
+            bool confirmPhoneNumber,
             string role, List<string> permissions)
         {
             this.UserId = userId;
@@ -24,7 +27,11 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
         public string FullName { get; private set; }
 
         public string Email { get; private set; }
+        public bool ConfirmEmail { get; private set; }
+        public string DialCode { get; private set; }
+
         public string PhoneNumber { get; private set; }
+        public bool ConfirmPhoneNumber { get; private set; }
 
         public string Role { get; private set; }
 
