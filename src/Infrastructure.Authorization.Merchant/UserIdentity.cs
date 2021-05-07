@@ -8,7 +8,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
         public UserIdentity(string tenantUserId, string tenantCode, string userName, string fullName,
             string email,bool confirmEmail,
             string dialCode,string phoneNumber, bool confirmPhoneNumber,
-            string role, string clientId)
+            string role, string clientId, bool hasPaymentPassword)
         {
             this.TenantUserId = tenantUserId;
             this.TenantCode = tenantCode;
@@ -21,6 +21,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
             this.ConfirmPhoneNumber = confirmPhoneNumber;
             this.Role = role;
             this.ClientId = clientId;
+            this.HasPaymentPassword = hasPaymentPassword;
         }
 
         public UserIdentity(string tenantUserId, string tenantCode, string clientId, UserProfile userProfile)
@@ -36,6 +37,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
             this.PhoneNumber = userProfile.PhoneNumber;
             this.ConfirmPhoneNumber = userProfile.PhoneNumberConfirmed;
             this.Role = userProfile.Role;
+            this.HasPaymentPassword = userProfile.HasPaymentPassword;
         }
 
         public string TenantUserId { get;  init; }
@@ -54,5 +56,8 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
         public bool ConfirmPhoneNumber { get; init; }
 
         public string Role { get; init; }
+
+        public bool HasPaymentPassword { get; init; }
+
     }
 }

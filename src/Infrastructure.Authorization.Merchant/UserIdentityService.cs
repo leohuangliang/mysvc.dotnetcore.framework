@@ -183,6 +183,9 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
             string email_verified = _contextAccessor.HttpContext.User.GetClaimValue("email_verified");
             string phone_number_verified = _contextAccessor.HttpContext.User.GetClaimValue("phone_number_verified");
 
+            string hasPaymentPassword = _contextAccessor.HttpContext.User.GetClaimValue("HasPaymentPassword");
+
+
             if (tenantCode.IsNullOrBlank())
             {
                 throw new AuthenticationException("no login");
@@ -194,8 +197,12 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
             bool bool_phone_number_verified = false;
             bool.TryParse(phone_number_verified, out bool_phone_number_verified);
 
+            bool bool_hasPaymentPassword = false;
+            bool.TryParse(hasPaymentPassword, out bool_hasPaymentPassword);
+
             var userIdentity = new UserIdentity(tenantUserId, tenantCode, userName, fullName,
-                email, bool_email_verified, dialcode, phone_number, bool_phone_number_verified, role, clientId){ TenantName = tenantName };
+                email, bool_email_verified, dialcode, phone_number, bool_phone_number_verified, role, clientId, bool_hasPaymentPassword)
+            { TenantName = tenantName };
 
             _logger.LogDebug(_jsonConverter.SerializeObject(userIdentity));
             return userIdentity;

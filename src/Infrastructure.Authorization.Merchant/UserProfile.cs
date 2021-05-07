@@ -50,5 +50,9 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
         /// </summary>
         public string Role { get; set; }
 
+        /// <summary>
+        /// 是否设置了支付密码
+        /// </summary>
+        public bool HasPaymentPassword { get; set; }
     }
 }

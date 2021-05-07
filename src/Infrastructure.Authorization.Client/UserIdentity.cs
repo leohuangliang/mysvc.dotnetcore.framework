@@ -23,7 +23,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
             this.DialCode = dialCode;
             this.PhoneNumber = phoneNumber;
             this.ConfirmPhoneNumber = confirmPhoneNumber;
-            this.HasPaymentPasswrd = hasPaymentPasswrd;
+            this.HasPaymentPassword = hasPaymentPasswrd;
             this.Role = role;
             this.Permissions = permissions != null ? permissions : new List<string>();
         }
@@ -39,7 +39,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
             this.DialCode = userProfile.DialCode;
             this.PhoneNumber = userProfile.PhoneNumber;
             this.ConfirmPhoneNumber = userProfile.PhoneNumberConfirmed;
-            this.HasPaymentPasswrd = userProfile.HasPaymentPassword;
+            this.HasPaymentPassword = userProfile.HasPaymentPassword;
             this.Role = userProfile.Role;
             this.Permissions = userProfile.Permissions != null ? userProfile.Permissions : new List<string>();
 
@@ -58,7 +58,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
 
         public bool ConfirmPhoneNumber { get; private set; }
 
-        public bool HasPaymentPasswrd { get; private set; }
+        public bool HasPaymentPassword { get; private set; }
 
         public string Role { get; private set; }
 
