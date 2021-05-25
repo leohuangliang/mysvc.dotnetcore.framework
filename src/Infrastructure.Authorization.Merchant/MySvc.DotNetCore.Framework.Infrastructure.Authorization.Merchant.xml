@@ -195,5 +195,10 @@
             角色
             </summary>
         </member>
+        <member name="P:MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.UserProfile.HasPaymentPassword">
+            <summary>
+            是否设置了支付密码
+            </summary>
+        </member>
     </members>
 </doc>

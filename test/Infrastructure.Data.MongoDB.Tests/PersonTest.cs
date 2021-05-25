@@ -46,6 +46,7 @@ namespace Infrastructure.Data.MongoDB.Tests
 
             Build();
             MongoDBContext.RegisterConventions();
+            Mapping.Map();
             new MongoDBManager(_options).CreateCollections();
 
             _mockLogger = new Mock<ILogger<MongoDBContext>>();
@@ -62,7 +63,7 @@ namespace Infrastructure.Data.MongoDB.Tests
 
             var context = new MongoDBContext(_entityIdGenerator,_options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
-            Person person = new Person { Name = "test" };
+            Person person = new Employee("test") ;
             context.BeginTransaction();
             await personRepository.AddAsync(person);
             await context.CommitAsync();
@@ -78,7 +79,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         {
             var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
-            Person person = new Employee { Name = "test", EmployeeNo = "1" };
+            Person person = new Employee("test") { EmployeeNo = "1" };
             context.BeginTransaction();
             await personRepository.AddAsync(person);
             await context.CommitAsync();
@@ -98,7 +99,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         {
             var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
-            Person person = new Employee { Name = "test", EmployeeNo = "1", RowVersion = BitConverter.GetBytes(DateTime.UtcNow.Ticks) };
+            Person person = new Employee("test") { EmployeeNo = "1", RowVersion = BitConverter.GetBytes(DateTime.UtcNow.Ticks) };
             context.BeginTransaction();
             await personRepository.AddAsync(person);
             await context.CommitAsync();
@@ -117,7 +118,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         {
             var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
-            Person person = new Person() { Name = "test" };
+            Person person = new Employee("test");
 
             context.BeginTransaction();
             await personRepository.AddAsync(person);
@@ -131,7 +132,7 @@ namespace Infrastructure.Data.MongoDB.Tests
 
             Assert.Equal(version1, version2);
             context.BeginTransaction();
-            person1.Name = "hello";
+            person1.Name1 = "hello";
             await personRepository.UpdateAsync(person1);
             await context.CommitAsync();
 
@@ -141,7 +142,7 @@ namespace Infrastructure.Data.MongoDB.Tests
             Assert.NotEqual(version1, person1.RowVersion);
 
             context.BeginTransaction();
-            person2.Name = "concurrency";
+            person2.Name1 = "concurrency";
 
             await Assert.ThrowsAnyAsync<ConcurrencyException>(() => personRepository.UpdateAsync(person2));
         }
@@ -151,7 +152,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         {
             var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
-            Person person = new Person() { Name = "test" };
+            Person person = new Employee("test") ;
 
             context.BeginTransaction();
             await personRepository.AddAsync(person);
@@ -254,6 +255,18 @@ namespace Infrastructure.Data.MongoDB.Tests
 
 
             var person2 = await personRepository.GetByKeyAsync(Guid.NewGuid().ToString());
+
+        }
+
+        [Fact]
+        public async Task Query_Leader_Test_1()
+        {
+            var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
+            var leaderReadOnlyRepository = new LeaderReadOnlyRepository(context);
+
+
+
+            var person2 = await leaderReadOnlyRepository.GetByKeyAsync(Guid.NewGuid().ToString());
 
         }
     }

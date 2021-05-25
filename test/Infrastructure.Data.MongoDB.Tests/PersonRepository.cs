@@ -11,4 +11,11 @@ namespace Infrastructure.Data.MongoDB.Tests
         {
         }
     }
+
+    public class LeaderReadOnlyRepository : ReadOnlyMongoDBRepository<Leader>, ILeaderReadOnlyRepository
+    {
+        public LeaderReadOnlyRepository(IMongoDBContext context, bool isBaseOnSession = false) : base(context, isBaseOnSession)
+        {
+        }
+    }
 }

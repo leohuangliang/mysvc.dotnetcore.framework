@@ -7,4 +7,9 @@ namespace Infrastructure.Data.MongoDB.Tests
     public interface IPersonRepository : IRepository<Person>
     {
     }
+
+    public interface ILeaderReadOnlyRepository : IReadOnlyRepository<Leader>
+    {
+
+    }
 }

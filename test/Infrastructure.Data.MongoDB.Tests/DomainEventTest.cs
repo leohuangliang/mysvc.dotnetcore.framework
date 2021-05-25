@@ -51,7 +51,7 @@ namespace Infrastructure.Data.MongoDB.Tests
             });
             var context = new MongoDBContext(_entityIdGenerator,options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
-            Employee employee = new Employee() { Name = "Employee1", EmployeeNo = "1" };
+            Employee employee = new Employee("Employee1") { EmployeeNo = "1" };
             context.BeginTransaction();
             await personRepository.AddAsync(employee);
             await context.CommitAsync();
