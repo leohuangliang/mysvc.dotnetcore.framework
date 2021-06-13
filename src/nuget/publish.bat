@@ -12,3 +12,4 @@ nuget.exe push nuget-packages\Infrastructure.Data.MongoDB\MySvc.DotNetCore.Frame
 nuget.exe push nuget-packages\Infrastructure.Job.Hangfire\MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Infrastructure.IdentityServer4.MongoDB\MySvc.DotNetCore.Framework.IS4.MongoDB.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\IS4.Domain\MySvc.DotNetCore.Framework.IS4.Domain.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
+nuget.exe push nuget-packages\Infrastructure.Logging.Serilog\MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json

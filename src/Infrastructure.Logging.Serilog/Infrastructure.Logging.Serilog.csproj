@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog</RootNamespace>
+    <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Serilog.Sinks.Email" Version="2.4.0" />
+  </ItemGroup>
+
+</Project>

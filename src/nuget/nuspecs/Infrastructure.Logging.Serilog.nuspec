@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+  <metadata>
+    <id>MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog</id>
+    <version>5.0.1-beta1</version>
+    <title>MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog</title>
+    <authors>liang.huang</authors>
+    <owners>liang.huang</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Serilogy邮件扩展</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2018  (c) MySVC.cc  All rights reserved.</copyright>
+    <tags>MySVC.cc</tags>
+    <serviceable>true</serviceable>
+    <dependencies>
+      <dependency id="Serilog" version="2.10.0" />
+      <dependency id="Serilog.Sinks.Email" version="2.4.0" />
+    </dependencies>
+
+  </metadata>
+  <files>
+    <file src="..\..\Infrastructure.Logging.Serilog\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog.dll" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog.dll" />
+    <file src="..\..\Infrastructure.Logging.Serilog\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog.pdb" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog.pdb" />
+  </files>
+</package>
