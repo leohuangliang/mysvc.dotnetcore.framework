@@ -1,4 +1,6 @@
 dotnet build -c Release ..\..\mysvc.dotnetcore.framework.sln
+dotnet build -c Release ..\PayPal\PayPal.SDK.NET5.sln
+
 nuget pack nuspecs\Domain.Core.nuspec -OutputDirectory nuget-packages\Domain.Core
 nuget pack nuspecs\Infrastructure.Authorization.Client.nuspec -OutputDirectory nuget-packages\Infrastructure.Authorization.Client
 nuget pack nuspecs\Infrastructure.Authorization.Admin.nuspec -OutputDirectory nuget-packages\Infrastructure.Authorization.Admin
@@ -8,8 +10,10 @@ nuget pack nuspecs\Infrastructure.Crosscutting.Json.NewtonsoftJson.nuspec -Outpu
 nuget pack nuspecs\Infrastructure.Data.MongoDB.nuspec -OutputDirectory nuget-packages\Infrastructure.Data.MongoDB
 nuget pack nuspecs\Infrastructure.Job.Hangfire.nuspec -OutputDirectory nuget-packages\Infrastructure.Job.Hangfire
 nuget pack nuspecs\Infrastructure.IntegrationEventService.nuspec -OutputDirectory nuget-packages\Infrastructure.IntegrationEventService
-
 nuget pack nuspecs\IS4.Domain.nuspec -OutputDirectory nuget-packages\IS4.Domain
 nuget pack nuspecs\Infrastructure.IdentityServer4.MongoDB.nuspec -OutputDirectory nuget-packages\Infrastructure.IdentityServer4.MongoDB
-
 nuget pack nuspecs\Infrastructure.Logging.Serilog.nuspec -OutputDirectory nuget-packages\Infrastructure.Logging.Serilog
+nuget pack nuspecs\MlkPwgen.nuspec -OutputDirectory nuget-packages\MlkPwgen
+
+nuget pack nuspecs\PayPalCoreSDK.nuspec -OutputDirectory nuget-packages\PayPalCoreSDK
+nuget pack nuspecs\PayPalMerchantSDK.nuspec -OutputDirectory nuget-packages\PayPalMerchantSDK

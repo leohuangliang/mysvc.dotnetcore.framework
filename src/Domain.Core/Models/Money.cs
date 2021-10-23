@@ -1,6 +1,6 @@
 ﻿using System;
-using MySvc.DotNetCore.Framework.Domain.Core.Helpers;
 using MySvc.DotNetCore.Framework.Domain.Core.Impl;
+using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
 
 namespace MySvc.DotNetCore.Framework.Domain.Core.Models
 {
@@ -17,7 +17,7 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Models
         /// <param name="amount"></param>
         public Money(Currency currency, decimal amount)
         {
-            Amount = amount;
+            Amount = decimal.Parse(amount.ToString("0.00"));
             Currency = currency;
         }
 

@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
-  <metadata>
-    <id>MySvc.DotNetCore.Framework.IS4.Domain</id>
-    <version>5.0.1-beta1</version>
-    <title>MySvc.DotNetCore.Framework.IS4.Domain</title>
-    <authors>liang.huang</authors>
-    <owners>liang.huang</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>IdentityServer4 Domain</description>
-    <releaseNotes></releaseNotes>
-    <copyright>Copyright 2018  (c) MySVC.cc  All rights reserved.</copyright>
-    <tags>MySVC.cc</tags>
-    <serviceable>true</serviceable>
-    <dependencies>
-     
-      <dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="5.0.1-beta1" />
-    
-      
-    </dependencies> 
-  </metadata>
-  <files>
-    <file src="..\..\IS4.Domain\bin\Release\net5.0\MySvc.DotNetCore.Framework.IS4.Domain.dll" target="lib\net5.0\MySvc.DotNetCore.Framework.IS4.Domain.dll" />
-    <file src="..\..\IS4.Domain\bin\Release\net5.0\MySvc.DotNetCore.Framework.IS4.Domain.pdb" target="lib\net5.0\MySvc.DotNetCore.Framework.IS4.Domain.pdb" />
-  </files>
+    <metadata>
+        <id>MySvc.DotNetCore.Framework.IS4.Domain</id>
+        <version>5.0.1-beta6</version>
+        <title>MySvc.DotNetCore.Framework.IS4.Domain</title>
+        <authors>liang.huang</authors>
+        <owners>liang.huang</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>IdentityServer4 Domain</description>
+        <releaseNotes></releaseNotes>
+        <copyright>Copyright 2018  (c) MySVC.cc  All rights reserved.</copyright>
+        <tags>MySVC.cc</tags>
+        <serviceable>true</serviceable>
+        <dependencies>
+
+            <dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="5.0.1-beta6" />
+
+
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="..\..\IS4.Domain\bin\Release\net5.0\MySvc.DotNetCore.Framework.IS4.Domain.dll" target="lib\net5.0\MySvc.DotNetCore.Framework.IS4.Domain.dll" />
+        <file src="..\..\IS4.Domain\bin\Release\net5.0\MySvc.DotNetCore.Framework.IS4.Domain.pdb" target="lib\net5.0\MySvc.DotNetCore.Framework.IS4.Domain.pdb" />
+    </files>
 </package>

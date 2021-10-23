@@ -12,13 +12,18 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Jobs
         /// <returns>jobId</returns>
         string DelayedJob<TParam>(TParam obj, TimeSpan delay);
 
-
+        string DelayedJob<TJob,TParam>(TParam param, TimeSpan delay) where TJob : IJob<TParam>;
         /// <summary>
         /// 立即执行任务
         /// </summary>
         /// <returns>jobId</returns>
         string Enqueue<TParam>(TParam obj);
 
+        /// <summary>
+        /// 立即执行任务
+        /// </summary>
+        /// <returns>jobId</returns>
+        string Enqueue<TJob,TParam>(TParam param) where TJob : IJob<TParam>;
 
         /// <summary>
         /// 删除任务
@@ -36,7 +41,15 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Jobs
         /// <param name="recurringJobId">周期任务的jobid</param>
         string Recurring<TParam>(TParam obj, string cronExpression, string recurringJobId = null);
 
-
+        /// <summary>
+        /// 周期任务
+        /// </summary>
+        /// <typeparam name="TJob"></typeparam>
+        /// <typeparam name="TParam"></typeparam>
+        /// <param name="cronExpression">cron表达式</param>
+        /// <param name="recurringJobId">周期任务的jobid</param>
+        string Recurring<TJob, TParam>(TParam param, string cronExpression, string recurringJobId = null) where TJob : IRecurringJob<TParam>;
+        
         /// <summary>
         /// 删除周期任务
         /// </summary>

@@ -2,12 +2,11 @@
 using System.ComponentModel;
 using System.Reflection;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.Helpers
+namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers
 {
     /// <summary>
     /// 
     /// </summary>
-
 
     public static class EnumHelper
     {
@@ -16,7 +15,6 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Helpers
         /// </summary>
         /// <param name="em"></param>
         /// <returns></returns>
-        [Obsolete("已废弃,请使用MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers.EnumHelper.GetDescription", true)]
         public static string GetDescription(this Enum em)
         {
             Type type = em.GetType();
@@ -37,8 +35,6 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Helpers
         /// </summary>
         /// <param name="em"></param>
         /// <returns></returns>
-        [Obsolete("已废弃,请使用MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers.EnumHelper.GetName", true)]
-
         public static string GetName(this Enum em)
         {
             return Enum.GetName(em.GetType(), em);

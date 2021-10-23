@@ -54,5 +54,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
         /// 是否设置了支付密码
         /// </summary>
         public bool HasPaymentPassword { get; set; }
+
+        public string UID { get; set; }
     }
 }

@@ -1,48 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
-	<metadata>
-		<id>
+    <metadata>
+        <id>
 			MySvc.DotNetCore.Framework.Infrastructure.Crosscutting
-		</id>
-		<version>
-			5.0.1-beta1
-		</version>
-		<title>
+        </id>
+        <version>
+			5.0.1-beta6
+        </version>
+        <title>
 			MySvc.DotNetCore.Framework.Infrastructure.Crosscutting
-		</title>
-		<authors>
+        </title>
+        <authors>
 			liang.huang
-		</authors>
-		<owners>
+        </authors>
+        <owners>
 			liang.huang
-		</owners>
-		<requireLicenseAcceptance>
+        </owners>
+        <requireLicenseAcceptance>
 			false
-		</requireLicenseAcceptance>
-		<description>
+        </requireLicenseAcceptance>
+        <description>
 			面向切面的一个基础类库
-		</description>
-		<releaseNotes>
-			
-		</releaseNotes>
-		<copyright>
+        </description>
+        <releaseNotes>
+
+        </releaseNotes>
+        <copyright>
 			Copyright 2018  (c) MySVC.cc All rights reserved.
-		</copyright>
-		<tags>
+        </copyright>
+        <tags>
 			MySVC.cc
-		</tags>
-		<serviceable>
+        </tags>
+        <serviceable>
 			true
-		</serviceable>
-		<dependencies>
-			<dependency id="Microsoft.CSharp" version="4.7.0" />
-			<dependency id="Microsoft.AspNetCore.Cryptography.KeyDerivation" version="5.0.0" />
-			<dependency id="Microsoft.Extensions.Caching.Abstractions" version="5.0.0" />
-		</dependencies>
-	</metadata>
-	<files>
-		<file src="..\..\Infrastructure.Crosscutting\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.deps.json" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.deps.json" />
-		<file src="..\..\Infrastructure.Crosscutting\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.dll" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.dll" />
-		<file src="..\..\Infrastructure.Crosscutting\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.pdb" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.pdb" />
-	</files>
+        </serviceable>
+        <dependencies>
+            <dependency id="Microsoft.CSharp" version="4.7.0" />
+            <dependency id="Microsoft.AspNetCore.Cryptography.KeyDerivation" version="5.0.0" />
+            <dependency id="Microsoft.Extensions.Caching.Abstractions" version="5.0.0" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="..\..\Infrastructure.Crosscutting\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.deps.json" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.deps.json" />
+        <file src="..\..\Infrastructure.Crosscutting\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.dll" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.dll" />
+        <file src="..\..\Infrastructure.Crosscutting\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.pdb" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.pdb" />
+    </files>
 </package>

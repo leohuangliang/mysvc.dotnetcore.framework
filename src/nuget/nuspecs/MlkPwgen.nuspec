@@ -1,47 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
-	<metadata>
-		<id>
+    <metadata>
+        <id>
 			MySvc.DotNetCore.MlkPwgen
-		</id>
-		<version>
-			5.0.0-beta1
-		</version>
-		<title>
+        </id>
+        <version>
+			5.0.1-beta6
+        </version>
+        <title>
 			MySvc.DotNetCore.MlkPwgen
-		</title>
-		<authors>
+        </title>
+        <authors>
 			liang.huang
-		</authors>
-		<owners>
+        </authors>
+        <owners>
 			liang.huang
-		</owners>
-		<requireLicenseAcceptance>
+        </owners>
+        <requireLicenseAcceptance>
 			false
-		</requireLicenseAcceptance>
-		<description>
+        </requireLicenseAcceptance>
+        <description>
 			MlkPwgen for net5
-		</description>
-		<releaseNotes>
-			
-		</releaseNotes>
-		<copyright>
+        </description>
+        <releaseNotes>
+
+        </releaseNotes>
+        <copyright>
 			Copyright 2018  (c) MySVC.cc All rights reserved.
-		</copyright>
-		<tags>
+        </copyright>
+        <tags>
 			MySVC.cc
-		</tags>
-		<serviceable>
+        </tags>
+        <serviceable>
 			true
-		</serviceable>
-		<dependencies>
+        </serviceable>
+        <dependencies>
 
 
-		</dependencies>
-	</metadata>
-	<files>
-		<file src="..\..\MlkPwgen\bin\Release\net5.0\MlkPwgen.deps.json" target="lib\net5.0\MlkPwgen.deps.json" />
-		<file src="..\..\MlkPwgen\bin\Release\net5.0\MlkPwgen.dll" target="lib\net5.0\MlkPwgen.dll" />
-		<file src="..\..\MlkPwgen\bin\Release\net5.0\MlkPwgen.pdb" target="lib\net5.0\MlkPwgen.pdb" />
-	</files>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="..\..\MlkPwgen\bin\Release\net5.0\MlkPwgen.deps.json" target="lib\net5.0\MlkPwgen.deps.json" />
+        <file src="..\..\MlkPwgen\bin\Release\net5.0\MlkPwgen.dll" target="lib\net5.0\MlkPwgen.dll" />
+        <file src="..\..\MlkPwgen\bin\Release\net5.0\MlkPwgen.pdb" target="lib\net5.0\MlkPwgen.pdb" />
+    </files>
 </package>

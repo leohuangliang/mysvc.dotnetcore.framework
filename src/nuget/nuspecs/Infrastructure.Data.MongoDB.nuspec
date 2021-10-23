@@ -1,53 +1,53 @@
 <?xml version="1.0"?>
 <package>
-	<metadata>
-		<id>
+    <metadata>
+        <id>
 			MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
-		</id>
-		<version>
-			5.0.1-beta1
-		</version>
-		<title>
+        </id>
+        <version>
+			5.0.1-beta6
+        </version>
+        <title>
 			MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
-		</title>
-		<authors>
+        </title>
+        <authors>
 			liang.huang
-		</authors>
-		<owners>
+        </authors>
+        <owners>
 			liang.huang
-		</owners>
-		<requireLicenseAcceptance>
+        </owners>
+        <requireLicenseAcceptance>
 			false
-		</requireLicenseAcceptance>
-		<description>
+        </requireLicenseAcceptance>
+        <description>
 			Mongodb仓储
-		</description>
-		<releaseNotes>
-			
-		</releaseNotes>
-		<copyright>
+        </description>
+        <releaseNotes>
+
+        </releaseNotes>
+        <copyright>
 			Copyright 2018  (c) MySVC.cc All rights reserved.
-		</copyright>
-		<tags>
+        </copyright>
+        <tags>
 			MySVC.cc
-		</tags>
-		<serviceable>
+        </tags>
+        <serviceable>
 			true
-		</serviceable>
-		<dependencies>
-			<dependency id="MediatR" version="9.0.0" />
-			<dependency id="Microsoft.CSharp" version="4.7.0" />
-			<dependency id="Microsoft.Extensions.Options" version="5.0.0" />
-			<dependency id="Microsoft.Extensions.DependencyInjection" version="5.0.0" />
-			<dependency id="Microsoft.Extensions.Logging" version="5.0.0" />
-			<dependency id="MongoDB.Driver" version="2.11.4" />
-			<dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.1-beta1" />
-			<dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="5.0.1-beta1" />
-			
-		</dependencies>
-	</metadata>
-	<files>
-		<file src="..\..\Infrastructure.Data.MongoDB\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.dll" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.dll" />
-		<file src="..\..\Infrastructure.Data.MongoDB\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.pdb" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.pdb" />
-	</files>
+        </serviceable>
+        <dependencies>
+            <dependency id="MediatR" version="9.0.0" />
+            <dependency id="Microsoft.CSharp" version="4.7.0" />
+            <dependency id="Microsoft.Extensions.Options" version="5.0.0" />
+            <dependency id="Microsoft.Extensions.DependencyInjection" version="5.0.0" />
+            <dependency id="Microsoft.Extensions.Logging" version="5.0.0" />
+            <dependency id="MongoDB.Driver" version="2.11.4" />
+            <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.1-beta6" />
+            <dependency id="MySvc.DotNetCore.Framework.Domain.Core" version="5.0.1-beta6" />
+
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="..\..\Infrastructure.Data.MongoDB\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.dll" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.dll" />
+        <file src="..\..\Infrastructure.Data.MongoDB\bin\Release\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.pdb" target="lib\net5.0\MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.pdb" />
+    </files>
 </package>
