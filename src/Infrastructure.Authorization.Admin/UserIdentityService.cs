@@ -31,7 +31,8 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
             }
 
             var user = MapUser();
-            List<string> permissions = PermissionManage.GetPermissions(user.Role);
+            //List<string> permissions = PermissionManage.GetPermissions(user.Role);
+            List<string> permissions = new List<string>();
             return new UserIdentity(user.UserId, user.UserName, user.FullName, user.Email, user.ConfirmEmail, user.DialCode, user.PhoneNumber, user.ConfirmPhoneNumber, user.Role, permissions);
         }
 
