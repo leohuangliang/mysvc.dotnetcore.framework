@@ -112,6 +112,9 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Models
         [Description("人民币")]
         CNY = 156,
 
+        [Description("人民币（离岸）")]
+        CNH =157,
+
         [Description("哥伦比亚比索")]
         COP = 170,
 
