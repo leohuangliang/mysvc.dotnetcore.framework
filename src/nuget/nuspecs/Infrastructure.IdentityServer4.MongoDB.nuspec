@@ -1,51 +1,54 @@
 <?xml version="1.0"?>
 <package>
-    <metadata>
-        <id>
+  <metadata>
+    <id>
 			MySvc.DotNetCore.Framework.IS4.MongoDB
-        </id>
-        <version>
-			5.0.1-beta7
-        </version>
-        <title>
+    </id>
+    <version>
+			6.0.0-beta3
+    </version>
+    <title>
 			MySvc.DotNetCore.Framework.IS4.MongoDB
-        </title>
-        <authors>
+    </title>
+    <authors>
 			liang.huang
-        </authors>
-        <owners>
+    </authors>
+    <owners>
 			liang.huang
-        </owners>
-        <requireLicenseAcceptance>
+    </owners>
+    <requireLicenseAcceptance>
 			false
-        </requireLicenseAcceptance>
-        <description>
+    </requireLicenseAcceptance>
+    <description>
 			IdentityServer4 Mongodb仓储
-        </description>
-        <releaseNotes>
+    </description>
+    <releaseNotes>
 
-        </releaseNotes>
-        <copyright>
+    </releaseNotes>
+    <copyright>
 			Copyright 2018  (c) MySVC.cc All rights reserved.
-        </copyright>
-        <tags>
+    </copyright>
+    <tags>
 			MySVC.cc
-        </tags>
-        <serviceable>
+    </tags>
+    <serviceable>
 			true
-        </serviceable>
-        <dependencies>
-            <dependency id="Microsoft.CSharp" version="4.7.0" />
+    </serviceable>
+    <dependencies>
+      <group targetFramework=".net6.0">
+        <dependency id="Microsoft.CSharp" version="4.7.0" />
 
-            <dependency id="Microsoft.Extensions.Logging" version="5.0.0" />
-            <dependency id="MongoDB.Driver" version="2.11.4" />
-            <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.1-beta7" />
-            <dependency id="MySvc.DotNetCore.Framework.IS4.Domain" version="5.0.1-beta7" />
+        <dependency id="Microsoft.Extensions.Logging" version="6.0.0" />
+        <dependency id="MongoDB.Driver" version="2.14.1" />
+        <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="6.0.0-beta3" />
+        <dependency id="MySvc.DotNetCore.Framework.IS4.Domain" version="6.0.0-beta3" />
+      </group>
 
-        </dependencies>
-    </metadata>
-    <files>
-        <file src="..\..\Infrastructure.IdentityServer4.MongoDB\bin\Release\net5.0\MySvc.DotNetCore.Framework.IS4.MongoDB.dll" target="lib\net5.0\MySvc.DotNetCore.Framework.IS4.MongoDB.dll" />
-        <file src="..\..\Infrastructure.IdentityServer4.MongoDB\bin\Release\net5.0\MySvc.DotNetCore.Framework.IS4.MongoDB.pdb" target="lib\net5.0\MySvc.DotNetCore.Framework.IS4.MongoDB.pdb" />
-    </files>
+    </dependencies>
+
+  </metadata>
+  <files>
+    <file src="..\..\Infrastructure.IdentityServer4.MongoDB\bin\Release\net6.0\MySvc.DotNetCore.Framework.IS4.MongoDB.dll" target="lib\net6.0\MySvc.DotNetCore.Framework.IS4.MongoDB.dll" />
+    <file src="..\..\Infrastructure.IdentityServer4.MongoDB\bin\Release\net6.0\MySvc.DotNetCore.Framework.IS4.MongoDB.pdb" target="lib\net6.0\MySvc.DotNetCore.Framework.IS4.MongoDB.pdb" />
+  </files>
 </package>

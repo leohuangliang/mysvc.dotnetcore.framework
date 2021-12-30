@@ -1,18 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService</AssemblyName>
     <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService</RootNamespace>
-    <Copyright>@2018 MySvc.cc</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
 
 
-    <PackageReference Include="MassTransit" Version="7.0.6" />
+    <PackageReference Include="MassTransit" Version="7.3.0" />
 
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />

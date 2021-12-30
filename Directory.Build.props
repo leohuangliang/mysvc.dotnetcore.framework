@@ -1,0 +1,14 @@
+<Project>
+  <PropertyGroup>
+    <TargetFrameworks>net6.0</TargetFrameworks>
+    <Copyright>@2018 Mysvc.cc</Copyright>
+    <Authors>Leo Huang(hnhl@163.com)</Authors>
+    <Company>MySvc.cc</Company>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+</Project>

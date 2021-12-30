@@ -45,8 +45,7 @@ namespace Auth.ClientTestApi
 
                 //    options.SerializerSettings.Converters = convers;
                 //})
-                .AddNewtonsoftJson()
-                .SetCompatibilityVersion(CompatibilityVersion.Latest);
+                .AddNewtonsoftJson();
 
             services.AddCustomAuthentication(Configuration);
             services.AddCustomSwagger(Configuration, this.WebHostEnvironment);
@@ -77,14 +76,14 @@ namespace Auth.ClientTestApi
             }
             app.UseAuthentication();
             //启动Swagger
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sample Auth.ClientTestAPI");
-                c.OAuthClientId("AuthClientTestApiSwaggerUI");
-                c.OAuthAppName("AuthClientTestApi Swagger UI");
+            //app.UseSwagger();
+            //app.UseSwaggerUI(c =>
+            //{
+            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sample Auth.ClientTestAPI");
+            //    c.OAuthClientId("AuthClientTestApiSwaggerUI");
+            //    c.OAuthAppName("AuthClientTestApi Swagger UI");
 
-            });
+            //});
             app.UseHttpsRedirection();
 
             app.UseRouting();

@@ -1,10 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>MySvc.DotNetCore.Framework.Domain.Core</RootNamespace>
     <AssemblyName>MySvc.DotNetCore.Framework.Domain.Core</AssemblyName>
-    <Copyright>@2018 Mysvc.cc</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <UserSecretsId>ee9a7f2d-dc08-4960-ab3d-3a7fbab591ab</UserSecretsId>
   </PropertyGroup>

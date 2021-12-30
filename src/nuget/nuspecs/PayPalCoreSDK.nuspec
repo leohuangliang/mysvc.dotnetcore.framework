@@ -1,51 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
-    <metadata>
-        <id>
+  <metadata>
+    <id>
 			MySvc.DotNetCore.PayPalCoreSDK
-        </id>
-        <version>
-			5.0.1-beta7
-        </version>
-        <title>
+    </id>
+    <version>
+			6.0.0-beta3
+    </version>
+    <title>
 			MySvc.DotNetCore.PayPalCoreSDK
-        </title>
-        <authors>
+    </title>
+    <authors>
 			liang.huang
-        </authors>
-        <owners>
+    </authors>
+    <owners>
 			liang.huang
-        </owners>
-        <requireLicenseAcceptance>
+    </owners>
+    <requireLicenseAcceptance>
 			false
-        </requireLicenseAcceptance>
-        <description>
+    </requireLicenseAcceptance>
+    <description>
 			Pay Core SDK 跨平台版本
-        </description>
-        <releaseNotes>
+    </description>
+    <releaseNotes>
 
-        </releaseNotes>
-        <copyright>
+    </releaseNotes>
+    <copyright>
 			Copyright 2018  (c) MySVC.cc All rights reserved.
-        </copyright>
-        <tags>
+    </copyright>
+    <tags>
 			MySVC.cc
-        </tags>
-        <serviceable>
+    </tags>
+    <serviceable>
 			true
-        </serviceable>
-        <dependencies>
-            <dependency id="Microsoft.CSharp" version="4.7.0" />
-            <dependency id="Microsoft.Extensions.Configuration" version="5.0.0" />
-            <dependency id="Newtonsoft.Json" version="9.0.1" />
-            <dependency id="System.Configuration.ConfigurationManager" version="5.0.0" />
-            <dependency id="System.Management" version="5.0.0" />
+    </serviceable>
+    <dependencies>
+      <group targetFramework=".net6.0">
+        <dependency id="Microsoft.CSharp" version="4.7.0" />
+        <dependency id="Microsoft.Extensions.Configuration" version="6.0.0" />
+        <dependency id="Newtonsoft.Json" version="13.0.1" />
+      </group>
+    </dependencies>
 
-        </dependencies>
-    </metadata>
-    <files>
-        <file src="..\..\PayPal\PayPalCoreSDK\bin\Release\net5.0\MySvc.DotNetCore.PayPalCoreSDK.deps.json" target="lib\net5.0\MySvc.DotNetCore.PayPalCoreSDK.deps.json" />
-        <file src="..\..\PayPal\PayPalCoreSDK\bin\Release\net5.0\MySvc.DotNetCore.PayPalCoreSDK.dll" target="lib\net5.0\MySvc.DotNetCore.PayPalCoreSDK.dll" />
-        <file src="..\..\PayPal\PayPalCoreSDK\bin\Release\net5.0\MySvc.DotNetCore.PayPalCoreSDK.pdb" target="lib\net5.0\MySvc.DotNetCore.PayPalCoreSDK.pdb" />
-    </files>
+  </metadata>
+  <files>
+    <file src="..\..\PayPal\PayPalCoreSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalCoreSDK.deps.json" target="lib\net6.0\MySvc.DotNetCore.PayPalCoreSDK.deps.json" />
+    <file src="..\..\PayPal\PayPalCoreSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalCoreSDK.dll" target="lib\net6.0\MySvc.DotNetCore.PayPalCoreSDK.dll" />
+    <file src="..\..\PayPal\PayPalCoreSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalCoreSDK.pdb" target="lib\net6.0\MySvc.DotNetCore.PayPalCoreSDK.pdb" />
+  </files>
 </package>

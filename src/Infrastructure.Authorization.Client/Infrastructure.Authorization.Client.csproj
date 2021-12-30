@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client</AssemblyName>
     <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client</RootNamespace>
   </PropertyGroup>

@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire</AssemblyName>
     <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire</RootNamespace>
   </PropertyGroup>
@@ -11,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hangfire.Core" Version="1.7.17" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.27" />
   </ItemGroup>
 
   <ItemGroup>
