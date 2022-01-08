@@ -14,13 +14,16 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
     {
         private IHttpContextAccessor _contextAccessor;
         private readonly IJsonConverter _jsonConverter;
+        private readonly IPermissionProvider _permissionProvider;
 
         private readonly ILogger<UserIdentityService> _logger;
         public UserIdentityService(IHttpContextAccessor contextAccessor, IJsonConverter jsonConverter,
+            IPermissionProvider permissionProvider,
             ILogger<UserIdentityService> logger)
         {
             _contextAccessor = contextAccessor ?? throw new ArgumentNullException(nameof(contextAccessor));
             _jsonConverter = jsonConverter ?? throw new ArgumentNullException(nameof(jsonConverter));
+            _permissionProvider = permissionProvider ?? throw new ArgumentNullException(nameof(permissionProvider));
             _logger = logger;
         }
         public UserIdentity GetUserIdentity()
@@ -32,7 +35,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
 
             var user = MapUser();
             //List<string> permissions = PermissionManage.GetPermissions(user.Role);
-            List<string> permissions = new List<string>();
+            List<string> permissions = _permissionProvider.GetPermissionsAsync(user.UserId).GetAwaiter().GetResult();
             return new UserIdentity(user.UserId, user.UserName, user.FullName, user.Email, user.ConfirmEmail, user.DialCode, user.PhoneNumber, user.ConfirmPhoneNumber, user.Role, permissions);
         }
 

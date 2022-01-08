@@ -1,6 +1,6 @@
 ﻿//=======================================================================================
 //
-// Copyright (C) 2010-2011 Asia-Peak Technologies, Inc. All Rights Reserved.
+// Copyright (C) 2021-2022 MySVC.CC All Rights Reserved.
 // 
 // All the code, text, graphics, media, design, programs and other works are
 // protected by copyright law. Unauthorized reproduction or redistribution of them,  
@@ -15,6 +15,8 @@
 //     the code is regenerated.
 // </auto-generated>
 //---------------------------------------------------------------------------------------
+
+using System;
 
 namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions
 {	

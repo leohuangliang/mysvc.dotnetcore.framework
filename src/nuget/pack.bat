@@ -15,6 +15,9 @@ nuget pack nuspecs\Infrastructure.IntegrationEventService.nuspec -OutputDirector
 nuget pack nuspecs\IS4.Domain.nuspec -OutputDirectory nuget-packages\IS4.Domain
 nuget pack nuspecs\Infrastructure.IdentityServer4.MongoDB.nuspec -OutputDirectory nuget-packages\Infrastructure.IdentityServer4.MongoDB
 nuget pack nuspecs\Infrastructure.Logging.Serilog.nuspec -OutputDirectory nuget-packages\Infrastructure.Logging.Serilog
+nuget pack nuspecs\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.nuspec -OutputDirectory nuget-packages\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator
+nuget pack nuspecs\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis.nuspec -OutputDirectory nuget-packages\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis
+
 @REM nuget pack nuspecs\MlkPwgen.nuspec -OutputDirectory nuget-packages\MlkPwgen
 
 @REM nuget pack nuspecs\PayPalCoreSDK.nuspec -OutputDirectory nuget-packages\PayPalCoreSDK

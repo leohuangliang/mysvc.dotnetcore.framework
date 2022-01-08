@@ -16,7 +16,9 @@
 // </auto-generated>
 //---------------------------------------------------------------------------------------
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Extensions
+using System;
+
+namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Exceptions
 {	
 	public static class Error
     {

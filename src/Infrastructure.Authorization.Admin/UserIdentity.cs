@@ -17,9 +17,12 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
             this.UserName = userName;
             this.FullName = fullName;
             this.Email = email;
+            this.ConfirmEmail = confirmEmail;
+            this.DialCode = dialCode;
             this.PhoneNumber = phoneNumber;
+            this.ConfirmPhoneNumber = confirmPhoneNumber;
             this.Role = role;
-            this.Permissions = permissions != null ? permissions : new List<string>();
+            this.Permissions = permissions ?? new List<string>();
         }
         public string UserId { get; private set; }
 
@@ -40,6 +43,11 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
         public bool HasPermission(string permissionCode)
         {
             return Permissions.Contains(permissionCode);
+        }
+
+        public void SetPermissions(List<string> permissions)
+        {
+            this.Permissions = permissions;
         }
     }
 }

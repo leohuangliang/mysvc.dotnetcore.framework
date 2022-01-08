@@ -1,4 +1,4 @@
-set LatestVersion=6.0.0-beta3
+set LatestVersion=6.0.0-beta4
 
 nuget setapikey oy2dmiwvfxlulcnah5uacl64xz3hegiepd3u6vvzfrumeu -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Domain.Core\MySvc.DotNetCore.Framework.Domain.Core.%LatestVersion%.nupkg   -Source https://api.nuget.org/v3/index.json
@@ -15,6 +15,10 @@ nuget.exe push nuget-packages\Infrastructure.Job.Hangfire\MySvc.DotNetCore.Frame
 nuget.exe push nuget-packages\Infrastructure.IdentityServer4.MongoDB\MySvc.DotNetCore.Framework.IS4.MongoDB.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\IS4.Domain\MySvc.DotNetCore.Framework.IS4.Domain.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Infrastructure.Logging.Serilog\MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
+nuget.exe push nuget-packages\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
+nuget.exe push nuget-packages\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
+
+
 @REM nuget.exe push nuget-packages\MlkPwgen\MySvc.DotNetCore.MlkPwgen.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
 @REM nuget.exe push nuget-packages\PayPalCoreSDK\MySvc.DotNetCore.PayPalCoreSDK.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
 @REM nuget.exe push nuget-packages\PayPalMerchantSDK\MySvc.DotNetCore.PayPalMerchantSDK.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json

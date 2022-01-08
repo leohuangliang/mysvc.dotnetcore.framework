@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>
+			MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis
+    </id>
+    <version>
+			6.0.0-beta4
+
+    </version>
+    <title>
+			MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis
+    </title>
+    <authors>
+			liang.huang
+    </authors>
+    <owners>
+			liang.huang
+    </owners>
+    <requireLicenseAcceptance>
+			false
+    </requireLicenseAcceptance>
+    <description>
+			封装了雪花ID生产算法，支持分布式
+    </description>
+    <releaseNotes>
+
+    </releaseNotes>
+    <copyright>
+			Copyright 2018  (c) MySVC.cc All rights reserved.
+    </copyright>
+    <tags>
+			MySVC.cc
+    </tags>
+    <serviceable>
+			true
+    </serviceable>
+    <dependencies>
+      <group targetFramework=".net6.0">
+        <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator" version="6.0.0-beta4" />
+        <dependency id="Microsoft.Extensions.Options" version="6.0.0" />
+
+      </group>
+    </dependencies>
+
+  </metadata>
+  <files>
+    <file src="..\..\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis\bin\Release\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis.dll" target="lib\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis.dll" />
+    <file src="..\..\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis\bin\Release\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis.pdb" target="lib\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis.pdb" />
+  </files>
+</package>

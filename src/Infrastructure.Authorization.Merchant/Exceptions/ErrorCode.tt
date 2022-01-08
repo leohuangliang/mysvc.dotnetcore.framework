@@ -13,7 +13,7 @@ xmlDoc.Load(xmlFile);
 #>
 //=======================================================================================
 //
-// Copyright (C) 2010-2011 Asia-Peak Technologies, Inc. All Rights Reserved.
+// Copyright (C) 2021-2022 MySVC.CC All Rights Reserved.
 // 
 // All the code, text, graphics, media, design, programs and other works are
 // protected by copyright law. Unauthorized reproduction or redistribution of them,  
@@ -31,7 +31,7 @@ xmlDoc.Load(xmlFile);
 
 using System;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Exceptions
+namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions
 {	
 	public static class Error
     {
