@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
+using MySvc.Framework.Infrastructure.Crosscutting.EventBus;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

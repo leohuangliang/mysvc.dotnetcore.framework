@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Conventions;
 using System.Collections.Generic;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
+namespace MySvc.Framework.Infrastructure.Data.MongoDB
 {
     public static class ConventionRegistryHelper
     {

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
+using MySvc.Framework.Infrastructure.Crosscutting.Options;
+using MySvc.Framework.Infrastructure.Data.MongoDB;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;

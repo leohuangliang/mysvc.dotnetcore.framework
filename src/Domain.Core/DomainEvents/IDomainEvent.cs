@@ -1,9 +1,9 @@
-using MediatR;
+锘縰sing MediatR;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.DomainEvents
+namespace MySvc.Framework.Domain.Core.DomainEvents
 {
     /// <summary>
-    /// 领域事件接口
+    /// 棰嗗煙浜嬩欢鎺ュ彛
     /// </summary>
     public interface IDomainEvent : INotification
     {

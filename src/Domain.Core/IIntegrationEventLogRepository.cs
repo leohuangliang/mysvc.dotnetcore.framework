@@ -1,6 +1,6 @@
-﻿using MySvc.DotNetCore.Framework.Domain.Core.Impl;
+﻿using MySvc.Framework.Domain.Core.Impl;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core
+namespace MySvc.Framework.Domain.Core
 {
     /// <summary>
     /// 集成事件Log仓储接口

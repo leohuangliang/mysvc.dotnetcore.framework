@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.MlkPwgen
     </id>
     <version>
-			6.0.0-beta4
+			6.0.0-beta8
     </version>
     <title>
 			MySvc.DotNetCore.MlkPwgen
@@ -36,7 +36,7 @@
     </serviceable>
     <dependencies>
       <dependencies>
-        <group targetFramework=".net6.0" />
+        <group targetFramework="net6.0" />
       </dependencies>
 
 

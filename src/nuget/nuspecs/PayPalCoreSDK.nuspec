@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.PayPalCoreSDK
     </id>
     <version>
-			6.0.0-beta4
+			6.0.0-beta8
     </version>
     <title>
 			MySvc.DotNetCore.PayPalCoreSDK
@@ -35,7 +35,7 @@
 			true
     </serviceable>
     <dependencies>
-      <group targetFramework=".net6.0">
+      <group targetFramework="net6.0">
         <dependency id="Microsoft.CSharp" version="4.7.0" />
         <dependency id="Microsoft.Extensions.Configuration" version="6.0.0" />
         <dependency id="Newtonsoft.Json" version="13.0.1" />

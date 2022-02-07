@@ -4,14 +4,14 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Domain.Core.Attributes;
-using MySvc.DotNetCore.Framework.Domain.Core.Impl;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Exceptions;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
+using MySvc.Framework.Domain.Core;
+using MySvc.Framework.Domain.Core.Attributes;
+using MySvc.Framework.Domain.Core.Impl;
+using MySvc.Framework.Infrastructure.Crosscutting.Exceptions;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.Infrastructure.Crosscutting.Options;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
+namespace MySvc.Framework.Infrastructure.Data.MongoDB
 {
     /// <summary>
     /// 维持一个独立的不跨事物的事件日志管理器

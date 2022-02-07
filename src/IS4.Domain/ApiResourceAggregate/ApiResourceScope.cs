@@ -1,4 +1,4 @@
-﻿namespace MySvc.DotNetCore.Framework.IS4.Domain.ApiResourceAggregate
+﻿namespace MySvc.Framework.IS4.Domain.ApiResourceAggregate
 {
     public class ApiResourceScope
     {

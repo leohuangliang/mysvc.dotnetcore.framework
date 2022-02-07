@@ -1,6 +1,6 @@
-﻿using MySvc.DotNetCore.Framework.Domain.Core.Paged;
-using MySvc.DotNetCore.Framework.Domain.Core.Specification;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
+﻿using MySvc.Framework.Domain.Core.Paged;
+using MySvc.Framework.Domain.Core.Specification;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 using Sample.Product.Application.Queries.Criteria;
 using Sample.Product.Domain.AggregatesModel.ProductAggregate.Specifications;
 using Sample.Product.Domain.Repositories;

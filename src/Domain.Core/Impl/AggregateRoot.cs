@@ -1,7 +1,9 @@
 using System.Collections.Generic;
-using MySvc.DotNetCore.Framework.Domain.Core.DomainEvents;
+using MySvc.Framework.Domain.Core.DomainEvents;
+using MySvc.Framework.Domain.Core.Models;
+using System;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
+namespace MySvc.Framework.Domain.Core.Impl
 {
 
     /// <summary>
@@ -67,6 +69,27 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
         {
             _domainEvents?.Remove(domainEvent);
         }
+
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime CreatedOn { get; protected set; }
+
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        public Operator Creator { get; protected set; }
+
+        /// <summary>
+        /// 最后更新时间
+        /// </summary>
+        public DateTime ModifiedOn { get; protected set; }
+
+
+        /// <summary>
+        /// 最后更新人
+        /// </summary>
+        public Operator ModifiedBy { get; protected set; }
 
         #region Override Methods
 

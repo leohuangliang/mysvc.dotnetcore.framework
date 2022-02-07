@@ -1,6 +1,6 @@
 using System;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core
+namespace MySvc.Framework.Domain.Core
 {
     /// <summary>
     /// 

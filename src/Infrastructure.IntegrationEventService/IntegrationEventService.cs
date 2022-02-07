@@ -4,13 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using MassTransit;
 using Microsoft.Extensions.Logging;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Domain.Core.Impl;
-using MySvc.DotNetCore.Framework.Domain.Core.Specification;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
+using MySvc.Framework.Domain.Core;
+using MySvc.Framework.Domain.Core.Impl;
+using MySvc.Framework.Domain.Core.Specification;
+using MySvc.Framework.Infrastructure.Crosscutting.EventBus;
+using MySvc.Framework.Infrastructure.Crosscutting.Json;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService
+namespace MySvc.Framework.Infrastructure.IntegrationEventService
 {
     public class IntegrationEventService : IIntegrationEventService
     {

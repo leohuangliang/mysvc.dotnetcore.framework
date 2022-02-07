@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers
+namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
 {
     /// <summary>
     /// 检查器

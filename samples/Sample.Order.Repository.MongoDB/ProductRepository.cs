@@ -1,6 +1,6 @@
 ﻿using System;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
+using MySvc.Framework.Infrastructure.Data.MongoDB.Impl;
+using MySvc.Framework.Infrastructure.Data.MongoDB;
 using Sample.Order.Domain.Repositories;
 
 namespace Sample.Order.Repository.MongoDB

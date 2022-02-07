@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Domain.Core.Attributes;
-using MySvc.DotNetCore.Framework.Domain.Core.Impl;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Exceptions;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.Domain.Core;
+using MySvc.Framework.Domain.Core.Attributes;
+using MySvc.Framework.Domain.Core.Impl;
+using MySvc.Framework.Infrastructure.Crosscutting.Exceptions;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 using MediatR;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
@@ -17,10 +17,10 @@ using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
+using MySvc.Framework.Infrastructure.Crosscutting.Options;
+using MySvc.Framework.Infrastructure.Data.MongoDB;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
+namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 {
     /// <summary>
     /// 基于MongoDB 的是数据库上下文

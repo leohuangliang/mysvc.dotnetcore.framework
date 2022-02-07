@@ -1,6 +1,6 @@
 ﻿using Autofac;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
-using MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService;
+using MySvc.Framework.Infrastructure.Crosscutting.EventBus;
+using MySvc.Framework.Infrastructure.IntegrationEventService;
 using Sample.Order.Application.Queries;
 
 namespace Sample.Order.Api.DI.AutofacModules

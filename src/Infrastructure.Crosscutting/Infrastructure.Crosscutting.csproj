@@ -1,8 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-	      <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Crosscutting</RootNamespace>
+    <TargetFramework>net6.0</TargetFramework>
 
-    <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Crosscutting</AssemblyName>
+    <RootNamespace>MySvc.Framework.Infrastructure.Crosscutting</RootNamespace>
+
+    <AssemblyName>MySvc.Framework.Infrastructure.Crosscutting</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <RepositoryUrl></RepositoryUrl>
   </PropertyGroup>
@@ -13,7 +15,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
   </PropertyGroup>
   <PropertyGroup Label="Globals">
-    <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Crosscutting</RootNamespace>
+    <RootNamespace>MySvc.Framework.Infrastructure.Crosscutting</RootNamespace>
     <Copyright>@2018 MySvc.cc</Copyright>
     <Version>1.0.1</Version>
   </PropertyGroup>

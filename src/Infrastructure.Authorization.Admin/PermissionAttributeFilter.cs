@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.Permissions;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
+using MySvc.Framework.Infrastructure.Authorization.Admin.Permissions;
+using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
+namespace MySvc.Framework.Infrastructure.Authorization.Admin
 {
     public class PermissionAttributeFilter : IAuthorizationFilter
     {

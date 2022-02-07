@@ -4,7 +4,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers
+namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
 {
     public  static class Rfc6238AuthenticationService
     {

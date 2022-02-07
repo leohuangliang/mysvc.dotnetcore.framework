@@ -3,12 +3,12 @@ using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MySvc.DotNetCore.Framework.IS4.MongoDB.Options;
-using MySvc.DotNetCore.Framework.IS4.MongoDB.Services;
-using MySvc.DotNetCore.Framework.IS4.MongoDB.Stores;
+using MySvc.Framework.IS4.MongoDB.Options;
+using MySvc.Framework.IS4.MongoDB.Services;
+using MySvc.Framework.IS4.MongoDB.Stores;
 using System;
 
-namespace MySvc.DotNetCore.Framework.IS4.MongoDB
+namespace MySvc.Framework.IS4.MongoDB
 {
     public static class IdentityServerMongoDbBuilderExtensions
     {

@@ -1,13 +1,13 @@
 ﻿using IdentityServer4.Stores;
 using Microsoft.Extensions.Logging;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
-using MySvc.DotNetCore.Framework.IS4.Domain.ApiResourceAggregate;
-using MySvc.DotNetCore.Framework.IS4.Domain.ApiResourceAggregate.Specifications;
-using MySvc.DotNetCore.Framework.IS4.Domain.ApiScopeAggregate;
-using MySvc.DotNetCore.Framework.IS4.Domain.ApiScopeAggregate.Specifications;
-using MySvc.DotNetCore.Framework.IS4.Domain.IdentityResourceAggregate;
-using MySvc.DotNetCore.Framework.IS4.Domain.IdentityResourceAggregate.Specifications;
-using MySvc.DotNetCore.Framework.IS4.MongoDB.Mappers;
+using MySvc.Framework.Infrastructure.Data.MongoDB;
+using MySvc.Framework.IS4.Domain.ApiResourceAggregate;
+using MySvc.Framework.IS4.Domain.ApiResourceAggregate.Specifications;
+using MySvc.Framework.IS4.Domain.ApiScopeAggregate;
+using MySvc.Framework.IS4.Domain.ApiScopeAggregate.Specifications;
+using MySvc.Framework.IS4.Domain.IdentityResourceAggregate;
+using MySvc.Framework.IS4.Domain.IdentityResourceAggregate.Specifications;
+using MySvc.Framework.IS4.MongoDB.Mappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 using IS4Models = IdentityServer4.Models;
 
-namespace MySvc.DotNetCore.Framework.IS4.MongoDB.Stores
+namespace MySvc.Framework.IS4.MongoDB.Stores
 {
     public class ResourceStore : IResourceStore
     {

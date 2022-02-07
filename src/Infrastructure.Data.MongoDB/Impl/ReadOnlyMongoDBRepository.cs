@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Domain.Core.Paged;
-using MySvc.DotNetCore.Framework.Domain.Core.Specification;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.Domain.Core;
+using MySvc.Framework.Domain.Core.Paged;
+using MySvc.Framework.Domain.Core.Specification;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
+using MySvc.Framework.Infrastructure.Data.MongoDB;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
+namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 {
     /// <summary>
     /// 只读类型的mongodb仓储实现
@@ -76,7 +76,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
         /// 获取所有聚合根列表
         /// </summary>
         /// <returns>聚合根实例列表</returns>
-        public async Task<IEnumerable<TAggregateRoot>> GetAllAsync()
+        public async Task<List<TAggregateRoot>> GetAllAsync()
         {
             var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
 
@@ -92,7 +92,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
         /// 获取所有聚合根列表, 返回指定的投影对象
         /// </summary>
         /// <returns>聚合根投影实例的列表</returns>
-        public async Task<IEnumerable<TProjection>> GetAllAsync<TProjection>() where TProjection : class
+        public async Task<List<TProjection>> GetAllAsync<TProjection>() where TProjection : class
         {
             var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
 
@@ -123,7 +123,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
         /// </summary>
         /// <param name="specification">条件参数</param>
         /// <returns>聚合根实例列表</returns>
-        public async Task<IEnumerable<TAggregateRoot>> GetListAsync(Domain.Core.Specification.ISpecification<TAggregateRoot> specification)
+        public async Task<List<TAggregateRoot>> GetListAsync(Domain.Core.Specification.ISpecification<TAggregateRoot> specification)
         {
             if (specification == null)
             {
@@ -145,7 +145,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
         /// </summary>
         /// <param name="specification">条件参数</param>
         /// <returns>聚合根投影实例的列表</returns>
-        public async Task<IEnumerable<TProjection>> GetListAsync<TProjection>(ISpecification<TAggregateRoot> specification)
+        public async Task<List<TProjection>> GetListAsync<TProjection>(ISpecification<TAggregateRoot> specification)
             where TProjection : class
         {
             if (specification == null)

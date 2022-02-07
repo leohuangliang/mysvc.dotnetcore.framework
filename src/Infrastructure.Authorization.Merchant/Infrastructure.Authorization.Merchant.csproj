@@ -1,12 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant</AssemblyName>
-    <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant</RootNamespace>
+    <TargetFramework>net6.0</TargetFramework>
+
+    <AssemblyName>MySvc.Framework.Infrastructure.Authorization.Merchant</AssemblyName>
+    <RootNamespace>MySvc.Framework.Infrastructure.Authorization.Merchant</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.xml</DocumentationFile>
+    <DocumentationFile>MySvc.Framework.Infrastructure.Authorization.Merchant.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,17 +19,16 @@
     <EmbeddedResource Include="Permissions\Permission.xml" />
   </ItemGroup>
 
-    <ItemGroup>
-        <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    </ItemGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="Exceptions\Error.xml">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Error.cs</LastGenOutput>
+      <Generator></Generator>
     </None>
     <None Update="Exceptions\ErrorCode.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

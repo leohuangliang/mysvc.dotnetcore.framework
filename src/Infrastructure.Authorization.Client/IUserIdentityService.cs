@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
+namespace MySvc.Framework.Infrastructure.Authorization.Client
 {
     public interface IUserIdentityService
     {

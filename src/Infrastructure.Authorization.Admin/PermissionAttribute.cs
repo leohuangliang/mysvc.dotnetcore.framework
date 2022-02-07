@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
+namespace MySvc.Framework.Infrastructure.Authorization.Admin
 {
     public class PermissionAttribute : TypeFilterAttribute
     {

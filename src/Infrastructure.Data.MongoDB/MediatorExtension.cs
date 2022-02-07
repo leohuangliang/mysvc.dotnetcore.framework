@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Domain.Core;
+using MySvc.Framework.Domain.Core;
 using MediatR;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
+namespace MySvc.Framework.Infrastructure.Data.MongoDB
 {
     static class MediatorExtension
     {

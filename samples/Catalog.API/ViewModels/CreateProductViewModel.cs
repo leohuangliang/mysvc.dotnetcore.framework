@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.ViewModel;
+using MySvc.Framework.Infrastructure.Crosscutting.ViewModel;
 
 namespace Catalog.API.ViewModels
 {

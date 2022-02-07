@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core
+namespace MySvc.Framework.Domain.Core
 {
     /// <summary>
     /// 集成事件Log管理器

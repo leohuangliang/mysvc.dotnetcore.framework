@@ -1,9 +1,9 @@
-﻿using MySvc.DotNetCore.Framework.Domain.Core.Attributes;
-using MySvc.DotNetCore.Framework.Domain.Core.Impl;
+﻿using MySvc.Framework.Domain.Core.Attributes;
+using MySvc.Framework.Domain.Core.Impl;
 using System;
 using System.Collections.Generic;
 
-namespace MySvc.DotNetCore.Framework.IS4.Domain.ApiResourceAggregate
+namespace MySvc.Framework.IS4.Domain.ApiResourceAggregate
 {
     [AggregateRootName("ApiResources")]
     public class ApiResource : AggregateRoot

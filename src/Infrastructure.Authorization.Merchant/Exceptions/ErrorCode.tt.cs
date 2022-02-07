@@ -18,7 +18,7 @@
 
 using System;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions
+namespace MySvc.Framework.Infrastructure.Authorization.Merchant.Exceptions
 {	
 	public static class Error
     {

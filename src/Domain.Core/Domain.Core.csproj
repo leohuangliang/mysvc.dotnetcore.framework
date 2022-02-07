@@ -1,8 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>MySvc.DotNetCore.Framework.Domain.Core</RootNamespace>
-    <AssemblyName>MySvc.DotNetCore.Framework.Domain.Core</AssemblyName>
+    <TargetFramework>net6.0</TargetFramework>
+
+    <RootNamespace>MySvc.Framework.Domain.Core</RootNamespace>
+    <AssemblyName>MySvc.Framework.Domain.Core</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <UserSecretsId>ee9a7f2d-dc08-4960-ab3d-3a7fbab591ab</UserSecretsId>
   </PropertyGroup>
@@ -16,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>

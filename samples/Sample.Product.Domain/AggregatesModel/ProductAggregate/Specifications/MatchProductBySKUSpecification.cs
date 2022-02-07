@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
-using MySvc.DotNetCore.Framework.Domain.Core.Specification;
+using MySvc.Framework.Domain.Core.Specification;
 
 namespace Sample.Product.Domain.AggregatesModel.ProductAggregate.Specifications
 {

@@ -5,8 +5,8 @@ using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl;
+using MySvc.Framework.Infrastructure.Data.MongoDB;
+using MySvc.Framework.Infrastructure.Data.MongoDB.Impl;
 using Xunit;
 using global::Autofac;
 using MediatR;
@@ -15,8 +15,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
 using Xunit.Abstractions;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
-using MySvc.DotNetCore.Framework.Domain.Core;
+using MySvc.Framework.Infrastructure.Crosscutting.Options;
+using MySvc.Framework.Domain.Core;
 
 namespace Infrastructure.Data.MongoDB.Tests
 {

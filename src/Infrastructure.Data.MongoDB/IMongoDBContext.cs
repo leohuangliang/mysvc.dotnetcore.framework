@@ -1,9 +1,9 @@
 using System;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl;
+using MySvc.Framework.Domain.Core;
+using MySvc.Framework.Infrastructure.Data.MongoDB.Impl;
 using MongoDB.Driver;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
+namespace MySvc.Framework.Infrastructure.Data.MongoDB
 {
     // <summary>
     /// This is the interface of the IMongoDbContext which is managed by the <see cref="MongoDBContext"/>.

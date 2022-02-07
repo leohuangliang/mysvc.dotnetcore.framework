@@ -1,8 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>MySvc.DotNetCore.Framework.IS4.Domain</AssemblyName>
-    <RootNamespace>MySvc.DotNetCore.Framework.IS4.Domain</RootNamespace>
+    <TargetFramework>net6.0</TargetFramework>
+
+    <AssemblyName>MySvc.Framework.IS4.Domain</AssemblyName>
+    <RootNamespace>MySvc.Framework.IS4.Domain</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

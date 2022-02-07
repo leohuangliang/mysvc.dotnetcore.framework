@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MySvc.DotNetCore.Framework.Domain.Core.Specification;
+using MySvc.Framework.Domain.Core.Specification;
 using Sample.Order.Domain.Repositories;
 using System.Threading.Tasks;
 

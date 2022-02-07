@@ -1,6 +1,6 @@
-﻿using MySvc.DotNetCore.Framework.IS4.Domain.Common;
+﻿using MySvc.Framework.IS4.Domain.Common;
 
-namespace MySvc.DotNetCore.Framework.IS4.Domain.ClientAggregate
+namespace MySvc.Framework.IS4.Domain.ClientAggregate
 {
     public class ClientProperty : Property
     {

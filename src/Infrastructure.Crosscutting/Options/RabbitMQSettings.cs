@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options
+namespace MySvc.Framework.Infrastructure.Crosscutting.Options
 {
     public class RabbitMQSettings
     {

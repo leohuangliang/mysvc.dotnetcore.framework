@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
+namespace MySvc.Framework.Infrastructure.Authorization.Merchant
 {
     public class UserProfile
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
+namespace MySvc.Framework.Infrastructure.Authorization.Admin
 {
     public class PermissionsAuthorizationRequirement : IAuthorizationRequirement
     {

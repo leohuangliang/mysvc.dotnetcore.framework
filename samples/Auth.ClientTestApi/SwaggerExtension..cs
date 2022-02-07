@@ -1,5 +1,5 @@
 ﻿using System;
-using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client;
+using MySvc.Framework.Infrastructure.Authorization.Client;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

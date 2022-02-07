@@ -4,13 +4,13 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	  <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis</AssemblyName>
-	  <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis</RootNamespace>
+    <AssemblyName>MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis</AssemblyName>
+    <RootNamespace>MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis</RootNamespace>
 
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StackExchange.Redis" Version="2.2.88" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.1" />
   </ItemGroup>
 
   <ItemGroup>

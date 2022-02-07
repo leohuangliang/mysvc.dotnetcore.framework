@@ -1,12 +1,13 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
+using MySvc.Framework.Infrastructure.Crosscutting.Cache;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Cache.StackExchangeRedis
+namespace MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis
 {
     public class CacheService : ICacheService
     {

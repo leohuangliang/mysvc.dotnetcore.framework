@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.Specification
+namespace MySvc.Framework.Domain.Core.Specification
 {
     /// <summary>
     /// Represents the extender for Expression[Func[T, bool]] type.

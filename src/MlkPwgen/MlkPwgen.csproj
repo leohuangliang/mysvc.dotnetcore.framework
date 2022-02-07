@@ -1,7 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Authors>Michael Kropat</Authors>
+	  <TargetFramework>net6.0</TargetFramework>
+
+	  <Authors>Michael Kropat</Authors>
     <Description>Secure random password generator.
 Uses a cryptographically secure PRNG
 Can guarantee that the password contains digits, special characters, or any other set

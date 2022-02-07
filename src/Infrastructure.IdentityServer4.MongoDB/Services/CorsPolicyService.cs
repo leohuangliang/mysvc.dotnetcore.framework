@@ -1,14 +1,14 @@
 ﻿using IdentityServer4.Services;
 using Microsoft.Extensions.Logging;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
-using MySvc.DotNetCore.Framework.IS4.Domain.ClientAggregate;
+using MySvc.Framework.Domain.Core;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.IS4.Domain.ClientAggregate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.IS4.MongoDB.Services
+namespace MySvc.Framework.IS4.MongoDB.Services
 {
     public class CorsPolicyService : ICorsPolicyService
     {

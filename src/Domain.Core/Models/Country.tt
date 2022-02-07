@@ -6,7 +6,7 @@
 <#@ import namespace="System.Collections.Generic" #>
 using System;
 using System.Collections.Generic;
-namespace MySvc.DotNetCore.Framework.Domain.Core.Models
+namespace MySvc.Framework.Domain.Core.Models
 {
     public class Country
     {

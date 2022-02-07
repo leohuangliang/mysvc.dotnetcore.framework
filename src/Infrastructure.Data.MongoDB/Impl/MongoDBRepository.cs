@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Domain.Core.Paged;
-using MySvc.DotNetCore.Framework.Domain.Core.Specification;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl;
+using MySvc.Framework.Domain.Core;
+using MySvc.Framework.Domain.Core.Paged;
+using MySvc.Framework.Domain.Core.Specification;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.Infrastructure.Data.MongoDB.Impl;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
+using MySvc.Framework.Infrastructure.Data.MongoDB;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
+namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 {
     /// <summary>
     /// 泛型读写仓储

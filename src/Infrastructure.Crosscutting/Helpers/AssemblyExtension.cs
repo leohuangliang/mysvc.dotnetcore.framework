@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers
+namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
 {
     public static class AssemblyExtension
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Autofac;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl;
+using MySvc.Framework.Domain.Core;
+using MySvc.Framework.Infrastructure.Crosscutting.EventBus;
+using MySvc.Framework.Infrastructure.Data.MongoDB.Impl;
 using Catalog.Domain;
 using CataLog.Infrastructure.MongoDB.Repository;
 

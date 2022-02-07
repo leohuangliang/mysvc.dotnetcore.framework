@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MySvc.DotNetCore.Framework.IS4.MongoDB.Mappers
+namespace MySvc.Framework.IS4.MongoDB.Mappers
 {
     class AllowedSigningAlgorithmsConverter :
         IValueConverter<ICollection<string>, string>,

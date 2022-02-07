@@ -18,7 +18,7 @@
 
 using System;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.Exceptions
+namespace MySvc.Framework.Infrastructure.Authorization.Admin.Exceptions
 {	
 	public static class Error
     {
@@ -34,6 +34,11 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.Exceptio
 				/// </summary>
 				public const string RequestPermissionFailed = "获取权限失败";
 
+				/// <summary>
+				/// 获取用户信息失败
+				/// </summary>
+				public const string RequestUserProfileFailed = "获取用户信息失败";
+
 					}
 
 		public static class Codes
@@ -47,6 +52,11 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.Exceptio
 			/// request-permission-failed
 			/// </summary>
 			public const string RequestPermissionFailed = "request-permission-failed";
+
+			/// <summary>
+			/// request-userProfile-failed
+			/// </summary>
+			public const string RequestUserProfileFailed = "request-userProfile-failed";
 
 				}
 

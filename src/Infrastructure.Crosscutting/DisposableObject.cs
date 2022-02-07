@@ -1,6 +1,6 @@
 using System;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting
+namespace MySvc.Framework.Infrastructure.Crosscutting
 {
     /// <summary>
     /// Represents that the derived classes are disposable objects.

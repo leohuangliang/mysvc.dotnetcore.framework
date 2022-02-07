@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MySvc.DotNetCore.Framework.Domain.Core.DomainEvents;
+using MySvc.Framework.Domain.Core.DomainEvents;
 
 namespace Catalog.Domain.DomainEvents
 {

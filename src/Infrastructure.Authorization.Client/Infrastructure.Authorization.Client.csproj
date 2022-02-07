@@ -1,8 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client</AssemblyName>
-    <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client</RootNamespace>
+    <TargetFramework>net6.0</TargetFramework>
+
+    <AssemblyName>MySvc.Framework.Infrastructure.Authorization.Client</AssemblyName>
+    <RootNamespace>MySvc.Framework.Infrastructure.Authorization.Client</RootNamespace>
   </PropertyGroup>
 
 
@@ -16,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-      <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Extensions\ErrorCode.tt">
+    <None Update="Exceptions\ErrorCode.tt">
       <LastGenOutput>ErrorCode.tt.cs</LastGenOutput>
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
@@ -39,7 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Extensions\ErrorCode.tt.cs">
+    <Compile Update="Exceptions\ErrorCode.tt.cs">
       <DependentUpon>ErrorCode.tt</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

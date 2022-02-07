@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.InversionOfControl
+namespace MySvc.Framework.Infrastructure.Crosscutting.InversionOfControl
 {
     /// <summary>
     /// 依赖注入的解析器

@@ -1,8 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Cache.StackExchangeRedis</AssemblyName>
-    <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Cache.StackExchangeRedis</RootNamespace>
+    <TargetFramework>net6.0</TargetFramework>
+
+    <AssemblyName>MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis</AssemblyName>
+    <RootNamespace>MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

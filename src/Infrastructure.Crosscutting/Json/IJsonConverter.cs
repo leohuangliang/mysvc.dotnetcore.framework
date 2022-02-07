@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Xml;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json
+namespace MySvc.Framework.Infrastructure.Crosscutting.Json
 {
     /// <summary>
     /// JSON序列化/反序列化 转换器

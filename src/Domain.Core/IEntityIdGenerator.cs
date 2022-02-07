@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core
+namespace MySvc.Framework.Domain.Core
 {
     /// <summary>
     /// 实体ID生成器

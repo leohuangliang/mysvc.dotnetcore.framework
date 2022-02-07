@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.IS4.Domain.PersistedGrantAggregate;
-using MySvc.DotNetCore.Framework.IS4.Domain.PersistedGrantAggregate.Specifications;
-using MySvc.DotNetCore.Framework.IS4.MongoDB.Options;
+using MySvc.Framework.Domain.Core;
+using MySvc.Framework.IS4.Domain.PersistedGrantAggregate;
+using MySvc.Framework.IS4.Domain.PersistedGrantAggregate.Specifications;
+using MySvc.Framework.IS4.MongoDB.Options;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.IS4.MongoDB
+namespace MySvc.Framework.IS4.MongoDB
 {
     public class TokenCleanup
     {

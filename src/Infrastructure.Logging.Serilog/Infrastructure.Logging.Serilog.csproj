@@ -1,8 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog</RootNamespace>
-    <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog</AssemblyName>
+    <TargetFramework>net6.0</TargetFramework>
+
+    <RootNamespace>MySvc.Framework.Infrastructure.Serilog</RootNamespace>
+    <AssemblyName>MySvc.Framework.Infrastructure.Serilog</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

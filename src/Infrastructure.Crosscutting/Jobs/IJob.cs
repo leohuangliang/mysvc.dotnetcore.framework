@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Jobs
+namespace MySvc.Framework.Infrastructure.Crosscutting.Jobs
     {
         /// <summary>
         /// 任务

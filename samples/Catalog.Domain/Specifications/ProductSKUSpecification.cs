@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
-using MySvc.DotNetCore.Framework.Domain.Core.Specification;
+using MySvc.Framework.Domain.Core.Specification;
 
 namespace Catalog.Domain.Specifications
 {

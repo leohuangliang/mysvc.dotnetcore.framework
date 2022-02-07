@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus
+namespace MySvc.Framework.Infrastructure.Crosscutting.EventBus
 {
     /// <summary>
     /// 集成事件服务

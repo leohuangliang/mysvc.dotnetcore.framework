@@ -1,4 +1,4 @@
-﻿using MySvc.DotNetCore.Framework.Domain.Core.Impl;
+﻿using MySvc.Framework.Domain.Core.Impl;
 using System;
 
 namespace Sample.Order.Domain.AggregatesModel.OrderAggregate

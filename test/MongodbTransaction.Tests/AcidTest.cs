@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
+using MySvc.Framework.Infrastructure.Data.MongoDB;
 using MediatR;
 using Microsoft.Extensions.Options;
 using Xunit;
 using MongoDB.Driver;
 using Xunit.Abstractions;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
+using MySvc.Framework.Infrastructure.Crosscutting.Options;
 
 namespace MongodbTransaction.Tests
 {

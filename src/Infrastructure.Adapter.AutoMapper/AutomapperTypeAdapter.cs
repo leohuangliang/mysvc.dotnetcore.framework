@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Adapter;
+using MySvc.Framework.Infrastructure.Crosscutting.Adapter;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Adapter.AutoMapper
+namespace MySvc.Framework.Infrastructure.AutoMapper
 {
     /// <summary>
     /// 基于AutoMapper实现的类型转换

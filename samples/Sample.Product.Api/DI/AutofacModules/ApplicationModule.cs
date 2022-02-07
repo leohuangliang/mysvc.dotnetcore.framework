@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Autofac;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
-using MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService;
+using MySvc.Framework.Infrastructure.Crosscutting.EventBus;
+using MySvc.Framework.Infrastructure.IntegrationEventService;
 using Sample.Product.Application.IntegrationEvents.EventHandling;
 using Sample.Product.Application.Queries;
 

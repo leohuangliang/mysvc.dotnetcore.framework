@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Domain.Core.DomainEvents;
+using MySvc.Framework.Domain.Core.DomainEvents;
 using Xunit.Abstractions;
 
 namespace Infrastructure.Data.MongoDB.Tests

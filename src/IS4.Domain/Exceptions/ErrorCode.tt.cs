@@ -18,7 +18,7 @@
 
 using System;
 
-namespace MySvc.DotNetCore.Framework.IS4.Domain.Exceptions
+namespace MySvc.Framework.IS4.Domain.Exceptions
 {    
 
         public static class Error

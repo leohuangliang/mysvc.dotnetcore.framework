@@ -1,5 +1,5 @@
-using MySvc.DotNetCore.Framework.Domain.Core.Impl;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.Domain.Core.Impl;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 namespace Domain.Core.Tests
 {
     public class Address: ValueObject<Address>

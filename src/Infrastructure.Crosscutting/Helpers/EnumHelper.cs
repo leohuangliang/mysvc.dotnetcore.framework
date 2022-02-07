@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Reflection;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers
+namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
 {
     /// <summary>
     /// 

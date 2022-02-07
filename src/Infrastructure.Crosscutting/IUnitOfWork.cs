@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting
+namespace MySvc.Framework.Infrastructure.Crosscutting
 {
     /// <summary>
     /// 工作单元接口

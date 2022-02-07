@@ -4,17 +4,17 @@ using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
-using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Exceptions;
-using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Extensions;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
+using MySvc.Framework.Infrastructure.Authorization.Client.Exceptions;
+using MySvc.Framework.Infrastructure.Authorization.Client.Extensions;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Security.Authentication;
 using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
+namespace MySvc.Framework.Infrastructure.Authorization.Client
 {
     public class UserIdentityService : IUserIdentityService
     {

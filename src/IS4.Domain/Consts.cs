@@ -1,4 +1,4 @@
-﻿namespace MySvc.DotNetCore.Framework.IS4.Domain
+﻿namespace MySvc.Framework.IS4.Domain
 {
     public class Consts
     {

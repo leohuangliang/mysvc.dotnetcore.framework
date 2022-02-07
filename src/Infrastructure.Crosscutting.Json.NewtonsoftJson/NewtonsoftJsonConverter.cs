@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Xml;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
+using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Json.NewtonsoftJson
+namespace MySvc.Framework.Infrastructure.NewtonsoftJson
 {
     /// <summary>
     /// 基于JSON.NET 实现JSON序列化/反序列化

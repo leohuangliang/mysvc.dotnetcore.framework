@@ -1,6 +1,6 @@
-﻿using MySvc.DotNetCore.Framework.IS4.Domain.Common;
+﻿using MySvc.Framework.IS4.Domain.Common;
 
-namespace MySvc.DotNetCore.Framework.IS4.Domain.ApiScopeAggregate
+namespace MySvc.Framework.IS4.Domain.ApiScopeAggregate
 {
     public class ApiScopeProperty : Property
     {

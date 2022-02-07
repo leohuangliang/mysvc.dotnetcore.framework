@@ -1,8 +1,8 @@
 ﻿using System;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl;
+using MySvc.Framework.Domain.Core;
+using MySvc.Framework.Infrastructure.Data.MongoDB.Impl;
 using Catalog.Domain;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
+using MySvc.Framework.Infrastructure.Data.MongoDB;
 
 namespace CataLog.Infrastructure.MongoDB.Repository
 {

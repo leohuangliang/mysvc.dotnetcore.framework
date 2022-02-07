@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Cache
+namespace MySvc.Framework.Infrastructure.Crosscutting.Cache
 {
     /// <summary>
     /// 缓存服务

@@ -1,4 +1,4 @@
-﻿namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerators
+﻿namespace MySvc.Framework.Infrastructure.Crosscutting.IdGenerators
 {
     public interface IIdGenerator
     {

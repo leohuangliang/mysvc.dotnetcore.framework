@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers
+namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
 {
     /// <summary>
     /// 一些常用的正则表达式

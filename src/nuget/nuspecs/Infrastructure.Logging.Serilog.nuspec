@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
   <metadata>
-    <id>MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog</id>
-    <version>6.0.0-beta4</version>
-    <title>MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog</title>
+    <id>MySvc.Framework.Infrastructure.Serilog</id>
+    <version>6.0.0-beta8</version>
+    <title>MySvc.Framework.Infrastructure.Serilog</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -13,7 +13,7 @@
     <tags>MySVC.cc</tags>
     <serviceable>true</serviceable>
     <dependencies>
-      <group targetFramework=".net6.0">
+      <group targetFramework="net6.0">
         <dependency id="Serilog" version="2.10.0" />
         <dependency id="Serilog.Sinks.Email" version="2.4.0" />
       </group>
@@ -21,7 +21,7 @@
 
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.Logging.Serilog\bin\Release\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog.dll" target="lib\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog.dll" />
-    <file src="..\..\Infrastructure.Logging.Serilog\bin\Release\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog.pdb" target="lib\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog.pdb" />
+    <file src="..\..\Infrastructure.Logging.Serilog\bin\Release\net6.0\MySvc.Framework.Infrastructure.Serilog.dll" target="lib\net6.0\MySvc.Framework.Infrastructure.Serilog.dll" />
+    <file src="..\..\Infrastructure.Logging.Serilog\bin\Release\net6.0\MySvc.Framework.Infrastructure.Serilog.pdb" target="lib\net6.0\MySvc.Framework.Infrastructure.Serilog.pdb" />
   </files>
 </package>

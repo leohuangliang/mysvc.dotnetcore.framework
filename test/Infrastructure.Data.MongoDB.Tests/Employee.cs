@@ -1,6 +1,6 @@
-using MySvc.DotNetCore.Framework.Domain.Core.Attributes;
-using MySvc.DotNetCore.Framework.Domain.Core.DomainEvents;
-using MySvc.DotNetCore.Framework.Domain.Core.Impl;
+using MySvc.Framework.Domain.Core.Attributes;
+using MySvc.Framework.Domain.Core.DomainEvents;
+using MySvc.Framework.Domain.Core.Impl;
 
 
 namespace Infrastructure.Data.MongoDB.Tests

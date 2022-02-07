@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Domain.Core.Paged;
-using MySvc.DotNetCore.Framework.Domain.Core.Specification;
+using MySvc.Framework.Domain.Core.Paged;
+using MySvc.Framework.Domain.Core.Specification;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core
+namespace MySvc.Framework.Domain.Core
 {
     /// <summary>
     /// 泛型仓储

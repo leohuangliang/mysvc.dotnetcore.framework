@@ -1,10 +1,10 @@
 ﻿using Autofac;
 using Autofac.Core;
 using Microsoft.Extensions.Options;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl;
+using MySvc.Framework.Domain.Core;
+using MySvc.Framework.Infrastructure.Crosscutting.Options;
+using MySvc.Framework.Infrastructure.Data.MongoDB;
+using MySvc.Framework.Infrastructure.Data.MongoDB.Impl;
 using Sample.Order.Domain.Repositories;
 using Sample.Order.Repository.MongoDB;
 

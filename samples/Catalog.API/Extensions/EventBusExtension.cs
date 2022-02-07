@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
+using MySvc.Framework.Infrastructure.Crosscutting.EventBus;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;

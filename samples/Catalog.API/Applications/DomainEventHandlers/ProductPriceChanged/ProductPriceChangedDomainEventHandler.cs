@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Domain.Core.DomainEvents;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
+using MySvc.Framework.Domain.Core.DomainEvents;
+using MySvc.Framework.Infrastructure.Crosscutting.EventBus;
 using Catalog.API.Applications.IntegrationEvents.Events;
 using Catalog.Domain.DomainEvents;
 

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
+namespace MySvc.Framework.Infrastructure.Authorization.Admin
 {
     public class UserIdentity
     {

@@ -1,8 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService</AssemblyName>
-    <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService</RootNamespace>
+    <TargetFramework>net6.0</TargetFramework>
+
+    <AssemblyName>MySvc.Framework.Infrastructure.IntegrationEventService</AssemblyName>
+    <RootNamespace>MySvc.Framework.Infrastructure.IntegrationEventService</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>

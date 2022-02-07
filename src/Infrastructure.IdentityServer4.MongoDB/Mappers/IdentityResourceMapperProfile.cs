@@ -2,9 +2,9 @@
 
 using System.Collections.Generic;
 using IS4Models = IdentityServer4.Models;
-using DomainModels = MySvc.DotNetCore.Framework.IS4.Domain.IdentityResourceAggregate;
+using DomainModels = MySvc.Framework.IS4.Domain.IdentityResourceAggregate;
 
-namespace MySvc.DotNetCore.Framework.IS4.MongoDB.Mappers
+namespace MySvc.Framework.IS4.MongoDB.Mappers
 {
     /// <summary>
     /// AutoMapper configuration for identity resource

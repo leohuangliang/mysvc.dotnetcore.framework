@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
+namespace MySvc.Framework.Infrastructure.Authorization.Merchant
 {
     public class PermissionAttribute : TypeFilterAttribute
     {

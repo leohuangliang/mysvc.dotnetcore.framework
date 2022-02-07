@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
+namespace MySvc.Framework.Infrastructure.Authorization.Admin
 {
     public interface IPermissionProvider
     {

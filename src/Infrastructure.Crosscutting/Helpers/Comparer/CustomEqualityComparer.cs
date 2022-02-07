@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers.Comparer
+namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers.Comparer
 {
     /// <summary>
     /// 自定义的相等比较器

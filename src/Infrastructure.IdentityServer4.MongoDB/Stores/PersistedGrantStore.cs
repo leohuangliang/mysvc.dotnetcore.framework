@@ -1,15 +1,15 @@
 ﻿using IdentityServer4.Extensions;
 using IdentityServer4.Stores;
 using Microsoft.Extensions.Logging;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
-using MySvc.DotNetCore.Framework.IS4.MongoDB.Mappers;
+using MySvc.Framework.Infrastructure.Data.MongoDB;
+using MySvc.Framework.IS4.MongoDB.Mappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using IS4Models = IdentityServer4.Models;
-using DomainModels = MySvc.DotNetCore.Framework.IS4.Domain.PersistedGrantAggregate;
-namespace MySvc.DotNetCore.Framework.IS4.MongoDB.Stores
+using DomainModels = MySvc.Framework.IS4.Domain.PersistedGrantAggregate;
+namespace MySvc.Framework.IS4.MongoDB.Stores
 {
     public class PersistedGrantStore : IPersistedGrantStore
     {

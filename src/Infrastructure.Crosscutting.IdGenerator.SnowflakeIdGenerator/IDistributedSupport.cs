@@ -1,4 +1,4 @@
-﻿namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator
+﻿namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator
 {
 public interface IDistributedSupport
 {

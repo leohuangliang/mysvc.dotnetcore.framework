@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Xml;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permissions
+namespace MySvc.Framework.Infrastructure.Authorization.Merchant.Permissions
 {
     public static class PermissionManage
     {
@@ -34,7 +34,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Permi
                     Console.WriteLine(i);
                 }
 
-                using (Stream stream = typeof(PermissionManage).GetTypeInfo().Assembly.GetManifestResourceStream("MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Permissions.Permission.xml"))
+                using (Stream stream = typeof(PermissionManage).GetTypeInfo().Assembly.GetManifestResourceStream("MySvc.Framework.Infrastructure.Authorization.Client.Permissions.Permission.xml"))
                 {
                     if (stream == null)
                     {

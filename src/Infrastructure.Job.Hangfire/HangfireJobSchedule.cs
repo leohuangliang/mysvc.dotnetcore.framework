@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Jobs;
+using MySvc.Framework.Infrastructure.Crosscutting.Jobs;
 using Hangfire;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire
+namespace MySvc.Framework.Infrastructure.Job.Hangfire
 {
     public class HangfireJobSchedule : IJobSchedule
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Exceptions
+namespace MySvc.Framework.Infrastructure.Crosscutting.Exceptions
 {
     public class ConcurrencyException : ExceptionBase
     {

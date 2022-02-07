@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MySvc.DotNetCore.Framework.Domain.Core.Attributes;
-using MySvc.DotNetCore.Framework.Domain.Core.Impl;
+using MySvc.Framework.Domain.Core.Attributes;
+using MySvc.Framework.Domain.Core.Impl;
 using Sample.Order.Domain.Common.Models;
 using Sample.Order.Domain.Events;
 

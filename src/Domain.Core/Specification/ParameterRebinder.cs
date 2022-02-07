@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.Specification
+namespace MySvc.Framework.Domain.Core.Specification
 {
     /// <summary>
     /// Represents the parameter rebinder used for rebinding the parameters

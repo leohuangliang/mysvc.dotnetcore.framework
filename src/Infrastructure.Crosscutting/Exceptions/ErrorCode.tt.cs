@@ -18,7 +18,7 @@
 
 using System;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Exceptions
+namespace MySvc.Framework.Infrastructure.Crosscutting.Exceptions
 {    
     public static class ErrorCodes
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers
+namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
 {
     /// <summary>
     /// 日期相关的辅助类，通过常用的方法

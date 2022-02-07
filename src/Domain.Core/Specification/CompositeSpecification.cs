@@ -1,5 +1,5 @@
 ﻿
-namespace MySvc.DotNetCore.Framework.Domain.Core.Specification
+namespace MySvc.Framework.Domain.Core.Specification
 {
     /// <summary>
     /// Represents the base class for composite specifications.

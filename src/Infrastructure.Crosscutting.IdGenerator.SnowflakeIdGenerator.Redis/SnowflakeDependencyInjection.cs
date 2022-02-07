@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerators;
+using MySvc.Framework.Infrastructure.Crosscutting.IdGenerators;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis
+namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis
 {
     public static class SnowflakeDependencyInjection
     {

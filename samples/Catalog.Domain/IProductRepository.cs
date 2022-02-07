@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MySvc.DotNetCore.Framework.Domain.Core;
+using MySvc.Framework.Domain.Core;
 
 namespace Catalog.Domain
 {

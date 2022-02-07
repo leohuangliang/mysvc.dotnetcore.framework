@@ -4,8 +4,8 @@
 
 using AutoMapper;
 using IS4Models = IdentityServer4.Models;
-using DomainModels = MySvc.DotNetCore.Framework.IS4.Domain.PersistedGrantAggregate;
-namespace MySvc.DotNetCore.Framework.IS4.MongoDB.Mappers
+using DomainModels = MySvc.Framework.IS4.Domain.PersistedGrantAggregate;
+namespace MySvc.Framework.IS4.MongoDB.Mappers
 {
     /// <summary>
     /// Extension methods to map to/from entity/model for persisted grants.

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Domain.Core.Paged;
-using MySvc.DotNetCore.Framework.Domain.Core.Specification;
+using MySvc.Framework.Domain.Core.Paged;
+using MySvc.Framework.Domain.Core.Specification;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core
+namespace MySvc.Framework.Domain.Core
 {
     /// <summary>
     /// 只读仓储接口
@@ -40,27 +40,27 @@ namespace MySvc.DotNetCore.Framework.Domain.Core
         /// 获取所有聚合根列表
         /// </summary>
         /// <returns>聚合根实例列表</returns>
-        Task<IEnumerable<TAggregateRoot>> GetAllAsync();
+        Task<List<TAggregateRoot>> GetAllAsync();
 
         /// <summary>
         /// 获取所有聚合根列表, 返回指定的投影对象
         /// </summary>
         /// <returns>聚合根投影实例的列表</returns>
-        Task<IEnumerable<TProjection>> GetAllAsync<TProjection>() where TProjection : class;
+        Task<List<TProjection>> GetAllAsync<TProjection>() where TProjection : class;
 
         /// <summary>
         /// 通过条件获取聚合根列表
         /// </summary>
         /// <param name="specification">条件参数</param>
         /// <returns>聚合根实例列表</returns>
-        Task<IEnumerable<TAggregateRoot>> GetListAsync(Domain.Core.Specification.ISpecification<TAggregateRoot> specification);
+        Task<List<TAggregateRoot>> GetListAsync(Domain.Core.Specification.ISpecification<TAggregateRoot> specification);
 
         /// <summary>
         /// 通过条件获取列表, 返回指定的投影对象
         /// </summary>
         /// <param name="specification">条件参数</param>
         /// <returns>聚合根投影实例的列表</returns>
-        Task<IEnumerable<TProjection>> GetListAsync<TProjection>(Domain.Core.Specification.ISpecification<TAggregateRoot> specification) where TProjection : class;
+        Task<List<TProjection>> GetListAsync<TProjection>(Domain.Core.Specification.ISpecification<TAggregateRoot> specification) where TProjection : class;
 
         /// <summary>
         /// 根据指定的规约，以指定的排序字段和排序方式，以及分页参数，从仓储中读取所有聚合根。

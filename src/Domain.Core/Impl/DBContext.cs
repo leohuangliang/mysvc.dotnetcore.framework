@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting;
+using MySvc.Framework.Infrastructure.Crosscutting;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
+namespace MySvc.Framework.Domain.Core.Impl
 {
     /// <summary>
     /// 

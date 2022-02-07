@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
+using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
+namespace MySvc.Framework.Infrastructure.Authorization.Merchant
 {
     public class PermissionAttributeFilter : IAuthorizationFilter
     {

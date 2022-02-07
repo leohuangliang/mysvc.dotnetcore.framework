@@ -1,7 +1,7 @@
 ﻿using Contracts.Events;
 using MediatR;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
+using MySvc.Framework.Domain.Core;
+using MySvc.Framework.Infrastructure.Crosscutting.EventBus;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;

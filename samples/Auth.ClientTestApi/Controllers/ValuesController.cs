@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client;
+using MySvc.Framework.Infrastructure.Authorization.Client;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

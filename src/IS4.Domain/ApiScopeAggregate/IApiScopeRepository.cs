@@ -1,6 +1,6 @@
-﻿using MySvc.DotNetCore.Framework.Domain.Core;
+﻿using MySvc.Framework.Domain.Core;
 
-namespace MySvc.DotNetCore.Framework.IS4.Domain.ApiScopeAggregate
+namespace MySvc.Framework.IS4.Domain.ApiScopeAggregate
 {
     public interface IApiScopeRepository : IRepository<ApiScope>
     {

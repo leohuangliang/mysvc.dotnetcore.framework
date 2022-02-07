@@ -1,8 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire</AssemblyName>
-    <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire</RootNamespace>
+    <TargetFramework>net6.0</TargetFramework>
+
+    <AssemblyName>MySvc.Framework.Infrastructure.Job.Hangfire</AssemblyName>
+    <RootNamespace>MySvc.Framework.Infrastructure.Job.Hangfire</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -10,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hangfire.Core" Version="1.7.27" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.28" />
   </ItemGroup>
 
   <ItemGroup>

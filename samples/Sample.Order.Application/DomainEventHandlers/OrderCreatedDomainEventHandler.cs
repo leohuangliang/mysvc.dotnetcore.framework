@@ -1,5 +1,5 @@
-﻿using MySvc.DotNetCore.Framework.Domain.Core.DomainEvents;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
+﻿using MySvc.Framework.Domain.Core.DomainEvents;
+using MySvc.Framework.Infrastructure.Crosscutting.EventBus;
 using Sample.Order.Domain.Events;
 using System;
 using System.Linq;

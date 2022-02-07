@@ -1,7 +1,7 @@
 ﻿using System;
-using MySvc.DotNetCore.Framework.Domain.Core.Attributes;
+using MySvc.Framework.Domain.Core.Attributes;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
+namespace MySvc.Framework.Domain.Core.Impl
 {
     /// <summary>
     /// 集成事件Log聚合根

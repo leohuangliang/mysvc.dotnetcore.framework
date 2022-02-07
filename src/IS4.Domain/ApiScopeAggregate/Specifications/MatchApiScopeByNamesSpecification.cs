@@ -1,9 +1,9 @@
-﻿using MySvc.DotNetCore.Framework.Domain.Core.Specification;
+﻿using MySvc.Framework.Domain.Core.Specification;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace MySvc.DotNetCore.Framework.IS4.Domain.ApiScopeAggregate.Specifications
+namespace MySvc.Framework.IS4.Domain.ApiScopeAggregate.Specifications
 {
     public class MatchApiScopeByNamesSpecification : Specification<ApiScope>
     {

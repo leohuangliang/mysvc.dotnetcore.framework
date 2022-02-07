@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
+namespace MySvc.Framework.Infrastructure.Authorization.Merchant
 {
     public interface IPermissionProvider
     {

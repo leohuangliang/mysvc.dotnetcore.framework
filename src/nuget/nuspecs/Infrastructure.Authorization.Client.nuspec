@@ -2,13 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>
-			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
+			MySvc.Framework.Infrastructure.Authorization.Client
     </id>
     <version>
-			6.0.0-beta4
+			6.0.0-beta8
     </version>
     <title>
-			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
+			MySvc.Framework.Infrastructure.Authorization.Client
     </title>
     <authors>
 			liang.huang
@@ -35,15 +35,15 @@
 			true
     </serviceable>
     <dependencies>
-      <group targetFramework=".net6.0">
-        <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="6.0.0-beta4" />
+      <group targetFramework="net6.0">
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.0-beta8" />
       </group>
     </dependencies>
 
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.Authorization.Client\bin\Release\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.deps.json" target="lib\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.deps.json" />
-    <file src="..\..\Infrastructure.Authorization.Client\bin\Release\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.dll" target="lib\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.dll" />
-    <file src="..\..\Infrastructure.Authorization.Client\bin\Release\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.pdb" target="lib\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.pdb" />
+    <file src="..\..\Infrastructure.Authorization.Client\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Client.deps.json" target="lib\net6.0\MySvc.Framework.Infrastructure.Authorization.Client.deps.json" />
+    <file src="..\..\Infrastructure.Authorization.Client\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Client.dll" target="lib\net6.0\MySvc.Framework.Infrastructure.Authorization.Client.dll" />
+    <file src="..\..\Infrastructure.Authorization.Client\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Client.pdb" target="lib\net6.0\MySvc.Framework.Infrastructure.Authorization.Client.pdb" />
   </files>
 </package>

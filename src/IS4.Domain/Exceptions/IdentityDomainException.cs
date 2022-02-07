@@ -1,6 +1,6 @@
-﻿using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Exceptions;
+﻿using MySvc.Framework.Infrastructure.Crosscutting.Exceptions;
 
-namespace MySvc.DotNetCore.Framework.IS4.Domain.Exceptions
+namespace MySvc.Framework.IS4.Domain.Exceptions
 {
     public class IdentityDomainException : ExceptionBase
     {

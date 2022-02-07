@@ -3,9 +3,9 @@
 using System.Collections.Generic;
 using System.Security.Claims;
 using IS4Models = IdentityServer4.Models;
-using DomainModels = MySvc.DotNetCore.Framework.IS4.Domain.ClientAggregate;
+using DomainModels = MySvc.Framework.IS4.Domain.ClientAggregate;
 
-namespace MySvc.DotNetCore.Framework.IS4.MongoDB.Mappers
+namespace MySvc.Framework.IS4.MongoDB.Mappers
 {
     /// <summary>
     /// AutoMapper configuration for Client

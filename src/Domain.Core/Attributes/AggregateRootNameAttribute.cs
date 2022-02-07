@@ -1,6 +1,6 @@
 using System;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.Attributes
+namespace MySvc.Framework.Domain.Core.Attributes
 {
     /// <summary>
     /// 聚合根名称属性类

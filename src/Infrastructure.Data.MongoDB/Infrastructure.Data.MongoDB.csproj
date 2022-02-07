@@ -1,26 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-	  <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB</RootNamespace>
-	  <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB</AssemblyName>
-	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-		<WarningLevel>
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+
+    <RootNamespace>MySvc.Framework.Infrastructure.Data.MongoDB</RootNamespace>
+    <AssemblyName>MySvc.Framework.Infrastructure.Data.MongoDB</AssemblyName>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningLevel>
 			3
-		</WarningLevel>
-	</PropertyGroup>
-	<ItemGroup>
-	
-		<PackageReference Include="MediatR" Version="9.0.0" />
-		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
-		<PackageReference Include="MongoDB.Driver" Version="2.14.1" />
-	</ItemGroup>
-  
-	<ItemGroup>
-		<ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
-		<ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />
-	</ItemGroup>
+    </WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.14.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
+    <ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />
+  </ItemGroup>
 </Project>

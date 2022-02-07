@@ -1,8 +1,8 @@
 ﻿using System;
-using MySvc.DotNetCore.Framework.Domain.Core.Impl;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.Domain.Core.Impl;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.Models
+namespace MySvc.Framework.Domain.Core.Models
 {
     /// <summary>
     /// 表示金钱类型

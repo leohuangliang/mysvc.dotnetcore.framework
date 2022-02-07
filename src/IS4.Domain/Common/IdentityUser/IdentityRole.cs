@@ -1,7 +1,7 @@
-﻿using MySvc.DotNetCore.Framework.Domain.Core.Attributes;
-using MySvc.DotNetCore.Framework.Domain.Core.Impl;
+﻿using MySvc.Framework.Domain.Core.Attributes;
+using MySvc.Framework.Domain.Core.Impl;
 
-namespace MySvc.DotNetCore.Framework.IS4.Domain.Common.IdentityUser
+namespace MySvc.Framework.IS4.Domain.Common.IdentityUser
 {
     [AggregateRootName("Roles")]
     public  class IdentityRole : AggregateRoot

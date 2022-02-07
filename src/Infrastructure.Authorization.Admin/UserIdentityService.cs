@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Security.Authentication;
-using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.Permissions;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
+using MySvc.Framework.Infrastructure.Authorization.Admin.Permissions;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Security.Claims;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
+namespace MySvc.Framework.Infrastructure.Authorization.Admin
 {
     public class UserIdentityService : IUserIdentityService
     {

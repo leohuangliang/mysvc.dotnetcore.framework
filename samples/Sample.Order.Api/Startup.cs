@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.PlatformAbstractions;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
+using MySvc.Framework.Infrastructure.Crosscutting.Options;
 using Sample.Order.Api.DI.AutofacModules;
 using System;
 using System.IO;

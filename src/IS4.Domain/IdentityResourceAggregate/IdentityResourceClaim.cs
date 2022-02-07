@@ -1,6 +1,6 @@
-﻿using MySvc.DotNetCore.Framework.IS4.Domain.Common;
+﻿using MySvc.Framework.IS4.Domain.Common;
 
-namespace MySvc.DotNetCore.Framework.IS4.Domain.IdentityResourceAggregate
+namespace MySvc.Framework.IS4.Domain.IdentityResourceAggregate
 {
     public class IdentityResourceClaim : UserClaim
     {

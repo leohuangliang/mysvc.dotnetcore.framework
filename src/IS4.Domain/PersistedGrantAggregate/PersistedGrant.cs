@@ -1,8 +1,8 @@
-﻿using MySvc.DotNetCore.Framework.Domain.Core.Attributes;
-using MySvc.DotNetCore.Framework.Domain.Core.Impl;
+﻿using MySvc.Framework.Domain.Core.Attributes;
+using MySvc.Framework.Domain.Core.Impl;
 using System;
 
-namespace MySvc.DotNetCore.Framework.IS4.Domain.PersistedGrantAggregate
+namespace MySvc.Framework.IS4.Domain.PersistedGrantAggregate
 {
     [AggregateRootName("PersistedGrants")]
     public class PersistedGrant : AggregateRoot

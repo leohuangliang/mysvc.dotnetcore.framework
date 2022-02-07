@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Jobs
+namespace MySvc.Framework.Infrastructure.Crosscutting.Jobs
 {
     /// <summary>
     /// 周期任务

@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.Impl
+namespace MySvc.Framework.Domain.Core.Impl
 {
     /// <summary>
     /// 泛型值对象

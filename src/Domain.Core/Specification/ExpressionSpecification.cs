@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.Specification
+namespace MySvc.Framework.Domain.Core.Specification
 {
     /// <summary>
     /// Represents the specification which is represented by the corresponding

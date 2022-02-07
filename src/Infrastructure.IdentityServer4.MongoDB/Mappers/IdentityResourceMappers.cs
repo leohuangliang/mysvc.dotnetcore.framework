@@ -4,8 +4,8 @@
 
 using AutoMapper;
 using IS4Models = IdentityServer4.Models;
-using DomainModels = MySvc.DotNetCore.Framework.IS4.Domain.IdentityResourceAggregate;
-namespace MySvc.DotNetCore.Framework.IS4.MongoDB.Mappers
+using DomainModels = MySvc.Framework.IS4.Domain.IdentityResourceAggregate;
+namespace MySvc.Framework.IS4.MongoDB.Mappers
 {
     /// <summary>
     /// Extension methods to map to/from entity/model for identity resources.

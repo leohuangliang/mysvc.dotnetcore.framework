@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Security.Authentication;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Exceptions;
-using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Extensions;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
+using MySvc.Framework.Infrastructure.Authorization.Merchant.Exceptions;
+using MySvc.Framework.Infrastructure.Authorization.Merchant.Extensions;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
@@ -14,7 +14,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
 using System.Security.Claims;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
+namespace MySvc.Framework.Infrastructure.Authorization.Merchant
 {
     /// <summary>
     /// 

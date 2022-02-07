@@ -1,12 +1,12 @@
-﻿using MySvc.DotNetCore.Framework.Domain.Core.Impl;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
-using MySvc.DotNetCore.Framework.IS4.Domain.Exceptions;
+﻿using MySvc.Framework.Domain.Core.Impl;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.IS4.Domain.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 
-namespace MySvc.DotNetCore.Framework.IS4.Domain.Common.IdentityUser
+namespace MySvc.Framework.IS4.Domain.Common.IdentityUser
 {
     public abstract partial class IdentityUser<TLogin, TClaim, TToken> : AggregateRoot
         where TLogin : IdentityUserLogin

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
-using MySvc.DotNetCore.Framework.Domain.Core.Impl;
+using MySvc.Framework.Domain.Core.Impl;
 using System;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 
-namespace MySvc.DotNetCore.Framework.IS4.Domain.Common.IdentityUser
+namespace MySvc.Framework.IS4.Domain.Common.IdentityUser
 {
     public partial class IdentityUser<TLogin, TClaim, TToken> : AggregateRoot
         where TLogin : IdentityUserLogin

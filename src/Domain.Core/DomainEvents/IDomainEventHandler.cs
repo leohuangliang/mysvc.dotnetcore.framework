@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.DomainEvents
+namespace MySvc.Framework.Domain.Core.DomainEvents
 {
     /// <summary>
     /// 领域事件处理器

@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using MySvc.DotNetCore.Framework.Domain.Core;
+using MySvc.Framework.Domain.Core;
 using Sample.Product.Domain.AggregatesModel.ProductAggregate.Specifications;
 using Sample.Product.Domain.Repositories;
 using System.Threading;

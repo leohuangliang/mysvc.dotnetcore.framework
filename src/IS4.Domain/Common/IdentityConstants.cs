@@ -1,4 +1,4 @@
-﻿namespace MySvc.DotNetCore.Framework.IS4.Domain.Common
+﻿namespace MySvc.Framework.IS4.Domain.Common
 {
     public class IdentityConstants
     {

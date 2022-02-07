@@ -1,6 +1,6 @@
 ﻿using Autofac;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
-using MySvc.DotNetCore.Framework.Infrastructure.Json.NewtonsoftJson;
+using MySvc.Framework.Infrastructure.Crosscutting.Json;
+using MySvc.Framework.Infrastructure.NewtonsoftJson;
 
 namespace Sample.Order.Api.DI.AutofacModules
 {

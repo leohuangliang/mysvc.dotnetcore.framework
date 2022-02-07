@@ -1,6 +1,6 @@
-﻿using MySvc.DotNetCore.Framework.Domain.Core.Impl;
+﻿using MySvc.Framework.Domain.Core.Impl;
 
-namespace MySvc.DotNetCore.Framework.IS4.Domain.Common
+namespace MySvc.Framework.IS4.Domain.Common
 {
     public class VerificationCodeInfo : ValueObject<VerificationCodeInfo>
     {

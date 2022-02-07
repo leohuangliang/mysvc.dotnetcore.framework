@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin</id>
-    <version>6.0.0-beta4</version>
-    <title>MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin</title>
+    <id>MySvc.Framework.Infrastructure.Authorization.Admin</id>
+    <version>6.0.0-beta8</version>
+    <title>MySvc.Framework.Infrastructure.Authorization.Admin</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -14,16 +14,16 @@
     <tags>MySVC.cc</tags>
     <serviceable>true</serviceable>
     <dependencies>
-      <group targetFramework=".net6.0">
-        <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="6.0.0-beta4" />
+      <group targetFramework="net6.0">
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.0-beta8" />
       </group>
     </dependencies>
 
 
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.deps.json" target="lib\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.deps.json" />
-    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.dll" target="lib\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.dll" />
-    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.pdb" target="lib\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.pdb" />
+    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Admin.deps.json" target="lib\net6.0\MySvc.Framework.Infrastructure.Authorization.Admin.deps.json" />
+    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Admin.dll" target="lib\net6.0\MySvc.Framework.Infrastructure.Authorization.Admin.dll" />
+    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Admin.pdb" target="lib\net6.0\MySvc.Framework.Infrastructure.Authorization.Admin.pdb" />
   </files>
 </package>

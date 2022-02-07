@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting;
+using MySvc.Framework.Infrastructure.Crosscutting;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core
+namespace MySvc.Framework.Domain.Core
 {
     /// <summary>
     /// 仓储上下文

@@ -4,8 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	  <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator</AssemblyName>
-	  <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator</RootNamespace>
+    <AssemblyName>MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator</AssemblyName>
+    <RootNamespace>MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator</RootNamespace>
 
   </PropertyGroup>
 

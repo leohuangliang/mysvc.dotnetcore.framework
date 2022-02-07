@@ -1,4 +1,4 @@
-﻿using MySvc.DotNetCore.Framework.Domain.Core;
+﻿using MySvc.Framework.Domain.Core;
 
 namespace Sample.Order.Domain.Repositories
 {

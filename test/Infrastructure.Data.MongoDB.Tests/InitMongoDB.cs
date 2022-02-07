@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
-using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
+using MySvc.Framework.Infrastructure.Crosscutting.Options;
+using MySvc.Framework.Infrastructure.Data.MongoDB;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;

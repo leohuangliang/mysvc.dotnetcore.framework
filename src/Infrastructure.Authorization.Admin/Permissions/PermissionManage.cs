@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Xml;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.Permissions
+namespace MySvc.Framework.Infrastructure.Authorization.Admin.Permissions
 {
     public static class PermissionManage
     {
@@ -33,7 +33,7 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.Permissi
                     Console.WriteLine(i);
                 }
 
-                using (Stream stream = typeof(PermissionManage).GetTypeInfo().Assembly.GetManifestResourceStream("MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.Permissions.Permission.xml"))
+                using (Stream stream = typeof(PermissionManage).GetTypeInfo().Assembly.GetManifestResourceStream("MySvc.Framework.Infrastructure.Authorization.Admin.Permissions.Permission.xml"))
                 {
                     if (stream == null)
                     {

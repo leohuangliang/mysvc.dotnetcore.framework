@@ -1,4 +1,4 @@
-﻿using MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client;
+﻿using MySvc.Framework.Infrastructure.Authorization.Client;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Primitives;
 using Moq;

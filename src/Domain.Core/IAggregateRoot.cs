@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using MySvc.DotNetCore.Framework.Domain.Core.DomainEvents;
+using MySvc.Framework.Domain.Core.DomainEvents;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core
+namespace MySvc.Framework.Domain.Core
 {
     /// <summary>
     /// 

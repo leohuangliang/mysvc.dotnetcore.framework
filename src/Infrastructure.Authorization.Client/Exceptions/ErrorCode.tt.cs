@@ -18,7 +18,7 @@
 
 using System;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Exceptions
+namespace MySvc.Framework.Infrastructure.Authorization.Client.Exceptions
 {	
 	public static class Error
     {

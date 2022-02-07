@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using MySvc.DotNetCore.Framework.Domain.Core;
+using MySvc.Framework.Domain.Core;
 using Sample.Product.Domain.Repositories;
 using System.Threading;
 using System.Threading.Tasks;

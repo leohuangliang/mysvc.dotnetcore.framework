@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Adapter
+namespace MySvc.Framework.Infrastructure.Crosscutting.Adapter
 {
     /// <summary>
     /// Base contract for map dto to aggregate or aggregate to dto.

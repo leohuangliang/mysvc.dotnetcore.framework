@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Exceptions
+namespace MySvc.Framework.Infrastructure.Crosscutting.Exceptions
 {
 
     public abstract class ExceptionBase : Exception

@@ -2,14 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>
-			MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson
+			MySvc.Framework.Infrastructure.NewtonsoftJson
     </id>
     <version>
-			6.0.0-beta4
+			6.0.0-beta8
 
     </version>
     <title>
-			MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson
+			MySvc.Framework.Infrastructure.NewtonsoftJson
     </title>
     <authors>
 			liang.huang
@@ -36,15 +36,15 @@
 			true
     </serviceable>
     <dependencies>
-      <group targetFramework=".net6.0">
-        <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="6.0.0-beta4" />
-        <dependency id="Newtonsoft.Json" version="13.0.1" />
+      <group targetFramework="net6.0">
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.0-beta8" />
+        <dependency id="Microsoft.AspNetCore.Mvc.NewtonsoftJson" version="6.0.1" />
       </group>
     </dependencies>
 
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.Crosscutting.Json.NewtonsoftJson\bin\Release\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson.dll" target="lib\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson.dll" />
-    <file src="..\..\Infrastructure.Crosscutting.Json.NewtonsoftJson\bin\Release\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson.pdb" target="lib\net6.0\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson.pdb" />
+    <file src="..\..\Infrastructure.Crosscutting.Json.NewtonsoftJson\bin\Release\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.dll" target="lib\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.dll" />
+    <file src="..\..\Infrastructure.Crosscutting.Json.NewtonsoftJson\bin\Release\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.pdb" target="lib\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.pdb" />
   </files>
 </package>

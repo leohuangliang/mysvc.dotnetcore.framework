@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Domain.Core;
+using MySvc.Framework.Domain.Core;
 using MediatR;
 using Sample.Product.Domain.AggregatesModel.ProductAggregate.Specifications;
 using Sample.Product.Domain.Repositories;

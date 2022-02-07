@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.Extensions
+namespace MySvc.Framework.Infrastructure.Authorization.Merchant.Extensions
 {
     public static  class ClaimsPrincipalExtensions
     {

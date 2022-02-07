@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MySvc.DotNetCore.Framework.Domain.Core;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.EventBus;
+using MySvc.Framework.Domain.Core;
+using MySvc.Framework.Infrastructure.Crosscutting.EventBus;
 using Catalog.API.ViewModels;
 using Catalog.Domain;
 using Catalog.Domain.Specifications;

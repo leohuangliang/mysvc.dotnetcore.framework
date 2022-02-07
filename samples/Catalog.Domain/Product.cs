@@ -1,6 +1,6 @@
 ﻿using System;
-using MySvc.DotNetCore.Framework.Domain.Core.Attributes;
-using MySvc.DotNetCore.Framework.Domain.Core.Impl;
+using MySvc.Framework.Domain.Core.Attributes;
+using MySvc.Framework.Domain.Core.Impl;
 using Catalog.Domain.DomainEvents;
 
 namespace Catalog.Domain

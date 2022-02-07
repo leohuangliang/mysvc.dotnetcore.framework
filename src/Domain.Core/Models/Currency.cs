@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.Models
+namespace MySvc.Framework.Domain.Core.Models
 {
     /// <summary>
     /// 货币 ISO 4217

@@ -1,9 +1,9 @@
-﻿using MySvc.DotNetCore.Framework.Domain.Core.Specification;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
+﻿using MySvc.Framework.Domain.Core.Specification;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 using System;
 using System.Linq.Expressions;
 
-namespace MySvc.DotNetCore.Framework.IS4.Domain.PersistedGrantAggregate.Specifications
+namespace MySvc.Framework.IS4.Domain.PersistedGrantAggregate.Specifications
 {
     public class MatchPersistedGrantByFilterSpecification : Specification<PersistedGrant>
     {

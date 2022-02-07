@@ -2,7 +2,7 @@
 using StackExchange.Redis;
 using System.Collections.Concurrent;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis
+namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis
 {
     public class RedisClient : IRedisClient
     {

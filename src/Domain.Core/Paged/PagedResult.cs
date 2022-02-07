@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.Paged
+namespace MySvc.Framework.Domain.Core.Paged
 {
     /// <summary>
     /// 表示包含了分页信息的集合类型。

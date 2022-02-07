@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerators;
+using MySvc.Framework.Infrastructure.Crosscutting.IdGenerators;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator
+namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator
 {
     public class SnowflakeIdGenerator : IIdGenerator
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client
+namespace MySvc.Framework.Infrastructure.Authorization.Client
 {
     public class AuthorizationRedisKeyPrefixConst
     {

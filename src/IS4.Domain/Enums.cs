@@ -1,4 +1,4 @@
-﻿namespace MySvc.DotNetCore.Framework.IS4.Domain
+﻿namespace MySvc.Framework.IS4.Domain
 {
     /// <summary>Token usage types.</summary>
     public enum TokenUsage

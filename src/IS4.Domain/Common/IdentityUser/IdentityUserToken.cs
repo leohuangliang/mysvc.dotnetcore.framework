@@ -1,4 +1,4 @@
-﻿namespace MySvc.DotNetCore.Framework.IS4.Domain.Common.IdentityUser
+﻿namespace MySvc.Framework.IS4.Domain.Common.IdentityUser
 {
     /// <summary>
     ///     Authentication token associated with a user

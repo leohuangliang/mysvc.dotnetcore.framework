@@ -1,4 +1,4 @@
-﻿namespace MySvc.DotNetCore.Framework.Domain.Core.Paged
+﻿namespace MySvc.Framework.Domain.Core.Paged
 {
     /// <summary>
     /// 

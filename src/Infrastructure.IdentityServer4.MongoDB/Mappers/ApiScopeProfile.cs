@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using System.Collections.Generic;
 using IS4Models = IdentityServer4.Models;
-using DomainModels = MySvc.DotNetCore.Framework.IS4.Domain.ApiScopeAggregate;
+using DomainModels = MySvc.Framework.IS4.Domain.ApiScopeAggregate;
 
-namespace MySvc.DotNetCore.Framework.IS4.MongoDB.Mappers
+namespace MySvc.Framework.IS4.MongoDB.Mappers
 {
     public class ApiScopeProfile : Profile
     {

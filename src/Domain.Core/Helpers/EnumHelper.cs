@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Reflection;
 
-namespace MySvc.DotNetCore.Framework.Domain.Core.Helpers
+namespace MySvc.Framework.Domain.Core.Helpers
 {
     /// <summary>
     /// 

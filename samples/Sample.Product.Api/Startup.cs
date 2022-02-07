@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.PlatformAbstractions;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
+using MySvc.Framework.Infrastructure.Crosscutting.Options;
 using Sample.Product.Api.DI.AutofacModules;
 using Sample.Product.Application.IntegrationEvents.EventHandling;
 using Swashbuckle.AspNetCore.Swagger;

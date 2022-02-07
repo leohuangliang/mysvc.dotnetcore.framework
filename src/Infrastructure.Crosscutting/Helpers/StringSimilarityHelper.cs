@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers
+namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
 {
     /// <summary>
     /// 比较字符串相识度辅助器

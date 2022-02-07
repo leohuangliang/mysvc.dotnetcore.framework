@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Jobs
+namespace MySvc.Framework.Infrastructure.Crosscutting.Jobs
 {
     public interface IJobSchedule
     {

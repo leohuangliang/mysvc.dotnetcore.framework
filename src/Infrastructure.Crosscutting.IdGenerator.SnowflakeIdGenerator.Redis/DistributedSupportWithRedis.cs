@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using StackExchange.Redis;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis
+namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis
 {
     public class DistributedSupportWithRedis : IDistributedSupport
     {

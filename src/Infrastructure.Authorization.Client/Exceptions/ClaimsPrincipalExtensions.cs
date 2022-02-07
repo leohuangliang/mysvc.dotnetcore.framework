@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.Extensions
+namespace MySvc.Framework.Infrastructure.Authorization.Client.Extensions
 {
     public static  class ClaimsPrincipalExtensions
     {

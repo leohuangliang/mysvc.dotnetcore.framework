@@ -1,7 +1,7 @@
-﻿using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers;
+﻿using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 using System.Security.Claims;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin
+namespace MySvc.Framework.Infrastructure.Authorization.Admin
 {
     public static  class ClaimsPrincipalExtensions
     {

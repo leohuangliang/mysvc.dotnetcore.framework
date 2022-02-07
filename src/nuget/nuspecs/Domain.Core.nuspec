@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
   <metadata>
-    <id>MySvc.DotNetCore.Framework.Domain.Core</id>
-    <version>6.0.0-beta4</version>
-    <title>MySvc.DotNetCore.Framework.Domain.Core</title>
+    <id>MySvc.Framework.Domain.Core</id>
+    <version>6.0.0-beta8</version>
+    <title>MySvc.Framework.Domain.Core</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -13,15 +13,15 @@
     <tags>MySVC.cc</tags>
     <serviceable>true</serviceable>
     <dependencies>
-      <group targetFramework=".net6.0">
-        <dependency id="MediatR" version="9.0.0" />
-        <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="6.0.0-beta4" />
+      <group targetFramework="net6.0">
+        <dependency id="MediatR" version="10.0.1" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.0-beta8" />
       </group>
     </dependencies>
 
   </metadata>
   <files>
-    <file src="..\..\Domain.Core\bin\Release\net6.0\MySvc.DotNetCore.Framework.Domain.Core.dll" target="lib\net6.0\MySvc.DotNetCore.Framework.Domain.Core.dll" />
-    <file src="..\..\Domain.Core\bin\Release\net6.0\MySvc.DotNetCore.Framework.Domain.Core.pdb" target="lib\net6.0\MySvc.DotNetCore.Framework.Domain.Core.pdb" />
+    <file src="..\..\Domain.Core\bin\Release\net6.0\MySvc.Framework.Domain.Core.dll" target="lib\net6.0\MySvc.Framework.Domain.Core.dll" />
+    <file src="..\..\Domain.Core\bin\Release\net6.0\MySvc.Framework.Domain.Core.pdb" target="lib\net6.0\MySvc.Framework.Domain.Core.pdb" />
   </files>
 </package>

@@ -1,4 +1,4 @@
-﻿namespace MySvc.DotNetCore.Framework.IS4.MongoDB.Options
+﻿namespace MySvc.Framework.IS4.MongoDB.Options
 {
     public class TokenCleanupOptions
     {
