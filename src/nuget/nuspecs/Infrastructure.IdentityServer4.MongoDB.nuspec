@@ -5,7 +5,7 @@
 			MySvc.Framework.IS4.MongoDB
     </id>
     <version>
-			6.0.0-beta8
+			6.0.1-beta1
     </version>
     <title>
 			MySvc.Framework.IS4.MongoDB
@@ -40,10 +40,10 @@
         <dependency id="AutoMapper" version="11.0.0" />
         <dependency id="IdentityServer4" version="4.1.2" />
 
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.0-beta8" />
-        <dependency id="MySvc.Framework.Infrastructure.Data.MongoDB" version="6.0.0-beta8" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.1-beta1" />
+        <dependency id="MySvc.Framework.Infrastructure.Data.MongoDB" version="6.0.1-beta1" />
 
-        <dependency id="MySvc.Framework.IS4.Domain" version="6.0.0-beta8" />
+        <dependency id="MySvc.Framework.IS4.Domain" version="6.0.1-beta1" />
       </group>
 
     </dependencies>

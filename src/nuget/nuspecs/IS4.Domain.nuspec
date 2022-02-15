@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.IS4.Domain</id>
-    <version>6.0.0-beta8</version>
+    <version>6.0.1-beta1</version>
     <title>MySvc.Framework.IS4.Domain</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -14,7 +14,7 @@
     <serviceable>true</serviceable>
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="MySvc.Framework.Domain.Core" version="6.0.0-beta8" />
+        <dependency id="MySvc.Framework.Domain.Core" version="6.0.1-beta1" />
       </group>
 
     </dependencies>

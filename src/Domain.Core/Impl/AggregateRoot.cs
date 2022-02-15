@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using MySvc.Framework.Domain.Core.DomainEvents;
 using MySvc.Framework.Domain.Core.Models;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 using System;
 
 namespace MySvc.Framework.Domain.Core.Impl
@@ -17,7 +18,9 @@ namespace MySvc.Framework.Domain.Core.Impl
         /// </summary>
         protected AggregateRoot() : base()
         {
-
+            this.CreatedOn = DateTime.UtcNow;
+            this.ModifiedOn = DateTime.UtcNow;
+            _keywords = new HashSet<string>();
         }
 
         /// <summary>
@@ -91,6 +94,19 @@ namespace MySvc.Framework.Domain.Core.Impl
         /// </summary>
         public Operator ModifiedBy { get; protected set; }
 
+
+        protected HashSet<string> _keywords;
+        /// <summary>
+        /// 关键字 用来查询
+        /// </summary>
+        public IReadOnlyCollection<string> Keywords
+        {
+            get => _keywords ??= new HashSet<string>();
+            private set => _keywords = new HashSet<string>(value);
+        }
+
+
+
         #region Override Methods
 
         /// <summary>
@@ -149,6 +165,35 @@ namespace MySvc.Framework.Domain.Core.Impl
             return !(left == right);
         }
 
+        /// <summary>
+        /// 更新关键字
+        /// </summary>
+        /// <param name="keywords"></param>
+        public void UpdateOrInsertKeywords(params string[] keywords)
+        {
+            foreach (var key in keywords)
+            {
+                if (!key.IsNullOrBlank())
+                {
+                    string lowerKeyword = key.ToLower();
+                    if (!_keywords.Contains(lowerKeyword))
+                    {
+                        _keywords.Add(lowerKeyword);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 清理关键字
+        /// </summary>
+        public void ClearKeywords()
+        {
+            _keywords.Clear();
+        }
+
         #endregion
+
+
     }
 }

@@ -5,7 +5,7 @@
 			MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis
     </id>
     <version>
-			6.0.0-beta8
+			6.0.1-beta1
 
     </version>
     <title>
@@ -38,7 +38,7 @@
     </serviceable>
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.0-beta8" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.1-beta1" />
         <dependency id="Microsoft.Extensions.Caching.StackExchangeRedis" version="6.0.1" />
       </group>
     </dependencies>

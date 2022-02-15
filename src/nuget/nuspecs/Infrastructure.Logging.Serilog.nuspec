@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Infrastructure.Serilog</id>
-    <version>6.0.0-beta8</version>
+    <version>6.0.1-beta1</version>
     <title>MySvc.Framework.Infrastructure.Serilog</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
