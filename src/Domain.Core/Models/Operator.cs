@@ -55,6 +55,8 @@ namespace MySvc.Framework.Domain.Core.Models
                 email:"",
                 OperatorType.System);
         }
+
+        
     }
 
     /// <summary>
