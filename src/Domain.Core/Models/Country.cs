@@ -2,26 +2,11 @@
 using System.Collections.Generic;
 namespace MySvc.DotNetCore.Framework.Domain.Core.Models
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class Country
     {
-        /// <summary>
-        /// 
-        /// </summary>
         public string Name { get; private set; }
-        /// <summary>
-        /// 
-        /// </summary>
         public string TwoLetterCode { get; private set; }
-        /// <summary>
-        /// 
-        /// </summary>
         public string ThreeLetterCode { get; private set; }
-        /// <summary>
-        /// 
-        /// </summary>
         public string NumericCode { get; private set; }
 
         private Country(string name, string twoLetterCode, string threeLetterCode, string numericCode)
@@ -37,7 +22,7 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Models
         /// </summary>
         public static readonly Dictionary<string, Country> List = new Dictionary<string, Country>()
         {
-
+        
             { AF,  new Country("Afghanistan", "AF", "AFG", "4")},
             { AX,  new Country("Åland Islands", "AX", "ALA", "248")},
             { AL,  new Country("Albania", "AL", "ALB", "8")},
@@ -293,999 +278,999 @@ namespace MySvc.DotNetCore.Framework.Domain.Core.Models
         /// <summary>
         /// Afghanistan
         /// </summary>
-        public const string AF = "AF";
+        public const string  AF = "AF";
         /// <summary>
         /// Åland Islands
         /// </summary>
-        public const string AX = "AX";
+        public const string  AX = "AX";
         /// <summary>
         /// Albania
         /// </summary>
-        public const string AL = "AL";
+        public const string  AL = "AL";
         /// <summary>
         /// Algeria
         /// </summary>
-        public const string DZ = "DZ";
+        public const string  DZ = "DZ";
         /// <summary>
         /// American Samoa
         /// </summary>
-        public const string AS = "AS";
+        public const string  AS = "AS";
         /// <summary>
         /// Andorra
         /// </summary>
-        public const string AD = "AD";
+        public const string  AD = "AD";
         /// <summary>
         /// Angola
         /// </summary>
-        public const string AO = "AO";
+        public const string  AO = "AO";
         /// <summary>
         /// Anguilla
         /// </summary>
-        public const string AI = "AI";
+        public const string  AI = "AI";
         /// <summary>
         /// Antarctica
         /// </summary>
-        public const string AQ = "AQ";
+        public const string  AQ = "AQ";
         /// <summary>
         /// Antigua and Barbuda
         /// </summary>
-        public const string AG = "AG";
+        public const string  AG = "AG";
         /// <summary>
         /// Argentina
         /// </summary>
-        public const string AR = "AR";
+        public const string  AR = "AR";
         /// <summary>
         /// Armenia
         /// </summary>
-        public const string AM = "AM";
+        public const string  AM = "AM";
         /// <summary>
         /// Aruba
         /// </summary>
-        public const string AW = "AW";
+        public const string  AW = "AW";
         /// <summary>
         /// Australia
         /// </summary>
-        public const string AU = "AU";
+        public const string  AU = "AU";
         /// <summary>
         /// Austria
         /// </summary>
-        public const string AT = "AT";
+        public const string  AT = "AT";
         /// <summary>
         /// Azerbaijan
         /// </summary>
-        public const string AZ = "AZ";
+        public const string  AZ = "AZ";
         /// <summary>
         /// Bahamas
         /// </summary>
-        public const string BS = "BS";
+        public const string  BS = "BS";
         /// <summary>
         /// Bahrain
         /// </summary>
-        public const string BH = "BH";
+        public const string  BH = "BH";
         /// <summary>
         /// Bangladesh
         /// </summary>
-        public const string BD = "BD";
+        public const string  BD = "BD";
         /// <summary>
         /// Barbados
         /// </summary>
-        public const string BB = "BB";
+        public const string  BB = "BB";
         /// <summary>
         /// Belarus
         /// </summary>
-        public const string BY = "BY";
+        public const string  BY = "BY";
         /// <summary>
         /// Belgium
         /// </summary>
-        public const string BE = "BE";
+        public const string  BE = "BE";
         /// <summary>
         /// Belize
         /// </summary>
-        public const string BZ = "BZ";
+        public const string  BZ = "BZ";
         /// <summary>
         /// Benin
         /// </summary>
-        public const string BJ = "BJ";
+        public const string  BJ = "BJ";
         /// <summary>
         /// Bermuda
         /// </summary>
-        public const string BM = "BM";
+        public const string  BM = "BM";
         /// <summary>
         /// Bhutan
         /// </summary>
-        public const string BT = "BT";
+        public const string  BT = "BT";
         /// <summary>
         /// Bolivia (Plurinational State of)
         /// </summary>
-        public const string BO = "BO";
+        public const string  BO = "BO";
         /// <summary>
         /// Bonaire, Sint Eustatius and Saba
         /// </summary>
-        public const string BQ = "BQ";
+        public const string  BQ = "BQ";
         /// <summary>
         /// Bosnia and Herzegovina
         /// </summary>
-        public const string BA = "BA";
+        public const string  BA = "BA";
         /// <summary>
         /// Botswana
         /// </summary>
-        public const string BW = "BW";
+        public const string  BW = "BW";
         /// <summary>
         /// Bouvet Island
         /// </summary>
-        public const string BV = "BV";
+        public const string  BV = "BV";
         /// <summary>
         /// Brazil
         /// </summary>
-        public const string BR = "BR";
+        public const string  BR = "BR";
         /// <summary>
         /// British Indian Ocean Territory
         /// </summary>
-        public const string IO = "IO";
+        public const string  IO = "IO";
         /// <summary>
         /// Brunei Darussalam
         /// </summary>
-        public const string BN = "BN";
+        public const string  BN = "BN";
         /// <summary>
         /// Bulgaria
         /// </summary>
-        public const string BG = "BG";
+        public const string  BG = "BG";
         /// <summary>
         /// Burkina Faso
         /// </summary>
-        public const string BF = "BF";
+        public const string  BF = "BF";
         /// <summary>
         /// Burundi
         /// </summary>
-        public const string BI = "BI";
+        public const string  BI = "BI";
         /// <summary>
         /// Cabo Verde
         /// </summary>
-        public const string CV = "CV";
+        public const string  CV = "CV";
         /// <summary>
         /// Cambodia
         /// </summary>
-        public const string KH = "KH";
+        public const string  KH = "KH";
         /// <summary>
         /// Cameroon
         /// </summary>
-        public const string CM = "CM";
+        public const string  CM = "CM";
         /// <summary>
         /// Canada
         /// </summary>
-        public const string CA = "CA";
+        public const string  CA = "CA";
         /// <summary>
         /// Cayman Islands
         /// </summary>
-        public const string KY = "KY";
+        public const string  KY = "KY";
         /// <summary>
         /// Central African Republic
         /// </summary>
-        public const string CF = "CF";
+        public const string  CF = "CF";
         /// <summary>
         /// Chad
         /// </summary>
-        public const string TD = "TD";
+        public const string  TD = "TD";
         /// <summary>
         /// Chile
         /// </summary>
-        public const string CL = "CL";
+        public const string  CL = "CL";
         /// <summary>
         /// China
         /// </summary>
-        public const string CN = "CN";
+        public const string  CN = "CN";
         /// <summary>
         /// Christmas Island
         /// </summary>
-        public const string CX = "CX";
+        public const string  CX = "CX";
         /// <summary>
         /// Cocos (Keeling) Islands
         /// </summary>
-        public const string CC = "CC";
+        public const string  CC = "CC";
         /// <summary>
         /// Colombia
         /// </summary>
-        public const string CO = "CO";
+        public const string  CO = "CO";
         /// <summary>
         /// Comoros
         /// </summary>
-        public const string KM = "KM";
+        public const string  KM = "KM";
         /// <summary>
         /// Congo
         /// </summary>
-        public const string CG = "CG";
+        public const string  CG = "CG";
         /// <summary>
         /// Congo, Democratic Republic of the
         /// </summary>
-        public const string CD = "CD";
+        public const string  CD = "CD";
         /// <summary>
         /// Cook Islands
         /// </summary>
-        public const string CK = "CK";
+        public const string  CK = "CK";
         /// <summary>
         /// Costa Rica
         /// </summary>
-        public const string CR = "CR";
+        public const string  CR = "CR";
         /// <summary>
         /// CÃ´te d'Ivoire
         /// </summary>
-        public const string CI = "CI";
+        public const string  CI = "CI";
         /// <summary>
         /// Croatia
         /// </summary>
-        public const string HR = "HR";
+        public const string  HR = "HR";
         /// <summary>
         /// Cuba
         /// </summary>
-        public const string CU = "CU";
+        public const string  CU = "CU";
         /// <summary>
         /// CuraÃ§ao
         /// </summary>
-        public const string CW = "CW";
+        public const string  CW = "CW";
         /// <summary>
         /// Cyprus
         /// </summary>
-        public const string CY = "CY";
+        public const string  CY = "CY";
         /// <summary>
         /// Czechia
         /// </summary>
-        public const string CZ = "CZ";
+        public const string  CZ = "CZ";
         /// <summary>
         /// Denmark
         /// </summary>
-        public const string DK = "DK";
+        public const string  DK = "DK";
         /// <summary>
         /// Djibouti
         /// </summary>
-        public const string DJ = "DJ";
+        public const string  DJ = "DJ";
         /// <summary>
         /// Dominica
         /// </summary>
-        public const string DM = "DM";
+        public const string  DM = "DM";
         /// <summary>
         /// Dominican Republic
         /// </summary>
-        public const string DO = "DO";
+        public const string  DO = "DO";
         /// <summary>
         /// Ecuador
         /// </summary>
-        public const string EC = "EC";
+        public const string  EC = "EC";
         /// <summary>
         /// Egypt
         /// </summary>
-        public const string EG = "EG";
+        public const string  EG = "EG";
         /// <summary>
         /// El Salvador
         /// </summary>
-        public const string SV = "SV";
+        public const string  SV = "SV";
         /// <summary>
         /// Equatorial Guinea
         /// </summary>
-        public const string GQ = "GQ";
+        public const string  GQ = "GQ";
         /// <summary>
         /// Eritrea
         /// </summary>
-        public const string ER = "ER";
+        public const string  ER = "ER";
         /// <summary>
         /// Estonia
         /// </summary>
-        public const string EE = "EE";
+        public const string  EE = "EE";
         /// <summary>
         /// Eswatini
         /// </summary>
-        public const string SZ = "SZ";
+        public const string  SZ = "SZ";
         /// <summary>
         /// Ethiopia
         /// </summary>
-        public const string ET = "ET";
+        public const string  ET = "ET";
         /// <summary>
         /// Falkland Islands (Malvinas)
         /// </summary>
-        public const string FK = "FK";
+        public const string  FK = "FK";
         /// <summary>
         /// Faroe Islands
         /// </summary>
-        public const string FO = "FO";
+        public const string  FO = "FO";
         /// <summary>
         /// Fiji
         /// </summary>
-        public const string FJ = "FJ";
+        public const string  FJ = "FJ";
         /// <summary>
         /// Finland
         /// </summary>
-        public const string FI = "FI";
+        public const string  FI = "FI";
         /// <summary>
         /// France
         /// </summary>
-        public const string FR = "FR";
+        public const string  FR = "FR";
         /// <summary>
         /// French Guiana
         /// </summary>
-        public const string GF = "GF";
+        public const string  GF = "GF";
         /// <summary>
         /// French Polynesia
         /// </summary>
-        public const string PF = "PF";
+        public const string  PF = "PF";
         /// <summary>
         /// French Southern Territories
         /// </summary>
-        public const string TF = "TF";
+        public const string  TF = "TF";
         /// <summary>
         /// Gabon
         /// </summary>
-        public const string GA = "GA";
+        public const string  GA = "GA";
         /// <summary>
         /// Gambia
         /// </summary>
-        public const string GM = "GM";
+        public const string  GM = "GM";
         /// <summary>
         /// Georgia
         /// </summary>
-        public const string GE = "GE";
+        public const string  GE = "GE";
         /// <summary>
         /// Germany
         /// </summary>
-        public const string DE = "DE";
+        public const string  DE = "DE";
         /// <summary>
         /// Ghana
         /// </summary>
-        public const string GH = "GH";
+        public const string  GH = "GH";
         /// <summary>
         /// Gibraltar
         /// </summary>
-        public const string GI = "GI";
+        public const string  GI = "GI";
         /// <summary>
         /// Greece
         /// </summary>
-        public const string GR = "GR";
+        public const string  GR = "GR";
         /// <summary>
         /// Greenland
         /// </summary>
-        public const string GL = "GL";
+        public const string  GL = "GL";
         /// <summary>
         /// Grenada
         /// </summary>
-        public const string GD = "GD";
+        public const string  GD = "GD";
         /// <summary>
         /// Guadeloupe
         /// </summary>
-        public const string GP = "GP";
+        public const string  GP = "GP";
         /// <summary>
         /// Guam
         /// </summary>
-        public const string GU = "GU";
+        public const string  GU = "GU";
         /// <summary>
         /// Guatemala
         /// </summary>
-        public const string GT = "GT";
+        public const string  GT = "GT";
         /// <summary>
         /// Guernsey
         /// </summary>
-        public const string GG = "GG";
+        public const string  GG = "GG";
         /// <summary>
         /// Guinea
         /// </summary>
-        public const string GN = "GN";
+        public const string  GN = "GN";
         /// <summary>
         /// Guinea-Bissau
         /// </summary>
-        public const string GW = "GW";
+        public const string  GW = "GW";
         /// <summary>
         /// Guyana
         /// </summary>
-        public const string GY = "GY";
+        public const string  GY = "GY";
         /// <summary>
         /// Haiti
         /// </summary>
-        public const string HT = "HT";
+        public const string  HT = "HT";
         /// <summary>
         /// Heard Island and McDonald Islands
         /// </summary>
-        public const string HM = "HM";
+        public const string  HM = "HM";
         /// <summary>
         /// Holy See
         /// </summary>
-        public const string VA = "VA";
+        public const string  VA = "VA";
         /// <summary>
         /// Honduras
         /// </summary>
-        public const string HN = "HN";
+        public const string  HN = "HN";
         /// <summary>
         /// Hong Kong
         /// </summary>
-        public const string HK = "HK";
+        public const string  HK = "HK";
         /// <summary>
         /// Hungary
         /// </summary>
-        public const string HU = "HU";
+        public const string  HU = "HU";
         /// <summary>
         /// Iceland
         /// </summary>
-        public const string IS = "IS";
+        public const string  IS = "IS";
         /// <summary>
         /// India
         /// </summary>
-        public const string IN = "IN";
+        public const string  IN = "IN";
         /// <summary>
         /// Indonesia
         /// </summary>
-        public const string ID = "ID";
+        public const string  ID = "ID";
         /// <summary>
         /// Iran (Islamic Republic of)
         /// </summary>
-        public const string IR = "IR";
+        public const string  IR = "IR";
         /// <summary>
         /// Iraq
         /// </summary>
-        public const string IQ = "IQ";
+        public const string  IQ = "IQ";
         /// <summary>
         /// Ireland
         /// </summary>
-        public const string IE = "IE";
+        public const string  IE = "IE";
         /// <summary>
         /// Isle of Man
         /// </summary>
-        public const string IM = "IM";
+        public const string  IM = "IM";
         /// <summary>
         /// Israel
         /// </summary>
-        public const string IL = "IL";
+        public const string  IL = "IL";
         /// <summary>
         /// Italy
         /// </summary>
-        public const string IT = "IT";
+        public const string  IT = "IT";
         /// <summary>
         /// Jamaica
         /// </summary>
-        public const string JM = "JM";
+        public const string  JM = "JM";
         /// <summary>
         /// Japan
         /// </summary>
-        public const string JP = "JP";
+        public const string  JP = "JP";
         /// <summary>
         /// Jersey
         /// </summary>
-        public const string JE = "JE";
+        public const string  JE = "JE";
         /// <summary>
         /// Jordan
         /// </summary>
-        public const string JO = "JO";
+        public const string  JO = "JO";
         /// <summary>
         /// Kazakhstan
         /// </summary>
-        public const string KZ = "KZ";
+        public const string  KZ = "KZ";
         /// <summary>
         /// Kenya
         /// </summary>
-        public const string KE = "KE";
+        public const string  KE = "KE";
         /// <summary>
         /// Kiribati
         /// </summary>
-        public const string KI = "KI";
+        public const string  KI = "KI";
         /// <summary>
         /// Korea (Democratic People's Republic of)
         /// </summary>
-        public const string KP = "KP";
+        public const string  KP = "KP";
         /// <summary>
         /// Korea, Republic of
         /// </summary>
-        public const string KR = "KR";
+        public const string  KR = "KR";
         /// <summary>
         /// Kuwait
         /// </summary>
-        public const string KW = "KW";
+        public const string  KW = "KW";
         /// <summary>
         /// Kyrgyzstan
         /// </summary>
-        public const string KG = "KG";
+        public const string  KG = "KG";
         /// <summary>
         /// Lao People's Democratic Republic
         /// </summary>
-        public const string LA = "LA";
+        public const string  LA = "LA";
         /// <summary>
         /// Latvia
         /// </summary>
-        public const string LV = "LV";
+        public const string  LV = "LV";
         /// <summary>
         /// Lebanon
         /// </summary>
-        public const string LB = "LB";
+        public const string  LB = "LB";
         /// <summary>
         /// Lesotho
         /// </summary>
-        public const string LS = "LS";
+        public const string  LS = "LS";
         /// <summary>
         /// Liberia
         /// </summary>
-        public const string LR = "LR";
+        public const string  LR = "LR";
         /// <summary>
         /// Libya
         /// </summary>
-        public const string LY = "LY";
+        public const string  LY = "LY";
         /// <summary>
         /// Liechtenstein
         /// </summary>
-        public const string LI = "LI";
+        public const string  LI = "LI";
         /// <summary>
         /// Lithuania
         /// </summary>
-        public const string LT = "LT";
+        public const string  LT = "LT";
         /// <summary>
         /// Luxembourg
         /// </summary>
-        public const string LU = "LU";
+        public const string  LU = "LU";
         /// <summary>
         /// Macao
         /// </summary>
-        public const string MO = "MO";
+        public const string  MO = "MO";
         /// <summary>
         /// Madagascar
         /// </summary>
-        public const string MG = "MG";
+        public const string  MG = "MG";
         /// <summary>
         /// Malawi
         /// </summary>
-        public const string MW = "MW";
+        public const string  MW = "MW";
         /// <summary>
         /// Malaysia
         /// </summary>
-        public const string MY = "MY";
+        public const string  MY = "MY";
         /// <summary>
         /// Maldives
         /// </summary>
-        public const string MV = "MV";
+        public const string  MV = "MV";
         /// <summary>
         /// Mali
         /// </summary>
-        public const string ML = "ML";
+        public const string  ML = "ML";
         /// <summary>
         /// Malta
         /// </summary>
-        public const string MT = "MT";
+        public const string  MT = "MT";
         /// <summary>
         /// Marshall Islands
         /// </summary>
-        public const string MH = "MH";
+        public const string  MH = "MH";
         /// <summary>
         /// Martinique
         /// </summary>
-        public const string MQ = "MQ";
+        public const string  MQ = "MQ";
         /// <summary>
         /// Mauritania
         /// </summary>
-        public const string MR = "MR";
+        public const string  MR = "MR";
         /// <summary>
         /// Mauritius
         /// </summary>
-        public const string MU = "MU";
+        public const string  MU = "MU";
         /// <summary>
         /// Mayotte
         /// </summary>
-        public const string YT = "YT";
+        public const string  YT = "YT";
         /// <summary>
         /// Mexico
         /// </summary>
-        public const string MX = "MX";
+        public const string  MX = "MX";
         /// <summary>
         /// Micronesia (Federated States of)
         /// </summary>
-        public const string FM = "FM";
+        public const string  FM = "FM";
         /// <summary>
         /// Moldova, Republic of
         /// </summary>
-        public const string MD = "MD";
+        public const string  MD = "MD";
         /// <summary>
         /// Monaco
         /// </summary>
-        public const string MC = "MC";
+        public const string  MC = "MC";
         /// <summary>
         /// Mongolia
         /// </summary>
-        public const string MN = "MN";
+        public const string  MN = "MN";
         /// <summary>
         /// Montenegro
         /// </summary>
-        public const string ME = "ME";
+        public const string  ME = "ME";
         /// <summary>
         /// Montserrat
         /// </summary>
-        public const string MS = "MS";
+        public const string  MS = "MS";
         /// <summary>
         /// Morocco
         /// </summary>
-        public const string MA = "MA";
+        public const string  MA = "MA";
         /// <summary>
         /// Mozambique
         /// </summary>
-        public const string MZ = "MZ";
+        public const string  MZ = "MZ";
         /// <summary>
         /// Myanmar
         /// </summary>
-        public const string MM = "MM";
+        public const string  MM = "MM";
         /// <summary>
         /// Namibia
         /// </summary>
-        public const string NA = "NA";
+        public const string  NA = "NA";
         /// <summary>
         /// Nauru
         /// </summary>
-        public const string NR = "NR";
+        public const string  NR = "NR";
         /// <summary>
         /// Nepal
         /// </summary>
-        public const string NP = "NP";
+        public const string  NP = "NP";
         /// <summary>
         /// Netherlands
         /// </summary>
-        public const string NL = "NL";
+        public const string  NL = "NL";
         /// <summary>
         /// New Caledonia
         /// </summary>
-        public const string NC = "NC";
+        public const string  NC = "NC";
         /// <summary>
         /// New Zealand
         /// </summary>
-        public const string NZ = "NZ";
+        public const string  NZ = "NZ";
         /// <summary>
         /// Nicaragua
         /// </summary>
-        public const string NI = "NI";
+        public const string  NI = "NI";
         /// <summary>
         /// Niger
         /// </summary>
-        public const string NE = "NE";
+        public const string  NE = "NE";
         /// <summary>
         /// Nigeria
         /// </summary>
-        public const string NG = "NG";
+        public const string  NG = "NG";
         /// <summary>
         /// Niue
         /// </summary>
-        public const string NU = "NU";
+        public const string  NU = "NU";
         /// <summary>
         /// Norfolk Island
         /// </summary>
-        public const string NF = "NF";
+        public const string  NF = "NF";
         /// <summary>
         /// North Macedonia
         /// </summary>
-        public const string MK = "MK";
+        public const string  MK = "MK";
         /// <summary>
         /// Northern Mariana Islands
         /// </summary>
-        public const string MP = "MP";
+        public const string  MP = "MP";
         /// <summary>
         /// Norway
         /// </summary>
-        public const string NO = "NO";
+        public const string  NO = "NO";
         /// <summary>
         /// Oman
         /// </summary>
-        public const string OM = "OM";
+        public const string  OM = "OM";
         /// <summary>
         /// Pakistan
         /// </summary>
-        public const string PK = "PK";
+        public const string  PK = "PK";
         /// <summary>
         /// Palau
         /// </summary>
-        public const string PW = "PW";
+        public const string  PW = "PW";
         /// <summary>
         /// Palestine, State of
         /// </summary>
-        public const string PS = "PS";
+        public const string  PS = "PS";
         /// <summary>
         /// Panama
         /// </summary>
-        public const string PA = "PA";
+        public const string  PA = "PA";
         /// <summary>
         /// Papua New Guinea
         /// </summary>
-        public const string PG = "PG";
+        public const string  PG = "PG";
         /// <summary>
         /// Paraguay
         /// </summary>
-        public const string PY = "PY";
+        public const string  PY = "PY";
         /// <summary>
         /// Peru
         /// </summary>
-        public const string PE = "PE";
+        public const string  PE = "PE";
         /// <summary>
         /// Philippines
         /// </summary>
-        public const string PH = "PH";
+        public const string  PH = "PH";
         /// <summary>
         /// Pitcairn
         /// </summary>
-        public const string PN = "PN";
+        public const string  PN = "PN";
         /// <summary>
         /// Poland
         /// </summary>
-        public const string PL = "PL";
+        public const string  PL = "PL";
         /// <summary>
         /// Portugal
         /// </summary>
-        public const string PT = "PT";
+        public const string  PT = "PT";
         /// <summary>
         /// Puerto Rico
         /// </summary>
-        public const string PR = "PR";
+        public const string  PR = "PR";
         /// <summary>
         /// Qatar
         /// </summary>
-        public const string QA = "QA";
+        public const string  QA = "QA";
         /// <summary>
         /// RÃ©union
         /// </summary>
-        public const string RE = "RE";
+        public const string  RE = "RE";
         /// <summary>
         /// Romania
         /// </summary>
-        public const string RO = "RO";
+        public const string  RO = "RO";
         /// <summary>
         /// Russian Federation
         /// </summary>
-        public const string RU = "RU";
+        public const string  RU = "RU";
         /// <summary>
         /// Rwanda
         /// </summary>
-        public const string RW = "RW";
+        public const string  RW = "RW";
         /// <summary>
         /// Saint BarthÃ©lemy
         /// </summary>
-        public const string BL = "BL";
+        public const string  BL = "BL";
         /// <summary>
         /// Saint Helena, Ascension and Tristan da Cunha
         /// </summary>
-        public const string SH = "SH";
+        public const string  SH = "SH";
         /// <summary>
         /// Saint Kitts and Nevis
         /// </summary>
-        public const string KN = "KN";
+        public const string  KN = "KN";
         /// <summary>
         /// Saint Lucia
         /// </summary>
-        public const string LC = "LC";
+        public const string  LC = "LC";
         /// <summary>
         /// Saint Martin (French part)
         /// </summary>
-        public const string MF = "MF";
+        public const string  MF = "MF";
         /// <summary>
         /// Saint Pierre and Miquelon
         /// </summary>
-        public const string PM = "PM";
+        public const string  PM = "PM";
         /// <summary>
         /// Saint Vincent and the Grenadines
         /// </summary>
-        public const string VC = "VC";
+        public const string  VC = "VC";
         /// <summary>
         /// Samoa
         /// </summary>
-        public const string WS = "WS";
+        public const string  WS = "WS";
         /// <summary>
         /// San Marino
         /// </summary>
-        public const string SM = "SM";
+        public const string  SM = "SM";
         /// <summary>
         /// Sao Tome and Principe
         /// </summary>
-        public const string ST = "ST";
+        public const string  ST = "ST";
         /// <summary>
         /// Saudi Arabia
         /// </summary>
-        public const string SA = "SA";
+        public const string  SA = "SA";
         /// <summary>
         /// Senegal
         /// </summary>
-        public const string SN = "SN";
+        public const string  SN = "SN";
         /// <summary>
         /// Serbia
         /// </summary>
-        public const string RS = "RS";
+        public const string  RS = "RS";
         /// <summary>
         /// Seychelles
         /// </summary>
-        public const string SC = "SC";
+        public const string  SC = "SC";
         /// <summary>
         /// Sierra Leone
         /// </summary>
-        public const string SL = "SL";
+        public const string  SL = "SL";
         /// <summary>
         /// Singapore
         /// </summary>
-        public const string SG = "SG";
+        public const string  SG = "SG";
         /// <summary>
         /// Sint Maarten (Dutch part)
         /// </summary>
-        public const string SX = "SX";
+        public const string  SX = "SX";
         /// <summary>
         /// Slovakia
         /// </summary>
-        public const string SK = "SK";
+        public const string  SK = "SK";
         /// <summary>
         /// Slovenia
         /// </summary>
-        public const string SI = "SI";
+        public const string  SI = "SI";
         /// <summary>
         /// Solomon Islands
         /// </summary>
-        public const string SB = "SB";
+        public const string  SB = "SB";
         /// <summary>
         /// Somalia
         /// </summary>
-        public const string SO = "SO";
+        public const string  SO = "SO";
         /// <summary>
         /// South Africa
         /// </summary>
-        public const string ZA = "ZA";
+        public const string  ZA = "ZA";
         /// <summary>
         /// South Georgia and the South Sandwich Islands
         /// </summary>
-        public const string GS = "GS";
+        public const string  GS = "GS";
         /// <summary>
         /// South Sudan
         /// </summary>
-        public const string SS = "SS";
+        public const string  SS = "SS";
         /// <summary>
         /// Spain
         /// </summary>
-        public const string ES = "ES";
+        public const string  ES = "ES";
         /// <summary>
         /// Sri Lanka
         /// </summary>
-        public const string LK = "LK";
+        public const string  LK = "LK";
         /// <summary>
         /// Sudan
         /// </summary>
-        public const string SD = "SD";
+        public const string  SD = "SD";
         /// <summary>
         /// Suriname
         /// </summary>
-        public const string SR = "SR";
+        public const string  SR = "SR";
         /// <summary>
         /// Svalbard and Jan Mayen
         /// </summary>
-        public const string SJ = "SJ";
+        public const string  SJ = "SJ";
         /// <summary>
         /// Sweden
         /// </summary>
-        public const string SE = "SE";
+        public const string  SE = "SE";
         /// <summary>
         /// Switzerland
         /// </summary>
-        public const string CH = "CH";
+        public const string  CH = "CH";
         /// <summary>
         /// Syrian Arab Republic
         /// </summary>
-        public const string SY = "SY";
+        public const string  SY = "SY";
         /// <summary>
         /// Taiwan, Province of China
         /// </summary>
-        public const string TW = "TW";
+        public const string  TW = "TW";
         /// <summary>
         /// Tajikistan
         /// </summary>
-        public const string TJ = "TJ";
+        public const string  TJ = "TJ";
         /// <summary>
         /// Tanzania, United Republic of
         /// </summary>
-        public const string TZ = "TZ";
+        public const string  TZ = "TZ";
         /// <summary>
         /// Thailand
         /// </summary>
-        public const string TH = "TH";
+        public const string  TH = "TH";
         /// <summary>
         /// Timor-Leste
         /// </summary>
-        public const string TL = "TL";
+        public const string  TL = "TL";
         /// <summary>
         /// Togo
         /// </summary>
-        public const string TG = "TG";
+        public const string  TG = "TG";
         /// <summary>
         /// Tokelau
         /// </summary>
-        public const string TK = "TK";
+        public const string  TK = "TK";
         /// <summary>
         /// Tonga
         /// </summary>
-        public const string TO = "TO";
+        public const string  TO = "TO";
         /// <summary>
         /// Trinidad and Tobago
         /// </summary>
-        public const string TT = "TT";
+        public const string  TT = "TT";
         /// <summary>
         /// Tunisia
         /// </summary>
-        public const string TN = "TN";
+        public const string  TN = "TN";
         /// <summary>
         /// Turkey
         /// </summary>
-        public const string TR = "TR";
+        public const string  TR = "TR";
         /// <summary>
         /// Turkmenistan
         /// </summary>
-        public const string TM = "TM";
+        public const string  TM = "TM";
         /// <summary>
         /// Turks and Caicos Islands
         /// </summary>
-        public const string TC = "TC";
+        public const string  TC = "TC";
         /// <summary>
         /// Tuvalu
         /// </summary>
-        public const string TV = "TV";
+        public const string  TV = "TV";
         /// <summary>
         /// Uganda
         /// </summary>
-        public const string UG = "UG";
+        public const string  UG = "UG";
         /// <summary>
         /// Ukraine
         /// </summary>
-        public const string UA = "UA";
+        public const string  UA = "UA";
         /// <summary>
         /// United Arab Emirates
         /// </summary>
-        public const string AE = "AE";
+        public const string  AE = "AE";
         /// <summary>
         /// United Kingdom of Great Britain and Northern Ireland
         /// </summary>
-        public const string GB = "GB";
+        public const string  GB = "GB";
         /// <summary>
         /// United States of America
         /// </summary>
-        public const string US = "US";
+        public const string  US = "US";
         /// <summary>
         /// United States Minor Outlying Islands
         /// </summary>
-        public const string UM = "UM";
+        public const string  UM = "UM";
         /// <summary>
         /// Uruguay
         /// </summary>
-        public const string UY = "UY";
+        public const string  UY = "UY";
         /// <summary>
         /// Uzbekistan
         /// </summary>
-        public const string UZ = "UZ";
+        public const string  UZ = "UZ";
         /// <summary>
         /// Vanuatu
         /// </summary>
-        public const string VU = "VU";
+        public const string  VU = "VU";
         /// <summary>
         /// Venezuela (Bolivarian Republic of)
         /// </summary>
-        public const string VE = "VE";
+        public const string  VE = "VE";
         /// <summary>
         /// Viet Nam
         /// </summary>
-        public const string VN = "VN";
+        public const string  VN = "VN";
         /// <summary>
         /// Virgin Islands (British)
         /// </summary>
-        public const string VG = "VG";
+        public const string  VG = "VG";
         /// <summary>
         /// Virgin Islands (U.S.)
         /// </summary>
-        public const string VI = "VI";
+        public const string  VI = "VI";
         /// <summary>
         /// Wallis and Futuna
         /// </summary>
-        public const string WF = "WF";
+        public const string  WF = "WF";
         /// <summary>
         /// Western Sahara
         /// </summary>
-        public const string EH = "EH";
+        public const string  EH = "EH";
         /// <summary>
         /// Yemen
         /// </summary>
-        public const string YE = "YE";
+        public const string  YE = "YE";
         /// <summary>
         /// Zambia
         /// </summary>
-        public const string ZM = "ZM";
+        public const string  ZM = "ZM";
         /// <summary>
         /// Zimbabwe
         /// </summary>
-        public const string ZW = "ZW";
+        public const string  ZW = "ZW";
 
     }
 }
