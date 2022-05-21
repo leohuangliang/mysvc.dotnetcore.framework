@@ -316,7 +316,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 
                 if (exception is MongoException mongoException)
                 {
-                    _logger.LogError($"Update Error, ObjType:[${obj.GetType()}], ObjId:[{obj.Id}]" +
+                    _logger.LogError($"Delete Error, ObjType:[${obj.GetType()}], ObjId:[{obj.Id}]" +
                                      $", Message;[{mongoException.Message}]" +
                                      $", ErrorLabels :[{string.Join(",", mongoException.ErrorLabels ?? new string[0])}]");
                 }
