@@ -1,9 +1,10 @@
-set LatestVersion=5.0.1-beta9
+set LatestVersion=5.0.2-beta1
 
-nuget setapikey oy2dmiwvfxlulcnah5uacl64xz3hegiepd3u6vvzfrumeu -Source https://api.nuget.org/v3/index.json
+nuget setapikey oy2dtcyi3vr6h5uxx5lam6ukgyhozszeno77lbvjkkif6i -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Domain.Core\MySvc.DotNetCore.Framework.Domain.Core.%LatestVersion%.nupkg   -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Infrastructure.Authorization.Client\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Client.%LatestVersion%.nupkg -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Infrastructure.Authorization.Admin\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
+nuget.exe push nuget-packages\Infrastructure.Authorization.InternalClient\MySvc.DotNetCore.Framework.Infrastructure.Authorization.InternalClient.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Infrastructure.Authorization.Merchant\MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Infrastructure.Crosscutting\MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.%LatestVersion%.nupkg  -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Infrastructure.IntegrationEventService\MySvc.DotNetCore.Framework.Infrastructure.IntegrationEventService.%LatestVersion%.nupkg -Source https://api.nuget.org/v3/index.json

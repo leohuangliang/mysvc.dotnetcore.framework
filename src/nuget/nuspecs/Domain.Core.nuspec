@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
   <metadata>
     <id>MySvc.DotNetCore.Framework.Domain.Core</id>
-    <version>5.0.1-beta9</version>
+    <version>5.0.2-beta1</version>
     <title>MySvc.DotNetCore.Framework.Domain.Core</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -14,7 +14,7 @@
     <serviceable>true</serviceable>
     <dependencies>
       <dependency id="MediatR" version="9.0.0" />
-      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.1-beta9" />
+      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.2-beta1" />
     </dependencies>
 
   </metadata>

@@ -17,11 +17,13 @@
 * 
 */
 
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Conventions;
 using System;
 using System.Linq;
 using System.Reflection;
 
-namespace MongoDB.Bson.Serialization.Conventions
+namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB
 {
     /// <summary>
     /// Maps a fully immutable type. This will include anonymous types.

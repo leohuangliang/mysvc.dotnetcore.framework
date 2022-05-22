@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
     </id>
     <version>
-			5.0.1-beta9
+			5.0.2-beta1
     </version>
     <title>
 			MySvc.DotNetCore.Framework.Infrastructure.Authorization.Merchant
@@ -35,7 +35,7 @@
 			true
     </serviceable>
     <dependencies>
-      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.1-beta9" />
+      <dependency id="MySvc.DotNetCore.Framework.Infrastructure.Crosscutting" version="5.0.2-beta1" />
     </dependencies>
   </metadata>
   <files>

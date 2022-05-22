@@ -1,11 +1,11 @@
 ﻿using Serilog;
-using System;
-using System.Net;
 using Serilog.Configuration;
 using Serilog.Events;
 using Serilog.Sinks.Email;
+using System;
+using System.Net;
 
-namespace MySvc.DotNetCore.Infrastructure.Logging.Serilog
+namespace MySvc.DotNetCore.Framework.Infrastructure.Logging.Serilog
 {
     public static class SerilogEmailExtension
     {

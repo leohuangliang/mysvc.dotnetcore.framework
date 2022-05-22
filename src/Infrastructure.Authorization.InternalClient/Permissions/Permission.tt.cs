@@ -18,7 +18,7 @@
 
 using System;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Permissions
+namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.Admin.Permissions
 {	
 
 

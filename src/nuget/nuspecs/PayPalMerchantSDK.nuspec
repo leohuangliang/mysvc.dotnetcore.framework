@@ -5,7 +5,7 @@
 			MySvc.DotNetCore.PayPalMerchantSDK
     </id>
     <version>
-			5.0.1-beta9
+			5.0.2-beta1
     </version>
     <title>
 			MySvc.DotNetCore.PayPalMerchantSDK
@@ -36,7 +36,7 @@
     </serviceable>
     <dependencies>
       <dependency id="Microsoft.CSharp" version="4.7.0" />
-      <dependency id="MySvc.DotNetCore.PayPalCoreSDK" version="5.0.1-beta9" />
+      <dependency id="MySvc.DotNetCore.PayPalCoreSDK" version="5.0.2-beta1" />
 
 
     </dependencies>

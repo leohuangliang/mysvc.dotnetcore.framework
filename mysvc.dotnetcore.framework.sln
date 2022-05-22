@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28711.60
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Crosscutting", "src\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj", "{D29D8889-1AF1-4C55-A441-E2973E5B16A2}"
 EndProject
@@ -79,6 +79,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MlkPwgen", "src\MlkPwgen\MlkPwgen.csproj", "{75C91DEF-66BA-4C1F-9D43-CFBAF78A3ABF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Logging.Serilog", "src\Infrastructure.Logging.Serilog\Infrastructure.Logging.Serilog.csproj", "{7CC1A0A5-5AB8-49A4-A1EA-49FDEE9725C5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Authorization.InternalClient", "src\Infrastructure.Authorization.InternalClient\Infrastructure.Authorization.InternalClient.csproj", "{2C0AFE03-E350-4C90-86EB-8C2E9ED987AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -462,6 +464,18 @@ Global
 		{7CC1A0A5-5AB8-49A4-A1EA-49FDEE9725C5}.Release|x64.Build.0 = Release|Any CPU
 		{7CC1A0A5-5AB8-49A4-A1EA-49FDEE9725C5}.Release|x86.ActiveCfg = Release|Any CPU
 		{7CC1A0A5-5AB8-49A4-A1EA-49FDEE9725C5}.Release|x86.Build.0 = Release|Any CPU
+		{2C0AFE03-E350-4C90-86EB-8C2E9ED987AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C0AFE03-E350-4C90-86EB-8C2E9ED987AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C0AFE03-E350-4C90-86EB-8C2E9ED987AE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2C0AFE03-E350-4C90-86EB-8C2E9ED987AE}.Debug|x64.Build.0 = Debug|Any CPU
+		{2C0AFE03-E350-4C90-86EB-8C2E9ED987AE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2C0AFE03-E350-4C90-86EB-8C2E9ED987AE}.Debug|x86.Build.0 = Debug|Any CPU
+		{2C0AFE03-E350-4C90-86EB-8C2E9ED987AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C0AFE03-E350-4C90-86EB-8C2E9ED987AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C0AFE03-E350-4C90-86EB-8C2E9ED987AE}.Release|x64.ActiveCfg = Release|Any CPU
+		{2C0AFE03-E350-4C90-86EB-8C2E9ED987AE}.Release|x64.Build.0 = Release|Any CPU
+		{2C0AFE03-E350-4C90-86EB-8C2E9ED987AE}.Release|x86.ActiveCfg = Release|Any CPU
+		{2C0AFE03-E350-4C90-86EB-8C2E9ED987AE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

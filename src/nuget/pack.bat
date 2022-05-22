@@ -4,6 +4,7 @@ dotnet build -c Release ..\PayPal\PayPal.SDK.NET5.sln
 nuget pack nuspecs\Domain.Core.nuspec -OutputDirectory nuget-packages\Domain.Core
 nuget pack nuspecs\Infrastructure.Authorization.Client.nuspec -OutputDirectory nuget-packages\Infrastructure.Authorization.Client
 nuget pack nuspecs\Infrastructure.Authorization.Admin.nuspec -OutputDirectory nuget-packages\Infrastructure.Authorization.Admin
+nuget pack nuspecs\Infrastructure.Authorization.InternalClient.nuspec -OutputDirectory nuget-packages\Infrastructure.Authorization.InternalClient
 nuget pack nuspecs\Infrastructure.Authorization.Merchant.nuspec -OutputDirectory nuget-packages\Infrastructure.Authorization.Merchant
 nuget pack nuspecs\Infrastructure.Crosscutting.nuspec -OutputDirectory nuget-packages\Infrastructure.Crosscutting
 nuget pack nuspecs\Infrastructure.Crosscutting.Json.NewtonsoftJson.nuspec -OutputDirectory nuget-packages\Infrastructure.Crosscutting.Json.NewtonsoftJson
