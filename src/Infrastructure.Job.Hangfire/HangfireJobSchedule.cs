@@ -66,6 +66,17 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire
             return recurringJobId;
         }
 
+        public string Recurring<TParam>(TParam obj, string cronExpression, TimeZoneInfo timeZoneInfo, string recurringJobId = null)
+        {
+            if (string.IsNullOrEmpty(recurringJobId))
+            {
+                recurringJobId = Guid.NewGuid().ToString();
+            }
+            RecurringJob.AddOrUpdate<IRecurringJob<TParam>>(recurringJobId, job => job.ExecuteAsync(recurringJobId, obj), cronExpression, timeZoneInfo);
+
+            return recurringJobId;
+        }
+
         public string Recurring<TJob, TParam>(TParam param, string cronExpression, string recurringJobId = null) where TJob : IRecurringJob<TParam>
         {
             if (string.IsNullOrEmpty(recurringJobId))
@@ -73,6 +84,18 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Job.Hangfire
                 recurringJobId = Guid.NewGuid().ToString();
             }
             RecurringJob.AddOrUpdate<TJob>(recurringJobId, job => job.ExecuteAsync(recurringJobId, param), cronExpression);
+
+            return recurringJobId;
+        }
+
+        public string Recurring<TJob, TParam>(TParam param, string cronExpression, TimeZoneInfo timeZoneInfo,
+            string recurringJobId = null) where TJob : IRecurringJob<TParam>
+        {
+            if (string.IsNullOrEmpty(recurringJobId))
+            {
+                recurringJobId = Guid.NewGuid().ToString();
+            }
+            RecurringJob.AddOrUpdate<TJob>(recurringJobId, job => job.ExecuteAsync(recurringJobId, param), cronExpression, timeZoneInfo);
 
             return recurringJobId;
         }

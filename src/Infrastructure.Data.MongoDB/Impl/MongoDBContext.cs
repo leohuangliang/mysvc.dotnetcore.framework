@@ -19,6 +19,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Options;
 using MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB;
+using System.Threading;
 
 namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
 {
@@ -87,8 +88,8 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="obj">需要新增的聚合根。</param>
         public override async Task RegisterNew<TAggregateRoot>(TAggregateRoot obj)
         {
-            try
-            {
+            //try
+            //{
                 if (obj.IsTransient())
                 {
                     obj.GenerateId(_entityIdGenerator);
@@ -103,25 +104,25 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
                     await _mediator.DispatchDomainEventsAsync(obj);
                 }
 
-                Committed = false;
-            }
-            catch (Exception exception)
-            {
-                if (Session.IsInTransaction)
-                {
-                    await Session.AbortTransactionAsync();
-                    Committed = true;
-                }
+            //    Committed = false;
+            //}
+            //catch (Exception exception)
+            //{
+            //    if (Session.IsInTransaction)
+            //    {
+            //        await Session.AbortTransactionAsync();
+            //        Committed = true;
+            //    }
 
-                if (exception is MongoException mongoException)
-                {
-                    _logger.LogError($"Insert Error, ObjType:[${obj.GetType()}], ObjId:[{obj.Id}]" +
-                                     $", Message;[{mongoException.Message}]" +
-                                     $", ErrorLabels :[{string.Join(",", mongoException.ErrorLabels ?? new string[0])}]");
-                }
+            //    if (exception is MongoException mongoException)
+            //    {
+            //        _logger.LogError($"Insert Error, ObjType:[${obj.GetType()}], ObjId:[{obj.Id}]" +
+            //                         $", Message;[{mongoException.Message}]" +
+            //                         $", ErrorLabels :[{string.Join(",", mongoException.ErrorLabels ?? new string[0])}]");
+            //    }
 
-                throw;
-            }
+            //    throw;
+            //}
         }
 
         /// <summary> 
@@ -131,8 +132,8 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="objs">需要新增的聚合根列表。</param>
         public override async Task RegisterNew<TAggregateRoot>(IList<TAggregateRoot> objs)
         {
-            try
-            {
+            //try
+            //{
                 if (objs != null && objs.Any())
                 {
                     var collection = this.GetCollection<TAggregateRoot>();
@@ -157,32 +158,32 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
 
                     Committed = false;
                 }
-            }
-            catch (Exception exception)
-            {
-                if (Session.IsInTransaction)
-                {
-                    await Session.AbortTransactionAsync();
-                    Committed = true;
-                }
+            //}
+            //catch (Exception exception)
+            //{
+            //    if (Session.IsInTransaction)
+            //    {
+            //        await Session.AbortTransactionAsync();
+            //        Committed = true;
+            //    }
 
-                if (exception is MongoException mongoException)
-                {
-                    _logger.LogError($"Bulk Insert Error, ObjType:[${objs.First().GetType()}]" +
-                                     $", ObjCount: [{objs.Count}]",
-                        $", Message;[{mongoException.Message}]" +
-                        $", ErrorLabels :[{string.Join(",", mongoException.ErrorLabels ?? new string[0])}]");
+            //    if (exception is MongoException mongoException)
+            //    {
+            //        _logger.LogError($"Bulk Insert Error, ObjType:[${objs.First().GetType()}]" +
+            //                         $", ObjCount: [{objs.Count}]",
+            //            $", Message;[{mongoException.Message}]" +
+            //            $", ErrorLabels :[{string.Join(",", mongoException.ErrorLabels ?? new string[0])}]");
 
-                }
+            //    }
 
-                throw;
-            }
+            //    throw;
+            //}
         }
 
         public override async Task RegisterModified<TAggregateRoot>(TAggregateRoot obj)
         {
-            try
-            {
+            //try
+            //{
                 var collection = this.GetCollection<TAggregateRoot>();
 
                 byte[] originVersion = obj.RowVersion;
@@ -214,30 +215,30 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
                 }
 
                 Committed = false;
-            }
-            catch (Exception exception)
-            {
-                if (Session.IsInTransaction)
-                {
-                    await Session.AbortTransactionAsync();
-                    Committed = true;
-                }
+            //}
+            //catch (Exception exception)
+            //{
+            //    if (Session.IsInTransaction)
+            //    {
+            //        await Session.AbortTransactionAsync();
+            //        Committed = true;
+            //    }
 
-                if (exception is MongoException mongoException)
-                {
-                    _logger.LogError($"Update Error, ObjType:[${obj.GetType()}], ObjId:[{obj.Id}]" +
-                                     $", Message;[{mongoException.Message}]" +
-                                     $", ErrorLabels :[{string.Join(",", mongoException.ErrorLabels ?? new string[0])}]");
-                }
+            //    if (exception is MongoException mongoException)
+            //    {
+            //        _logger.LogError($"Update Error, ObjType:[${obj.GetType()}], ObjId:[{obj.Id}]" +
+            //                         $", Message;[{mongoException.Message}]" +
+            //                         $", ErrorLabels :[{string.Join(",", mongoException.ErrorLabels ?? new string[0])}]");
+            //    }
 
-                throw;
-            }
+            //    throw;
+            //}
         }
 
         public override async Task RegisterModified<TAggregateRoot>(IList<TAggregateRoot> objs)
         {
-            try
-            {
+            //try
+            //{
                 if (objs != null && objs.Any())
                 {
                     var collection = this.GetCollection<TAggregateRoot>();
@@ -272,32 +273,32 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
 
                     Committed = false;
                 }
-            }
-            catch (Exception exception)
-            {
-                if (Session.IsInTransaction)
-                {
-                    await Session.AbortTransactionAsync();
-                    Committed = true;
+            //}
+            //catch (Exception exception)
+            //{
+            //    if (Session.IsInTransaction)
+            //    {
+            //        await Session.AbortTransactionAsync();
+            //        Committed = true;
 
-                    if (exception is MongoException mongoException)
-                    {
-                        _logger.LogError($"Bulk Update Error, ObjType:[${objs.First().GetType()}]" +
-                                         $", ObjCount: [{objs.Count}]",
-                                         $", Message;[{mongoException.Message}]" +
-                                         $", ErrorLabels :[{string.Join(",", mongoException.ErrorLabels ?? new string[0])}]");
+            //        if (exception is MongoException mongoException)
+            //        {
+            //            _logger.LogError($"Bulk Update Error, ObjType:[${objs.First().GetType()}]" +
+            //                             $", ObjCount: [{objs.Count}]",
+            //                             $", Message;[{mongoException.Message}]" +
+            //                             $", ErrorLabels :[{string.Join(",", mongoException.ErrorLabels ?? new string[0])}]");
 
-                    }
-                }
+            //        }
+            //    }
 
-                throw;
-            }
+            //    throw;
+            //}
         }
 
         public override async Task RegisterDeleted<TAggregateRoot>(TAggregateRoot obj)
         {
-            try
-            {
+            //try
+            //{
                 var collection = this.GetCollection<TAggregateRoot>();
                 var builder = Builders<TAggregateRoot>.Filter;
                 var filter = builder.Eq(c => c.Id, obj.Id);
@@ -305,24 +306,24 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
                 //发布领域事件
                 if (_mediator != null) await _mediator.DispatchDomainEventsAsync(obj);
                 Committed = false;
-            }
-            catch (Exception exception)
-            {
-                if (Session.IsInTransaction)
-                {
-                    await Session.AbortTransactionAsync();
-                    Committed = true;
-                }
+            //}
+            //catch (Exception exception)
+            //{
+            //    if (Session.IsInTransaction)
+            //    {
+            //        await Session.AbortTransactionAsync();
+            //        Committed = true;
+            //    }
 
-                if (exception is MongoException mongoException)
-                {
-                    _logger.LogError($"Update Error, ObjType:[${obj.GetType()}], ObjId:[{obj.Id}]" +
-                                     $", Message;[{mongoException.Message}]" +
-                                     $", ErrorLabels :[{string.Join(",", mongoException.ErrorLabels ?? new string[0])}]");
-                }
+            //    if (exception is MongoException mongoException)
+            //    {
+            //        _logger.LogError($"Update Error, ObjType:[${obj.GetType()}], ObjId:[{obj.Id}]" +
+            //                         $", Message;[{mongoException.Message}]" +
+            //                         $", ErrorLabels :[{string.Join(",", mongoException.ErrorLabels ?? new string[0])}]");
+            //    }
 
-                throw;
-            }
+            //    throw;
+            //}
 
         }
 
@@ -333,8 +334,8 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="objs">需要删除的聚合根列表。</param>
         public override async Task RegisterDeleted<TAggregateRoot>(IList<TAggregateRoot> objs)
         {
-            try
-            {
+            //try
+            //{
                 if (objs != null && objs.Any())
                 {
                     var collection = this.GetCollection<TAggregateRoot>();
@@ -359,26 +360,26 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
 
                     Committed = false;
                 }
-            }
-            catch (Exception exception)
-            {
-                if (Session.IsInTransaction)
-                {
-                    await Session.AbortTransactionAsync();
-                    Committed = true;
-                }
+            //}
+            //catch (Exception exception)
+            //{
+            //    if (Session.IsInTransaction)
+            //    {
+            //        await Session.AbortTransactionAsync();
+            //        Committed = true;
+            //    }
 
-                if (exception is MongoException mongoException)
-                {
-                    _logger.LogError($"Bulk Delete Error, ObjType:[${objs.First().GetType()}]" +
-                                     $", ObjCount: [{objs.Count}]",
-                        $", Message;[{mongoException.Message}]" +
-                        $", ErrorLabels :[{string.Join(",", mongoException.ErrorLabels ?? new string[0])}]");
+            //    if (exception is MongoException mongoException)
+            //    {
+            //        _logger.LogError($"Bulk Delete Error, ObjType:[${objs.First().GetType()}]" +
+            //                         $", ObjCount: [{objs.Count}]",
+            //            $", Message;[{mongoException.Message}]" +
+            //            $", ErrorLabels :[{string.Join(",", mongoException.ErrorLabels ?? new string[0])}]");
 
-                }
+            //    }
 
-                throw;
-            }
+            //    throw;
+            //}
         }
 
         public override void BeginTransaction()
@@ -419,10 +420,11 @@ namespace MySvc.DotNetCore.Framework.Infrastructure.Data.MongoDB.Impl
                         catch (MongoException exception)
                         {
                             // can retry commit, UnknownTransactionCommitResult, retrying commit operation
-                            if (exception.HasErrorLabel("UnknownTransactionCommitResult"))
+                            if (exception.HasErrorLabel("UnknownTransactionCommitResult") || exception.HasErrorLabel("TransientTransactionError"))
                             {
                                 if (count < 3)
                                 {
+                                    Thread.Sleep(100);
                                     continue;
                                 }
 
