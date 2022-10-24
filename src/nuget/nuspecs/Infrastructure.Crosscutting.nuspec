@@ -12,6 +12,15 @@
     <copyright>Copyright 2018  (c) MySVC.cc All rights reserved.</copyright>
     <tags>MySVC.cc</tags>
     <serviceable>true</serviceable>
+    </authors>
+    <owners>
+			liang.huang
+    </owners>
+    <requireLicenseAcceptance>
+    </requireLicenseAcceptance>
+    <description>
+    </description>
+    <releaseNotes>
     <dependencies>
       <group targetFramework="net6.0">
         <dependency id="Microsoft.AspNetCore.Cryptography.KeyDerivation" version="6.0.1" />

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
-using MySvc.Framework.Infrastructure.Authorization.Client.Exceptions;
+using MySvc.Framework.Infrastructure.Authorization.Admin.Exceptions;
 using MySvc.Framework.Infrastructure.Authorization.Client.Extensions;
 using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 using MySvc.Framework.Infrastructure.Crosscutting.Json;

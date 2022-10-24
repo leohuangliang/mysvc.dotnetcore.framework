@@ -1,6 +1,6 @@
 set LatestVersion=6.0.1-beta1
 
-nuget setapikey oy2dmiwvfxlulcnah5uacl64xz3hegiepd3u6vvzfrumeu -Source https://api.nuget.org/v3/index.json
+nuget setapikey oy2dtcyi3vr6h5uxx5lam6ukgyhozszeno77lbvjkkif6i -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Domain.Core\MySvc.Framework.Domain.Core.%LatestVersion%.nupkg   -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Infrastructure.Adapter.AutoMapper\MySvc.Framework.Infrastructure.AutoMapper.%LatestVersion%.nupkg   -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Infrastructure.Authorization.Client\MySvc.Framework.Infrastructure.Authorization.Client.%LatestVersion%.nupkg -Source https://api.nuget.org/v3/index.json
