@@ -1,43 +1,43 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
 
-    <RootNamespace>MySvc.Framework.Infrastructure.Crosscutting</RootNamespace>
+		<RootNamespace>MySvc.Framework.Infrastructure.Crosscutting</RootNamespace>
 
-    <AssemblyName>MySvc.Framework.Infrastructure.Crosscutting</AssemblyName>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <RepositoryUrl></RepositoryUrl>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
-    <WarningLevel>2</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-  </PropertyGroup>
-  <PropertyGroup Label="Globals">
-    <RootNamespace>MySvc.Framework.Infrastructure.Crosscutting</RootNamespace>
-    <Copyright>@2018 MySvc.cc</Copyright>
-    <Version>1.0.1</Version>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="6.0.1" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="6.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Exceptions\ErrorCode.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ErrorCode.tt.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Exceptions\ErrorCode.tt.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ErrorCode.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
+		<AssemblyName>MySvc.Framework.Infrastructure.Crosscutting</AssemblyName>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<RepositoryUrl></RepositoryUrl>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile></DocumentationFile>
+		<WarningLevel>2</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	</PropertyGroup>
+	<PropertyGroup Label="Globals">
+		<RootNamespace>MySvc.Framework.Infrastructure.Crosscutting</RootNamespace>
+		<Copyright>@2018 MySvc.cc</Copyright>
+		<Version>1.0.1</Version>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="6.0.10" />
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+		<PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="6.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="Exceptions\ErrorCode.tt">
+			<Generator>TextTemplatingFileGenerator</Generator>
+			<LastGenOutput>ErrorCode.tt.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="Exceptions\ErrorCode.tt.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>ErrorCode.tt</DependentUpon>
+		</Compile>
+	</ItemGroup>
 </Project>

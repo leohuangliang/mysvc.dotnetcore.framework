@@ -10,13 +10,12 @@
   <ItemGroup>
 
 
-    <PackageReference Include="MassTransit" Version="7.3.0" />
+    <PackageReference Include="MassTransit" Version="8.0.7" />
 
     <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
-    <ProjectReference Include="..\Infrastructure.Crosscutting.Json.NewtonsoftJson\Infrastructure.Crosscutting.Json.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />
   </ItemGroup>
 

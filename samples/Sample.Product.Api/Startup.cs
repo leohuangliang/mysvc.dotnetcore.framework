@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.PlatformAbstractions;
 using MySvc.Framework.Infrastructure.Crosscutting.Options;
 using Sample.Product.Api.DI.AutofacModules;
 using Sample.Product.Application.IntegrationEvents.EventHandling;

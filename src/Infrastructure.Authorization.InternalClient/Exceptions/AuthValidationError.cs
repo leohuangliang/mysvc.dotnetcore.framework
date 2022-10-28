@@ -1,7 +1,7 @@
-﻿using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Exceptions;
+﻿using MySvc.Framework.Infrastructure.Crosscutting.Exceptions;
 using System;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.InternalClient.Exceptions
+namespace MySvc.Framework.Infrastructure.Authorization.InternalClient.Exceptions
 {
     public class AuthValidationError : ExceptionBase
     {

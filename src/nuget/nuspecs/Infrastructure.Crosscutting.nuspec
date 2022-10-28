@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Infrastructure.Crosscutting</id>
-    <version>6.0.1-beta1</version>
+    <version>6.0.1-beta5</version>
     <title>MySvc.Framework.Infrastructure.Crosscutting</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -12,18 +12,9 @@
     <copyright>Copyright 2018  (c) MySVC.cc All rights reserved.</copyright>
     <tags>MySVC.cc</tags>
     <serviceable>true</serviceable>
-    </authors>
-    <owners>
-			liang.huang
-    </owners>
-    <requireLicenseAcceptance>
-    </requireLicenseAcceptance>
-    <description>
-    </description>
-    <releaseNotes>
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="Microsoft.AspNetCore.Cryptography.KeyDerivation" version="6.0.1" />
+        <dependency id="Microsoft.AspNetCore.Cryptography.KeyDerivation" version="6.0.10" />
         <dependency id="Microsoft.CSharp" version="4.7.0" />
         <dependency id="Microsoft.Extensions.Caching.Abstractions" version="6.0.0" />
       </group>

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.SqlClient;
 using MySvc.Framework.Infrastructure.Data.MongoDB;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;

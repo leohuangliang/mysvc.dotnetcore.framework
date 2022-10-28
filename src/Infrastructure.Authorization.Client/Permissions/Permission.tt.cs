@@ -16,9 +16,7 @@
 // </auto-generated>
 //---------------------------------------------------------------------------------------
 
-using System;
-
-namespace MySvc.Framework.Infrastructure.Authorization.Permissions
+namespace MySvc.Framework.Infrastructure.Authorization.Client.Permissions
 {	
 
 

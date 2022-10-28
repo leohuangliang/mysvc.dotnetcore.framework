@@ -1,5 +1,4 @@
-﻿using IdentityModel;
-using IdentityServer4.Stores;
+﻿using IdentityServer4.Stores;
 using Microsoft.Extensions.Logging;
 using MySvc.Framework.Domain.Core.Specification;
 using MySvc.Framework.Infrastructure.Data.MongoDB;

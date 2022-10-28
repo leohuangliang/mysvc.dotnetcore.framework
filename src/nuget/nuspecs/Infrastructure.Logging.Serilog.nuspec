@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Infrastructure.Serilog</id>
-    <version>6.0.1-beta1</version>
+    <version>6.0.1-beta5</version>
     <title>MySvc.Framework.Infrastructure.Serilog</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -14,7 +14,7 @@
     <serviceable>true</serviceable>
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="Serilog" version="2.10.0" />
+        <dependency id="Serilog" version="2.12.0" />
         <dependency id="Serilog.Sinks.Email" version="2.4.0" />
       </group>
     </dependencies>

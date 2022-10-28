@@ -34,7 +34,7 @@ namespace Sample.Product.Api.Extensions
                 });
             });
 
-            services.AddMassTransitHostedService();
+            //services.AddMassTransitHostedService();
         }
     }
 }

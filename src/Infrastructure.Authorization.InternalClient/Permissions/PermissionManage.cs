@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Xml;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.InternalClient.Permissions
+namespace MySvc.Framework.Infrastructure.Authorization.InternalClient.Permissions
 {
     public static class PermissionManage
     {

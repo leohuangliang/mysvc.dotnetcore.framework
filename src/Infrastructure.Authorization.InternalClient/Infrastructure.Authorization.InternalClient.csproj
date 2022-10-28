@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>MySvc.DotNetCore.Framework.Infrastructure.Authorization.InternalClient</AssemblyName>
-    <RootNamespace>MySvc.DotNetCore.Framework.Infrastructure.Authorization.InternalClient</RootNamespace>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>MySvc.Framework.Infrastructure.Authorization.InternalClient</AssemblyName>
+    <RootNamespace>MySvc.Framework.Infrastructure.Authorization.InternalClient</RootNamespace>
     <ApplicationIcon />
     <OutputType>Library</OutputType>
     <StartupObject />

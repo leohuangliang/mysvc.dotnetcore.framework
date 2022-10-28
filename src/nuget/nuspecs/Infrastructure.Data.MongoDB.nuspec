@@ -5,7 +5,7 @@
 			MySvc.Framework.Infrastructure.Data.MongoDB
     </id>
     <version>
-			6.0.1-beta1
+			6.0.1-beta5
     </version>
     <title>
 			MySvc.Framework.Infrastructure.Data.MongoDB
@@ -36,14 +36,14 @@
     </serviceable>
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="MediatR" version="10.0.1" />
+        <dependency id="MediatR" version="11.0.0" />
         <dependency id="Microsoft.CSharp" version="4.7.0" />
         <dependency id="Microsoft.Extensions.Options" version="6.0.0" />
-        <dependency id="Microsoft.Extensions.DependencyInjection" version="6.0.0" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="6.0.1" />
         <dependency id="Microsoft.Extensions.Logging" version="6.0.0" />
-        <dependency id="MongoDB.Driver" version="2.14.1" />
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.1-beta1" />
-        <dependency id="MySvc.Framework.Domain.Core" version="6.0.1-beta1" />
+        <dependency id="MongoDB.Driver" version="2.18.0" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.1-beta5" />
+        <dependency id="MySvc.Framework.Domain.Core" version="6.0.1-beta5" />
       </group>
     </dependencies>
 

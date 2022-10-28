@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using MySvc.Framework.Infrastructure.Data.MongoDB;
-using MediatR;
 using Microsoft.Extensions.Options;
 using Xunit;
 using MongoDB.Driver;

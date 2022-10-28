@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 using System.Security.Claims;
-using System.Text;
-using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 
-namespace MySvc.Framework.Infrastructure.Authorization.Client.Extensions
+namespace MySvc.Framework.Infrastructure.Authorization.Client.Exceptions
 {
     public static  class ClaimsPrincipalExtensions
     {

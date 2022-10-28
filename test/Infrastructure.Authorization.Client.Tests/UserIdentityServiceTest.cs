@@ -1,10 +1,7 @@
 ﻿using MySvc.Framework.Infrastructure.Authorization.Client;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Primitives;
 using Moq;
 using System;
 using System.Net.Http;
-using System.Security.Claims;
 using System.Security.Principal;
 using Xunit;
 using Xunit.Abstractions;

@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MassTransit;
+﻿using MassTransit;
 using Microsoft.Extensions.Logging;
 using MySvc.Framework.Domain.Core;
 using MySvc.Framework.Domain.Core.Impl;
-using MySvc.Framework.Domain.Core.Specification;
 using MySvc.Framework.Infrastructure.Crosscutting.EventBus;
 using MySvc.Framework.Infrastructure.Crosscutting.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MySvc.Framework.Infrastructure.IntegrationEventService
 {

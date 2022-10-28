@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MassTransit;
-using Microsoft.CodeAnalysis.Operations;
+﻿using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Sample.Order.Application.DomainEventHandlers;
+using System;
 
 namespace Sample.Order.Api.Extensions
 {
@@ -36,8 +31,8 @@ namespace Sample.Order.Api.Extensions
                     cfg.ConfigureEndpoints(context);
                 });
             });
-
-            services.AddMassTransitHostedService();
+            
+            //services.AddMassTransitHostedService();
         }
     }
 }

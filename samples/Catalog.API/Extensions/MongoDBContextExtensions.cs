@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
 using System.Threading.Tasks;
 using MySvc.Framework.Domain.Core;
 using MySvc.Framework.Infrastructure.Data.MongoDB;

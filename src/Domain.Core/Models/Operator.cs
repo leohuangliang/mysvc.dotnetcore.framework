@@ -5,43 +5,26 @@ namespace MySvc.Framework.Domain.Core.Models
     /// <summary>
     /// 操作员
     /// </summary>
-    public class Operator :ValueObject<Operator>
+    public class Operator
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="userName">用户姓名</param>
-        /// <param name="fullName">全名</param>
-        /// <param name="phone">手机号</param>
-        /// <param name="email">邮箱</param>
-        /// <param name="operatorType"></param>
-        public Operator(string userName,string phone, string email, OperatorType operatorType)
-        {
-            this.UserName = userName;
-            this.Phone = phone;
-            this.Email = email;
-            this.OperatorType = operatorType;
-        }
+
 
         /// <summary>
         /// 操作人用户姓名
         /// </summary>
-        public string UserName { get; private set; }
+        public string UserName { get; init; }
 
-        /// <summary>
-        /// 手机号
-        /// </summary>
-        public string Phone { get; private set; }
+        public string FullName { get; init; }
 
-        /// <summary>
-        /// 邮箱
-        /// </summary>
-        public string Email { get; private set; }
+        public string DialCode { get; init; }
 
+        public string PhoneNumber { get; init; }
+
+         
         /// <summary>
         /// 操作人类型
         /// </summary>
-        public OperatorType OperatorType { get; private set; }
+        public OperatorType OperatorType { get;  init; }
 
         /// <summary>
         /// 创建系统操作员
@@ -49,11 +32,12 @@ namespace MySvc.Framework.Domain.Core.Models
         /// <returns></returns>
         public static Operator CreateSystemOperator()
         {
-            return new Operator(
-                userName: "System",
-                phone: "",
-                email:"",
-                OperatorType.System);
+            return new Operator()
+            {
+                UserName = "system",
+                FullName = "system",
+                OperatorType = OperatorType.System
+            };
         }
 
         

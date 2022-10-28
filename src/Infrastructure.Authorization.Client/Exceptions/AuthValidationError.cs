@@ -1,7 +1,7 @@
-﻿using System;
-using MySvc.Framework.Infrastructure.Crosscutting.Exceptions;
+﻿using MySvc.Framework.Infrastructure.Crosscutting.Exceptions;
+using System;
 
-namespace MySvc.Framework.Infrastructure.Authorization.Client.Extensions
+namespace MySvc.Framework.Infrastructure.Authorization.Client.Exceptions
 {
     public class AuthValidationError : ExceptionBase
     {
@@ -13,6 +13,6 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client.Extensions
         public AuthValidationError(string errorCode, string message, Exception innerException)
             : base(errorCode, message, innerException) { }
 
-        public override string Message => "ErrorCode:" + ErrorCode + "  Message: " + CustomMessage;
+        public override string Message => "ErrorCode:" + this.ErrorCode + "  Message: " + this.CustomMessage;
     }
 }

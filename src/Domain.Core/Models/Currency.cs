@@ -572,6 +572,11 @@ namespace MySvc.Framework.Domain.Core.Models
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currency"></param>
+        /// <returns></returns>
         public static string GetCurrencyCode(this Currency currency)
         {
             string currencyCode = ((int)currency).ToString("000");

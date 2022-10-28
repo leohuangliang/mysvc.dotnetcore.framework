@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
+using MySvc.Framework.Infrastructure.Crosscutting.Json;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.InternalClient
+namespace MySvc.Framework.Infrastructure.Authorization.InternalClient
 {
     public class PermissionAttributeFilter : IAuthorizationFilter
     {

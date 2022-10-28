@@ -76,7 +76,7 @@ namespace MySvc.Framework.Domain.Core.Impl
         /// <summary>
         /// 创建时间
         /// </summary>
-        public DateTime CreatedOn { get; protected set; }
+        public DateTime CreatedOn { get; protected set; } = DateTime.UtcNow;
 
         /// <summary>
         /// 创建人
@@ -86,7 +86,7 @@ namespace MySvc.Framework.Domain.Core.Impl
         /// <summary>
         /// 最后更新时间
         /// </summary>
-        public DateTime ModifiedOn { get; protected set; }
+        public DateTime ModifiedOn { get; protected set; } = DateTime.UtcNow;
 
 
         /// <summary>

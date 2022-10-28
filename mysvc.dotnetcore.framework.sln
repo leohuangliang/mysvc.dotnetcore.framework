@@ -82,9 +82,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Crosscutting
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Adapter.AutoMapper", "src\Infrastructure.Adapter.AutoMapper\Infrastructure.Adapter.AutoMapper.csproj", "{B1A84C7A-BE88-4798-9B35-CF62C737A149}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator", "src\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.csproj", "{D69523FC-53EF-4726-A585-3F5665039250}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator", "src\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.csproj", "{D69523FC-53EF-4726-A585-3F5665039250}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis", "src\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis.csproj", "{185814B0-2344-4E53-A6BB-09544D6967C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis", "src\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis.csproj", "{185814B0-2344-4E53-A6BB-09544D6967C5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Authorization.InternalClient", "src\Infrastructure.Authorization.InternalClient\Infrastructure.Authorization.InternalClient.csproj", "{F4709BA3-08B5-434B-9842-674C85A0813F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -504,6 +506,18 @@ Global
 		{185814B0-2344-4E53-A6BB-09544D6967C5}.Release|x64.Build.0 = Release|Any CPU
 		{185814B0-2344-4E53-A6BB-09544D6967C5}.Release|x86.ActiveCfg = Release|Any CPU
 		{185814B0-2344-4E53-A6BB-09544D6967C5}.Release|x86.Build.0 = Release|Any CPU
+		{F4709BA3-08B5-434B-9842-674C85A0813F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4709BA3-08B5-434B-9842-674C85A0813F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4709BA3-08B5-434B-9842-674C85A0813F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F4709BA3-08B5-434B-9842-674C85A0813F}.Debug|x64.Build.0 = Debug|Any CPU
+		{F4709BA3-08B5-434B-9842-674C85A0813F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F4709BA3-08B5-434B-9842-674C85A0813F}.Debug|x86.Build.0 = Debug|Any CPU
+		{F4709BA3-08B5-434B-9842-674C85A0813F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4709BA3-08B5-434B-9842-674C85A0813F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4709BA3-08B5-434B-9842-674C85A0813F}.Release|x64.ActiveCfg = Release|Any CPU
+		{F4709BA3-08B5-434B-9842-674C85A0813F}.Release|x64.Build.0 = Release|Any CPU
+		{F4709BA3-08B5-434B-9842-674C85A0813F}.Release|x86.ActiveCfg = Release|Any CPU
+		{F4709BA3-08B5-434B-9842-674C85A0813F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

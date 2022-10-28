@@ -1,4 +1,4 @@
-﻿namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.InternalClient
+﻿namespace MySvc.Framework.Infrastructure.Authorization.InternalClient
 {
     public class RoleConst
     {

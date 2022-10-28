@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Domain.Core\Domain.Core.csproj" />
-    <ProjectReference Include="..\..\src\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />
   </ItemGroup>
 
   

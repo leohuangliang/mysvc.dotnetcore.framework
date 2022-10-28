@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Json;
+using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using System;
 using System.Collections.Generic;
 using System.Security.Authentication;
 using System.Security.Claims;
 
-namespace MySvc.DotNetCore.Framework.Infrastructure.Authorization.InternalClient
+namespace MySvc.Framework.Infrastructure.Authorization.InternalClient
 {
     public class UserIdentityService : IUserIdentityService
     {
