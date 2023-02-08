@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Moq;
 using MySvc.Framework.Domain.Core;
 using MySvc.Framework.Domain.Core.Attributes;
 using MySvc.Framework.Domain.Core.Specification;
@@ -12,14 +12,13 @@ using MySvc.Framework.Infrastructure.Crosscutting.Exceptions;
 using MySvc.Framework.Infrastructure.Crosscutting.Options;
 using MySvc.Framework.Infrastructure.Data.MongoDB;
 using MySvc.Framework.Infrastructure.Data.MongoDB.Impl;
-using MediatR;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Moq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
-using Xunit.Sdk;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.Data.MongoDB.Tests
 {
@@ -77,6 +76,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Insert_EmployeeTest()
         {
+
             var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Employee("test") { EmployeeNo = "1" };
@@ -97,9 +97,10 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Insert_Employee_Version_Test()
         {
+
             var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
-            Person person = new Employee("test") { EmployeeNo = "1", RowVersion = BitConverter.GetBytes(DateTime.UtcNow.Ticks) };
+            Person person = new Employee("test") { EmployeeNo = "1", Timestamp = DateTimeOffset.UtcNow.Ticks.ToString() };
             context.BeginTransaction();
             await personRepository.AddAsync(person);
             await context.CommitAsync();
@@ -109,13 +110,14 @@ namespace Infrastructure.Data.MongoDB.Tests
 
 
             Assert.NotNull(person2);
-            Assert.Equal(person.RowVersion, person2.RowVersion);
+            Assert.Equal(person.Timestamp, person2.Timestamp);
 
         }
 
         [Fact]
         public async Task Insert_Employee_Version_Exception_Test()
         {
+
             var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Employee("test");
@@ -125,10 +127,10 @@ namespace Infrastructure.Data.MongoDB.Tests
             await context.CommitAsync();
 
             Person person1 = await personRepository.GetByKeyAsync(person.Id);
-            byte[] version1 = person1.RowVersion;
+            string version1 = person1.Timestamp;
 
             Person person2 = await personRepository.GetByKeyAsync(person.Id);
-            byte[] version2 = person1.RowVersion;
+            string version2 = person1.Timestamp;
 
             Assert.Equal(version1, version2);
             context.BeginTransaction();
@@ -139,7 +141,7 @@ namespace Infrastructure.Data.MongoDB.Tests
 
             person1 = await personRepository.GetByKeyAsync(person.Id);
 
-            Assert.NotEqual(version1, person1.RowVersion);
+            Assert.NotEqual(version1, person1.Timestamp);
 
             context.BeginTransaction();
             person2.Name1 = "concurrency";
@@ -150,6 +152,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Query_Test()
         {
+
             var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Person person = new Employee("test") ;
@@ -249,6 +252,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Query_Test_2()
         {
+
             var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
 
@@ -261,6 +265,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         [Fact]
         public async Task Query_Leader_Test_1()
         {
+
             var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var leaderReadOnlyRepository = new LeaderReadOnlyRepository(context);
 

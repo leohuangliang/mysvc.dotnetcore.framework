@@ -5,7 +5,7 @@
 			MySvc.Framework.Infrastructure.Authorization.Merchant
     </id>
     <version>
-			6.0.1-beta5
+			6.0.2-beta4
     </version>
     <title>
 			MySvc.Framework.Infrastructure.Authorization.Merchant
@@ -36,7 +36,7 @@
     </serviceable>
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.1-beta5" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta4" />
       </group>
     </dependencies>
 

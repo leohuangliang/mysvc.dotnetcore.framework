@@ -1,16 +1,6 @@
-﻿using System;
+﻿using MySvc.Framework.Domain.Core;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
-using MySvc.Framework.Domain.Core;
-using MySvc.Framework.Domain.Core.Paged;
-using MySvc.Framework.Domain.Core.Specification;
-using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
-using MySvc.Framework.Infrastructure.Data.MongoDB.Impl;
-using MongoDB.Driver;
-using MongoDB.Driver.Linq;
-using MySvc.Framework.Infrastructure.Data.MongoDB;
 
 namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 {

@@ -104,7 +104,7 @@ namespace MySvc.Framework.Domain.Core.Impl
         {
             if (obj.IsTransient())
             {
-                obj.GenerateId(_entityIdGenerater);
+                obj.SetId(_entityIdGenerater.GenerateId());
             }
             if (_localModifiedCollection.Value.ContainsKey(obj.Id))
                 throw new InvalidOperationException("The object cannot be registered as a new object since it was marked as modified.");
@@ -138,7 +138,7 @@ namespace MySvc.Framework.Domain.Core.Impl
         {
             if (obj.IsTransient())
             {
-                obj.GenerateId(_entityIdGenerater);
+                obj.SetId(_entityIdGenerater.GenerateId());
             }
             if (_localDeletedCollection.Value.ContainsKey(obj.Id))
                 throw new InvalidOperationException("The object cannot be registered as a modified object since it was marked as deleted.");
@@ -171,7 +171,7 @@ namespace MySvc.Framework.Domain.Core.Impl
         {
             if (obj.IsTransient())
             {
-                obj.GenerateId(_entityIdGenerater);
+                obj.SetId(_entityIdGenerater.GenerateId());
             }
             if (_localNewCollection.Value.ContainsKey(obj.Id))
             {

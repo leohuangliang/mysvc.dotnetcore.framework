@@ -1,9 +1,9 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
 
 namespace MySvc.Framework.Domain.Core.DomainEvents
 {

@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using Microsoft.Extensions.Options;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using MySvc.Framework.Domain.Core;
 using MySvc.Framework.Domain.Core.Attributes;
 using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 using MySvc.Framework.Infrastructure.Crosscutting.Options;
-using Microsoft.Extensions.Options;
-using MongoDB.Bson;
-using MongoDB.Driver;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace MySvc.Framework.Infrastructure.Data.MongoDB
 {

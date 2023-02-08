@@ -2,6 +2,8 @@ dotnet build -c Release ..\..\mysvc.dotnetcore.framework.sln
 @REM dotnet build -c Release ..\PayPal\PayPal.SDK.NET5.sln
 
 nuget pack nuspecs\Domain.Core.nuspec -OutputDirectory nuget-packages\Domain.Core
+@REM nuget pack nuspecs\Domain.Core.Extensions.nuspec -OutputDirectory nuget-packages\Domain.Core.Extensions
+
 nuget pack nuspecs\Infrastructure.Adapter.AutoMapper.nuspec -OutputDirectory nuget-packages\Infrastructure.Adapter.AutoMapper
 nuget pack nuspecs\Infrastructure.Authorization.Client.nuspec -OutputDirectory nuget-packages\Infrastructure.Authorization.Client
 nuget pack nuspecs\Infrastructure.Authorization.Admin.nuspec -OutputDirectory nuget-packages\Infrastructure.Authorization.Admin

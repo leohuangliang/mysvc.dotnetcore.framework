@@ -1,0 +1,15 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3324e0cd_002D62a6_002D40e9_002Da49e_002D23aa69d01e24/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from PersonTest.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;ProjectFile&gt;712CCC93-FD46-42E1-8E77-ABA5A5889860/f:PersonTest.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::42DA42FC-2570-4D3F-811F-BDA612F6EC35::net6.0::Infrastructure.Authorization.Admin.Tests.PermissionAttributeFilterTest.OnAuthorization_Test&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::42DA42FC-2570-4D3F-811F-BDA612F6EC35::net6.0::Infrastructure.Authorization.Admin.Tests.PermissionAttributeFilterTest.OnAuthorization_And_Test&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::42DA42FC-2570-4D3F-811F-BDA612F6EC35::net6.0::Infrastructure.Authorization.Admin.Tests.PermissionAttributeFilterTest.OnAuthorization_And_NotPermission_Test&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::42DA42FC-2570-4D3F-811F-BDA612F6EC35::net6.0::Infrastructure.Authorization.Admin.Tests.PermissionAttributeFilterTest.OnAuthorization_Or_HasPermission_Test&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::42DA42FC-2570-4D3F-811F-BDA612F6EC35::net6.0::Infrastructure.Authorization.Admin.Tests.PermissionAttributeFilterTest.OnAuthorization_Or_NotPermission_Test&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::42DA42FC-2570-4D3F-811F-BDA612F6EC35::net6.0::Infrastructure.Authorization.Admin.Tests.PermissionAttributeFilterTest&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::712CCC93-FD46-42E1-8E77-ABA5A5889860::net6.0::Infrastructure.Data.MongoDB.Tests.DomainEventTest.Insert_Test&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

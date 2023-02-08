@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace MySvc.Framework.Domain.Core.Impl
 {
@@ -28,20 +28,37 @@ namespace MySvc.Framework.Domain.Core.Impl
         /// 
         /// </summary>
         public string Id { get; private set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //[Obsolete("已废弃，请使用Timestamp字段")]
+        //public byte[] RowVersion { get; set; }
+
         /// <summary>
-        /// 
+        /// 时间戳
         /// </summary>
-        public byte[] RowVersion { get; set; }
+        public string Timestamp { get; set; }
 
-        public void GenerateId(IEntityIdGenerator entityIdGenerater)
+        /// <summary>
+        /// 设置ID
+        /// </summary>
+        /// <param name="key"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public void SetId(string key)
         {
-            if (entityIdGenerater is null)
-            {
-                throw new ArgumentNullException(nameof(entityIdGenerater));
-            }
-
-            this.Id = entityIdGenerater.GenerateId();
+            this.Id = key ?? throw new ArgumentNullException(nameof(key));
         }
+
+
+        //public void GenerateId(IEntityIdGenerator entityIdGenerater)
+        //{
+        //    if (entityIdGenerater is null)
+        //    {
+        //        throw new ArgumentNullException(nameof(entityIdGenerater));
+        //    }
+
+        //    this.Id = entityIdGenerater.GenerateId();
+        //}
 
 
         /// <summary>

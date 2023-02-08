@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MySvc.Framework.Domain.Core.DomainEvents;
 using System.Threading;
 using System.Threading.Tasks;
-using MySvc.Framework.Domain.Core.DomainEvents;
 using Xunit.Abstractions;
 
 namespace Infrastructure.Data.MongoDB.Tests

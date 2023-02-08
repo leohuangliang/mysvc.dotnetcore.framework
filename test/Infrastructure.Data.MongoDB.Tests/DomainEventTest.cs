@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using MySvc.Framework.Infrastructure.Data.MongoDB;
-using MySvc.Framework.Infrastructure.Data.MongoDB.Impl;
-using Xunit;
-using global::Autofac;
+﻿using global::Autofac;
 using MediatR;
-using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
-using Xunit.Abstractions;
-using MySvc.Framework.Infrastructure.Crosscutting.Options;
 using MySvc.Framework.Domain.Core;
+using MySvc.Framework.Infrastructure.Crosscutting.Options;
+using MySvc.Framework.Infrastructure.Data.MongoDB;
+using MySvc.Framework.Infrastructure.Data.MongoDB.Impl;
+using System;
+using System.Reflection;
+using System.Threading.Tasks;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Infrastructure.Data.MongoDB.Tests
 {
@@ -48,6 +44,7 @@ namespace Infrastructure.Data.MongoDB.Tests
                 ConnectionString = _connectionString,
                 Database = _dbName
             });
+
             var context = new MongoDBContext(_entityIdGenerator,options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Employee employee = new Employee("Employee1") { EmployeeNo = "1" };

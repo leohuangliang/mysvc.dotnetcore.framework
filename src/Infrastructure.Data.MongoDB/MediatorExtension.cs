@@ -1,10 +1,9 @@
-﻿using System;
+﻿using MediatR;
+using MySvc.Framework.Domain.Core;
+using MySvc.Framework.Domain.Core.DomainEvents;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using MySvc.Framework.Domain.Core;
-using MediatR;
 
 namespace MySvc.Framework.Infrastructure.Data.MongoDB
 {

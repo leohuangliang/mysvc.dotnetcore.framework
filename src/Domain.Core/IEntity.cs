@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace MySvc.Framework.Domain.Core
 {
@@ -12,12 +12,24 @@ namespace MySvc.Framework.Domain.Core
         /// 
         /// </summary>
         TKey Id { get; }
-        /// <summary>
-        /// 
-        /// </summary>
-        Byte[] RowVersion { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //[Obsolete("已废弃，请使用Timestamp字段")]
+        //Byte[] RowVersion { get; set; }
 
-        void GenerateId(IEntityIdGenerator entityIdGenerator);
+        /// <summary>
+        /// 时间戳
+        /// </summary>
+        string Timestamp { get; set; }
+
+        /// <summary>
+        /// 设置ID
+        /// </summary>
+        /// <param name="key"></param>
+        void SetId(TKey key);
+
+        //void GenerateId(IEntityIdGenerator entityIdGenerator);
     }
     /// <summary>
     /// 

@@ -45,22 +45,18 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB
                 eventLogEntry.TimesSent++;
                 eventLogEntry.SetPublished();
 
-                byte[] originVersion = eventLogEntry.RowVersion;
+                string originVersion = eventLogEntry.Timestamp;
 
                 var builder = Builders<IntegrationEventLog>.Filter;
-                var filter = builder.And(builder.Eq(c => c.Id, eventLogEntry.Id), builder.Eq(c => c.RowVersion, originVersion));
-                eventLogEntry.RowVersion = BitConverter.GetBytes(DateTime.UtcNow.Ticks);
+                var filter = builder.And(builder.Eq(c => c.Id, eventLogEntry.Id), builder.Eq(c => c.Timestamp, originVersion));
+                eventLogEntry.Timestamp = DateTimeOffset.UtcNow.Ticks.ToString();
 
-                var res = await collection.FindOneAndReplaceAsync<IntegrationEventLog>(filter, eventLogEntry,
-                    new FindOneAndReplaceOptions<IntegrationEventLog, IntegrationEventLog>()
-                    {
-                        ReturnDocument = ReturnDocument.After,
-                        IsUpsert = false
-                    });
+                var res = await collection.ReplaceOneAsync(filter, eventLogEntry,
+                    new ReplaceOptions() { IsUpsert = false });
 
                 if (res == null)
                 {
-                    throw new ConcurrencyException(eventLogEntry.GetType().ToString() + "  Id: " + eventLogEntry.Id + "更新时发生并发性错误");
+                    throw new ConcurrencyException($"{eventLogEntry.GetType().ToString()} Id:  {eventLogEntry.Id}, 更新时发生并发性错误, OriginVersion: {originVersion}");
                 }
             }
         }

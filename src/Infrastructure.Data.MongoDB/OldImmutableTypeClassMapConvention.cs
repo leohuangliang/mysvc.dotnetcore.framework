@@ -28,7 +28,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB
     /// <summary>
     /// Maps a fully immutable type. This will include anonymous types.
     /// </summary>
-    public class OldImmutableTypeClassMapConvention : ConventionBase, IClassMapConvention
+        public class OldImmutableTypeClassMapConvention : ConventionBase, IClassMapConvention
     {
         /// <inheritdoc />
         public void Apply(BsonClassMap classMap)

@@ -3,65 +3,49 @@ using MySvc.Framework.Infrastructure.Authorization.Admin.Permissions;
 using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using System;
 
 namespace MySvc.Framework.Infrastructure.Authorization.Admin
 {
     public class PermissionAttributeFilter : IAuthorizationFilter
     {
 
-        private readonly IJsonConverter _jsonConverter;
         private readonly PermissionsAuthorizationRequirement _requiredPermissions;
         private readonly IUserIdentityService _userIdentityService;
+        private readonly IPermissionProvider _permissionProvider;
 
-        public PermissionAttributeFilter(IJsonConverter jsonConverter, PermissionsAuthorizationRequirement requiredPermissions, IUserIdentityService userIdentityService)
+        public PermissionAttributeFilter(PermissionsAuthorizationRequirement requiredPermissions, IUserIdentityService userIdentityService, IPermissionProvider permissionProvider)
         {
-            _jsonConverter = jsonConverter;
             _requiredPermissions = requiredPermissions;
             _userIdentityService = userIdentityService;
+            _permissionProvider = permissionProvider ?? throw new ArgumentNullException(nameof(permissionProvider));
         }
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            if (!context.HttpContext.User.Identity.IsAuthenticated)
+            bool hasPermission = false;
+
+            var user = _userIdentityService.GetUserIdentity();
+
+            var permissions =  _permissionProvider.GetPermissionsAsync(user.UserId).GetAwaiter().GetResult();
+
+
+            if (_requiredPermissions.IsOr)
             {
-                context.Result = new ForbidResult();
-                return;
+                //包含任何一个权限码，表示有权限
+
+                hasPermission = _requiredPermissions.RequiredPermissions.Any(c =>
+                    permissions.Contains(c));
+
             }
-            bool hasPermission = true;
+            else
+            {
+                //必须包含权限码，才表示有权限
+                hasPermission =
+                    _requiredPermissions.RequiredPermissions.All(c =>
+                        permissions.Contains(c));
 
-            //string role = context.HttpContext.User.FindFirst("role").Value;
-
-            //var permissions = PermissionManage.GetPermissions(role);
-
-            //if (permissions.Any())
-            //{
-            //    bool allMatch = true;
-            //    foreach (var requiredPermissionsRequiredPermission in _requiredPermissions.RequiredPermissions)
-            //    {
-            //        if (!_requiredPermissions.IsOr)
-            //        {
-            //            if (!permissions.Contains(requiredPermissionsRequiredPermission))
-            //            {
-            //                allMatch = false;
-            //                break;
-            //            }
-            //        }
-            //        else
-            //        {
-            //            if (permissions.Contains(requiredPermissionsRequiredPermission))
-            //            {
-            //                allMatch = true;
-            //                break;
-            //            }
-            //        }
-
-            //    }
-
-            //    if (allMatch)
-            //    {
-            //        hasPermission = true;
-            //    }
-            //}
+            }
 
             if (!hasPermission)
             {

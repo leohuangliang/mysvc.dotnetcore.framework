@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿using MediatR;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using MySvc.Framework.Domain.Core;
 using MySvc.Framework.Domain.Core.Attributes;
+using MySvc.Framework.Domain.Core.DomainEvents;
 using MySvc.Framework.Domain.Core.Impl;
 using MySvc.Framework.Infrastructure.Crosscutting.Exceptions;
 using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
-using MediatR;
-using Microsoft.Extensions.Options;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Conventions;
-using MongoDB.Bson.Serialization.Serializers;
-using MongoDB.Driver;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
 using MySvc.Framework.Infrastructure.Crosscutting.Options;
-using MySvc.Framework.Infrastructure.Data.MongoDB;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 {
@@ -92,9 +88,10 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             //{
                 if (obj.IsTransient())
                 {
-                    obj.GenerateId(_entityIdGenerator);
+                    
+                    obj.SetId(_entityIdGenerator.GenerateId());
                 }
-                obj.RowVersion = BitConverter.GetBytes(DateTime.UtcNow.Ticks);
+                obj.Timestamp = DateTimeOffset.UtcNow.Ticks.ToString();
 
                 await this.GetCollection<TAggregateRoot>().InsertOneAsync(this.Session, obj);
 
@@ -142,10 +139,10 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                     {
                         if (obj.IsTransient())
                         {
-                            obj.GenerateId(_entityIdGenerator);
+                            obj.SetId(_entityIdGenerator.GenerateId());
                         }
 
-                        obj.RowVersion = BitConverter.GetBytes(DateTime.UtcNow.Ticks);
+                        obj.Timestamp = DateTimeOffset.UtcNow.Ticks.ToString();
                     }
 
                     await collection.InsertManyAsync(this.Session, objs, new InsertManyOptions());
@@ -186,25 +183,19 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             //{
                 var collection = this.GetCollection<TAggregateRoot>();
 
-                byte[] originVersion = obj.RowVersion;
+                string originVersion = obj.Timestamp;
 
-                var builder = Builders<TAggregateRoot>.Filter;
-                var filter = DisableConcurrencyControl ? builder.Eq(c => c.Id, obj.Id) :
-                    builder.And(builder.Eq(c => c.Id, obj.Id), builder.Eq(c => c.RowVersion, originVersion));
-                obj.RowVersion = BitConverter.GetBytes(DateTime.UtcNow.Ticks);
-
-                var res = await collection.FindOneAndReplaceAsync<TAggregateRoot>(this.Session, filter, obj,
-                    new FindOneAndReplaceOptions<TAggregateRoot, TAggregateRoot>()
-                    {
-                        ReturnDocument = ReturnDocument.After,
-                        IsUpsert = false
-                    });
+                var builder = Builders<TAggregateRoot>.Filter.Eq(c=> c.Id ,obj.Id);
+                var filter = DisableConcurrencyControl ? builder :
+                    builder & Builders<TAggregateRoot>.Filter.Eq(c => c.Timestamp, originVersion);
+                obj.Timestamp = DateTimeOffset.UtcNow.Ticks.ToString();
+                var res = await collection.ReplaceOneAsync(this.Session, filter, obj, new ReplaceOptions() { IsUpsert = false} );
 
                 if (!DisableConcurrencyControl)
                 {
-                    if (res == null)
+                    if (res == null || !res.IsAcknowledged || (res.ModifiedCount == 0 &&  await collection.CountDocumentsAsync(r=> r.Id == obj.Id) == 1))
                     {
-                        throw new ConcurrencyException($"Object Type: [{obj.GetType()}], ObjectId: [{ obj.Id}], 更新时发生并发性错误, OriginVersion: {BitConverter.ToInt64(originVersion, 0)}");
+                        throw new ConcurrencyException($"Object Type: [{obj.GetType()}], ObjectId: [{ obj.Id}], 更新时发生并发性错误, OriginVersion: {originVersion}");
                     }
                 }
 
@@ -247,11 +238,12 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 
                     foreach (var obj in objs)
                     {
-                        byte[] originVersion = obj.RowVersion;
+                        string originVersion = obj.Timestamp;
+
 
                         var builder = Builders<TAggregateRoot>.Filter;
-                        var filter = builder.And(builder.Eq(c => c.Id, obj.Id), builder.Eq(c => c.RowVersion, originVersion));
-                        obj.RowVersion = BitConverter.GetBytes(DateTime.UtcNow.Ticks);
+                        var filter = builder.And(builder.Eq(c => c.Id, obj.Id), builder.Eq(c => c.Timestamp, originVersion));
+                        obj.Timestamp = DateTimeOffset.UtcNow.Ticks.ToString();
 
                         writeModels.Add(new ReplaceOneModel<TAggregateRoot>(filter, obj));
                     }
@@ -260,7 +252,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                     var bulkWriteResult = await collection.BulkWriteAsync(Session, writeModels);
 
                     //如果批量修改，部分成功，则认为失败，存在并发性错误（RowVersion不匹配，或者数据被删除）
-                    if (bulkWriteResult.ModifiedCount != objs.Count)
+                    if (!bulkWriteResult.IsAcknowledged ||  bulkWriteResult.ModifiedCount != objs.Count)
                     {
                         throw new ConcurrencyException($"批量更新类型 [{objs.First().GetType()}] 发生并发性错误");
                     }
@@ -463,22 +455,16 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <summary>
         /// Registers the MongoDB Bson serialization conventions.
         /// </summary>
-        /// <param name="additionConventions">Additional conventions that needs to be registered.</param>
-        public static void RegisterConventions(IEnumerable<IConvention> additionConventions = null)
+        
+        public static void RegisterConventions()
         {
             ConventionRegistryHelper.ReplaceDefaultConventionPack();
 
-            var conventionPack = new ConventionPack();
-            conventionPack.Add(new NamedIdMemberConvention("id", "_id"));
-            conventionPack.Add(new IgnoreExtraElementsConvention(true));
-            conventionPack.Add(new StringObjectIdIdGeneratorConvention());
-            //枚举序列化为字符串
-            conventionPack.Add(new EnumRepresentationConvention(BsonType.String));
 
-            if (additionConventions != null)
-                conventionPack.AddRange(additionConventions);
+            //if (additionConventions != null)
+            //    conventionPack.AddRange(additionConventions);
 
-            ConventionRegistry.Register("DefaultConvention", conventionPack, t => true);
+            //ConventionRegistry.Register("DefaultConvention", conventionPack, t => true);
 
             //BsonSerializer.RegisterSerializer(typeof(decimal), new DecimalSerializer(BsonType.Decimal128));
             //BsonSerializer.RegisterSerializer(typeof(decimal?), new NullableSerializer<decimal>(new DecimalSerializer(BsonType.Decimal128)));
