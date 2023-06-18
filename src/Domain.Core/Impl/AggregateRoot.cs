@@ -65,6 +65,15 @@ namespace MySvc.Framework.Domain.Core.Impl
         }
 
         /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime CreatedOn { get; set; } 
+        /// <summary>
+        /// 更新时间
+        /// </summary>
+        public DateTime ModifiedOn { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="domainEvent"></param>
@@ -73,21 +82,12 @@ namespace MySvc.Framework.Domain.Core.Impl
             _domainEvents?.Remove(domainEvent);
         }
 
-        /// <summary>
-        /// 创建时间
-        /// </summary>
-        public DateTime CreatedOn { get; protected set; } = DateTime.UtcNow;
+        
 
         /// <summary>
         /// 创建人
         /// </summary>
         public Operator Creator { get; protected set; }
-
-        /// <summary>
-        /// 最后更新时间
-        /// </summary>
-        public DateTime ModifiedOn { get; protected set; } = DateTime.UtcNow;
-
 
         /// <summary>
         /// 最后更新人

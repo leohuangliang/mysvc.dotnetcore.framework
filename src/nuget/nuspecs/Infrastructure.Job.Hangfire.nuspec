@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Infrastructure.Job.Hangfire</id>
-    <version>6.0.2-beta4</version>
+    <version>6.0.2-beta5</version>
     <title>MySvc.Framework.Infrastructure.Job.Hangfire</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -16,7 +16,7 @@
     <dependencies>
       <group targetFramework="net6.0">
         <dependency id="Hangfire.Core" version="1.7.31" />
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta4" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta5" />
       </group>
     </dependencies>
 

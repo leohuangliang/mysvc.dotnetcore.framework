@@ -88,9 +88,19 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             //{
                 if (obj.IsTransient())
                 {
-                    
                     obj.SetId(_entityIdGenerator.GenerateId());
                 }
+
+                if (obj.CreatedOn == DateTime.MinValue || obj.CreatedOn == DateTime.MaxValue)
+                {
+                    obj.CreatedOn = DateTime.Now;
+                }
+
+                if (obj.ModifiedOn == DateTime.MinValue || obj.ModifiedOn == DateTime.MaxValue)
+                {
+                    obj.ModifiedOn = DateTime.Now;
+                }
+
                 obj.Timestamp = DateTimeOffset.UtcNow.Ticks.ToString();
 
                 await this.GetCollection<TAggregateRoot>().InsertOneAsync(this.Session, obj);
@@ -142,6 +152,16 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                             obj.SetId(_entityIdGenerator.GenerateId());
                         }
 
+                        if (obj.CreatedOn == DateTime.MinValue || obj.CreatedOn == DateTime.MaxValue)
+                        {
+                            obj.CreatedOn = DateTime.Now;
+                        }
+
+                        if (obj.ModifiedOn == DateTime.MinValue || obj.ModifiedOn == DateTime.MaxValue)
+                        {
+                            obj.ModifiedOn = DateTime.Now;
+                        }
+
                         obj.Timestamp = DateTimeOffset.UtcNow.Ticks.ToString();
                     }
 
@@ -189,6 +209,14 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                 var filter = DisableConcurrencyControl ? builder :
                     builder & Builders<TAggregateRoot>.Filter.Eq(c => c.Timestamp, originVersion);
                 obj.Timestamp = DateTimeOffset.UtcNow.Ticks.ToString();
+                
+                if (obj.CreatedOn == DateTime.MinValue || obj.CreatedOn == DateTime.MaxValue)
+                {
+                    obj.CreatedOn = DateTime.Now;
+                }
+
+                obj.ModifiedOn = DateTime.Now;
+                
                 var res = await collection.ReplaceOneAsync(this.Session, filter, obj, new ReplaceOptions() { IsUpsert = false} );
 
                 if (!DisableConcurrencyControl)
@@ -244,6 +272,13 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                         var builder = Builders<TAggregateRoot>.Filter;
                         var filter = builder.And(builder.Eq(c => c.Id, obj.Id), builder.Eq(c => c.Timestamp, originVersion));
                         obj.Timestamp = DateTimeOffset.UtcNow.Ticks.ToString();
+                        
+                        if (obj.CreatedOn == DateTime.MinValue || obj.CreatedOn == DateTime.MaxValue)
+                        {
+                            obj.CreatedOn = DateTime.Now;
+                        }
+
+                        obj.ModifiedOn = DateTime.Now;
 
                         writeModels.Add(new ReplaceOneModel<TAggregateRoot>(filter, obj));
                     }
