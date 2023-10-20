@@ -2,44 +2,44 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>
-			MySvc.DotNetCore.MlkPwgen
+      MySvc.DotNetCore.MlkPwgen
     </id>
     <version>
-			6.0.2-beta5
+      6.0.2-beta6
     </version>
     <title>
-			MySvc.DotNetCore.MlkPwgen
+      MySvc.DotNetCore.MlkPwgen
     </title>
     <authors>
-			liang.huang
+      liang.huang
     </authors>
     <owners>
-			liang.huang
+      liang.huang
     </owners>
     <requireLicenseAcceptance>
-			false
+      false
     </requireLicenseAcceptance>
     <description>
-			MlkPwgen for .net
+      MlkPwgen for .net
     </description>
     <releaseNotes>
-
+      
     </releaseNotes>
     <copyright>
-			Copyright 2018  (c) MySVC.cc All rights reserved.
+      Copyright 2018  (c) MySVC.cc All rights reserved.
     </copyright>
     <tags>
-			MySVC.cc
+      MySVC.cc
     </tags>
     <serviceable>
-			true
+      true
     </serviceable>
     <dependencies>
       <dependencies>
         <group targetFramework="net6.0" />
       </dependencies>
-
-
+      
+      
     </dependencies>
   </metadata>
   <files>

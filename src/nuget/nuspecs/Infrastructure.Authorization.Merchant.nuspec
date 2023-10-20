@@ -2,44 +2,44 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>
-			MySvc.Framework.Infrastructure.Authorization.Merchant
+      MySvc.Framework.Infrastructure.Authorization.Merchant
     </id>
     <version>
-			6.0.2-beta5
+      6.0.2-beta6
     </version>
     <title>
-			MySvc.Framework.Infrastructure.Authorization.Merchant
+      MySvc.Framework.Infrastructure.Authorization.Merchant
     </title>
     <authors>
-			liang.huang
+      liang.huang
     </authors>
     <owners>
-			liang.huang
+      liang.huang
     </owners>
     <requireLicenseAcceptance>
-			false
+      false
     </requireLicenseAcceptance>
     <description>
-			商家端权限控制
+      商家端权限控制
     </description>
     <releaseNotes>
-
+      
     </releaseNotes>
     <copyright>
-			Copyright 2018  (c) MySVC.cc All rights reserved.
+      Copyright 2018  (c) MySVC.cc All rights reserved.
     </copyright>
     <tags>
-			MySVC.cc
+      MySVC.cc
     </tags>
     <serviceable>
-			true
+      true
     </serviceable>
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta5" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta6" />
       </group>
     </dependencies>
-
+    
   </metadata>
   <files>
     <file src="..\..\Infrastructure.Authorization.Merchant\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Merchant.deps.json" target="lib\net6.0\MySvc.Framework.Infrastructure.Authorization.Merchant.deps.json" />

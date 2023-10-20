@@ -2,43 +2,43 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>
-			MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis
+      MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis
     </id>
     <version>
-			6.0.2-beta5
-
+      6.0.2-beta6
+      
     </version>
     <title>
-			MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis
+      MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis
     </title>
     <authors>
-			liang.huang
+      liang.huang
     </authors>
     <owners>
-			liang.huang
+      liang.huang
     </owners>
     <requireLicenseAcceptance>
-			false
+      false
     </requireLicenseAcceptance>
     <description>
-			封装了Redis缓存
+      封装了Redis缓存
     </description>
     <releaseNotes>
-			
-1.2.1
+      
+      1.2.1
     </releaseNotes>
     <copyright>
-			Copyright 2018  (c) MySVC.cc  All rights reserved.
+      Copyright 2018  (c) MySVC.cc  All rights reserved.
     </copyright>
     <tags>
-			MySVC.cc
+      MySVC.cc
     </tags>
     <serviceable>
-			true
+      true
     </serviceable>
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta5" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta6" />
         <dependency id="Microsoft.Extensions.Caching.StackExchangeRedis" version="6.0.10" />
       </group>
     </dependencies>

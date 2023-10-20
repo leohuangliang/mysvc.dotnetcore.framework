@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.IS4.Domain</id>
-    <version>6.0.2-beta5</version>
+    <version>6.0.2-beta6</version>
     <title>MySvc.Framework.IS4.Domain</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -15,12 +15,12 @@
     <dependencies>
       <group targetFramework="net6.0">
         <dependency id="Microsoft.AspNetCore.Cryptography.KeyDerivation" version="6.0.10" />
-
-        <dependency id="MySvc.Framework.Domain.Core" version="6.0.2-beta5" />
+        
+        <dependency id="MySvc.Framework.Domain.Core" version="6.0.2-beta6" />
       </group>
-
+      
     </dependencies>
-
+    
   </metadata>
   <files>
     <file src="..\..\IS4.Domain\bin\Release\net6.0\MySvc.Framework.IS4.Domain.dll" target="lib\net6.0\MySvc.Framework.IS4.Domain.dll" />

@@ -2,52 +2,52 @@
 <package>
   <metadata>
     <id>
-			MySvc.Framework.IS4.MongoDB
+      MySvc.Framework.IS4.MongoDB
     </id>
     <version>
-			6.0.2-beta5
+      6.0.2-beta6
     </version>
     <title>
-			MySvc.Framework.IS4.MongoDB
+      MySvc.Framework.IS4.MongoDB
     </title>
     <authors>
-			liang.huang
+      liang.huang
     </authors>
     <owners>
-			liang.huang
+      liang.huang
     </owners>
     <requireLicenseAcceptance>
-			false
+      false
     </requireLicenseAcceptance>
     <description>
-			IdentityServer4 Mongodb仓储
+      IdentityServer4 Mongodb仓储
     </description>
     <releaseNotes>
-
+      
     </releaseNotes>
     <copyright>
-			Copyright 2018  (c) MySVC.cc All rights reserved.
+      Copyright 2018  (c) MySVC.cc All rights reserved.
     </copyright>
     <tags>
-			MySVC.cc
+      MySVC.cc
     </tags>
     <serviceable>
-			true
+      true
     </serviceable>
     <dependencies>
       <group targetFramework="net6.0">
-
+        
         <dependency id="AutoMapper" version="12.0.0" />
         <dependency id="IdentityServer4" version="4.1.2" />
-
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta5" />
-        <dependency id="MySvc.Framework.Infrastructure.Data.MongoDB" version="6.0.2-beta5" />
-
-        <dependency id="MySvc.Framework.IS4.Domain" version="6.0.2-beta5" />
+        
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta6" />
+        <dependency id="MySvc.Framework.Infrastructure.Data.MongoDB" version="6.0.2-beta6" />
+        
+        <dependency id="MySvc.Framework.IS4.Domain" version="6.0.2-beta6" />
       </group>
-
+      
     </dependencies>
-
+    
   </metadata>
   <files>
     <file src="..\..\Infrastructure.IdentityServer4.MongoDB\bin\Release\net6.0\MySvc.Framework.IS4.MongoDB.dll" target="lib\net6.0\MySvc.Framework.IS4.MongoDB.dll" />

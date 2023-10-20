@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Infrastructure.Authorization.InternalClient</id>
-    <version>6.0.2-beta5</version>
+    <version>6.0.2-beta6</version>
     <title>MySvc.Framework.Infrastructure.Authorization.InternalClient</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -14,10 +14,10 @@
     <tags>MySVC.cc</tags>
     <serviceable>true</serviceable>
     <dependencies>
-      <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta5" />
-
+      <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta6" />
+      
     </dependencies>
-
+    
   </metadata>
   <files>
     <file src="..\..\Infrastructure.Authorization.InternalClient\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.InternalClient.dll" target="lib\net6.0\MySvc.Framework.Infrastructure.Authorization.InternalClient.dll" />

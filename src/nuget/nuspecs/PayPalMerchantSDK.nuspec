@@ -2,45 +2,45 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>
-			MySvc.DotNetCore.PayPalMerchantSDK
+      MySvc.DotNetCore.PayPalMerchantSDK
     </id>
     <version>
-			6.0.2-beta5
+      6.0.2-beta6
     </version>
     <title>
-			MySvc.DotNetCore.PayPalMerchantSDK
+      MySvc.DotNetCore.PayPalMerchantSDK
     </title>
     <authors>
-			liang.huang
+      liang.huang
     </authors>
     <owners>
-			liang.huang
+      liang.huang
     </owners>
     <requireLicenseAcceptance>
-			false
+      false
     </requireLicenseAcceptance>
     <description>
-			Pay Merchant SDK 跨平台版本
+      Pay Merchant SDK 跨平台版本
     </description>
     <releaseNotes>
-
+      
     </releaseNotes>
     <copyright>
-			Copyright 2018  (c) MySVC.cc All rights reserved.
+      Copyright 2018  (c) MySVC.cc All rights reserved.
     </copyright>
     <tags>
-			MySVC.cc
+      MySVC.cc
     </tags>
     <serviceable>
-			true
+      true
     </serviceable>
     <dependencies>
       <group targetFramework="net6.0">
         <dependency id="Microsoft.CSharp" version="4.7.0" />
-        <dependency id="MySvc.DotNetCore.PayPalCoreSDK" version="6.0.2-beta5" />
+        <dependency id="MySvc.DotNetCore.PayPalCoreSDK" version="6.0.2-beta6" />
       </group>
     </dependencies>
-
+    
   </metadata>
   <files>
     <file src="..\..\PayPal\PayPalMerchantSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalMerchantSDK.deps.json" target="lib\net6.0\MySvc.DotNetCore.PayPalMerchantSDK.deps.json" />

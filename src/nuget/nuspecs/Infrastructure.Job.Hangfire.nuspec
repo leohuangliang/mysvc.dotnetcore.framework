@@ -2,28 +2,28 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Infrastructure.Job.Hangfire</id>
-    <version>6.0.2-beta5</version>
+    <version>6.0.2-beta6</version>
     <title>MySvc.Framework.Infrastructure.Job.Hangfire</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>基于Hangfire 实现job</description>
     <releaseNotes>
-
+      
     </releaseNotes>
     <copyright>Copyright 2018  (c) MySVC.cc All rights reserved.</copyright>
     <tags>MySVC.cc</tags>
     <dependencies>
       <group targetFramework="net6.0">
         <dependency id="Hangfire.Core" version="1.7.31" />
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta5" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta6" />
       </group>
     </dependencies>
-
+    
   </metadata>
   <files>
     <file src="..\..\Infrastructure.Job.Hangfire\bin\Release\net6.0\MySvc.Framework.Infrastructure.Job.Hangfire.dll" target="lib\net6.0\MySvc.Framework.Infrastructure.Job.Hangfire.dll" />
     <file src="..\..\Infrastructure.Job.Hangfire\bin\Release\net6.0\MySvc.Framework.Infrastructure.Job.Hangfire.pdb" target="lib\net6.0\MySvc.Framework.Infrastructure.Job.Hangfire.pdb" />
-
+    
   </files>
 </package>

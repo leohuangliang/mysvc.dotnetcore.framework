@@ -2,37 +2,37 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>
-			MySvc.DotNetCore.PayPalCoreSDK
+      MySvc.DotNetCore.PayPalCoreSDK
     </id>
     <version>
-			6.0.2-beta5
+      6.0.2-beta6
     </version>
     <title>
-			MySvc.DotNetCore.PayPalCoreSDK
+      MySvc.DotNetCore.PayPalCoreSDK
     </title>
     <authors>
-			liang.huang
+      liang.huang
     </authors>
     <owners>
-			liang.huang
+      liang.huang
     </owners>
     <requireLicenseAcceptance>
-			false
+      false
     </requireLicenseAcceptance>
     <description>
-			Pay Core SDK 跨平台版本
+      Pay Core SDK 跨平台版本
     </description>
     <releaseNotes>
-
+      
     </releaseNotes>
     <copyright>
-			Copyright 2018  (c) MySVC.cc All rights reserved.
+      Copyright 2018  (c) MySVC.cc All rights reserved.
     </copyright>
     <tags>
-			MySVC.cc
+      MySVC.cc
     </tags>
     <serviceable>
-			true
+      true
     </serviceable>
     <dependencies>
       <group targetFramework="net6.0">
@@ -41,7 +41,7 @@
         <dependency id="Newtonsoft.Json" version="13.0.1" />
       </group>
     </dependencies>
-
+    
   </metadata>
   <files>
     <file src="..\..\PayPal\PayPalCoreSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalCoreSDK.deps.json" target="lib\net6.0\MySvc.DotNetCore.PayPalCoreSDK.deps.json" />
