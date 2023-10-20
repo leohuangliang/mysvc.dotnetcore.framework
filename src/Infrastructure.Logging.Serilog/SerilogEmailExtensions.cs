@@ -1,7 +1,7 @@
-﻿using Serilog;
+﻿using MySvc.Framework.Infrastructure.Serilog.Sinks;
+using Serilog;
 using Serilog.Configuration;
 using Serilog.Events;
-using Serilog.Sinks.Email;
 using System;
 using System.Net;
 

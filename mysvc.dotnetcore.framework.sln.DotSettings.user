@@ -12,4 +12,9 @@
       &lt;TestId&gt;xUnit::712CCC93-FD46-42E1-8E77-ABA5A5889860::net6.0::Infrastructure.Data.MongoDB.Tests.DomainEventTest.Insert_Test&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
   &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9ce07b85_002D8e3b_002D452e_002Db8b1_002D8db58f217cee/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Works" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::E65B76E8-2B0E-4B1B-96C6-94D5B33F830F::net6.0::Infrastructure.Logging.Serilog.Tests.UnitTest1.Works&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
