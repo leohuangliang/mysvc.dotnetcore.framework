@@ -232,5 +232,24 @@ namespace MySvc.Framework.Domain.Core.Impl
         public abstract Task RollbackAsync();
 
         #endregion
+
+        #region Callback Event
+
+        /// <summary>
+        /// 注册回调方法，在DBContext提交的时候，触发相关的Action；
+        /// 执行完之后，会清空所有回调。
+        /// 若产生回滚，也会清空掉此注册的回调。
+        /// </summary>
+        /// <param name="callback"></param>
+        public abstract void RegisterCallbackOnCommit(Action<IDBContext> callback);
+
+        /// <summary>
+        /// 注册回调方法，在DBContext回滚的时候，触发相关的Action；
+        /// 执行完之后，会清空所有回调。并且也会清空 DBContext提交成功的回调。
+        /// </summary>
+        /// <param name="callback"></param>
+        public abstract void RegisterCallbackOnRollback(Action<IDBContext> callback);
+
+        #endregion
     }
 }

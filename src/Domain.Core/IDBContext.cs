@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.Win32;
 using MySvc.Framework.Infrastructure.Crosscutting;
 
 namespace MySvc.Framework.Domain.Core
@@ -65,6 +66,25 @@ namespace MySvc.Framework.Domain.Core
         /// <param name="objs">需要标注状态的聚合根列表。</param>
         Task RegisterDeleted<TAggregateRoot>(IList<TAggregateRoot> objs)
             where TAggregateRoot : class, IAggregateRoot;
+        #endregion
+
+        #region Callback Event
+
+        /// <summary>
+        /// 注册回调方法，在DBContext提交的时候，触发相关的Action；
+        /// 执行完之后，会清空所有回调(提交成功的回调和回滚的回调)。
+        /// 若产生回滚，也会清空掉此注册的回调。
+        /// </summary>
+        /// <param name="callback"></param>
+        void RegisterCallbackOnCommit(Action<IDBContext> callback);
+
+        /// <summary>
+        /// 注册回调方法，在DBContext回滚的时候，触发相关的Action；
+        /// 执行完之后，会清空所有回调。并且也会清空 DBContext提交成功的回调。
+        /// </summary>
+        /// <param name="callback"></param>
+        void RegisterCallbackOnRollback(Action<IDBContext> callback);
+
         #endregion
     }
 }

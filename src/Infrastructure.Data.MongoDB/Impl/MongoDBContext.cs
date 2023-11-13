@@ -27,6 +27,10 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         private readonly IEntityIdGenerator _entityIdGenerator;
         private readonly IMediator _mediator;
 
+        private readonly List<Action<IDBContext>> _callbackOnCommitList = new List<Action<IDBContext>>();
+
+        private readonly List<Action<IDBContext>> _callbackOnRollbackList = new List<Action<IDBContext>>();
+
         /// <summary>
         /// MongoDBContext Logger
         /// </summary>
@@ -464,6 +468,15 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                 }
 
                 Committed = true;
+
+                //触发回调
+                _callbackOnCommitList.ForEach(x =>
+                {
+                    x.Invoke(this);
+                });
+
+                _callbackOnCommitList.Clear();
+                _callbackOnRollbackList.Clear();
             }
         }
 
@@ -476,6 +489,15 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             }
 
             this.Committed = false;
+
+            //触发回调
+            _callbackOnRollbackList.ForEach(x =>
+            {
+                x.Invoke(this);
+            });
+
+            _callbackOnCommitList.Clear();
+            _callbackOnRollbackList.Clear();
         }
 
         protected override void Dispose(bool disposing)
@@ -486,11 +508,37 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             }
         }
 
+
+        #region Callback Event
+
+        /// <summary>
+        /// 注册回调方法，在DBContext提交的时候，触发相关的Action；
+        /// 执行完之后，会清空所有回调。
+        /// 若产生回滚，也会清空掉此注册的回调。
+        /// </summary>
+        /// <param name="callback"></param>
+        public override void RegisterCallbackOnCommit(Action<IDBContext> callback)
+        {
+            _callbackOnCommitList.Add(callback);
+        }
+
+        /// <summary>
+        /// 注册回调方法，在DBContext回滚的时候，触发相关的Action；
+        /// 执行完之后，会清空所有回调。并且也会清空 DBContext提交成功的回调。
+        /// </summary>
+        /// <param name="callback"></param>
+        public override void RegisterCallbackOnRollback(Action<IDBContext> callback)
+        {
+            _callbackOnRollbackList.Add(callback);
+        }
+
+        #endregion
+
         #region Public Static Methods
         /// <summary>
         /// Registers the MongoDB Bson serialization conventions.
         /// </summary>
-        
+
         public static void RegisterConventions()
         {
             ConventionRegistryHelper.ReplaceDefaultConventionPack();
@@ -507,8 +555,6 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         }
 
         #endregion
-
-
 
         /// <summary>
         /// 根据类型名转化成复数
