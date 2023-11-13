@@ -14,28 +14,27 @@ namespace MySvc.Framework.Domain.Core.Impl
     {
         #region Private Fields
         private readonly Guid _id = Guid.NewGuid();
+
         /// <summary>
-        /// 
         /// </summary>
-        protected readonly AsyncLocal<Dictionary<string, object>> _localNewCollection =
-            new AsyncLocal<Dictionary<string, object>> { Value = new Dictionary<string, object>() };
+        protected readonly Dictionary<string, object> _localNewCollection = new Dictionary<string, object>();
+
         /// <summary>
-        /// 
         /// </summary>
-        protected readonly AsyncLocal<Dictionary<string, object>> _localModifiedCollection =
-            new AsyncLocal<Dictionary<string, object>> { Value = new Dictionary<string, object>() };
+        protected readonly Dictionary<string, object> _localModifiedCollection = new Dictionary<string, object>();
+
         /// <summary>
-        /// 
         /// </summary>
-        protected readonly AsyncLocal<Dictionary<string, object>> _localDeletedCollection =
-            new AsyncLocal<Dictionary<string, object>> { Value = new Dictionary<string, object>() };
+        protected readonly Dictionary<string, object> _localDeletedCollection = new Dictionary<string, object>();
+
         /// <summary>
-        /// 
         /// </summary>
-        protected readonly AsyncLocal<bool> _localCommitted =
-            new AsyncLocal<bool> { Value = true };
+        protected readonly AsyncLocal<bool> _localCommitted = new AsyncLocal<bool> { Value = true };
+
         private readonly object _sync = new object();
+
         private readonly IEntityIdGenerator _entityIdGenerater;
+
         #endregion
 
         #region Ctor
@@ -56,9 +55,9 @@ namespace MySvc.Framework.Domain.Core.Impl
         /// <remarks>Note that this can only be called after the repository context has successfully committed.</remarks>
         protected void ClearRegistrations()
         {
-            this._localNewCollection.Value.Clear();
-            this._localModifiedCollection.Value.Clear();
-            this._localDeletedCollection.Value.Clear();
+            this._localNewCollection.Clear();
+            this._localModifiedCollection.Clear();
+            this._localDeletedCollection.Clear();
         }
 
         #endregion
@@ -69,21 +68,21 @@ namespace MySvc.Framework.Domain.Core.Impl
         /// </summary>
         protected IEnumerable<KeyValuePair<string, object>> NewCollection
         {
-            get { return _localNewCollection.Value; }
+            get { return _localNewCollection; }
         }
         /// <summary>
         /// Gets an enumerator which iterates over the collection that contains all the objects need to be modified in the repository.
         /// </summary>
         protected IEnumerable<KeyValuePair<string, object>> ModifiedCollection
         {
-            get { return _localModifiedCollection.Value; }
+            get { return _localModifiedCollection; }
         }
         /// <summary>
         /// Gets an enumerator which iterates over the collection that contains all the objects need to be deleted from the repository.
         /// </summary>
         protected IEnumerable<KeyValuePair<string, object>> DeletedCollection
         {
-            get { return _localDeletedCollection.Value; }
+            get { return _localDeletedCollection; }
         }
         #endregion
 
@@ -106,11 +105,11 @@ namespace MySvc.Framework.Domain.Core.Impl
             {
                 obj.SetId(_entityIdGenerater.GenerateId());
             }
-            if (_localModifiedCollection.Value.ContainsKey(obj.Id))
+            if (_localModifiedCollection.ContainsKey(obj.Id))
                 throw new InvalidOperationException("The object cannot be registered as a new object since it was marked as modified.");
-            if (_localNewCollection.Value.ContainsKey(obj.Id))
+            if (_localNewCollection.ContainsKey(obj.Id))
                 throw new InvalidOperationException("The object has already been registered as a new object.");
-            _localNewCollection.Value.Add(obj.Id, obj);
+            _localNewCollection.Add(obj.Id, obj);
             _localCommitted.Value = false;
 
             await Task.CompletedTask;
@@ -140,10 +139,10 @@ namespace MySvc.Framework.Domain.Core.Impl
             {
                 obj.SetId(_entityIdGenerater.GenerateId());
             }
-            if (_localDeletedCollection.Value.ContainsKey(obj.Id))
+            if (_localDeletedCollection.ContainsKey(obj.Id))
                 throw new InvalidOperationException("The object cannot be registered as a modified object since it was marked as deleted.");
-            if (!_localModifiedCollection.Value.ContainsKey(obj.Id) && !_localNewCollection.Value.ContainsKey(obj.Id))
-                _localModifiedCollection.Value.Add(obj.Id, obj);
+            if (!_localModifiedCollection.ContainsKey(obj.Id) && !_localNewCollection.ContainsKey(obj.Id))
+                _localModifiedCollection.Add(obj.Id, obj);
             _localCommitted.Value = false;
 
             await Task.CompletedTask;
@@ -173,16 +172,16 @@ namespace MySvc.Framework.Domain.Core.Impl
             {
                 obj.SetId(_entityIdGenerater.GenerateId());
             }
-            if (_localNewCollection.Value.ContainsKey(obj.Id))
+            if (_localNewCollection.ContainsKey(obj.Id))
             {
-                if (_localNewCollection.Value.Remove(obj.Id))
+                if (_localNewCollection.Remove(obj.Id))
                     return;
             }
-            bool removedFromModified = _localModifiedCollection.Value.Remove(obj.Id);
+            bool removedFromModified = _localModifiedCollection.Remove(obj.Id);
             bool addedToDeleted = false;
-            if (!_localDeletedCollection.Value.ContainsKey(obj.Id))
+            if (!_localDeletedCollection.ContainsKey(obj.Id))
             {
-                _localDeletedCollection.Value.Add(obj.Id, obj);
+                _localDeletedCollection.Add(obj.Id, obj);
                 addedToDeleted = true;
             }
             _localCommitted.Value = !(removedFromModified || addedToDeleted);

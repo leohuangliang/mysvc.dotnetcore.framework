@@ -133,6 +133,30 @@ namespace MySvc.Framework.Domain.Core
         /// <returns>数据分页结果</returns>
         Task<PagedResult<TProjection>> FindInPageAsync<TProjection>(int pageNumber, int pageSize, ISpecification<TAggregateRoot> specification,
             SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default);
+        
+        /// <summary>
+        /// 根据指定的规约，排序字段和排序方式，同时基于上一个查询到的<see cref="TAggregateRoot"/>对象，向后再查询<paramref name="pageSize"/>个，符合条件的聚合根实体对象列表数据。
+        /// </summary>
+        /// <param name="specification">查询条件</param>
+        /// <param name="sortCriteriaDefinition">排序条件（可选）</param>
+        /// <param name="lastAggregateEntity">上一个<see cref="TAggregateRoot"/>对象信息</param>
+        /// <param name="pageSize">获取的数量</param>
+        /// <param name="cancellationToken">取消令牌</param>
+        /// <returns><see cref="TAggregateRoot"/>对象信息列表</returns>
+        Task<List<TAggregateRoot>> FindAfterAsync(int pageSize, ISpecification<TAggregateRoot> specification, TAggregateRoot lastAggregateEntity, 
+            SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 根据指定的规约，排序字段和排序方式，同时基于上一个查询到的<see cref="TAggregateRoot"/>对象，向后再查询<paramref name="pageSize"/>个，符合条件的聚合根实体的【投影】对象列表数据。
+        /// </summary>
+        /// <param name="specification">查询条件</param>
+        /// <param name="sortCriteriaDefinition">排序条件（可选）</param>
+        /// <param name="lastAggregateEntity">上一个<see cref="TAggregateRoot"/>对象信息</param>
+        /// <param name="pageSize">获取的数量</param>
+        /// <param name="cancellationToken">取消令牌</param>
+        /// <returns><see cref="TAggregateRoot"/>对象信息列表</returns>
+        Task<List<TProjection>> FindAfterAsync<TProjection>(int pageSize, ISpecification<TAggregateRoot> specification, TAggregateRoot lastAggregateEntity,
+            SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 计算所有聚合根的数量

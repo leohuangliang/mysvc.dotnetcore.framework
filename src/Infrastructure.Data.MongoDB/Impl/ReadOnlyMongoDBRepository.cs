@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using MongoDB.Driver.Core.Operations;
 using MySvc.Framework.Domain.Core;
 using MySvc.Framework.Domain.Core.Paged;
 using MySvc.Framework.Domain.Core.Specification;
@@ -119,7 +120,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                 asyncCursor = await collection.FindAsync(Builders<TAggregateRoot>.Filter.Empty, findOption, cancellationToken);
             }
 
-            return asyncCursor.ToList();
+            return await asyncCursor.ToListAsync(cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -184,7 +185,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                 asyncCursor = await collection.FindAsync(specification.GetExpression(), findOption, cancellationToken);
             }
 
-            return asyncCursor.ToList();
+            return await asyncCursor.ToListAsync(cancellationToken: cancellationToken); ;
         }
 
         /// <summary>
@@ -245,7 +246,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                 asyncCursor = await collection.FindAsync(specification.GetExpression(), findOptions);
             }
 
-            var pageList = asyncCursor.ToList();
+            var pageList = await asyncCursor.ToListAsync();
 
             return new PagedResult<TAggregateRoot>(totalCount, totalPages, pageSize, pageNumber, pageList);
         }
@@ -342,6 +343,85 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             var pageList = await FindAndGetListAsync<TProjection>(skip, take, specification, sortDefinition, cancellationToken);
 
             return new PagedResult<TProjection>(totalCount, totalPages, pageNumber, pageSize, pageList);
+        }
+
+        /// <summary>
+        /// 根据指定的规约，排序字段和排序方式，同时基于上一个查询到的<see cref="TAggregateRoot"/>对象，向后再查询<paramref name="pageSize"/>个，符合条件的聚合根实体对象列表数据。
+        /// </summary>
+        /// <param name="specification">查询条件</param>
+        /// <param name="sortCriteriaDefinition">排序条件（可选）</param>
+        /// <param name="lastAggregateEntity">上一个<see cref="TAggregateRoot"/>对象信息</param>
+        /// <param name="pageSize">获取的数量</param>
+        /// <param name="cancellationToken">取消令牌</param>
+        /// <returns><see cref="TAggregateRoot"/>对象信息列表</returns>
+        public virtual Task<List<TAggregateRoot>> FindAfterAsync(int pageSize, ISpecification<TAggregateRoot> specification, TAggregateRoot lastAggregateEntity,
+            SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
+        {
+            return FindAfterAsync<TAggregateRoot>(pageSize, specification, lastAggregateEntity, sortCriteriaDefinition, cancellationToken);
+        }
+
+        /// <summary>
+        /// 根据指定的规约，排序字段和排序方式，同时基于上一个查询到的<see cref="TAggregateRoot"/>对象，向后再查询<paramref name="pageSize"/>个，符合条件的聚合根实体的【投影】对象列表数据。
+        /// </summary>
+        /// <param name="specification">查询条件</param>
+        /// <param name="sortCriteriaDefinition">排序条件（可选）</param>
+        /// <param name="lastAggregateEntity">上一个<see cref="TAggregateRoot"/>对象信息</param>
+        /// <param name="pageSize">获取的数量</param>
+        /// <param name="cancellationToken">取消令牌</param>
+        /// <returns><see cref="TAggregateRoot"/>对象信息列表</returns>
+        public virtual async Task<List<TProjection>> FindAfterAsync<TProjection>(int pageSize, ISpecification<TAggregateRoot> specification, TAggregateRoot lastAggregateEntity,
+            SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
+        {
+            var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
+
+            var findOption = new FindOptions<TAggregateRoot, TProjection>()
+            {
+                Limit = pageSize
+            };
+
+            //投影
+            if (typeof(TProjection) != typeof(TAggregateRoot))
+            {
+                findOption.Projection = BuildProjectionDefinition<TProjection>();
+            }
+
+            //过滤条件
+            FilterDefinition<TAggregateRoot> filterDefinition = new ExpressionFilterDefinition<TAggregateRoot>(specification.GetExpression());
+
+            //叠加Last查询, 如果为空，则表示获取第一页。
+            if (lastAggregateEntity != null)
+            {
+                //根据排序键 和 上一个值，构建向后查询的表达式
+                FilterDefinition<TAggregateRoot> searchAfterFilterDefinition = BuildSearchAfterFilterDefinition(sortCriteriaDefinition, lastAggregateEntity);
+                filterDefinition = Builders<TAggregateRoot>.Filter.And(filterDefinition, searchAfterFilterDefinition);
+            }
+
+            //排序
+            if (sortCriteriaDefinition != null)
+            {
+                //尾部追加 Id字段 升序
+                findOption.Sort = BuildSortDefinition(sortCriteriaDefinition.Ascending(x => x.Id));
+            }
+            else
+            {
+                //默认根据Id排序
+                findOption.Sort = BuildSortDefinition(SortCriteriaDefinitionBuilder<TAggregateRoot>.Ascending(x => x.Id));
+            }
+            
+            IAsyncCursor<TProjection> asyncCursor;
+
+            if (_isBaseOnSession)
+            {
+                asyncCursor = await collection.FindAsync(_mongoDBContext.Session, filterDefinition, findOption, cancellationToken: cancellationToken);
+            }
+            else
+            {
+                asyncCursor = await collection.FindAsync(filterDefinition, findOption, cancellationToken: cancellationToken);
+            }
+
+            var pageList = await asyncCursor.ToListAsync(cancellationToken: cancellationToken);
+
+            return pageList;
         }
 
         #endregion
@@ -538,6 +618,49 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             return Builders<TAggregateRoot>.Projection.As<TProjection>();
         }
 
+        public FilterDefinition<TAggregateRoot> BuildSearchAfterFilterDefinition(SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition, TAggregateRoot lastObj)
+        {
+            var idFilterDefinition = Builders<TAggregateRoot>.Filter.Gt(c => c.Id, lastObj.Id);
+
+            var sortCriteriaList = sortCriteriaDefinition.GetSortCriteria();
+
+            if (sortCriteriaList != null && sortCriteriaList.Any())
+            {
+                //根据排序键值，构建大于/小于 排序键的，根据上一次对象的相关排序键的值做比较；
+                //比如按时间排序升序，上一个的记录的时间是20230720，则查询条件需要加上，时间大于20230720
+                FilterDefinition<TAggregateRoot> fieldKeySortDefinition = null;
+                //由于存在相同排序键，所以最后需要再增加唯一性升序排序，需要增加 相同排序键值的情况下，大于Id的条件。
+                //比如根据时间排序，但是时间可能相同，需要根据时间和Id双重排序，再按 时间等于，Id 大于的方式来筛选。
+                FilterDefinition<TAggregateRoot> fieldKeyEqualDefinition = null;
+
+                foreach (var sortCriteria in sortCriteriaList)
+                {
+                    var orderKeyExpression = sortCriteria.SortKeySelector;
+                    //TODO：可能存在空异常的情况，如 f.User.Id 这种连续对象
+                    var lastValue = orderKeyExpression.Compile()(lastObj);
+
+                    var orderKeySortFilterDefinition = sortCriteria.SortOrder == SortOrder.Ascending ?
+                        Builders<TAggregateRoot>.Filter.Gt(orderKeyExpression, lastValue) :
+                        Builders<TAggregateRoot>.Filter.Lt(orderKeyExpression, lastValue);
+
+                    var orderKeyEqualFilterDefinition = Builders<TAggregateRoot>.Filter.Eq(orderKeyExpression, lastValue);
+
+                    fieldKeySortDefinition = fieldKeySortDefinition == null ? orderKeySortFilterDefinition : (fieldKeySortDefinition & orderKeySortFilterDefinition);
+                    fieldKeyEqualDefinition = fieldKeyEqualDefinition == null ? orderKeyEqualFilterDefinition : (fieldKeyEqualDefinition & orderKeyEqualFilterDefinition);
+                }
+
+                //拼接上Id
+                fieldKeyEqualDefinition = fieldKeyEqualDefinition & idFilterDefinition;
+
+                return (fieldKeySortDefinition | fieldKeyEqualDefinition);
+            }
+            else
+            {
+                //Id的表达式
+                return idFilterDefinition;
+            }
+        }
+
         private async Task<List<TProjection>> FindAndGetListAsync<TProjection>(int skip, int take, ISpecification<TAggregateRoot> specification, SortDefinition<TAggregateRoot> sortDefinition, CancellationToken cancellationToken = default)
         {
             IAsyncCursor<TProjection> asyncCursor;
@@ -564,7 +687,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                 asyncCursor = await collection.FindAsync(specification.GetExpression(), findOptions, cancellationToken);
             }
 
-            return asyncCursor.ToList();
+            return await asyncCursor.ToListAsync(cancellationToken: cancellationToken);
         }
 
         protected virtual void ValidPageNumberAndSize(int pageNumber, int pageSize)
