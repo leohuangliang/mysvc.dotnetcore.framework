@@ -5,7 +5,7 @@
       MySvc.Framework.Infrastructure.NewtonsoftJson
     </id>
     <version>
-      6.0.2-beta6
+      6.0.2-beta7
       
     </version>
     <title>
@@ -37,7 +37,7 @@
     </serviceable>
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta6" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta7" />
         <dependency id="Microsoft.AspNetCore.Mvc.NewtonsoftJson" version="6.0.10" />
       </group>
     </dependencies>

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Infrastructure.Crosscutting</id>
-    <version>6.0.2-beta6</version>
+    <version>6.0.2-beta7</version>
     <title>MySvc.Framework.Infrastructure.Crosscutting</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
