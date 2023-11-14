@@ -400,11 +400,14 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             if (sortCriteriaDefinition != null)
             {
                 //尾部追加 Id字段 升序
-                findOption.Sort = BuildSortDefinition(sortCriteriaDefinition.Ascending(x => x.Id));
+                var sortCriteriaList = sortCriteriaDefinition.GetSortCriteria();
+                sortCriteriaList.Add(new SortCriteria<TAggregateRoot>(x => x.Id, SortOrder.Ascending));
+                
+                findOption.Sort = BuildSortDefinition(sortCriteriaList);
             }
             else
             {
-                //默认根据Id排序
+                //默认根据Id升序排序
                 findOption.Sort = BuildSortDefinition(SortCriteriaDefinitionBuilder<TAggregateRoot>.Ascending(x => x.Id));
             }
             
@@ -419,9 +422,16 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                 asyncCursor = await collection.FindAsync(filterDefinition, findOption, cancellationToken: cancellationToken);
             }
 
+            //var mongoFilterScript = collection.Find(filterDefinition).ToString(); //输出过滤脚本
+
             var pageList = await asyncCursor.ToListAsync(cancellationToken: cancellationToken);
 
             return pageList;
+        }
+
+        protected string GetTem()
+        {
+            return "111";
         }
 
         #endregion
@@ -618,45 +628,78 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             return Builders<TAggregateRoot>.Projection.As<TProjection>();
         }
 
-        public FilterDefinition<TAggregateRoot> BuildSearchAfterFilterDefinition(SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition, TAggregateRoot lastObj)
+        protected virtual FilterDefinition<TAggregateRoot> BuildSearchAfterFilterDefinition(SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition, TAggregateRoot lastObj)
         {
-            var idFilterDefinition = Builders<TAggregateRoot>.Filter.Gt(c => c.Id, lastObj.Id);
-
             var sortCriteriaList = sortCriteriaDefinition.GetSortCriteria();
 
             if (sortCriteriaList != null && sortCriteriaList.Any())
             {
-                //根据排序键值，构建大于/小于 排序键的，根据上一次对象的相关排序键的值做比较；
-                //比如按时间排序升序，上一个的记录的时间是20230720，则查询条件需要加上，时间大于20230720
-                FilterDefinition<TAggregateRoot> fieldKeySortDefinition = null;
-                //由于存在相同排序键，所以最后需要再增加唯一性升序排序，需要增加 相同排序键值的情况下，大于Id的条件。
-                //比如根据时间排序，但是时间可能相同，需要根据时间和Id双重排序，再按 时间等于，Id 大于的方式来筛选。
-                FilterDefinition<TAggregateRoot> fieldKeyEqualDefinition = null;
+                /*
+                 * 向后查询的方式，需要根据排序键值，构建过滤条件，根据上一次对象的相关排序键的值做比较；
+                 * 由于存在相同排序键，所以最后需要再增加唯一性升序排序，需要增加 相同排序键值的情况下，大于Id的条件。
+                 * 比如根据时间排序，但是时间可能相同，需要根据时间和Id双重排序，再按 时间等于，Id 大于的方式来筛选。
+                 * 甚至可能还是多个字段的排序；
+                 *
+                 * 例如，是基于 时间（降序），用户（升序），状态（升序）  三个字段排序
+                 *
+                 *  结合最后一个数据lastObj， 需要生成 四个or的条件； 有n个排序字段，就有n+1个条件
+                 * （1）等于时间，等于用户，等于状态，大于Id
+                 * （2）等于时间，等于用户，大于状态
+                 * （3）等于时间，大于用户
+                 * （4）小于时间
+                 */
 
-                foreach (var sortCriteria in sortCriteriaList)
-                {
-                    var orderKeyExpression = sortCriteria.SortKeySelector;
-                    //TODO：可能存在空异常的情况，如 f.User.Id 这种连续对象
-                    var lastValue = orderKeyExpression.Compile()(lastObj);
+                //过滤条件的列表
+                var filterDefinitions = new List<FilterDefinition<TAggregateRoot>>();
+                //把Id加入
+                //TODO：理论上需要判断本身最后一个是否是Id了
+                sortCriteriaList.Add(new SortCriteria<TAggregateRoot>(x => x.Id, SortOrder.Ascending));
 
-                    var orderKeySortFilterDefinition = sortCriteria.SortOrder == SortOrder.Ascending ?
-                        Builders<TAggregateRoot>.Filter.Gt(orderKeyExpression, lastValue) :
-                        Builders<TAggregateRoot>.Filter.Lt(orderKeyExpression, lastValue);
+                //排序字段数
+                var sortCount = sortCriteriaList.Count;
 
-                    var orderKeyEqualFilterDefinition = Builders<TAggregateRoot>.Filter.Eq(orderKeyExpression, lastValue);
+                //通过两层循环来生成过滤条件，从单个字段开始，到多个字段的条件。如 先生成 （4）小于时间， 再生成 （3）等于时间，大于用户.....
+                for (int i = 1; i <= sortCount; i++)
+                { 
+                    FilterDefinition<TAggregateRoot> fieldKeyDefinition = null;
 
-                    fieldKeySortDefinition = fieldKeySortDefinition == null ? orderKeySortFilterDefinition : (fieldKeySortDefinition & orderKeySortFilterDefinition);
-                    fieldKeyEqualDefinition = fieldKeyEqualDefinition == null ? orderKeyEqualFilterDefinition : (fieldKeyEqualDefinition & orderKeyEqualFilterDefinition);
+                    //二层遍历
+                    for (int j = 1; j <= i; j++)
+                    {
+                        var sortCriteria = sortCriteriaList[j - 1];
+
+                        //TODO：可能存在空异常的情况，如 f.User.Id 这种连续对象
+                        var lastValue = sortCriteria.SortKeySelector.Compile()(lastObj);
+
+                        //如果是最后一个循环，则构建 大于/小于的 条件；
+                        if (i == j)
+                        {
+                            //构建 大于/小于的 条件
+                            var orderKeySortFilterDefinition = sortCriteria.SortOrder == SortOrder.Ascending ?
+                                Builders<TAggregateRoot>.Filter.Gt(sortCriteria.SortKeySelector, lastValue) :
+                                Builders<TAggregateRoot>.Filter.Lt(sortCriteria.SortKeySelector, lastValue);
+
+                            fieldKeyDefinition = fieldKeyDefinition == null ? orderKeySortFilterDefinition : (fieldKeyDefinition & orderKeySortFilterDefinition);
+                        }
+                        else
+                        {
+                            //构建 相等的条件
+                            var orderKeyEqualFilterDefinition = Builders<TAggregateRoot>.Filter.Eq(sortCriteria.SortKeySelector, lastValue);
+                          
+                            fieldKeyDefinition = fieldKeyDefinition == null ? orderKeyEqualFilterDefinition : (fieldKeyDefinition & orderKeyEqualFilterDefinition);
+                        }
+                    }
+
+                    filterDefinitions.Add(fieldKeyDefinition);
                 }
-
-                //拼接上Id
-                fieldKeyEqualDefinition = fieldKeyEqualDefinition & idFilterDefinition;
-
-                return (fieldKeySortDefinition | fieldKeyEqualDefinition);
+                
+                return Builders<TAggregateRoot>.Filter.Or(filterDefinitions.ToArray());
             }
             else
             {
                 //Id的表达式
+                var idFilterDefinition = Builders<TAggregateRoot>.Filter.Gt(c => c.Id, lastObj.Id);
+             
                 return idFilterDefinition;
             }
         }
