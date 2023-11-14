@@ -19,7 +19,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         {
             _criteria = new List<SortCriteria<T>>
             {
-                new SortCriteria<T>(keySelector, SortOrder.Ascending)
+                new SortCriteria<T>(keySelector, sortOrder)
             };
         }
         
