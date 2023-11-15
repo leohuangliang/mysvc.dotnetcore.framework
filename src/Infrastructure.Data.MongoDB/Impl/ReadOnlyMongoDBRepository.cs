@@ -429,11 +429,6 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             return pageList;
         }
 
-        protected string GetTem()
-        {
-            return "111";
-        }
-
         #endregion
 
         #region 计数相关的查询
