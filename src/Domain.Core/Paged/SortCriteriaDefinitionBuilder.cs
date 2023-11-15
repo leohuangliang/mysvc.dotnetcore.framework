@@ -14,7 +14,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// </summary>
         public static SortCriteriaDefinition<T> Ascending(Expression<Func<T, dynamic>> keySelector)
         {
-            return new SortCriteriaDefinition<T>(keySelector, SortOrder.Descending);
+            return new SortCriteriaDefinition<T>(keySelector, SortOrder.Ascending);
         }
 
         /// <summary>
