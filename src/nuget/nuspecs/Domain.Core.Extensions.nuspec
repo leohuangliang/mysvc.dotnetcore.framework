@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Domain.Core.Extensions</id>
-    <version>6.0.2-beta7</version>
+    <version>6.0.2-beta8</version>
     <title>MySvc.Framework.Domain.Core.Extensions</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -14,7 +14,7 @@
     <serviceable>true</serviceable>
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta7" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta8" />
       </group>
     </dependencies>
     

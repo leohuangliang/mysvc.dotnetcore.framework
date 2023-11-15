@@ -5,7 +5,7 @@
       MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator
     </id>
     <version>
-      6.0.2-beta7
+      6.0.2-beta8
       
     </version>
     <title>
@@ -37,7 +37,7 @@
     </serviceable>
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta7" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta8" />
         <dependency id="Microsoft.Extensions.Hosting.Abstractions" version="6.0.0" />
         <dependency id="Microsoft.Extensions.Options" version="6.0.0" />
         

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Domain.Core</id>
-    <version>6.0.2-beta7</version>
+    <version>6.0.2-beta8</version>
     <title>MySvc.Framework.Domain.Core</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -15,7 +15,7 @@
     <dependencies>
       <group targetFramework="net6.0">
         <dependency id="MediatR" version="11.0.0" />
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta7" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta8" />
       </group>
     </dependencies>
     

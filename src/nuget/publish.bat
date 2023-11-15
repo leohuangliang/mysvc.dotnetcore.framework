@@ -1,4 +1,4 @@
-set LatestVersion=6.0.2-beta7
+set LatestVersion=6.0.2-beta8
 
 nuget setapikey oy2kmoa2rxiajr2ykw6anmzc2vbcwxgerd3r23my5sowoy -Source https://api.nuget.org/v3/index.json
 nuget.exe push nuget-packages\Domain.Core\MySvc.Framework.Domain.Core.%LatestVersion%.nupkg   -Source https://api.nuget.org/v3/index.json
