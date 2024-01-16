@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using MySvc.Framework.Domain.Core.Impl;
 using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 
@@ -9,15 +9,15 @@ namespace MySvc.Framework.Domain.Core.Models
     /// </summary>
     public class Money : ValueObject<Money>
     {
-
         /// <summary>
-        /// 
+        /// 构建金钱类型
         /// </summary>
-        /// <param name="currency"></param>
-        /// <param name="amount"></param>
-        public Money(Currency currency, decimal amount)
+        /// <param name="currency">货币</param>
+        /// <param name="amount">金额</param>
+        /// <param name="keepDecimals">保留的小数点的位数，默认2位，为null则不做额外处理</param>
+        public Money(Currency currency, decimal amount, int? keepDecimals = 2)
         {
-            Amount = decimal.Parse(amount.ToString("0.00"));
+            Amount = keepDecimals != null ? decimal.Round(amount, keepDecimals.Value) : amount;
             Currency = currency;
         }
 
@@ -61,7 +61,7 @@ namespace MySvc.Framework.Domain.Core.Models
             Money amountInfo = null;
             if (left.Currency == right.Currency)
             {
-                amountInfo = new Money(left.Currency, left.Amount + right.Amount);
+                amountInfo = new Money(left.Currency, left.Amount + right.Amount, null);
             }
             else
             {
@@ -83,7 +83,7 @@ namespace MySvc.Framework.Domain.Core.Models
             Money amountInfo = null;
             if (left.Currency == right.Currency)
             {
-                amountInfo = new Money(left.Currency, left.Amount - right.Amount);
+                amountInfo = new Money(left.Currency, left.Amount - right.Amount, null);
             }
             else
             {

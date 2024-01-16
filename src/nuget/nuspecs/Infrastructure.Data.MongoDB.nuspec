@@ -5,7 +5,7 @@
       MySvc.Framework.Infrastructure.Data.MongoDB
     </id>
     <version>
-      6.0.2-beta8
+      6.0.2-beta9
     </version>
     <title>
       MySvc.Framework.Infrastructure.Data.MongoDB
@@ -41,8 +41,8 @@
         <dependency id="Microsoft.Extensions.DependencyInjection" version="6.0.1" />
         <dependency id="Microsoft.Extensions.Logging" version="6.0.0" />
         <dependency id="MongoDB.Driver" version="2.18.0" />
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta8" />
-        <dependency id="MySvc.Framework.Domain.Core" version="6.0.2-beta8" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta9" />
+        <dependency id="MySvc.Framework.Domain.Core" version="6.0.2-beta9" />
       </group>
     </dependencies>
     

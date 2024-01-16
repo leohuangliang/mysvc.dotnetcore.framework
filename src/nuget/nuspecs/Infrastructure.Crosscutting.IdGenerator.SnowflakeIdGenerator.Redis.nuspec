@@ -5,7 +5,7 @@
       MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis
     </id>
     <version>
-      6.0.2-beta8
+      6.0.2-beta9
       
     </version>
     <title>
@@ -37,7 +37,7 @@
     </serviceable>
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator" version="6.0.2-beta8" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator" version="6.0.2-beta9" />
         <dependency id="Microsoft.Extensions.Caching.StackExchangeRedis" version="6.0.10" />
         
       </group>

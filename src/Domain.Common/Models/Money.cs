@@ -12,10 +12,16 @@ namespace Capmarvel.Framework.Domain.Common.Models
             
         }
 
-        public Money(decimal amount, string currencyCode)
+        /// <summary>
+        /// 构建金钱类型
+        /// </summary>
+        /// <param name="currency">货币</param>
+        /// <param name="amount">金额</param>
+        /// <param name="keepDecimals">保留的小数点的位数，默认2位，为null则不做额外处理</param>
+        public Money(Currency currency, decimal amount, int? keepDecimals = 2)
         {
-            Amount = amount;
-            CurrencyCode = currencyCode != null ? currencyCode.ToUpper().Trim() : currencyCode;
+            Amount = keepDecimals != null ? decimal.Round(amount, keepDecimals.Value) : amount;
+            Currency = currency;
         }
 
         /// <summary>
@@ -27,5 +33,14 @@ namespace Capmarvel.Framework.Domain.Common.Models
         /// 货币类型
         /// </summary>
         public string CurrencyCode { get; private set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public Money Clone()
+        {
+            return new Money(this.Currency, this.Amount);
+        }
     }
 }
