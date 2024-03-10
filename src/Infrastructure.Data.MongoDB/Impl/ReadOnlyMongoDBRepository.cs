@@ -625,7 +625,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 
         protected virtual FilterDefinition<TAggregateRoot> BuildSearchAfterFilterDefinition(SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition, TAggregateRoot lastObj)
         {
-            var sortCriteriaList = sortCriteriaDefinition.GetSortCriteria();
+            var sortCriteriaList =  sortCriteriaDefinition?.GetSortCriteria();
 
             if (sortCriteriaList != null && sortCriteriaList.Any())
             {
