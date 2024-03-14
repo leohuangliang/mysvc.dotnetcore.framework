@@ -36,7 +36,7 @@
       true
     </serviceable>
     <dependencies>
-      <group targetFramework="net6.0">
+      <group targetFramework="net8.0">
         <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta9" />
         <dependency id="Microsoft.Extensions.Hosting.Abstractions" version="6.0.0" />
         <dependency id="Microsoft.Extensions.Options" version="6.0.0" />
@@ -46,7 +46,7 @@
     
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator\bin\Release\net6.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.dll" target="lib\net6.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.dll" />
-    <file src="..\..\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator\bin\Release\net6.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.pdb" target="lib\net6.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.pdb" />
+    <file src="..\..\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator\bin\Release\net6.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.dll" />
+    <file src="..\..\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator\bin\Release\net6.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.pdb" />
   </files>
 </package>

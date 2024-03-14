@@ -1,13 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+	  <TargetFramework>net8.0</TargetFramework>
 
-    <RootNamespace>MySvc.Framework.Infrastructure.NewtonsoftJson</RootNamespace>
+
+	  <RootNamespace>MySvc.Framework.Infrastructure.NewtonsoftJson</RootNamespace>
     <AssemblyName>MySvc.Framework.Infrastructure.NewtonsoftJson</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />

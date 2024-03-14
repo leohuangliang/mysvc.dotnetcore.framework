@@ -36,7 +36,7 @@
       true
     </serviceable>
     <dependencies>
-      <group targetFramework="net6.0">
+      <group targetFramework="net8.0">
         <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta9" />
         <dependency id="Microsoft.AspNetCore.Mvc.NewtonsoftJson" version="6.0.10" />
       </group>
@@ -44,7 +44,7 @@
     
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.Crosscutting.Json.NewtonsoftJson\bin\Release\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.dll" target="lib\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.dll" />
-    <file src="..\..\Infrastructure.Crosscutting.Json.NewtonsoftJson\bin\Release\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.pdb" target="lib\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.pdb" />
+    <file src="..\..\Infrastructure.Crosscutting.Json.NewtonsoftJson\bin\Release\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.NewtonsoftJson.dll" />
+    <file src="..\..\Infrastructure.Crosscutting.Json.NewtonsoftJson\bin\Release\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.NewtonsoftJson.pdb" />
   </files>
 </package>

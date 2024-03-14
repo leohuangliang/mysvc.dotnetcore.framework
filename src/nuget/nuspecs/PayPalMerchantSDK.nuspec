@@ -35,7 +35,7 @@
       true
     </serviceable>
     <dependencies>
-      <group targetFramework="net6.0">
+      <group targetFramework="net8.0">
         <dependency id="Microsoft.CSharp" version="4.7.0" />
         <dependency id="MySvc.DotNetCore.PayPalCoreSDK" version="6.0.2-beta9" />
       </group>
@@ -43,8 +43,8 @@
     
   </metadata>
   <files>
-    <file src="..\..\PayPal\PayPalMerchantSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalMerchantSDK.deps.json" target="lib\net6.0\MySvc.DotNetCore.PayPalMerchantSDK.deps.json" />
-    <file src="..\..\PayPal\PayPalMerchantSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalMerchantSDK.dll" target="lib\net6.0\MySvc.DotNetCore.PayPalMerchantSDK.dll" />
-    <file src="..\..\PayPal\PayPalMerchantSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalMerchantSDK.pdb" target="lib\net6.0\MySvc.DotNetCore.PayPalMerchantSDK.pdb" />
+    <file src="..\..\PayPal\PayPalMerchantSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalMerchantSDK.deps.json" target="lib\net8.0\MySvc.DotNetCore.PayPalMerchantSDK.deps.json" />
+    <file src="..\..\PayPal\PayPalMerchantSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalMerchantSDK.dll" target="lib\net8.0\MySvc.DotNetCore.PayPalMerchantSDK.dll" />
+    <file src="..\..\PayPal\PayPalMerchantSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalMerchantSDK.pdb" target="lib\net8.0\MySvc.DotNetCore.PayPalMerchantSDK.pdb" />
   </files>
 </package>

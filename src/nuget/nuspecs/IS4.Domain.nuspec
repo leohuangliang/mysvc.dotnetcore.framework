@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.IS4.Domain</id>
-    <version>6.0.2-beta9</version>
+    <version>8.0.0-beta1</version>
     <title>MySvc.Framework.IS4.Domain</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -13,7 +13,7 @@
     <tags>MySVC.cc</tags>
     <serviceable>true</serviceable>
     <dependencies>
-      <group targetFramework="net6.0">
+      <group targetFramework="net8.0">
         <dependency id="Microsoft.AspNetCore.Cryptography.KeyDerivation" version="6.0.10" />
         
         <dependency id="MySvc.Framework.Domain.Core" version="6.0.2-beta9" />
@@ -23,7 +23,7 @@
     
   </metadata>
   <files>
-    <file src="..\..\IS4.Domain\bin\Release\net6.0\MySvc.Framework.IS4.Domain.dll" target="lib\net6.0\MySvc.Framework.IS4.Domain.dll" />
-    <file src="..\..\IS4.Domain\bin\Release\net6.0\MySvc.Framework.IS4.Domain.pdb" target="lib\net6.0\MySvc.Framework.IS4.Domain.pdb" />
+    <file src="..\..\IS4.Domain\bin\Release\net6.0\MySvc.Framework.IS4.Domain.dll" target="lib\net8.0\MySvc.Framework.IS4.Domain.dll" />
+    <file src="..\..\IS4.Domain\bin\Release\net6.0\MySvc.Framework.IS4.Domain.pdb" target="lib\net8.0\MySvc.Framework.IS4.Domain.pdb" />
   </files>
 </package>

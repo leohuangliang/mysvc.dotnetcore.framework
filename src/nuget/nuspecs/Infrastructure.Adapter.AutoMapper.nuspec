@@ -54,7 +54,7 @@
       true
     </serviceable>
     <dependencies>
-      <group targetFramework="net6.0">
+      <group targetFramework="net8.0">
         
         <dependency id="AutoMapper" version="12.0.0" />
         <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta9" />
@@ -62,7 +62,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.Adapter.AutoMapper\bin\Release\net6.0\MySvc.Framework.Infrastructure.AutoMapper.dll" target="lib\net6.0\MySvc.Framework.Infrastructure.AutoMapper.dll" />
-    <file src="..\..\Infrastructure.Adapter.AutoMapper\bin\Release\net6.0\MySvc.Framework.Infrastructure.AutoMapper.pdb" target="lib\net6.0\MySvc.Framework.Infrastructure.AutoMapper.pdb" />
+    <file src="..\..\Infrastructure.Adapter.AutoMapper\bin\Release\net6.0\MySvc.Framework.Infrastructure.AutoMapper.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.AutoMapper.dll" />
+    <file src="..\..\Infrastructure.Adapter.AutoMapper\bin\Release\net6.0\MySvc.Framework.Infrastructure.AutoMapper.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.AutoMapper.pdb" />
   </files>
 </package>

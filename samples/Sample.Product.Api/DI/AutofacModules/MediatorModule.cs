@@ -36,11 +36,11 @@ namespace Sample.Product.Api.DI.AutofacModules
                 //领域事件相关
             }
 
-            builder.Register<ServiceFactory>(ctx =>
-            {
-                var c = ctx.Resolve<IComponentContext>();
-                return t => c.Resolve(t);
-            });
+            //builder.Register<ServiceFactory>(ctx =>
+            //{
+            //    var c = ctx.Resolve<IComponentContext>();
+            //    return t => c.Resolve(t);
+            //});
 
             LoadBehaviors(builder);
         }

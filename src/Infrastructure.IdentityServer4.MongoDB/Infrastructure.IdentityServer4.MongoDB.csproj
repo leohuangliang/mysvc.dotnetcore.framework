@@ -1,14 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+	  <TargetFramework>net8.0</TargetFramework>
 
-    <AssemblyName>MySvc.Framework.IS4.MongoDB</AssemblyName>
+
+	  <AssemblyName>MySvc.Framework.IS4.MongoDB</AssemblyName>
     <RootNamespace>MySvc.Framework.IS4.MongoDB</RootNamespace>
+    
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
 
     <PackageReference Include="IdentityServer4" Version="4.1.2" />
   </ItemGroup>

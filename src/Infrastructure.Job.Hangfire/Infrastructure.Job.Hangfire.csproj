@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+	  <TargetFramework>net8.0</TargetFramework>
 
-    <AssemblyName>MySvc.Framework.Infrastructure.Job.Hangfire</AssemblyName>
+
+	  <AssemblyName>MySvc.Framework.Infrastructure.Job.Hangfire</AssemblyName>
     <RootNamespace>MySvc.Framework.Infrastructure.Job.Hangfire</RootNamespace>
   </PropertyGroup>
 
@@ -12,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hangfire.Core" Version="1.7.32" />
+    <PackageReference Include="Hangfire.Core" Version="1.8.11" />
   </ItemGroup>
 
   <ItemGroup>

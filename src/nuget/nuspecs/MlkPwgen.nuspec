@@ -43,8 +43,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\MlkPwgen\bin\Release\net6.0\MlkPwgen.deps.json" target="lib\net6.0\MlkPwgen.deps.json" />
-    <file src="..\..\MlkPwgen\bin\Release\net6.0\MlkPwgen.dll" target="lib\net6.0\MlkPwgen.dll" />
-    <file src="..\..\MlkPwgen\bin\Release\net6.0\MlkPwgen.pdb" target="lib\net6.0\MlkPwgen.pdb" />
+    <file src="..\..\MlkPwgen\bin\Release\net6.0\MlkPwgen.deps.json" target="lib\net8.0\MlkPwgen.deps.json" />
+    <file src="..\..\MlkPwgen\bin\Release\net6.0\MlkPwgen.dll" target="lib\net8.0\MlkPwgen.dll" />
+    <file src="..\..\MlkPwgen\bin\Release\net6.0\MlkPwgen.pdb" target="lib\net8.0\MlkPwgen.pdb" />
   </files>
 </package>

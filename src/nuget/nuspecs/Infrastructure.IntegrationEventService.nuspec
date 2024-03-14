@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Infrastructure.IntegrationEventService</id>
-    <version>6.0.2-beta9</version>
+    <version>8.0.0-beta1</version>
     <title>MySvc.Framework.Infrastructure.IntegrationEventService</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -14,7 +14,7 @@
     <copyright>Copyright 2018  (c) MySVC.cc All rights reserved.</copyright>
     <tags>MySVC.cc</tags>
     <dependencies>
-      <group targetFramework="net6.0">
+      <group targetFramework="net8.0">
         <dependency id="MySvc.Framework.Domain.Core" version="6.0.2-beta9" />
         <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta9" />
         <dependency id="MassTransit" version="8.0.7" />
@@ -24,8 +24,8 @@
     
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.IntegrationEventService\bin\Release\net6.0\MySvc.Framework.Infrastructure.IntegrationEventService.dll" target="lib\net6.0\MySvc.Framework.Infrastructure.IntegrationEventService.dll" />
-    <file src="..\..\Infrastructure.IntegrationEventService\bin\Release\net6.0\MySvc.Framework.Infrastructure.IntegrationEventService.pdb" target="lib\net6.0\MySvc.Framework.Infrastructure.IntegrationEventService.pdb" />
+    <file src="..\..\Infrastructure.IntegrationEventService\bin\Release\net6.0\MySvc.Framework.Infrastructure.IntegrationEventService.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.IntegrationEventService.dll" />
+    <file src="..\..\Infrastructure.IntegrationEventService\bin\Release\net6.0\MySvc.Framework.Infrastructure.IntegrationEventService.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.IntegrationEventService.pdb" />
     
   </files>
 </package>

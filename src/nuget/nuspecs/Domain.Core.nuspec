@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Domain.Core</id>
-    <version>6.0.2-beta9</version>
+    <version>8.0.0-beta1</version>
     <title>MySvc.Framework.Domain.Core</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -13,7 +13,7 @@
     <tags>MySVC.cc</tags>
     <serviceable>true</serviceable>
     <dependencies>
-      <group targetFramework="net6.0">
+      <group targetFramework="net8.0">
         <dependency id="MediatR" version="11.0.0" />
         <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta9" />
       </group>
@@ -21,7 +21,7 @@
     
   </metadata>
   <files>
-    <file src="..\..\Domain.Core\bin\Release\net6.0\MySvc.Framework.Domain.Core.dll" target="lib\net6.0\MySvc.Framework.Domain.Core.dll" />
-    <file src="..\..\Domain.Core\bin\Release\net6.0\MySvc.Framework.Domain.Core.pdb" target="lib\net6.0\MySvc.Framework.Domain.Core.pdb" />
+    <file src="..\..\Domain.Core\bin\Release\net6.0\MySvc.Framework.Domain.Core.dll" target="lib\net8.0\MySvc.Framework.Domain.Core.dll" />
+    <file src="..\..\Domain.Core\bin\Release\net6.0\MySvc.Framework.Domain.Core.pdb" target="lib\net8.0\MySvc.Framework.Domain.Core.pdb" />
   </files>
 </package>

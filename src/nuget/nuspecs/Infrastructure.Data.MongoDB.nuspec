@@ -35,7 +35,7 @@
       true
     </serviceable>
     <dependencies>
-      <group targetFramework="net6.0">
+      <group targetFramework="net8.0">
         <dependency id="Microsoft.CSharp" version="4.7.0" />
         <dependency id="Microsoft.Extensions.Options" version="6.0.0" />
         <dependency id="Microsoft.Extensions.DependencyInjection" version="6.0.1" />
@@ -48,7 +48,7 @@
     
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.Data.MongoDB\bin\Release\net6.0\MySvc.Framework.Infrastructure.Data.MongoDB.dll" target="lib\net6.0\MySvc.Framework.Infrastructure.Data.MongoDB.dll" />
-    <file src="..\..\Infrastructure.Data.MongoDB\bin\Release\net6.0\MySvc.Framework.Infrastructure.Data.MongoDB.pdb" target="lib\net6.0\MySvc.Framework.Infrastructure.Data.MongoDB.pdb" />
+    <file src="..\..\Infrastructure.Data.MongoDB\bin\Release\net6.0\MySvc.Framework.Infrastructure.Data.MongoDB.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.Data.MongoDB.dll" />
+    <file src="..\..\Infrastructure.Data.MongoDB\bin\Release\net6.0\MySvc.Framework.Infrastructure.Data.MongoDB.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.Data.MongoDB.pdb" />
   </files>
 </package>

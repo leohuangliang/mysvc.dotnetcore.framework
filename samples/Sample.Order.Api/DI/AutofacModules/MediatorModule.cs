@@ -34,11 +34,11 @@ namespace Sample.Order.Api.DI.AutofacModules
                     .AsImplementedInterfaces();
             }
 
-            builder.Register<ServiceFactory>(ctx =>
-            {
-                var c = ctx.Resolve<IComponentContext>();
-                return t => c.Resolve(t);
-            });
+            //builder.Register<ServiceFactory>(ctx =>
+            //{
+            //    var c = ctx.Resolve<IComponentContext>();
+            //    return t => c.Resolve(t);
+            //});
 
             LoadBehaviors(builder);
         }

@@ -35,7 +35,7 @@
       true
     </serviceable>
     <dependencies>
-      <group targetFramework="net6.0">
+      <group targetFramework="net8.0">
         <dependency id="Microsoft.CSharp" version="4.7.0" />
         <dependency id="Microsoft.Extensions.Configuration" version="6.0.0" />
         <dependency id="Newtonsoft.Json" version="13.0.1" />
@@ -44,8 +44,8 @@
     
   </metadata>
   <files>
-    <file src="..\..\PayPal\PayPalCoreSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalCoreSDK.deps.json" target="lib\net6.0\MySvc.DotNetCore.PayPalCoreSDK.deps.json" />
-    <file src="..\..\PayPal\PayPalCoreSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalCoreSDK.dll" target="lib\net6.0\MySvc.DotNetCore.PayPalCoreSDK.dll" />
-    <file src="..\..\PayPal\PayPalCoreSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalCoreSDK.pdb" target="lib\net6.0\MySvc.DotNetCore.PayPalCoreSDK.pdb" />
+    <file src="..\..\PayPal\PayPalCoreSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalCoreSDK.deps.json" target="lib\net8.0\MySvc.DotNetCore.PayPalCoreSDK.deps.json" />
+    <file src="..\..\PayPal\PayPalCoreSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalCoreSDK.dll" target="lib\net8.0\MySvc.DotNetCore.PayPalCoreSDK.dll" />
+    <file src="..\..\PayPal\PayPalCoreSDK\bin\Release\net6.0\MySvc.DotNetCore.PayPalCoreSDK.pdb" target="lib\net8.0\MySvc.DotNetCore.PayPalCoreSDK.pdb" />
   </files>
 </package>

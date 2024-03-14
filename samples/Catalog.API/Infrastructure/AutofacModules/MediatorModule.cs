@@ -30,11 +30,11 @@ namespace Catalog.API.Infrastructure.AutofacModules
             //    .AsImplementedInterfaces();
 
 
-            builder.Register<ServiceFactory>(context =>
-            {
-                var componentContext = context.Resolve<IComponentContext>();
-                return t => { object o; return componentContext.TryResolve(t, out o) ? o : null; };
-            });
+            //builder.Register<ServiceFactory>(context =>
+            //{
+            //    var componentContext = context.Resolve<IComponentContext>();
+            //    return t => { object o; return componentContext.TryResolve(t, out o) ? o : null; };
+            //});
 
             //builder.Register<MultiInstanceFactory>(context =>
             //{

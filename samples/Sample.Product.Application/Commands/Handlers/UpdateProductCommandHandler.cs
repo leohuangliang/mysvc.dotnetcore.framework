@@ -26,7 +26,7 @@ namespace Sample.Product.Application.Commands.Handlers
             _mapper = mapper;
         }
 
-        public async Task<Unit> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
+        public async Task Handle(UpdateProductCommand command, CancellationToken cancellationToken)
         {
             var product = await _productRepository.GetAsync(new MatchProductBySKUSpecification(command.SKU));
             product.ChangeStockQty(command.StockQty);
@@ -36,8 +36,7 @@ namespace Sample.Product.Application.Commands.Handlers
             _dbContext.BeginTransaction();
             await _productRepository.UpdateAsync(product);
             await _dbContext.CommitAsync();
-
-            return new Unit();
+            
         }
     }
 }

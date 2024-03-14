@@ -35,7 +35,7 @@
       true
     </serviceable>
     <dependencies>
-      <group targetFramework="net6.0">
+      <group targetFramework="net8.0">
         
         <dependency id="AutoMapper" version="12.0.0" />
         <dependency id="IdentityServer4" version="4.1.2" />
@@ -50,7 +50,7 @@
     
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.IdentityServer4.MongoDB\bin\Release\net6.0\MySvc.Framework.IS4.MongoDB.dll" target="lib\net6.0\MySvc.Framework.IS4.MongoDB.dll" />
-    <file src="..\..\Infrastructure.IdentityServer4.MongoDB\bin\Release\net6.0\MySvc.Framework.IS4.MongoDB.pdb" target="lib\net6.0\MySvc.Framework.IS4.MongoDB.pdb" />
+    <file src="..\..\Infrastructure.IdentityServer4.MongoDB\bin\Release\net6.0\MySvc.Framework.IS4.MongoDB.dll" target="lib\net8.0\MySvc.Framework.IS4.MongoDB.dll" />
+    <file src="..\..\Infrastructure.IdentityServer4.MongoDB\bin\Release\net6.0\MySvc.Framework.IS4.MongoDB.pdb" target="lib\net8.0\MySvc.Framework.IS4.MongoDB.pdb" />
   </files>
 </package>
