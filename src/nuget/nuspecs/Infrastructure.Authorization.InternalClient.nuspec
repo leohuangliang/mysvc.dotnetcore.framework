@@ -14,7 +14,7 @@
     <tags>MySVC.cc</tags>
     <serviceable>true</serviceable>
     <dependencies>
-      <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta9" />
+      <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.3-beta1" />
       
     </dependencies>
     

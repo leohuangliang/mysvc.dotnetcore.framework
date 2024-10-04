@@ -14,7 +14,7 @@
     <serviceable>true</serviceable>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.2-beta9" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.3-beta1" />
       </group>
     </dependencies>
     
