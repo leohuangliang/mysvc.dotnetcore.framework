@@ -203,11 +203,7 @@ namespace Infrastructure.Data.MongoDB.Tests
             //builder.RegisterGeneric(typeof(ConstrainedRequestPostProcessor<,>)).As(typeof(IRequestPostProcessor<,>));
             //builder.RegisterGeneric(typeof(ConstrainedPingedHandler<>)).As(typeof(INotificationHandler<>));
 
-            builder.Register<ServiceFactory>(ctx =>
-            {
-                var c = ctx.Resolve<IComponentContext>();
-                return t => c.Resolve(t);
-            });
+           
 
             var container = builder.Build();
 
@@ -220,11 +216,11 @@ namespace Infrastructure.Data.MongoDB.Tests
             //    .Resolve<IEnumerable<IPipelineBehavior<Ping, Pong>>>()
             //    .ToList();
 
-            builder.Register<ServiceFactory>(ctx =>
-           {
-               var c = ctx.Resolve<IComponentContext>();
-               return t => c.Resolve(t);
-           });
+           // builder.Register<ServiceFactory>(ctx =>
+           //{
+           //    var c = ctx.Resolve<IComponentContext>();
+           //    return t => c.Resolve(t);
+           //});
             _mediator = container.Resolve<IMediator>();
             _container = container;
         }
