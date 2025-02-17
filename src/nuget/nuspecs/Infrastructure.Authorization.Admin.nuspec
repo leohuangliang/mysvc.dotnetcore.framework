@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Infrastructure.Authorization.Admin</id>
-    <version>8.0.0-beta1</version>
+    <version>8.0.0-beta3</version>
     <title>MySvc.Framework.Infrastructure.Authorization.Admin</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -15,15 +15,15 @@
     <serviceable>true</serviceable>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.3-beta1" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta3" />
       </group>
     </dependencies>
     
     
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Admin.deps.json" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Admin.deps.json" />
-    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Admin.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Admin.dll" />
-    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Admin.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Admin.pdb" />
+    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\net8.0\MySvc.Framework.Infrastructure.Authorization.Admin.deps.json" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Admin.deps.json" />
+    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\net8.0\MySvc.Framework.Infrastructure.Authorization.Admin.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Admin.dll" />
+    <file src="..\..\Infrastructure.Authorization.Admin\bin\Release\net8.0\MySvc.Framework.Infrastructure.Authorization.Admin.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Admin.pdb" />
   </files>
 </package>

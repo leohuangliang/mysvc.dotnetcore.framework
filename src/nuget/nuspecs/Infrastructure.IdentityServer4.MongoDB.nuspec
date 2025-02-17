@@ -5,7 +5,7 @@
       MySvc.Framework.IS4.MongoDB
     </id>
     <version>
-      8.0.0-beta1
+      8.0.0-beta3
     </version>
     <title>
       MySvc.Framework.IS4.MongoDB
@@ -37,20 +37,20 @@
     <dependencies>
       <group targetFramework="net8.0">
         
-        <dependency id="AutoMapper" version="12.0.0" />
         <dependency id="IdentityServer4" version="4.1.2" />
+                <dependency id="AutoMapper" version="13.0.1" />
+
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta3" />
+        <dependency id="MySvc.Framework.Infrastructure.Data.MongoDB" version="8.0.0-beta3" />
         
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.3-beta1" />
-        <dependency id="MySvc.Framework.Infrastructure.Data.MongoDB" version="6.0.3-beta1" />
-        
-        <dependency id="MySvc.Framework.IS4.Domain" version="6.0.3-beta1" />
+        <dependency id="MySvc.Framework.IS4.Domain" version="8.0.0-beta3" />
       </group>
       
     </dependencies>
     
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.IdentityServer4.MongoDB\bin\Release\net6.0\MySvc.Framework.IS4.MongoDB.dll" target="lib\net8.0\MySvc.Framework.IS4.MongoDB.dll" />
-    <file src="..\..\Infrastructure.IdentityServer4.MongoDB\bin\Release\net6.0\MySvc.Framework.IS4.MongoDB.pdb" target="lib\net8.0\MySvc.Framework.IS4.MongoDB.pdb" />
+    <file src="..\..\Infrastructure.IdentityServer4.MongoDB\bin\Release\net8.0\MySvc.Framework.IS4.MongoDB.dll" target="lib\net8.0\MySvc.Framework.IS4.MongoDB.dll" />
+    <file src="..\..\Infrastructure.IdentityServer4.MongoDB\bin\Release\net8.0\MySvc.Framework.IS4.MongoDB.pdb" target="lib\net8.0\MySvc.Framework.IS4.MongoDB.pdb" />
   </files>
 </package>

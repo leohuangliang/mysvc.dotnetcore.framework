@@ -5,7 +5,7 @@
       MySvc.Framework.Infrastructure.Authorization.Client
     </id>
     <version>
-      8.0.0-beta1
+      8.0.0-beta3
     </version>
     <title>
       MySvc.Framework.Infrastructure.Authorization.Client
@@ -36,14 +36,13 @@
     </serviceable>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.3-beta1" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta3" />
       </group>
     </dependencies>
     
   </metadata>
-  <files>
-    <file src="..\..\Infrastructure.Authorization.Client\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Client.deps.json" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Client.deps.json" />
-    <file src="..\..\Infrastructure.Authorization.Client\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Client.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Client.dll" />
-    <file src="..\..\Infrastructure.Authorization.Client\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Client.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Client.pdb" />
+   <files>
+    <file src="..\..\Infrastructure.Authorization.Client\bin\Release\net8.0\MySvc.Framework.Infrastructure.Authorization.Client.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Client.dll" />
+    <file src="..\..\Infrastructure.Authorization.Client\bin\Release\net8.0\MySvc.Framework.Infrastructure.Authorization.Client.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Client.pdb" />
   </files>
 </package>

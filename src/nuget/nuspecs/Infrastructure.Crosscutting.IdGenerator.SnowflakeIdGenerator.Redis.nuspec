@@ -5,7 +5,7 @@
       MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis
     </id>
     <version>
-      8.0.0-beta1
+      8.0.0-beta3
       
     </version>
     <title>
@@ -37,15 +37,15 @@
     </serviceable>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator" version="6.0.3-beta1" />
-        <dependency id="Microsoft.Extensions.Caching.StackExchangeRedis" version="6.0.10" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator" version="8.0.0-beta3" />
+        <dependency id="Microsoft.Extensions.Caching.StackExchangeRedis" version="8.0.8" />
         
       </group>
     </dependencies>
     
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis\bin\Release\net6.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis.dll" />
-    <file src="..\..\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis\bin\Release\net6.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis.pdb" />
+    <file src="..\..\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis\bin\Release\net8.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis.dll" />
+    <file src="..\..\Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis\bin\Release\net8.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis.pdb" />
   </files>
 </package>

@@ -5,7 +5,7 @@
       MySvc.Framework.Infrastructure.Authorization.Merchant
     </id>
     <version>
-      8.0.0-beta1
+      8.0.0-beta3
     </version>
     <title>
       MySvc.Framework.Infrastructure.Authorization.Merchant
@@ -36,14 +36,14 @@
     </serviceable>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.3-beta1" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta3" />
       </group>
     </dependencies>
     
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.Authorization.Merchant\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Merchant.deps.json" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Merchant.deps.json" />
-    <file src="..\..\Infrastructure.Authorization.Merchant\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Merchant.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Merchant.dll" />
-    <file src="..\..\Infrastructure.Authorization.Merchant\bin\Release\net6.0\MySvc.Framework.Infrastructure.Authorization.Merchant.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Merchant.pdb" />
+    <file src="..\..\Infrastructure.Authorization.Merchant\bin\Release\net8.0\MySvc.Framework.Infrastructure.Authorization.Merchant.deps.json" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Merchant.deps.json" />
+    <file src="..\..\Infrastructure.Authorization.Merchant\bin\Release\net8.0\MySvc.Framework.Infrastructure.Authorization.Merchant.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Merchant.dll" />
+    <file src="..\..\Infrastructure.Authorization.Merchant\bin\Release\net8.0\MySvc.Framework.Infrastructure.Authorization.Merchant.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.Authorization.Merchant.pdb" />
   </files>
 </package>

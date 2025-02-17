@@ -5,7 +5,7 @@
       MySvc.DotNetCore.MlkPwgen
     </id>
     <version>
-      6.0.3-beta1
+      8.0.0-beta3
     </version>
     <title>
       MySvc.DotNetCore.MlkPwgen
@@ -36,15 +36,15 @@
     </serviceable>
     <dependencies>
       <dependencies>
-        <group targetFramework="net6.0" />
+        <group targetFramework="net8.0" />
       </dependencies>
       
       
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\MlkPwgen\bin\Release\net6.0\MlkPwgen.deps.json" target="lib\net8.0\MlkPwgen.deps.json" />
-    <file src="..\..\MlkPwgen\bin\Release\net6.0\MlkPwgen.dll" target="lib\net8.0\MlkPwgen.dll" />
-    <file src="..\..\MlkPwgen\bin\Release\net6.0\MlkPwgen.pdb" target="lib\net8.0\MlkPwgen.pdb" />
+    <file src="..\..\MlkPwgen\bin\Release\net8.0\MlkPwgen.deps.json" target="lib\net8.0\MlkPwgen.deps.json" />
+    <file src="..\..\MlkPwgen\bin\Release\net8.0\MlkPwgen.dll" target="lib\net8.0\MlkPwgen.dll" />
+    <file src="..\..\MlkPwgen\bin\Release\net8.0\MlkPwgen.pdb" target="lib\net8.0\MlkPwgen.pdb" />
   </files>
 </package>

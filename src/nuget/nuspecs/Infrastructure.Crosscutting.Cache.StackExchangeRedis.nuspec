@@ -5,7 +5,7 @@
       MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis
     </id>
     <version>
-      8.0.0-beta1
+      8.0.0-beta3
       
     </version>
     <title>
@@ -38,13 +38,13 @@
     </serviceable>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.3-beta1" />
-        <dependency id="Microsoft.Extensions.Caching.StackExchangeRedis" version="6.0.10" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta3" />
+        <dependency id="Microsoft.Extensions.Caching.StackExchangeRedis" version="8.0.8" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\Infrastructure.Crosscutting.Cache.StackExchangeRedis\bin\Release\net6.0\MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis.dll" />
-    <file src="..\..\Infrastructure.Crosscutting.Cache.StackExchangeRedis\bin\Release\net6.0\MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis.pdb" />
+    <file src="..\..\Infrastructure.Crosscutting.Cache.StackExchangeRedis\bin\Release\net8.0\MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis.dll" target="lib\net8.0\MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis.dll" />
+    <file src="..\..\Infrastructure.Crosscutting.Cache.StackExchangeRedis\bin\Release\net8.0\MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis.pdb" target="lib\net8.0\MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis.pdb" />
   </files>
 </package>
