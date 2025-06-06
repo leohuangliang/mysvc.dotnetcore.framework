@@ -10,7 +10,6 @@
       &lt;TestId&gt;xUnit::42DA42FC-2570-4D3F-811F-BDA612F6EC35::net8.0::Infrastructure.Authorization.Admin.Tests.PermissionAttributeFilterTest.OnAuthorization_Or_NotPermission_Test&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;xUnit::42DA42FC-2570-4D3F-811F-BDA612F6EC35::net8.0::Infrastructure.Authorization.Admin.Tests.PermissionAttributeFilterTest&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;xUnit::712CCC93-FD46-42E1-8E77-ABA5A5889860::net8.0::Infrastructure.Data.MongoDB.Tests.DomainEventTest.Insert_Test&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::712CCC93-FD46-42E1-8E77-ABA5A5889860::net8.0::Infrastructure.Data.MongoDB.Tests.DomainEventTest.Insert_Test&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
