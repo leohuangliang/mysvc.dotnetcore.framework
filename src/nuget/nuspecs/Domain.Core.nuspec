@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Domain.Core</id>
-    <version>8.0.0-beta3</version>
+    <version>8.0.0-beta4</version>
     <title>MySvc.Framework.Domain.Core</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
@@ -15,7 +15,7 @@
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="MediatR" version="12.4.1" />
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta3" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta4" />
       </group>
     </dependencies>
     

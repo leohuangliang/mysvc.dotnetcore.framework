@@ -1,7 +1,7 @@
 ﻿using MySvc.Framework.Domain.Core.DomainEvents;
 using System.Threading;
 using System.Threading.Tasks;
-using Xunit.Abstractions;
+
 
 namespace Infrastructure.Data.MongoDB.Tests
 {
@@ -15,8 +15,8 @@ namespace Infrastructure.Data.MongoDB.Tests
 
         public Task Handle(EmployeeDismmisionDomainEvent notification, CancellationToken cancellationToken)
         {
-            _output.WriteLine("Employee Dimission : Id = [{0}]  Name:[{1}]  EmployeeNo:[{2}] ", 
-                notification.Employee.Id,notification.Employee.Name, notification.Employee.EmployeeNo);
+            _output.WriteLine("Employee Dimission : Id = [{0}]  Name:[{1}]  EmployeeNo:[{2}] ",
+                notification.Employee.Id, notification.Employee.Name, notification.Employee.EmployeeNo);
             return Task.CompletedTask;
         }
     }

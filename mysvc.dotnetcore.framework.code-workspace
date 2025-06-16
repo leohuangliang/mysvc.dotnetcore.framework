@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"dotnet.defaultSolution": "mysvc.dotnetcore.framework.sln",
+		"dotnet.enablePackageRestore": true,
+		"csharp.semanticHighlighting.enabled": true,
+		"csharp.debug.console": "integratedTerminal",
+		"testExplorer.addToEditorContextMenu": true,
+		"testExplorer.showCollapseButton": true,
+		"testExplorer.showOnRun": true,
+		"dotnetAcquisitionExtension.enableTelemetry": false,
+		"dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+		"dotnet.testDiscovery.enabled": true,
+		"dotnet.backgroundIndexing.enabled": true
+	}
+}

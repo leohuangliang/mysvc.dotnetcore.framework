@@ -2,21 +2,20 @@
 
   <PropertyGroup>
 	  <TargetFramework>net8.0</TargetFramework>
-
 	  <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	  <RootNamespace>MySvc.Framework.Domain.Core.Extensions</RootNamespace>
 	  <AssemblyName>MySvc.Framework.Domain.Core.Extensions</AssemblyName>
-	  
-	  
+	  <Version>8.0.0-beta4</Version>
+	  <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.4.1" />
+    <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
+    <PackageReference Include="MediatR" Version="12.5.0" />
   </ItemGroup>
 
 </Project>

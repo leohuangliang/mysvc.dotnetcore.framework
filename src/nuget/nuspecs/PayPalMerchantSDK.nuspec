@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>
       MySvc.DotNetCore.PayPalMerchantSDK
     </id>
     <version>
-      8.0.0-beta3
+      8.0.0-beta4
     </version>
     <title>
       MySvc.DotNetCore.PayPalMerchantSDK
@@ -37,7 +37,7 @@
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="Microsoft.CSharp" version="4.7.0" />
-        <dependency id="MySvc.DotNetCore.PayPalCoreSDK" version="8.0.0-beta3" />
+        <dependency id="MySvc.DotNetCore.PayPalCoreSDK" version="8.0.0-beta4" />
       </group>
     </dependencies>
     

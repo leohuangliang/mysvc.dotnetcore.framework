@@ -17,7 +17,6 @@ using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Threading.Tasks;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Infrastructure.Data.MongoDB.Tests
 {
@@ -52,7 +51,7 @@ namespace Infrastructure.Data.MongoDB.Tests
                 Database = _dbName
             });
 
-            var context = new MongoDBContext(_entityIdGenerator,options, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_entityIdGenerator, options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
             Employee employee = new Employee("Employee1") { EmployeeNo = "1" };
             context.BeginTransaction();
@@ -121,7 +120,7 @@ namespace Infrastructure.Data.MongoDB.Tests
         //    return mediator;
         //}
 
-        private  IMediator BuildMediator()
+        private IMediator BuildMediator()
         {
 
             var builder = new ContainerBuilder();
@@ -151,10 +150,10 @@ namespace Infrastructure.Data.MongoDB.Tests
                     .AsImplementedInterfaces();
             }
 
-           
+
             builder.RegisterInstance(_output).As<ITestOutputHelper>();
             // It appears Autofac returns the last registered types first
-           // builder.RegisterGeneric(typeof(GenericStreamPipelineBehavior<,>)).As(typeof(IStreamPipelineBehavior<,>));
+            // builder.RegisterGeneric(typeof(GenericStreamPipelineBehavior<,>)).As(typeof(IStreamPipelineBehavior<,>));
 
             builder.RegisterGeneric(typeof(RequestPostProcessorBehavior<,>)).As(typeof(IPipelineBehavior<,>));
             builder.RegisterGeneric(typeof(RequestPreProcessorBehavior<,>)).As(typeof(IPipelineBehavior<,>));

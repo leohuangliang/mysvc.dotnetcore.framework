@@ -18,7 +18,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Xunit;
-using Xunit.Abstractions;
+
 
 namespace Infrastructure.Data.MongoDB.Tests
 {
@@ -60,9 +60,9 @@ namespace Infrastructure.Data.MongoDB.Tests
         public async Task Insert_Test()
         {
 
-            var context = new MongoDBContext(_entityIdGenerator,_options, _mediator, _mockLogger.Object);
+            var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
-            Person person = new Employee("test") ;
+            Person person = new Employee("test");
             context.BeginTransaction();
             await personRepository.AddAsync(person);
             await context.CommitAsync();
@@ -155,7 +155,7 @@ namespace Infrastructure.Data.MongoDB.Tests
 
             var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
             var personRepository = new PersonRepository(context);
-            Person person = new Employee("test") ;
+            Person person = new Employee("test");
 
             context.BeginTransaction();
             await personRepository.AddAsync(person);
@@ -203,7 +203,7 @@ namespace Infrastructure.Data.MongoDB.Tests
             //builder.RegisterGeneric(typeof(ConstrainedRequestPostProcessor<,>)).As(typeof(IRequestPostProcessor<,>));
             //builder.RegisterGeneric(typeof(ConstrainedPingedHandler<>)).As(typeof(INotificationHandler<>));
 
-           
+
 
             var container = builder.Build();
 
@@ -216,11 +216,11 @@ namespace Infrastructure.Data.MongoDB.Tests
             //    .Resolve<IEnumerable<IPipelineBehavior<Ping, Pong>>>()
             //    .ToList();
 
-           // builder.Register<ServiceFactory>(ctx =>
-           //{
-           //    var c = ctx.Resolve<IComponentContext>();
-           //    return t => c.Resolve(t);
-           //});
+            // builder.Register<ServiceFactory>(ctx =>
+            //{
+            //    var c = ctx.Resolve<IComponentContext>();
+            //    return t => c.Resolve(t);
+            //});
             _mediator = container.Resolve<IMediator>();
             _container = container;
         }

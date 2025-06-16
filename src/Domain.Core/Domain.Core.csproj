@@ -3,25 +3,29 @@
   <PropertyGroup>
 	  <TargetFramework>net8.0</TargetFramework>
 
-
     <RootNamespace>MySvc.Framework.Domain.Core</RootNamespace>
     <AssemblyName>MySvc.Framework.Domain.Core</AssemblyName>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <UserSecretsId>ee9a7f2d-dc08-4960-ab3d-3a7fbab591ab</UserSecretsId>
     
+    <!-- NuGet Package Properties -->
+    <PackageId>MySvc.Framework.Domain.Core</PackageId>
+    <Version>8.0.0-beta4</Version>
+    <PackageVersion>8.0.0-beta4</PackageVersion>
+    <AssemblyVersion>8.0.0.0</AssemblyVersion>
+    <FileVersion>8.0.0.0</FileVersion>
+    <Description>MySvc Framework Domain Core with enhanced Specification pattern support including null-safe extension methods and method overloads</Description>
+    <PackageReleaseNotes>Added null-safe Specification extension methods with Expression and ISpecification overloads. Fixed AndSpecification null parameter bug.</PackageReleaseNotes>
+    
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\BFE.Framework.Domain.Core.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\net8.0\MySvc.Framework.Domain.Core.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard2.0\BFE.Framework.Domain.Core.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\net8.0\MySvc.Framework.Domain.Core.xml</DocumentationFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.4.1" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />
@@ -44,6 +48,10 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.5.0" />
   </ItemGroup>
 
 </Project>

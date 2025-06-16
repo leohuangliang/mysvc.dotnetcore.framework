@@ -5,7 +5,7 @@
       MySvc.Framework.Infrastructure.AutoMapper
     </id>
     <version>
-      8.0.0-beta3
+      8.0.0-beta4
     </version>
     <title>
       MySvc.Framework.Infrastructure.AutoMapper
@@ -57,7 +57,7 @@
       <group targetFramework="net8.0">
         
         <dependency id="AutoMapper" version="13.0.1" />
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta3" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta4" />
       </group>
     </dependencies>
   </metadata>
