@@ -77,7 +77,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
             string cacheKey = $"user_profile_{tenantUserId}";
             UserProfile userProfile = null;
             var json = await _distributedCache.GetStringAsync(cacheKey);
-            if (!json.IsNullOrBlank())
+            if (!string.IsNullOrWhiteSpace(json))
             {
                 userProfile = _jsonConverter.DeserializeObject<UserProfile>(json);
             }
@@ -145,7 +145,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
             string hasPaymentPassword = _contextAccessor.HttpContext.User.GetClaimValue("HasPaymentPassword");
 
 
-            if (tenantUserId.IsNullOrBlank() || tenantCode.IsNullOrBlank() || userName.IsNullOrBlank())
+            if (string.IsNullOrWhiteSpace(tenantUserId) || string.IsNullOrWhiteSpace(tenantCode) || string.IsNullOrWhiteSpace(userName))
             {
                 throw new AuthenticationException("no login");
             }

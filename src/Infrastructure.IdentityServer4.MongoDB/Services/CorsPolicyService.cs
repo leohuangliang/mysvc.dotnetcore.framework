@@ -36,7 +36,7 @@ namespace MySvc.Framework.IS4.MongoDB.Services
                 {
                     client.AllowedCorsOrigins.ForEach(c =>
                     {
-                        if (c != null && !c.Origin.IsNullOrBlank()) originList.Add(c.Origin);
+                        if (c != null && !string.IsNullOrWhiteSpace(c.Origin)) originList.Add(c.Origin);
                     });
                 }
             }
@@ -52,3 +52,4 @@ namespace MySvc.Framework.IS4.MongoDB.Services
         }
     }
 }
+

@@ -43,7 +43,7 @@ namespace Sample.Product.Application.Queries
         {
             ISpecification<Sample.Product.Domain.AggregatesModel.ProductAggregate.Product> specification = Specification<Domain.AggregatesModel.ProductAggregate.Product>.Eval(x => true);
 
-            if (criteria.Title.NotNullOrBlank())
+            if (!string.IsNullOrWhiteSpace(criteria.Title))
             {
                 specification = specification.And(new MatchProductByContainsTitleSpecification(criteria.Title));
             }
@@ -71,3 +71,4 @@ namespace Sample.Product.Application.Queries
         }
     }
 }
+

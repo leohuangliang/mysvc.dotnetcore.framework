@@ -12,3 +12,19 @@ _ReSharper*/
 UpgradeLog.htm
 *.orig
 
+# NuGet 敏感文件和安全相关
+*apikey*
+*secret*
+*password*
+*.backup.*
+publish.bat
+pack.bat
+
+# 环境配置
+.env
+.env.local
+.env.production
+
+# 报告文件
+*-report-*.json
+

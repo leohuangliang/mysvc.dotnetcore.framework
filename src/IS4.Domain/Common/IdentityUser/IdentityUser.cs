@@ -25,7 +25,7 @@ namespace MySvc.Framework.IS4.Domain.Common.IdentityUser
 
         public IdentityUser(string userName) : this()
         {
-            if (userName.IsNullOrBlank()) throw new ArgumentNullException(nameof(userName));
+            if (string.IsNullOrWhiteSpace(userName)) throw new ArgumentNullException(nameof(userName));
             this.UserName = userName;
             UpdateNormalizedUserName();
 
@@ -268,7 +268,7 @@ namespace MySvc.Framework.IS4.Domain.Common.IdentityUser
 
         public void SetEmail(string email)
         {
-            if (this.Email.IsNullOrBlank())
+            if (string.IsNullOrWhiteSpace(this.Email))
             {
                 this.Email = email;
                 UpdateNormalizedEmail();
@@ -296,8 +296,8 @@ namespace MySvc.Framework.IS4.Domain.Common.IdentityUser
 
         public void SetPhoneNumber(string dialCode, string phoneNumber)
         {
-            if (dialCode.IsNullOrBlank()) throw new ArgumentNullException(nameof(dialCode));
-            if (phoneNumber.IsNullOrBlank()) throw new ArgumentNullException(nameof(phoneNumber));
+            if (string.IsNullOrWhiteSpace(dialCode)) throw new ArgumentNullException(nameof(dialCode));
+            if (string.IsNullOrWhiteSpace(phoneNumber)) throw new ArgumentNullException(nameof(phoneNumber));
 
             if (phoneNumber.Contains("+"))
             {
@@ -422,3 +422,4 @@ namespace MySvc.Framework.IS4.Domain.Common.IdentityUser
 
 
 }
+

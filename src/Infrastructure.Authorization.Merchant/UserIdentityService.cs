@@ -103,7 +103,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant
 
             string clientId = _contextAccessor.HttpContext.User.GetClaimValue("client_id");
 
-            if (tenantCode.IsNullOrBlank())
+            if (string.IsNullOrWhiteSpace(tenantCode))
             {
                 tenantCode = _contextAccessor.HttpContext.User.GetClaimValue("client_tenantcode");
             }
@@ -111,7 +111,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant
             string cacheKey = $"user_profile_{tenantUserId}";
             UserProfile userProfile = null;
             var json = await _distributedCache.GetStringAsync(cacheKey);
-            if (!json.IsNullOrBlank())
+            if (!string.IsNullOrWhiteSpace(json))
             {
                 userProfile = _jsonConverter.DeserializeObject<UserProfile>(json);
             }
@@ -169,7 +169,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant
             string tenantCode = _contextAccessor.HttpContext.User.GetClaimValue("tenantcode");
             string tenantName = _contextAccessor.HttpContext.User.GetClaimValue("tenantname");
 
-            if (tenantCode.IsNullOrBlank())
+            if (string.IsNullOrWhiteSpace(tenantCode))
             {
                 tenantCode = _contextAccessor.HttpContext.User.GetClaimValue("client_tenantcode");
             }
@@ -186,7 +186,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant
             string hasPaymentPassword = _contextAccessor.HttpContext.User.GetClaimValue("HasPaymentPassword");
             string uid = _contextAccessor.HttpContext.User.GetClaimValue("UID");
 
-            if (tenantCode.IsNullOrBlank())
+            if (string.IsNullOrWhiteSpace(tenantCode))
             {
                 throw new AuthenticationException("no login");
             }

@@ -22,22 +22,22 @@ namespace MySvc.Framework.IS4.Domain.PersistedGrantAggregate.Specifications
         public override Expression<Func<PersistedGrant, bool>> GetExpression()
         {
             Specification<PersistedGrant> specification = new AnySpecification<PersistedGrant>();
-            if (!this.SubjectId.IsNullOrBlank())
+            if (!string.IsNullOrWhiteSpace(this.SubjectId))
             {
                 specification = new AndSpecification<PersistedGrant>(specification, new MatchPersistedGrantBySubjectIdSpecification(this.SubjectId));
             }
 
-            if (!this.ClientId.IsNullOrBlank())
+            if (!string.IsNullOrWhiteSpace(this.ClientId))
             {
                 specification = new AndSpecification<PersistedGrant>(specification, Specification<PersistedGrant>.Eval(c => c.ClientId == this.ClientId));
             }
 
-            if (!this.SessionId.IsNullOrBlank())
+            if (!string.IsNullOrWhiteSpace(this.SessionId))
             {
                 specification = new AndSpecification<PersistedGrant>(specification, Specification<PersistedGrant>.Eval(c => c.SessionId == this.SessionId));
             }
 
-            if (!this.Type.IsNullOrBlank())
+            if (!string.IsNullOrWhiteSpace(this.Type))
             {
                 specification = new AndSpecification<PersistedGrant>(specification, Specification<PersistedGrant>.Eval(c => c.Type == this.Type));
             }
@@ -46,3 +46,4 @@ namespace MySvc.Framework.IS4.Domain.PersistedGrantAggregate.Specifications
         }
     }
 }
+

@@ -6,7 +6,6 @@ using MySvc.Framework.Infrastructure.Data.MongoDB;
 using Microsoft.Extensions.Options;
 using Xunit;
 using MongoDB.Driver;
-using Xunit.Abstractions;
 using MySvc.Framework.Infrastructure.Crosscutting.Options;
 
 namespace MongodbTransaction.Tests
@@ -72,7 +71,7 @@ namespace MongodbTransaction.Tests
             {
                 session.StartTransaction();
                 var collection = database.GetCollection<Product>("products");
-                var product = new Product() { Name = "test" , Catalog = new Catalog("a","b")};
+                var product = new Product() { Name = "test", Catalog = new Catalog("a", "b") };
                 try
                 {
                     collection.InsertOne(product);
@@ -418,7 +417,7 @@ namespace MongodbTransaction.Tests
         public Catalog Catalog { get; set; }
     }
 
-    public record Catalog 
+    public record Catalog
     {
         public string FirstName { get; }
         public string LastName { get; }

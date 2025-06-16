@@ -23,7 +23,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis
         public async Task<T> GetAsync<T>(string key, CancellationToken token = default)
         {
             var result = await _distributedCache.GetStringAsync(key, token);
-            if (result.IsNullOrBlank()) return default(T);
+            if (string.IsNullOrWhiteSpace(result)) return default(T);
 
             return _jsonConverter.DeserializeObject<T>(result);
         }
@@ -51,3 +51,4 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis
         }
     }
 }
+

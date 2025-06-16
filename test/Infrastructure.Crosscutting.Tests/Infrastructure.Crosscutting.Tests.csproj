@@ -22,4 +22,8 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="3.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />
+  </ItemGroup>
+
 </Project>

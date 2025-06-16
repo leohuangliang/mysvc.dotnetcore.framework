@@ -4,60 +4,26 @@
     <id>
       MySvc.Framework.Infrastructure.AutoMapper
     </id>
-    <version>
-      8.0.0-beta4
-    </version>
+    <version>8.0.0-beta5</version>
     <title>
       MySvc.Framework.Infrastructure.AutoMapper
     </title>
-    <authors>
-      liang.huang
-    </authors>
-    <owners>
-      liang.huang
-    </owners>
+    <authors>liang.huang</authors>
+    <owners>liang.huang</owners>
     <requireLicenseAcceptance>
       false
     </requireLicenseAcceptance>
-    <description>
-      基于AutoMapper实现适配器
-    </description>
-    <releaseNotes>
-      1.0.0 Create
-      1.1.0 upgrate .net core to 2.2
-      1.1.1 fixbug
-      1.1.2 fixbug
-      1.1.3 fixbug
-      1.1.4 fixbug
-      1.1.5-beta1 upgrate
-      1.1.5-beta2 fixbug
-      1.1.5-beta3 去掉 new()约束
-      1.1.5-beta4 fixbug
-      1.1.8 统一版本
-      1.1.9 升级Nuget
-      1.1.10 升级Nuget
-      1.1.11 升级Nuget
-      1.2.0-beta1 升级版本
-      1.2.0-beta2
-      1.2.0-beta3
-      1.2.0
-      3.1.0 升级到.net core 3.1
-    </releaseNotes>
-    <copyright>
-      Copyright 2018  (c) MySVC.cc All rights reserved.
-    </copyright>
-    <tags>
-      MySVC.cc
-      
-    </tags>
+    <description>基于AutoMapper实现适配器</description>
+    <releaseNotes>修复字符串扩展方法过时警告，升级到 xUnit v3</releaseNotes>
+    <copyright>Copyright 2018 (c) MySVC.cc All rights reserved.</copyright>
+    <tags>MySVC.cc</tags>
     <serviceable>
       true
     </serviceable>
     <dependencies>
       <group targetFramework="net8.0">
-        
         <dependency id="AutoMapper" version="13.0.1" />
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta4" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta5" />
       </group>
     </dependencies>
   </metadata>

@@ -8,7 +8,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client.Exceptions
         public static string GetClaimValue(this ClaimsPrincipal user, string claimName)
         {
             string result = "";
-            if (user != null && !claimName.IsNullOrBlank())
+            if (user != null && !string.IsNullOrWhiteSpace(claimName))
             {
                 Claim claim = user.FindFirst(claimName);
                 if (claim != null)
@@ -21,3 +21,4 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client.Exceptions
         }
     }
 }
+

@@ -1,0 +1,318 @@
+{
+  "version": "8.0.0-beta5",
+  "releaseNotes": "修复字符串扩展方法过时警告，升级到 xUnit v3",
+  "author": "liang.huang",
+  "copyright": "Copyright 2018 (c) MySVC.cc All rights reserved.",
+  "tags": "MySVC.cc",
+  "nugetSource": "https://api.nuget.org/v3/index.json",
+  "packages": [
+    {
+      "name": "Domain.Core",
+      "nuspecFile": "Domain.Core.nuspec",
+      "packageName": "MySvc.Framework.Domain.Core",
+      "description": "领域模型相关基础实现",
+      "dependencies": [
+        {
+          "id": "MediatR",
+          "version": "12.4.1"
+        },
+        {
+          "id": "MySvc.Framework.Infrastructure.Crosscutting",
+          "version": "{{VERSION}}"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.Adapter.AutoMapper",
+      "nuspecFile": "Infrastructure.Adapter.AutoMapper.nuspec",
+      "packageName": "MySvc.Framework.Infrastructure.AutoMapper",
+      "description": "基于AutoMapper实现适配器",
+      "dependencies": [
+        {
+          "id": "AutoMapper",
+          "version": "13.0.1"
+        },
+        {
+          "id": "MySvc.Framework.Infrastructure.Crosscutting",
+          "version": "{{VERSION}}"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.Authorization.Client",
+      "nuspecFile": "Infrastructure.Authorization.Client.nuspec",
+      "packageName": "MySvc.Framework.Infrastructure.Authorization.Client",
+      "description": "用户端权限控制",
+      "dependencies": [
+        {
+          "id": "MySvc.Framework.Infrastructure.Crosscutting",
+          "version": "{{VERSION}}"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.Authorization.Admin",
+      "nuspecFile": "Infrastructure.Authorization.Admin.nuspec",
+      "packageName": "MySvc.Framework.Infrastructure.Authorization.Admin",
+      "description": "管理端权限控制",
+      "dependencies": [
+        {
+          "id": "MySvc.Framework.Infrastructure.Crosscutting",
+          "version": "{{VERSION}}"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.Authorization.InternalClient",
+      "nuspecFile": "Infrastructure.Authorization.InternalClient.nuspec",
+      "packageName": "MySvc.Framework.Infrastructure.Authorization.InternalClient",
+      "description": "内部API权限控制",
+      "dependencies": [
+        {
+          "id": "MySvc.Framework.Infrastructure.Crosscutting",
+          "version": "{{VERSION}}"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.Authorization.Merchant",
+      "nuspecFile": "Infrastructure.Authorization.Merchant.nuspec",
+      "packageName": "MySvc.Framework.Infrastructure.Authorization.Merchant",
+      "description": "商家端权限控制",
+      "dependencies": [
+        {
+          "id": "MySvc.Framework.Infrastructure.Crosscutting",
+          "version": "{{VERSION}}"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.Crosscutting",
+      "nuspecFile": "Infrastructure.Crosscutting.nuspec",
+      "packageName": "MySvc.Framework.Infrastructure.Crosscutting",
+      "description": "面向切面的一个基础类库",
+      "dependencies": [
+        {
+          "id": "Microsoft.CSharp",
+          "version": "4.7.0"
+        },
+        {
+          "id": "Microsoft.Extensions.Caching.Abstractions",
+          "version": "8.0.0"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.Crosscutting.Json.NewtonsoftJson",
+      "nuspecFile": "Infrastructure.Crosscutting.Json.NewtonsoftJson.nuspec",
+      "packageName": "MySvc.Framework.Infrastructure.NewtonsoftJson",
+      "description": "封装了Json.net",
+      "dependencies": [
+        {
+          "id": "MySvc.Framework.Infrastructure.Crosscutting",
+          "version": "{{VERSION}}"
+        },
+        {
+          "id": "Microsoft.AspNetCore.Mvc.NewtonsoftJson",
+          "version": "8.0.8"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.Crosscutting.Cache.StackExchangeRedis",
+      "nuspecFile": "Infrastructure.Crosscutting.Cache.StackExchangeRedis.nuspec",
+      "packageName": "MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis",
+      "description": "封装了Redis缓存",
+      "dependencies": [
+        {
+          "id": "MySvc.Framework.Infrastructure.Crosscutting",
+          "version": "{{VERSION}}"
+        },
+        {
+          "id": "Microsoft.Extensions.Caching.StackExchangeRedis",
+          "version": "8.0.8"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.Data.MongoDB",
+      "nuspecFile": "Infrastructure.Data.MongoDB.nuspec",
+      "packageName": "MySvc.Framework.Infrastructure.Data.MongoDB",
+      "description": "Mongodb仓储",
+      "dependencies": [
+        {
+          "id": "Microsoft.CSharp",
+          "version": "4.7.0"
+        },
+        {
+          "id": "Microsoft.Extensions.Options",
+          "version": "8.0.2"
+        },
+        {
+          "id": "Microsoft.Extensions.DependencyInjection",
+          "version": "8.0.0"
+        },
+        {
+          "id": "Microsoft.Extensions.Logging",
+          "version": "8.0.0"
+        },
+        {
+          "id": "MongoDB.Driver",
+          "version": "2.29.0"
+        },
+        {
+          "id": "MySvc.Framework.Infrastructure.Crosscutting",
+          "version": "{{VERSION}}"
+        },
+        {
+          "id": "MySvc.Framework.Domain.Core",
+          "version": "{{VERSION}}"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.Job.Hangfire",
+      "nuspecFile": "Infrastructure.Job.Hangfire.nuspec",
+      "packageName": "MySvc.Framework.Infrastructure.Job.Hangfire",
+      "description": "基于Hangfire 实现job",
+      "dependencies": [
+        {
+          "id": "Hangfire.Core",
+          "version": "1.8.14"
+        },
+        {
+          "id": "MySvc.Framework.Infrastructure.Crosscutting",
+          "version": "{{VERSION}}"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.IntegrationEventService",
+      "nuspecFile": "Infrastructure.IntegrationEventService.nuspec",
+      "packageName": "MySvc.Framework.Infrastructure.IntegrationEventService",
+      "description": "集成事件服务",
+      "dependencies": [
+        {
+          "id": "MySvc.Framework.Domain.Core",
+          "version": "{{VERSION}}"
+        },
+        {
+          "id": "MySvc.Framework.Infrastructure.Crosscutting",
+          "version": "{{VERSION}}"
+        },
+        {
+          "id": "MassTransit",
+          "version": "8.2.5"
+        },
+        {
+          "id": "Microsoft.Extensions.Logging",
+          "version": "8.0.0"
+        }
+      ]
+    },
+    {
+      "name": "IS4.Domain",
+      "nuspecFile": "IS4.Domain.nuspec",
+      "packageName": "MySvc.Framework.IS4.Domain",
+      "description": "IdentityServer4 Domain",
+      "dependencies": [
+        {
+          "id": "Microsoft.AspNetCore.Cryptography.KeyDerivation",
+          "version": "8.0.8"
+        },
+        {
+          "id": "MySvc.Framework.Domain.Core",
+          "version": "{{VERSION}}"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.IdentityServer4.MongoDB",
+      "nuspecFile": "Infrastructure.IdentityServer4.MongoDB.nuspec",
+      "packageName": "MySvc.Framework.IS4.MongoDB",
+      "description": "IdentityServer4 Mongodb仓储",
+      "dependencies": [
+        {
+          "id": "IdentityServer4",
+          "version": "4.1.2"
+        },
+        {
+          "id": "AutoMapper",
+          "version": "13.0.1"
+        },
+        {
+          "id": "MySvc.Framework.Infrastructure.Crosscutting",
+          "version": "{{VERSION}}"
+        },
+        {
+          "id": "MySvc.Framework.Infrastructure.Data.MongoDB",
+          "version": "{{VERSION}}"
+        },
+        {
+          "id": "MySvc.Framework.IS4.Domain",
+          "version": "{{VERSION}}"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.Logging.Serilog",
+      "nuspecFile": "Infrastructure.Logging.Serilog.nuspec",
+      "packageName": "MySvc.Framework.Infrastructure.Serilog",
+      "description": "Serilogy邮件扩展",
+      "dependencies": [
+        {
+          "id": "Serilog",
+          "version": "4.0.2"
+        },
+        {
+          "id": "Serilog.Sinks.PeriodicBatching",
+          "version": "5.0.0"
+        },
+        {
+          "id": "MailKit",
+          "version": "4.8.0"
+        },
+        {
+          "id": "System.Text.RegularExpressions",
+          "version": "4.3.1"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator",
+      "nuspecFile": "Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.nuspec",
+      "packageName": "MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator",
+      "description": "封装了雪花ID生产算法",
+      "dependencies": [
+        {
+          "id": "MySvc.Framework.Infrastructure.Crosscutting",
+          "version": "{{VERSION}}"
+        },
+        {
+          "id": "Microsoft.Extensions.Hosting.Abstractions",
+          "version": "8.0.0"
+        },
+        {
+          "id": "Microsoft.Extensions.Options",
+          "version": "8.0.2"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis",
+      "nuspecFile": "Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis.nuspec",
+      "packageName": "MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis",
+      "description": "封装了雪花ID生产算法，支持分布式",
+      "dependencies": [
+        {
+          "id": "MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator",
+          "version": "{{VERSION}}"
+        },
+        {
+          "id": "Microsoft.Extensions.Caching.StackExchangeRedis",
+          "version": "8.0.8"
+        }
+      ]
+    }
+  ]
+}

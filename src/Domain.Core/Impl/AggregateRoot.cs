@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using MySvc.Framework.Domain.Core.DomainEvents;
 using MySvc.Framework.Domain.Core.Models;
 using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
@@ -173,7 +173,7 @@ namespace MySvc.Framework.Domain.Core.Impl
         {
             foreach (var key in keywords)
             {
-                if (!key.IsNullOrBlank())
+                if (!string.IsNullOrWhiteSpace(key))
                 {
                     string lowerKeyword = key.ToLower();
                     if (!_keywords.Contains(lowerKeyword))
@@ -197,3 +197,4 @@ namespace MySvc.Framework.Domain.Core.Impl
 
     }
 }
+

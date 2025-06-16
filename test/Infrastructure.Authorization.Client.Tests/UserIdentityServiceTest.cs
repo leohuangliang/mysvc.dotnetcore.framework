@@ -4,7 +4,6 @@ using System;
 using System.Net.Http;
 using System.Security.Principal;
 using Xunit;
-using Xunit.Abstractions;
 using Moq.Contrib.HttpClient;
 namespace Infrastructure.Authorization.Client.Tests
 {
@@ -17,7 +16,7 @@ namespace Infrastructure.Authorization.Client.Tests
             _output = output;
         }
         [Fact]
-        public async void Test1()
+        public async Task Test1()
         {
             //var httpContextAccessorMock = new Mock<IHttpContextAccessor>();
             //var httpContextMock = new Mock<HttpContext>();

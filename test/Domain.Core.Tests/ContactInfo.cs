@@ -1,4 +1,4 @@
-using MySvc.Framework.Domain.Core.Impl;
+﻿using MySvc.Framework.Domain.Core.Impl;
 using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 using System;
 namespace Domain.Core.Tests
@@ -7,8 +7,8 @@ namespace Domain.Core.Tests
     {
         public ContactInfo(string contactPerson, string contactPhone, string contactEmail, Address contactAddress)
         {
-            if(contactPerson.IsNullOrBlank()) throw  new ArgumentNullException(nameof(contactPerson));
-            if (contactEmail.IsNullOrBlank()) throw new ArgumentNullException(nameof(contactEmail));
+            if(string.IsNullOrWhiteSpace(contactPerson)) throw  new ArgumentNullException(nameof(contactPerson));
+            if (string.IsNullOrWhiteSpace(contactEmail)) throw new ArgumentNullException(nameof(contactEmail));
 
             this.ContactPerson = contactPerson;
             this.ContactPhone = contactPhone;
