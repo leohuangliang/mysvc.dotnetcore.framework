@@ -20,16 +20,16 @@ namespace MySvc.Framework.Domain.Core
         /// </summary>
         /// <param name="key">聚合根的ID值。</param>
         /// <param name="cancellationToken">取消令牌</param>
-        /// <returns>聚合根实例。</returns>
-        Task<TAggregateRoot> GetByKeyAsync(string key, CancellationToken cancellationToken = default);
+        /// <returns>聚合根实例，如果未找到则返回null。</returns>
+        Task<TAggregateRoot?> GetByKeyAsync(string key, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 通过条件获取聚合根
         /// </summary>
         /// <param name="specification">查询条件规约</param>
         /// <param name="cancellationToken">取消令牌</param>
-        /// <returns>聚合根实例。</returns>
-        Task<TAggregateRoot> GetAsync(Domain.Core.Specification.ISpecification<TAggregateRoot> specification, CancellationToken cancellationToken = default);
+        /// <returns>聚合根实例，如果未找到则返回null。</returns>
+        Task<TAggregateRoot?> GetAsync(Domain.Core.Specification.ISpecification<TAggregateRoot> specification, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 获取所有聚合根列表
@@ -133,7 +133,7 @@ namespace MySvc.Framework.Domain.Core
         /// <returns>数据分页结果</returns>
         Task<PagedResult<TProjection>> FindInPageAsync<TProjection>(int pageNumber, int pageSize, ISpecification<TAggregateRoot> specification,
             SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default);
-        
+
         /// <summary>
         /// 根据指定的规约，排序字段和排序方式，同时基于上一个查询到的<see cref="TAggregateRoot"/>对象，向后再查询<paramref name="pageSize"/>个，符合条件的聚合根实体对象列表数据。
         /// </summary>
@@ -143,7 +143,7 @@ namespace MySvc.Framework.Domain.Core
         /// <param name="pageSize">获取的数量</param>
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns><see cref="TAggregateRoot"/>对象信息列表</returns>
-        Task<List<TAggregateRoot>> FindAfterAsync(int pageSize, ISpecification<TAggregateRoot> specification, TAggregateRoot lastAggregateEntity, 
+        Task<List<TAggregateRoot>> FindAfterAsync(int pageSize, ISpecification<TAggregateRoot> specification, TAggregateRoot lastAggregateEntity,
             SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default);
 
         /// <summary>

@@ -4,7 +4,7 @@
     <id>
       MySvc.Framework.Infrastructure.AutoMapper
     </id>
-    <version>8.0.0-beta5</version>
+    <version>8.0.0-beta6</version>
     <title>
       MySvc.Framework.Infrastructure.AutoMapper
     </title>
@@ -14,7 +14,7 @@
       false
     </requireLicenseAcceptance>
     <description>基于AutoMapper实现适配器</description>
-    <releaseNotes>修复字符串扩展方法过时警告，升级到 xUnit v3</releaseNotes>
+    <releaseNotes>版本 8.0.0-beta6 发布</releaseNotes>
     <copyright>Copyright 2018 (c) MySVC.cc All rights reserved.</copyright>
     <tags>MySVC.cc</tags>
     <serviceable>
@@ -23,7 +23,7 @@
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="AutoMapper" version="13.0.1" />
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta5" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta6" />
       </group>
     </dependencies>
   </metadata>

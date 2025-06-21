@@ -270,5 +270,35 @@ namespace Infrastructure.Data.MongoDB.Tests
             var person2 = await leaderReadOnlyRepository.GetByKeyAsync(Guid.NewGuid().ToString());
 
         }
+
+        [Fact]
+        public async Task GetByKeyAsync_ShouldReturnNull_WhenEntityNotFound()
+        {
+            // Arrange
+            var nonExistentId = Guid.NewGuid().ToString();
+            var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
+            var personRepository = new PersonRepository(context);
+
+            // Act
+            var result = await personRepository.GetByKeyAsync(nonExistentId);
+
+            // Assert
+            Assert.Null(result);
+        }
+
+        [Fact]
+        public async Task GetAsync_ShouldReturnNull_WhenSpecificationNotMatched()
+        {
+            // Arrange
+            var context = new MongoDBContext(_entityIdGenerator, _options, _mediator, _mockLogger.Object);
+            var personRepository = new PersonRepository(context);
+            var specification = Specification<Person>.Eval(p => p.Name1 == "NonExistentName");
+
+            // Act
+            var result = await personRepository.GetAsync(specification);
+
+            // Assert
+            Assert.Null(result);
+        }
     }
 }

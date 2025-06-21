@@ -2,13 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Infrastructure.Crosscutting</id>
-    <version>8.0.0-beta5</version>
+    <version>8.0.0-beta6</version>
     <title>MySvc.Framework.Infrastructure.Crosscutting</title>
     <authors>liang.huang</authors>
     <owners>liang.huang</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>面向切面的一个基础类库</description>
-    <releaseNotes>修复字符串扩展方法过时警告，升级到 xUnit v3</releaseNotes>
+    <releaseNotes>版本 8.0.0-beta6 发布</releaseNotes>
     <copyright>Copyright 2018 (c) MySVC.cc All rights reserved.</copyright>
     <tags>MySVC.cc</tags>
     <serviceable>true</serviceable>

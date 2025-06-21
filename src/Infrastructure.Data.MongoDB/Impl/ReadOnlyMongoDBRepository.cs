@@ -42,8 +42,8 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// </summary>
         /// <param name="key">聚合根的ID值。</param>
         /// <param name="cancellationToken">取消令牌</param>
-        /// <returns>聚合根实例。</returns>
-        public virtual async Task<TAggregateRoot> GetByKeyAsync(string key, CancellationToken cancellationToken = default)
+        /// <returns>聚合根实例，如果未找到则返回null。</returns>
+        public virtual async Task<TAggregateRoot?> GetByKeyAsync(string key, CancellationToken cancellationToken = default)
         {
             var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
             var filter = Builders<TAggregateRoot>.Filter.Eq(c => c.Id, key);
@@ -61,8 +61,8 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// </summary>
         /// <param name="specification">条件参数</param>
         /// <param name="cancellationToken">取消令牌</param>
-        /// <returns>聚合根实例。</returns>
-        public virtual async Task<TAggregateRoot> GetAsync(Domain.Core.Specification.ISpecification<TAggregateRoot> specification, CancellationToken cancellationToken = default)
+        /// <returns>聚合根实例，如果未找到则返回null。</returns>
+        public virtual async Task<TAggregateRoot?> GetAsync(Domain.Core.Specification.ISpecification<TAggregateRoot> specification, CancellationToken cancellationToken = default)
         {
             var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
 
@@ -148,7 +148,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>聚合根投影实例的列表</returns>
         public virtual async Task<List<TProjection>> GetListAsync<TProjection>(ISpecification<TAggregateRoot> specification, SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null,
-            int maxResultCount = 0, CancellationToken cancellationToken = default)  where TProjection : class
+            int maxResultCount = 0, CancellationToken cancellationToken = default) where TProjection : class
         {
             var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
 
@@ -264,7 +264,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="sortCriteriaDefinition">排序条件（可选）</param>
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>分页结果</returns>
-        public virtual Task<SinglePageResult<TAggregateRoot>> FindInPageWithoutCountAsync(int pageNumber, int pageSize, 
+        public virtual Task<SinglePageResult<TAggregateRoot>> FindInPageWithoutCountAsync(int pageNumber, int pageSize,
             ISpecification<TAggregateRoot> specification, SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
         {
             return FindInPageWithoutCountAsync<TAggregateRoot>(pageNumber, pageSize, specification, sortCriteriaDefinition, cancellationToken);
@@ -281,7 +281,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="sortCriteriaDefinition">排序条件（可选）</param>
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>分页结果</returns>
-        public virtual async Task<SinglePageResult<TProjection>> FindInPageWithoutCountAsync<TProjection>(int pageNumber, int pageSize, 
+        public virtual async Task<SinglePageResult<TProjection>> FindInPageWithoutCountAsync<TProjection>(int pageNumber, int pageSize,
             ISpecification<TAggregateRoot> specification, SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
         {
             ValidPageNumberAndSize(pageNumber, pageSize);
@@ -402,7 +402,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                 //尾部追加 Id字段 升序
                 var sortCriteriaList = sortCriteriaDefinition.GetSortCriteria();
                 sortCriteriaList.Add(new SortCriteria<TAggregateRoot>(x => x.Id, SortOrder.Ascending));
-                
+
                 findOption.Sort = BuildSortDefinition(sortCriteriaList);
             }
             else
@@ -410,7 +410,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                 //默认根据Id升序排序
                 findOption.Sort = BuildSortDefinition(SortCriteriaDefinitionBuilder<TAggregateRoot>.Ascending(x => x.Id));
             }
-            
+
             IAsyncCursor<TProjection> asyncCursor;
 
             if (_isBaseOnSession)
@@ -526,7 +526,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         #endregion
 
         #region 私有辅助方法
-        
+
         /// <summary>
         /// 构建排序定义 SortDefinition, 基于SortCriteriaDefinition；
         /// </summary>
@@ -536,7 +536,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         {
             return sortCriteriaDefinition != null ? BuildSortDefinition(sortCriteriaDefinition.GetSortCriteria()) : null;
         }
-        
+
         /// <summary>
         /// 构建排序定义 SortDefinition, 基于SortCriteria列表；
         /// </summary>
@@ -565,7 +565,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 
             return sortDefinition;
         }
-        
+
         /// <summary>
         /// 构建排序定义 SortDefinition,  基于 Dictionary&lt;Expression&lt;Func&lt;TAggregateRoot, dynamic&gt;&gt; 
         /// </summary>
@@ -625,7 +625,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 
         protected virtual FilterDefinition<TAggregateRoot> BuildSearchAfterFilterDefinition(SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition, TAggregateRoot lastObj)
         {
-            var sortCriteriaList =  sortCriteriaDefinition?.GetSortCriteria();
+            var sortCriteriaList = sortCriteriaDefinition?.GetSortCriteria();
 
             if (sortCriteriaList != null && sortCriteriaList.Any())
             {
@@ -655,7 +655,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 
                 //通过两层循环来生成过滤条件，从单个字段开始，到多个字段的条件。如 先生成 （4）小于时间， 再生成 （3）等于时间，大于用户.....
                 for (int i = 1; i <= sortCount; i++)
-                { 
+                {
                     FilterDefinition<TAggregateRoot> fieldKeyDefinition = null;
 
                     //二层遍历
@@ -680,21 +680,21 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                         {
                             //构建 相等的条件
                             var orderKeyEqualFilterDefinition = Builders<TAggregateRoot>.Filter.Eq(sortCriteria.SortKeySelector, lastValue);
-                          
+
                             fieldKeyDefinition = fieldKeyDefinition == null ? orderKeyEqualFilterDefinition : (fieldKeyDefinition & orderKeyEqualFilterDefinition);
                         }
                     }
 
                     filterDefinitions.Add(fieldKeyDefinition);
                 }
-                
+
                 return Builders<TAggregateRoot>.Filter.Or(filterDefinitions.ToArray());
             }
             else
             {
                 //Id的表达式
                 var idFilterDefinition = Builders<TAggregateRoot>.Filter.Gt(c => c.Id, lastObj.Id);
-             
+
                 return idFilterDefinition;
             }
         }

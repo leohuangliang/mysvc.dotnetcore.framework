@@ -1,6 +1,6 @@
 {
-  "version": "8.0.0-beta5",
-  "releaseNotes": "修复字符串扩展方法过时警告，升级到 xUnit v3",
+  "version": "8.0.0-beta6",
+  "releaseNotes": "版本 8.0.0-beta6 发布",
   "author": "liang.huang",
   "copyright": "Copyright 2018 (c) MySVC.cc All rights reserved.",
   "tags": "MySVC.cc",
