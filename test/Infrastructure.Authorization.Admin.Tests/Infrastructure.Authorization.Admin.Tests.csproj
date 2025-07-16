@@ -1,5 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -8,24 +7,19 @@
     <IsTestProject>true</IsTestProject>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
-
   <ItemGroup>
     <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
-
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="xunit.v3" Version="2.0.3" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.1" />
-    <PackageReference Include="Moq" Version="4.20.72" />
-    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="Moq" />
+    <PackageReference Include="coverlet.collector" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\src\Infrastructure.Authorization.Admin\Infrastructure.Authorization.Admin.csproj" />
   </ItemGroup>
-
 </Project>

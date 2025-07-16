@@ -1,23 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-	  <TargetFramework>net8.0</TargetFramework>
-
-
-	  <AssemblyName>MySvc.Framework.Infrastructure.IntegrationEventService</AssemblyName>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>MySvc.Framework.Infrastructure.IntegrationEventService</AssemblyName>
     <RootNamespace>MySvc.Framework.Infrastructure.IntegrationEventService</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
-
-
-    <PackageReference Include="MassTransit" Version="8.2.5" />
-
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="MassTransit" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
     <ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />
   </ItemGroup>
-
 </Project>

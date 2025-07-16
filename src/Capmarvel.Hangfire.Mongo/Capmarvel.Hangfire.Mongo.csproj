@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <VersionPrefix>0.5.16</VersionPrefix>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
@@ -43,8 +43,8 @@
       - Use 'buildinfo' command instead of 'serverStatus' to get the server version. Because the 'buildinfo' command does not require - root privileges.
       - Add missing migration for HashDto.Field removal
       - Add data integrity tests
-      - Update to "MongoDB.Driver" Version="2.7.2"
-      - Update to "Hangfire.Core" Version="1.6.21"
+      - Update to "MongoDB.Driver"
+      - Update to "Hangfire.Core"
       - Use separate collection for migration locks as the ".locks" collection might be dropped if the migration strategy is "Drop"
       - Making migration support CosmosDB
       - Fix if client is using camelcase convention
@@ -190,8 +190,8 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Hangfire.Core" Version="1.7.2" />
-    <PackageReference Include="MongoDB.Driver" Version="2.8.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Hangfire.Core" />
+    <PackageReference Include="MongoDB.Driver" />
+    <PackageReference Include="Newtonsoft.Json" />
   </ItemGroup>
 </Project>

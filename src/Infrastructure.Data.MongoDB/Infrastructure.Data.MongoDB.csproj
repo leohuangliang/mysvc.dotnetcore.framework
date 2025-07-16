@@ -1,12 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-	  <TargetFramework>net8.0</TargetFramework>
-
-
-	  <RootNamespace>MySvc.Framework.Infrastructure.Data.MongoDB</RootNamespace>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>MySvc.Framework.Infrastructure.Data.MongoDB</RootNamespace>
     <AssemblyName>MySvc.Framework.Infrastructure.Data.MongoDB</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <WarningLevel>
@@ -14,13 +11,12 @@
     </WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
-	<PackageReference Include="MongoDB.Driver" Version="2.29.0" />
+    <PackageReference Include="Microsoft.CSharp" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.Options" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
+    <PackageReference Include="MongoDB.Driver" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
     <ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />

@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net8.0": {
+      "MySvc.Framework.Domain.Core": {
+        "type": "Project",
+        "dependencies": {
+          "MediatR": "(, )",
+          "MySvc.Framework.Infrastructure.Crosscutting": "[8.0.0-beta4, )"
+        }
+      },
+      "MySvc.Framework.Infrastructure.Crosscutting": {
+        "type": "Project",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "(, )"
+        }
+      },
+      "MySvc.Framework.Infrastructure.Data.MongoDB": {
+        "type": "Project",
+        "dependencies": {
+          "Microsoft.CSharp": "(, )",
+          "Microsoft.Extensions.DependencyInjection": "(, )",
+          "Microsoft.Extensions.Logging": "(, )",
+          "Microsoft.Extensions.Options": "(, )",
+          "MongoDB.Driver": "(, )",
+          "MySvc.Framework.Domain.Core": "[8.0.0-beta4, )",
+          "MySvc.Framework.Infrastructure.Crosscutting": "[8.0.0-beta4, )"
+        }
+      },
+      "sample.order.domain": {
+        "type": "Project",
+        "dependencies": {
+          "MySvc.Framework.Domain.Core": "[8.0.0-beta4, )"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+<Project>
+  <PropertyGroup>
+    <!-- 启用中央包管理 -->
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    
+    <!-- 定义全局包版本变量 -->
+    <NewtonsoftJsonVersion>13.0.3</NewtonsoftJsonVersion>
+    <AutoMapperVersion>13.0.1</AutoMapperVersion>
+    <MediatRVersion>12.5.0</MediatRVersion>
+    <HangfireCoreVersion>1.8.14</HangfireCoreVersion>
+    <MongoDBDriverVersion>2.29.0</MongoDBDriverVersion>
+    <SerilogVersion>4.0.2</SerilogVersion>
+    <MassTransitVersion>8.2.5</MassTransitVersion>
+    <IdentityServer4Version>4.1.2</IdentityServer4Version>
+    <MicrosoftExtensionsVersion>8.0.8</MicrosoftExtensionsVersion>
+    <XunitVersion>2.0.3</XunitVersion>
+    <XunitRunnerVersion>3.1.1</XunitRunnerVersion>
+    <CoverletCollectorVersion>6.0.2</CoverletCollectorVersion>
+    <MoqVersion>4.20.72</MoqVersion>
+    <SwashbuckleVersion>6.8.1</SwashbuckleVersion>
+    <NLogVersion>5.3.14</NLogVersion>
+    <MailKitVersion>4.8.0</MailKitVersion>
+    <AutofacVersion>10.0.0</AutofacVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- JSON 序列化 -->
+    <PackageReference Update="Newtonsoft.Json" Version="$(NewtonsoftJsonVersion)" />
+    
+    <!-- 对象映射 -->
+    <PackageReference Update="AutoMapper" Version="$(AutoMapperVersion)" />
+    
+    <!-- 中介者模式 -->
+    <PackageReference Update="MediatR" Version="$(MediatRVersion)" />
+    
+    <!-- 后台作业 -->
+    <PackageReference Update="Hangfire.Core" Version="$(HangfireCoreVersion)" />
+    
+    <!-- 数据库驱动 -->
+    <PackageReference Update="MongoDB.Driver" Version="$(MongoDBDriverVersion)" />
+    
+    <!-- 日志框架 -->
+    <PackageReference Update="Serilog" Version="$(SerilogVersion)" />
+    <PackageReference Update="Serilog.Sinks.PeriodicBatching" Version="5.0.0" />
+    <PackageReference Update="MailKit" Version="$(MailKitVersion)" />
+    
+    <!-- 消息总线 -->
+    <PackageReference Update="MassTransit" Version="$(MassTransitVersion)" />
+    <PackageReference Update="MassTransit.MongoDb" Version="$(MassTransitVersion)" />
+    <PackageReference Update="MassTransit.RabbitMQ" Version="$(MassTransitVersion)" />
+    
+    <!-- 身份认证 -->
+    <PackageReference Update="IdentityServer4" Version="$(IdentityServer4Version)" />
+    <PackageReference Update="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+    
+    <!-- Microsoft Extensions -->
+    <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Options" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Logging" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Caching.Abstractions" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Caching.StackExchangeRedis" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Hosting.Abstractions" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Http" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Update="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
+    <PackageReference Update="Microsoft.CSharp" Version="4.7.0" />
+    
+    <!-- 依赖注入 -->
+    <PackageReference Update="Autofac.Extensions.DependencyInjection" Version="$(AutofacVersion)" />
+    
+    <!-- API 文档 -->
+    <PackageReference Update="Swashbuckle.AspNetCore" Version="$(SwashbuckleVersion)" />
+    
+    <!-- 日志扩展 -->
+    <PackageReference Update="NLog.Web.AspNetCore" Version="$(NLogVersion)" />
+    <PackageReference Update="NLog.MailKit" Version="4.0.0" />
+    
+    <!-- 系统组件 -->
+    <PackageReference Update="System.Configuration.ConfigurationManager" Version="5.0.0" />
+    <PackageReference Update="System.Management" Version="5.0.0" />
+    <PackageReference Update="System.Text.RegularExpressions" Version="4.3.1" />
+    <PackageReference Update="System.Linq.Expressions" Version="4.3.0" />
+    
+    <!-- 测试框架 -->
+    <PackageReference Update="xunit.v3" Version="$(XunitVersion)" />
+    <PackageReference Update="xunit.runner.visualstudio" Version="$(XunitRunnerVersion)" />
+    <PackageReference Update="coverlet.collector" Version="$(CoverletCollectorVersion)" />
+    <PackageReference Update="Moq" Version="$(MoqVersion)" />
+    <PackageReference Update="Moq.Contrib.HttpClient" Version="1.4.0" />
+  </ItemGroup>
+
+  <!-- 注意：测试包已在上面统一定义，无需重复 -->
+
+</Project> 

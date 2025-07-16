@@ -1,16 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="AutoMapper" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Sample.Product.Application\Sample.Product.Application.csproj" />
     <ProjectReference Include="..\Sample.Product.Domain\Sample.Product.Domain.csproj" />
   </ItemGroup>
-
 </Project>

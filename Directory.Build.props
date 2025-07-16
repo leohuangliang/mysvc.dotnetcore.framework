@@ -5,6 +5,48 @@
     <Authors>Leo Huang(hnhl@163.com)</Authors>
     <Company>MySvc.cc</Company>
     <SignAssembly>false</SignAssembly>
+    <LatestVersion>8.0.0-beta4</LatestVersion>
+    <Version>$(LatestVersion)</Version>
+    <PackageVersion>$(LatestVersion)</PackageVersion>
+    <AssemblyVersion>8.0.0.0</AssemblyVersion>
+    <FileVersion>8.0.0.0</FileVersion>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <WarningsNotAsErrors />
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/mysvc/mysvc.dotnetcore.framework</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mysvc/mysvc.dotnetcore.framework</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>mysvc;framework;ddd;microservices;dotnet</PackageTags>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <RestoreLockedMode Condition="'$(CI)' == 'true'">true</RestoreLockedMode>
   </PropertyGroup>
+
+  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('.Tests'))">
+    <IsTestProject>true</IsTestProject>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(MSBuildProjectName.StartsWith('Sample.'))">
+    <IsSampleProject>true</IsSampleProject>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 可以在这里添加所有项目都需要的共享引用 -->
+  </ItemGroup>
 
 </Project>

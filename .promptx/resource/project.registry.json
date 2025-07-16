@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "source": "project",
+  "metadata": {
+    "version": "2.0.0",
+    "description": "project 级资源注册表",
+    "createdAt": "2025-06-21T14:48:35.707Z",
+    "updatedAt": "2025-06-21T14:48:35.711Z",
+    "resourceCount": 5
+  },
+  "resources": [
+    {
+      "id": "dotnet-backend-developer",
+      "source": "project",
+      "protocol": "role",
+      "name": "Dotnet Backend Developer 角色",
+      "description": "专业角色，提供特定领域的专业能力",
+      "reference": "@project://.promptx/resource/domain/dotnet-backend-developer/dotnet-backend-developer.role.md",
+      "metadata": {
+        "createdAt": "2025-06-21T14:48:35.708Z",
+        "updatedAt": "2025-06-21T14:48:35.708Z",
+        "scannedAt": "2025-06-21T14:48:35.708Z"
+      }
+    },
+    {
+      "id": "dotnet-backend-thinking",
+      "source": "project",
+      "protocol": "thought",
+      "name": "Dotnet Backend Thinking 思维模式",
+      "description": "思维模式，指导AI的思考方式",
+      "reference": "@project://.promptx/resource/domain/dotnet-backend-developer/thought/dotnet-backend-thinking.thought.md",
+      "metadata": {
+        "createdAt": "2025-06-21T14:48:35.709Z",
+        "updatedAt": "2025-06-21T14:48:35.709Z",
+        "scannedAt": "2025-06-21T14:48:35.709Z"
+      }
+    },
+    {
+      "id": "code-quality-standards",
+      "source": "project",
+      "protocol": "execution",
+      "name": "Code Quality Standards 执行模式",
+      "description": "执行模式，定义具体的行为模式",
+      "reference": "@project://.promptx/resource/domain/dotnet-backend-developer/execution/code-quality-standards.execution.md",
+      "metadata": {
+        "createdAt": "2025-06-21T14:48:35.710Z",
+        "updatedAt": "2025-06-21T14:48:35.710Z",
+        "scannedAt": "2025-06-21T14:48:35.710Z"
+      }
+    },
+    {
+      "id": "dotnet-development-workflow",
+      "source": "project",
+      "protocol": "execution",
+      "name": "Dotnet Development Workflow 执行模式",
+      "description": "执行模式，定义具体的行为模式",
+      "reference": "@project://.promptx/resource/domain/dotnet-backend-developer/execution/dotnet-development-workflow.execution.md",
+      "metadata": {
+        "createdAt": "2025-06-21T14:48:35.710Z",
+        "updatedAt": "2025-06-21T14:48:35.710Z",
+        "scannedAt": "2025-06-21T14:48:35.710Z"
+      }
+    },
+    {
+      "id": "mysvc-framework-standards",
+      "source": "project",
+      "protocol": "execution",
+      "name": "Mysvc Framework Standards 执行模式",
+      "description": "执行模式，定义具体的行为模式",
+      "reference": "@project://.promptx/resource/domain/dotnet-backend-developer/execution/mysvc-framework-standards.execution.md",
+      "metadata": {
+        "createdAt": "2025-06-21T14:48:35.710Z",
+        "updatedAt": "2025-06-21T14:48:35.710Z",
+        "scannedAt": "2025-06-21T14:48:35.710Z"
+      }
+    }
+  ],
+  "stats": {
+    "totalResources": 5,
+    "byProtocol": {
+      "role": 1,
+      "thought": 1,
+      "execution": 3
+    },
+    "bySource": {
+      "project": 5
+    }
+  }
+}

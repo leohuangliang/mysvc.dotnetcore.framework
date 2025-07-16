@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net8.0": {
+      "MySvc.Framework.Infrastructure.Crosscutting": {
+        "type": "Project",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "(, )"
+        }
+      }
+    }
+  }
+}

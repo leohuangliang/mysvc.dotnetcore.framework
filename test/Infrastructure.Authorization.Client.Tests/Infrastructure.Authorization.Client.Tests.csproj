@@ -1,5 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -8,27 +7,22 @@
     <IsTestProject>true</IsTestProject>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
-
   <ItemGroup>
     <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
-
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="xunit.v3" Version="2.0.3" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.1" />
-    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
-    <PackageReference Include="Moq" Version="4.20.72" />
-    <PackageReference Include="Moq.Contrib.HttpClient" Version="1.4.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" />
+    <PackageReference Include="Microsoft.Extensions.Http" />
+    <PackageReference Include="Moq" />
+    <PackageReference Include="Moq.Contrib.HttpClient" />
+    <PackageReference Include="Newtonsoft.Json" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\src\Infrastructure.Authorization.Client\Infrastructure.Authorization.Client.csproj" />
   </ItemGroup>
-
 </Project>
