@@ -1,22 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
 
-    <AssemblyName>MySvc.Framework.Infrastructure.Job.Hangfire</AssemblyName>
-    <RootNamespace>MySvc.Framework.Infrastructure.Job.Hangfire</RootNamespace>
-  </PropertyGroup>
+        <AssemblyName>MySvc.Framework.Infrastructure.Job.Hangfire</AssemblyName>
+        <RootNamespace>MySvc.Framework.Infrastructure.Job.Hangfire</RootNamespace>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>Infrastructure.Job.Hangfire.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DocumentationFile>Infrastructure.Job.Hangfire.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Hangfire.Core" Version="1.7.28" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Hangfire.Core" Version="1.7.28"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj"/>
+    </ItemGroup>
 
 </Project>

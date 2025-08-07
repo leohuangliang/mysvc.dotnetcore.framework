@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-	  <TargetFramework>net6.0</TargetFramework>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
 
-  </PropertyGroup>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Infrastructure.Data.MongoDB\Infrastructure.Data.MongoDB.csproj" />
-    <ProjectReference Include="..\Sample.Product.Domain\Sample.Product.Domain.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\Infrastructure.Data.MongoDB\Infrastructure.Data.MongoDB.csproj"/>
+        <ProjectReference Include="..\Sample.Product.Domain\Sample.Product.Domain.csproj"/>
+    </ItemGroup>
 
 </Project>

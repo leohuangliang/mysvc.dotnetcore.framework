@@ -1,21 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
 
-    <AssemblyName>MySvc.Framework.Infrastructure.AutoMapper</AssemblyName>
-    <RepositoryUrl></RepositoryUrl>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
-    <RootNamespace>MySvc.Framework.Infrastructure.AutoMapper</RootNamespace>
-  </PropertyGroup>
+        <AssemblyName>MySvc.Framework.Infrastructure.AutoMapper</AssemblyName>
+        <RepositoryUrl></RepositoryUrl>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>1.0.1</Version>
+        <RootNamespace>MySvc.Framework.Infrastructure.AutoMapper</RootNamespace>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="11.0.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="11.0.0"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Infrastructure.Crosscutting\Infrastructure.Crosscutting.csproj"/>
+    </ItemGroup>
 
 </Project>

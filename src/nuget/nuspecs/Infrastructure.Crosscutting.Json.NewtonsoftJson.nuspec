@@ -1,50 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
-  <metadata>
-    <id>
-			MySvc.Framework.Infrastructure.NewtonsoftJson
-    </id>
-    <version>
-			6.0.1-beta1
+    <metadata>
+        <id>
+            MySvc.Framework.Infrastructure.NewtonsoftJson
+        </id>
+        <version>
+            6.0.1-beta1
 
-    </version>
-    <title>
-			MySvc.Framework.Infrastructure.NewtonsoftJson
-    </title>
-    <authors>
-			liang.huang
-    </authors>
-    <owners>
-			liang.huang
-    </owners>
-    <requireLicenseAcceptance>
-			false
-    </requireLicenseAcceptance>
-    <description>
-			封装了Json.net
-    </description>
-    <releaseNotes>
+        </version>
+        <title>
+            MySvc.Framework.Infrastructure.NewtonsoftJson
+        </title>
+        <authors>
+            liang.huang
+        </authors>
+        <owners>
+            liang.huang
+        </owners>
+        <requireLicenseAcceptance>
+            false
+        </requireLicenseAcceptance>
+        <description>
+            封装了Json.net
+        </description>
+        <releaseNotes>
 
-    </releaseNotes>
-    <copyright>
-			Copyright 2018  (c) MySVC.cc All rights reserved.
-    </copyright>
-    <tags>
-			MySVC.cc
-    </tags>
-    <serviceable>
-			true
-    </serviceable>
-    <dependencies>
-      <group targetFramework="net6.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.1-beta1" />
-        <dependency id="Microsoft.AspNetCore.Mvc.NewtonsoftJson" version="6.0.1" />
-      </group>
-    </dependencies>
+        </releaseNotes>
+        <copyright>
+            Copyright 2018 (c) MySVC.cc All rights reserved.
+        </copyright>
+        <tags>
+            MySVC.cc
+        </tags>
+        <serviceable>
+            true
+        </serviceable>
+        <dependencies>
+            <group targetFramework="net6.0">
+                <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.1-beta1"/>
+                <dependency id="Microsoft.AspNetCore.Mvc.NewtonsoftJson" version="6.0.1"/>
+            </group>
+        </dependencies>
 
-  </metadata>
-  <files>
-    <file src="..\..\Infrastructure.Crosscutting.Json.NewtonsoftJson\bin\Release\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.dll" target="lib\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.dll" />
-    <file src="..\..\Infrastructure.Crosscutting.Json.NewtonsoftJson\bin\Release\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.pdb" target="lib\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.pdb" />
-  </files>
+    </metadata>
+    <files>
+        <file src="..\..\Infrastructure.Crosscutting.Json.NewtonsoftJson\bin\Release\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.dll"
+              target="lib\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.dll"/>
+        <file src="..\..\Infrastructure.Crosscutting.Json.NewtonsoftJson\bin\Release\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.pdb"
+              target="lib\net6.0\MySvc.Framework.Infrastructure.NewtonsoftJson.pdb"/>
+    </files>
 </package>

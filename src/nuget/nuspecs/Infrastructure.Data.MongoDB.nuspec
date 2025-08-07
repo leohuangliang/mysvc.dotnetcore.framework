@@ -1,55 +1,57 @@
 <?xml version="1.0"?>
 <package>
-  <metadata>
-    <id>
-			MySvc.Framework.Infrastructure.Data.MongoDB
-    </id>
-    <version>
-			6.0.1-beta1
-    </version>
-    <title>
-			MySvc.Framework.Infrastructure.Data.MongoDB
-    </title>
-    <authors>
-			liang.huang
-    </authors>
-    <owners>
-			liang.huang
-    </owners>
-    <requireLicenseAcceptance>
-			false
-    </requireLicenseAcceptance>
-    <description>
-			Mongodb仓储
-    </description>
-    <releaseNotes>
+    <metadata>
+        <id>
+            MySvc.Framework.Infrastructure.Data.MongoDB
+        </id>
+        <version>
+            6.0.1-beta1
+        </version>
+        <title>
+            MySvc.Framework.Infrastructure.Data.MongoDB
+        </title>
+        <authors>
+            liang.huang
+        </authors>
+        <owners>
+            liang.huang
+        </owners>
+        <requireLicenseAcceptance>
+            false
+        </requireLicenseAcceptance>
+        <description>
+            Mongodb仓储
+        </description>
+        <releaseNotes>
 
-    </releaseNotes>
-    <copyright>
-			Copyright 2018  (c) MySVC.cc All rights reserved.
-    </copyright>
-    <tags>
-			MySVC.cc
-    </tags>
-    <serviceable>
-			true
-    </serviceable>
-    <dependencies>
-      <group targetFramework="net6.0">
-        <dependency id="MediatR" version="10.0.1" />
-        <dependency id="Microsoft.CSharp" version="4.7.0" />
-        <dependency id="Microsoft.Extensions.Options" version="6.0.0" />
-        <dependency id="Microsoft.Extensions.DependencyInjection" version="6.0.0" />
-        <dependency id="Microsoft.Extensions.Logging" version="6.0.0" />
-        <dependency id="MongoDB.Driver" version="2.14.1" />
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.1-beta1" />
-        <dependency id="MySvc.Framework.Domain.Core" version="6.0.1-beta1" />
-      </group>
-    </dependencies>
+        </releaseNotes>
+        <copyright>
+            Copyright 2018 (c) MySVC.cc All rights reserved.
+        </copyright>
+        <tags>
+            MySVC.cc
+        </tags>
+        <serviceable>
+            true
+        </serviceable>
+        <dependencies>
+            <group targetFramework="net6.0">
+                <dependency id="MediatR" version="10.0.1"/>
+                <dependency id="Microsoft.CSharp" version="4.7.0"/>
+                <dependency id="Microsoft.Extensions.Options" version="6.0.0"/>
+                <dependency id="Microsoft.Extensions.DependencyInjection" version="6.0.0"/>
+                <dependency id="Microsoft.Extensions.Logging" version="6.0.0"/>
+                <dependency id="MongoDB.Driver" version="2.14.1"/>
+                <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="6.0.1-beta1"/>
+                <dependency id="MySvc.Framework.Domain.Core" version="6.0.1-beta1"/>
+            </group>
+        </dependencies>
 
-  </metadata>
-  <files>
-    <file src="..\..\Infrastructure.Data.MongoDB\bin\Release\net6.0\MySvc.Framework.Infrastructure.Data.MongoDB.dll" target="lib\net6.0\MySvc.Framework.Infrastructure.Data.MongoDB.dll" />
-    <file src="..\..\Infrastructure.Data.MongoDB\bin\Release\net6.0\MySvc.Framework.Infrastructure.Data.MongoDB.pdb" target="lib\net6.0\MySvc.Framework.Infrastructure.Data.MongoDB.pdb" />
-  </files>
+    </metadata>
+    <files>
+        <file src="..\..\Infrastructure.Data.MongoDB\bin\Release\net6.0\MySvc.Framework.Infrastructure.Data.MongoDB.dll"
+              target="lib\net6.0\MySvc.Framework.Infrastructure.Data.MongoDB.dll"/>
+        <file src="..\..\Infrastructure.Data.MongoDB\bin\Release\net6.0\MySvc.Framework.Infrastructure.Data.MongoDB.pdb"
+              target="lib\net6.0\MySvc.Framework.Infrastructure.Data.MongoDB.pdb"/>
+    </files>
 </package>

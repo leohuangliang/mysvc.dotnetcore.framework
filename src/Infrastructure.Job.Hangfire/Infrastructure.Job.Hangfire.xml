@@ -6,26 +6,26 @@
     <members>
         <member name="M:MySvc.Framework.Infrastructure.Job.Hangfire.HangfireJobSchedule.DelayedJob``1(``0,System.TimeSpan)">
             <summary>
-            延迟任务
+                延迟任务
             </summary>
             <returns>jobId</returns>
         </member>
         <member name="M:MySvc.Framework.Infrastructure.Job.Hangfire.HangfireJobSchedule.DeleteJob(System.String)">
             <summary>
-            删除任务
+                删除任务
             </summary>
             <param name="jobId"></param>
             <returns></returns>
         </member>
         <member name="M:MySvc.Framework.Infrastructure.Job.Hangfire.HangfireJobSchedule.Enqueue``1(``0)">
             <summary>
-            立即执行任务
+                立即执行任务
             </summary>
             <returns>jobId</returns>
         </member>
         <member name="M:MySvc.Framework.Infrastructure.Job.Hangfire.HangfireJobSchedule.Recurring``1(``0,System.String,System.String)">
             <summary>
-            周期任务
+                周期任务
             </summary>
             <typeparam name="TParam"></typeparam>
             <param name="obj"></param>
@@ -34,13 +34,13 @@
         </member>
         <member name="M:MySvc.Framework.Infrastructure.Job.Hangfire.HangfireJobSchedule.DeleteRecurringJob(System.String)">
             <summary>
-            删除周期任务
+                删除周期任务
             </summary>
             <param name="recurringJobId"></param>
         </member>
         <member name="M:MySvc.Framework.Infrastructure.Job.Hangfire.HangfireJobSchedule.TriggerRecurringJob(System.String)">
             <summary>
-            触发周期任务
+                触发周期任务
             </summary>
             <param name="recurringJobId"></param>
         </member>

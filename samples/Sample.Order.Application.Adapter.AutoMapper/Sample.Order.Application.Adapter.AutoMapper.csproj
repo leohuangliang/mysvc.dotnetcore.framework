@@ -1,16 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="7.0.1" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="7.0.1"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Sample.Order.Application\Sample.Order.Application.csproj" />
-    <ProjectReference Include="..\Sample.Order.Domain\Sample.Order.Domain.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Sample.Order.Application\Sample.Order.Application.csproj"/>
+        <ProjectReference Include="..\Sample.Order.Domain\Sample.Order.Domain.csproj"/>
+    </ItemGroup>
 
 </Project>
