@@ -61,7 +61,7 @@
     <PackageReference Update="Microsoft.Extensions.Caching.StackExchangeRedis" Version="$(MicrosoftExtensionsVersion)" />
     <PackageReference Update="Microsoft.Extensions.Hosting.Abstractions" Version="$(MicrosoftExtensionsVersion)" />
     <PackageReference Update="Microsoft.Extensions.Http" Version="$(MicrosoftExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Update="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Update="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="$(MicrosoftExtensionsVersion)" />
     <PackageReference Update="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="$(MicrosoftExtensionsVersion)" />
     <PackageReference Update="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
