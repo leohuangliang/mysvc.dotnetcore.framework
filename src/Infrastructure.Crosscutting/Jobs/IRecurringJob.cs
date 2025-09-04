@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +9,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Jobs
     /// 周期任务
     /// </summary>
     /// <typeparam name="TParam"></typeparam>
+    [Obsolete("已不再支持，请参考 Hangfire 官方支持", false)]
     public interface IRecurringJob<TParam>
     {
         /// <summary>

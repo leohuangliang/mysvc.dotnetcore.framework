@@ -1,4 +1,6 @@
-﻿namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator
+﻿using System.Threading.Tasks;
+
+namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator
 {
 public interface IDistributedSupport
 {

@@ -1,20 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Infrastructure.Authorization.Admin</id>
-    <version>8.0.0-beta6</version>
-    <title>MySvc.Framework.Infrastructure.Authorization.Admin</title>
-    <authors>liang.huang</authors>
-    <owners>liang.huang</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>管理端权限控制</description>
-    <releaseNotes>版本 8.0.0-beta6 发布</releaseNotes>
-    <copyright>Copyright 2018 (c) MySVC.cc All rights reserved.</copyright>
-    <tags>MySVC.cc</tags>
-    <serviceable>true</serviceable>
+    <version>$(CurrentVersion)</version>
+    <title>$(PackageTitle)</title>
+    <authors>$(PackageAuthors)</authors>
+    <owners>$(PackageOwners)</owners>
+    <requireLicenseAcceptance>$(PackageRequireLicenseAcceptance)</requireLicenseAcceptance>
+    <description>管理员权限验证</description>
+    <releaseNotes>$(PackageReleaseNotes)</releaseNotes>
+    <copyright>$(PackageCopyright)</copyright>
+    <tags>$(PackageTags)</tags>
+    <serviceable>$(PackageServiceable)</serviceable>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta6" />
+        <dependency id="IdentityServer4" version="$(IdentityServer4Version)" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="$(CurrentVersion)" />
       </group>
     </dependencies>
   </metadata>

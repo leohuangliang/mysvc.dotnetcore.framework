@@ -1,22 +1,7 @@
-﻿using Autofac.Extensions.DependencyInjection;
 using Castle.Core.Configuration;
-using global::Autofac;
-using MediatR;
 using MediatR.Pipeline;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Moq;
-using MySvc.Framework.Domain.Core;
-using MySvc.Framework.Infrastructure.Crosscutting.Options;
-using MySvc.Framework.Infrastructure.Data.MongoDB;
-using MySvc.Framework.Infrastructure.Data.MongoDB.Impl;
-using System;
 using System.IO;
 using System.Net.NetworkInformation;
-using System.Reflection;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace Infrastructure.Data.MongoDB.Tests
 {

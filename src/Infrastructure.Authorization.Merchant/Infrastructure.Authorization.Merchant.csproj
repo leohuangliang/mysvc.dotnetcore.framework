@@ -1,16 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFramework>net8.0</TargetFramework>
 
 
 	  <AssemblyName>MySvc.Framework.Infrastructure.Authorization.Merchant</AssemblyName>
     <RootNamespace>MySvc.Framework.Infrastructure.Authorization.Merchant</RootNamespace>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>MySvc.Framework.Infrastructure.Authorization.Merchant.xml</DocumentationFile>
-  </PropertyGroup>
+
 
   <ItemGroup>
     <None Remove="Permissions\Permission.xml" />

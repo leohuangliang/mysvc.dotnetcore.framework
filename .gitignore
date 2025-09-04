@@ -20,6 +20,9 @@ UpgradeLog.htm
 publish.bat
 pack.bat
 
+# NuGet API Key 配置文件
+src/nuget/nuget-apikey.json
+
 # 环境配置
 .env
 .env.local

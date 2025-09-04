@@ -1,19 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>MySvc.Framework.Domain.Common</AssemblyName>
     <RootNamespace>MySvc.Framework.Domain.Common</RootNamespace>
     <Version>8.0.0-beta4</Version>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\net8.0\MySvc.Framework.Domain.Common.xml</DocumentationFile>
-  </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\net8.0\MySvc.Framework.Domain.Common.xml</DocumentationFile>
-  </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />

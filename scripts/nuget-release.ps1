@@ -55,8 +55,6 @@ $packages = @(
   @{ Name = "Infrastructure.Data.MongoDB"; NuspecFile = "Infrastructure.Data.MongoDB.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Data.MongoDB" },
   @{ Name = "Infrastructure.Job.Hangfire"; NuspecFile = "Infrastructure.Job.Hangfire.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Job.Hangfire" },
   @{ Name = "Infrastructure.IntegrationEventService"; NuspecFile = "Infrastructure.IntegrationEventService.nuspec"; PackageName = "MySvc.Framework.Infrastructure.IntegrationEventService" },
-  @{ Name = "IS4.Domain"; NuspecFile = "IS4.Domain.nuspec"; PackageName = "MySvc.Framework.IS4.Domain" },
-  @{ Name = "Infrastructure.IdentityServer4.MongoDB"; NuspecFile = "Infrastructure.IdentityServer4.MongoDB.nuspec"; PackageName = "MySvc.Framework.IS4.MongoDB" },
   @{ Name = "Infrastructure.Logging.Serilog"; NuspecFile = "Infrastructure.Logging.Serilog.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Serilog" },
   @{ Name = "Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator"; NuspecFile = "Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator" },
   @{ Name = "Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis"; NuspecFile = "Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.Redis.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis" }
@@ -217,4 +215,4 @@ finally {
   Pop-Location
 }
 
-Write-Success "`n🎉 发布流程完成!" 
+Write-Success "`n🎉 发布流程完成!"

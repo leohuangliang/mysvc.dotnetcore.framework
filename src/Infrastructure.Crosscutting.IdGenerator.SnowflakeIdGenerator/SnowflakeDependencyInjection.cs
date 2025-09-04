@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MySvc.Framework.Infrastructure.Crosscutting.IdGenerators;
+using System;
 
 namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator
 {

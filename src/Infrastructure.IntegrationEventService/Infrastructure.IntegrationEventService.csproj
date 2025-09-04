@@ -1,9 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>MySvc.Framework.Infrastructure.IntegrationEventService</AssemblyName>
     <RootNamespace>MySvc.Framework.Infrastructure.IntegrationEventService</RootNamespace>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MassTransit" />

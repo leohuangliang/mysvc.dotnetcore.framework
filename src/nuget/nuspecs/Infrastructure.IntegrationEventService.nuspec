@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>MySvc.Framework.Infrastructure.IntegrationEventService</id>
-    <version>8.0.0-beta6</version>
-    <title>MySvc.Framework.Infrastructure.IntegrationEventService</title>
-    <authors>liang.huang</authors>
-    <owners>liang.huang</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <version>$(CurrentVersion)</version>
+    <title>$(PackageTitle)</title>
+    <authors>$(PackageAuthors)</authors>
+    <owners>$(PackageOwners)</owners>
+    <requireLicenseAcceptance>$(PackageRequireLicenseAcceptance)</requireLicenseAcceptance>
     <description>集成事件服务</description>
-    <releaseNotes>版本 8.0.0-beta6 发布</releaseNotes>
-    <copyright>Copyright 2018 (c) MySVC.cc All rights reserved.</copyright>
-    <tags>MySVC.cc</tags>
+    <releaseNotes>$(PackageReleaseNotes)</releaseNotes>
+    <copyright>$(PackageCopyright)</copyright>
+    <tags>$(PackageTags)</tags>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="MySvc.Framework.Domain.Core" version="8.0.0-beta6" />
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta6" />
-        <dependency id="MassTransit" version="8.2.5" />
-        <dependency id="Microsoft.Extensions.Logging" version="8.0.0" />
+        <dependency id="MySvc.Framework.Domain.Core" version="$(CurrentVersion)" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="$(CurrentVersion)" />
+        <dependency id="MassTransit" version="$(MassTransitVersion)" />
+        <dependency id="Microsoft.Extensions.Logging" version="$(MicrosoftExtensionsLoggingVersion)" />
       </group>
     </dependencies>
   </metadata>

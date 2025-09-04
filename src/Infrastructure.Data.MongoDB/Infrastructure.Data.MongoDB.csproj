@@ -1,9 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>MySvc.Framework.Infrastructure.Data.MongoDB</RootNamespace>
     <AssemblyName>MySvc.Framework.Infrastructure.Data.MongoDB</AssemblyName>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <WarningLevel>

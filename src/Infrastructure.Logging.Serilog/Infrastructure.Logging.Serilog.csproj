@@ -1,8 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>MySvc.Framework.Infrastructure.Serilog</RootNamespace>
-    <AssemblyName>MySvc.Framework.Infrastructure.Serilog</AssemblyName>
+    <AssemblyName>MySvc.Framework.Infrastructure.Logging.Serilog</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Serilog" />

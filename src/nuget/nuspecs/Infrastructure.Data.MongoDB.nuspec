@@ -1,34 +1,26 @@
-<?xml version="1.0"?>
-<package>
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
-    <id>
-      MySvc.Framework.Infrastructure.Data.MongoDB
-    </id>
-    <version>8.0.0-beta6</version>
-    <title>
-      MySvc.Framework.Infrastructure.Data.MongoDB
-    </title>
-    <authors>liang.huang</authors>
-    <owners>liang.huang</owners>
-    <requireLicenseAcceptance>
-      false
-    </requireLicenseAcceptance>
+    <id>MySvc.Framework.Infrastructure.Data.MongoDB</id>
+    <version>$(CurrentVersion)</version>
+    <title>$(PackageTitle)</title>
+    <authors>$(PackageAuthors)</authors>
+    <owners>$(PackageOwners)</owners>
+    <requireLicenseAcceptance>$(PackageRequireLicenseAcceptance)</requireLicenseAcceptance>
     <description>Mongodb仓储</description>
-    <releaseNotes>版本 8.0.0-beta6 发布</releaseNotes>
-    <copyright>Copyright 2018 (c) MySVC.cc All rights reserved.</copyright>
-    <tags>MySVC.cc</tags>
-    <serviceable>
-      true
-    </serviceable>
+    <releaseNotes>$(PackageReleaseNotes)</releaseNotes>
+    <copyright>$(PackageCopyright)</copyright>
+    <tags>$(PackageTags)</tags>
+    <serviceable>$(PackageServiceable)</serviceable>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="Microsoft.CSharp" version="4.7.0" />
-        <dependency id="Microsoft.Extensions.Options" version="8.0.2" />
-        <dependency id="Microsoft.Extensions.DependencyInjection" version="8.0.0" />
-        <dependency id="Microsoft.Extensions.Logging" version="8.0.0" />
-        <dependency id="MongoDB.Driver" version="2.29.0" />
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta6" />
-        <dependency id="MySvc.Framework.Domain.Core" version="8.0.0-beta6" />
+        <dependency id="Microsoft.CSharp" version="$(MicrosoftCSharpVersion)" />
+        <dependency id="Microsoft.Extensions.Options" version="$(MicrosoftExtensionsOptionsVersion)" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="$(MicrosoftExtensionsDependencyInjectionVersion)" />
+        <dependency id="Microsoft.Extensions.Logging" version="$(MicrosoftExtensionsLoggingVersion)" />
+        <dependency id="MongoDB.Driver" version="$(MongoDBDriverVersion)" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="$(CurrentVersion)" />
+        <dependency id="MySvc.Framework.Domain.Core" version="$(CurrentVersion)" />
       </group>
     </dependencies>
   </metadata>

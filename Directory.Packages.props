@@ -3,6 +3,20 @@
     <!-- 启用中央包管理 -->
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     
+    <!-- 当前框架版本 -->
+    <CurrentVersion>8.0.1</CurrentVersion>
+    
+    <!-- 程序集版本（纯数字版本） -->
+    <AssemblyNumericVersion>8.0.1.1</AssemblyNumericVersion>
+    
+    <!-- NuGet包元数据变量 -->
+    <PackageAuthors>liang.huang</PackageAuthors>
+    <PackageOwners>MySvc Framework Team</PackageOwners>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageCopyright>Copyright © MySvc Framework 2018</PackageCopyright>
+    <PackageTags>mysvc;framework;ddd;microservices;dotnet;core;infrastructure</PackageTags>
+    <PackageServiceable>true</PackageServiceable>
+    
     <!-- 定义全局包版本变量 -->
     <NewtonsoftJsonVersion>13.0.3</NewtonsoftJsonVersion>
     <AutoMapperVersion>13.0.1</AutoMapperVersion>
@@ -10,18 +24,72 @@
     <HangfireCoreVersion>1.8.14</HangfireCoreVersion>
     <MongoDBDriverVersion>2.29.0</MongoDBDriverVersion>
     <SerilogVersion>4.0.2</SerilogVersion>
+    <SerilogSinksPeriodicBatchingVersion>5.0.0</SerilogSinksPeriodicBatchingVersion>
     <MassTransitVersion>8.2.5</MassTransitVersion>
     <IdentityServer4Version>4.1.2</IdentityServer4Version>
-    <MicrosoftExtensionsVersion>8.0.8</MicrosoftExtensionsVersion>
+    <MicrosoftCSharpVersion>4.7.0</MicrosoftCSharpVersion>
+    <MicrosoftExtensionsOptionsVersion>8.0.0</MicrosoftExtensionsOptionsVersion>
+    <MicrosoftExtensionsDependencyInjectionVersion>8.0.0</MicrosoftExtensionsDependencyInjectionVersion>
+    <MicrosoftExtensionsLoggingVersion>8.0.0</MicrosoftExtensionsLoggingVersion>
+    <MicrosoftExtensionsVersion>8.0.0</MicrosoftExtensionsVersion>
+    <MicrosoftAspNetCoreMvcNewtonsoftJsonVersion>8.0.0</MicrosoftAspNetCoreMvcNewtonsoftJsonVersion>
     <XunitVersion>2.0.3</XunitVersion>
     <XunitRunnerVersion>3.1.1</XunitRunnerVersion>
     <CoverletCollectorVersion>6.0.2</CoverletCollectorVersion>
     <MoqVersion>4.20.72</MoqVersion>
+    <MicrosoftNETTestSdkVersion>17.8.0</MicrosoftNETTestSdkVersion>
     <SwashbuckleVersion>6.8.1</SwashbuckleVersion>
     <NLogVersion>5.3.14</NLogVersion>
     <MailKitVersion>4.8.0</MailKitVersion>
+    <SystemTextRegularExpressionsVersion>4.3.1</SystemTextRegularExpressionsVersion>
     <AutofacVersion>10.0.0</AutofacVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageVersion Include="MediatR" Version="$(MediatRVersion)" />
+    <PackageVersion Include="Newtonsoft.Json" Version="$(NewtonsoftJsonVersion)" />
+    <PackageVersion Include="AutoMapper" Version="$(AutoMapperVersion)" />
+    <PackageVersion Include="IdentityServer4" Version="$(IdentityServer4Version)" />
+    <PackageVersion Include="Serilog" Version="$(SerilogVersion)" />
+    <PackageVersion Include="Serilog.Sinks.PeriodicBatching" Version="$(SerilogSinksPeriodicBatchingVersion)" />
+    <PackageVersion Include="MailKit" Version="$(MailKitVersion)" />
+    <PackageVersion Include="System.Text.RegularExpressions" Version="$(SystemTextRegularExpressionsVersion)" />
+    <PackageVersion Include="Microsoft.CSharp" Version="$(MicrosoftCSharpVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.Options" Version="$(MicrosoftExtensionsOptionsVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="$(MicrosoftExtensionsDependencyInjectionVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="$(MicrosoftExtensionsLoggingVersion)" />
+    <PackageVersion Include="MongoDB.Driver" Version="$(MongoDBDriverVersion)" />
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="$(MicrosoftAspNetCoreMvcNewtonsoftJsonVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.Abstractions" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.Http" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageVersion Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
+    <PackageVersion Include="Autofac.Extensions.DependencyInjection" Version="$(AutofacVersion)" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="$(SwashbuckleVersion)" />
+    <PackageVersion Include="NLog.Web.AspNetCore" Version="$(NLogVersion)" />
+    <PackageVersion Include="NLog.MailKit" Version="4.0.0" />
+    <PackageVersion Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+    <PackageVersion Include="System.Management" Version="5.0.0" />
+    <PackageVersion Include="System.Linq.Expressions" Version="4.3.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="$(MicrosoftNETTestSdkVersion)" />
+    <PackageVersion Include="xunit" Version="2.4.2" />
+    <PackageVersion Include="xunit.abstractions" Version="2.0.3" />
+    <PackageVersion Include="xunit.v3" Version="$(XunitVersion)" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="$(XunitRunnerVersion)" />
+    <PackageVersion Include="coverlet.collector" Version="$(CoverletCollectorVersion)" />
+    <PackageVersion Include="Moq" Version="$(MoqVersion)" />
+    <PackageVersion Include="Moq.Contrib.HttpClient" Version="1.4.0" />
+    <PackageVersion Include="Hangfire.Core" Version="$(HangfireCoreVersion)" />
+    <PackageVersion Include="MassTransit" Version="$(MassTransitVersion)" />
+    <PackageVersion Include="MassTransit.MongoDb" Version="$(MassTransitVersion)" />
+    <PackageVersion Include="MassTransit.RabbitMQ" Version="$(MassTransitVersion)" />
+    <PackageVersion Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+  </ItemGroup>
+
+
 
   <ItemGroup>
     <!-- JSON 序列化 -->
@@ -54,16 +122,16 @@
     <PackageReference Update="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
     
     <!-- Microsoft Extensions -->
-    <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(MicrosoftExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.Options" Version="$(MicrosoftExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.Logging" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(MicrosoftExtensionsDependencyInjectionVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Options" Version="$(MicrosoftExtensionsOptionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Logging" Version="$(MicrosoftExtensionsLoggingVersion)" />
     <PackageReference Update="Microsoft.Extensions.Caching.Abstractions" Version="$(MicrosoftExtensionsVersion)" />
     <PackageReference Update="Microsoft.Extensions.Caching.StackExchangeRedis" Version="$(MicrosoftExtensionsVersion)" />
     <PackageReference Update="Microsoft.Extensions.Hosting.Abstractions" Version="$(MicrosoftExtensionsVersion)" />
     <PackageReference Update="Microsoft.Extensions.Http" Version="$(MicrosoftExtensionsVersion)" />
     <PackageReference Update="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Update="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="$(MicrosoftExtensionsVersion)" />
-    <PackageReference Update="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="$(MicrosoftAspNetCoreMvcNewtonsoftJsonVersion)" />
     <PackageReference Update="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
     <PackageReference Update="Microsoft.CSharp" Version="4.7.0" />
     
@@ -84,6 +152,8 @@
     <PackageReference Update="System.Linq.Expressions" Version="4.3.0" />
     
     <!-- 测试框架 -->
+    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="$(MicrosoftNETTestSdkVersion)" />
+    <PackageReference Update="xunit" Version="2.4.2" />
     <PackageReference Update="xunit.v3" Version="$(XunitVersion)" />
     <PackageReference Update="xunit.runner.visualstudio" Version="$(XunitRunnerVersion)" />
     <PackageReference Update="coverlet.collector" Version="$(CoverletCollectorVersion)" />
@@ -91,6 +161,4 @@
     <PackageReference Update="Moq.Contrib.HttpClient" Version="1.4.0" />
   </ItemGroup>
 
-  <!-- 注意：测试包已在上面统一定义，无需重复 -->
-
-</Project> 
+</Project>

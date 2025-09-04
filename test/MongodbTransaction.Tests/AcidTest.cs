@@ -1,13 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using MySvc.Framework.Infrastructure.Data.MongoDB;
-using Microsoft.Extensions.Options;
-using Xunit;
-using MongoDB.Driver;
-using MySvc.Framework.Infrastructure.Crosscutting.Options;
-
 namespace MongodbTransaction.Tests
 {
     public class AcidTest

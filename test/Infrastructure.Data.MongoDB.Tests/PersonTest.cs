@@ -1,23 +1,6 @@
-﻿using Autofac;
-using Autofac.Extensions.DependencyInjection;
-using MediatR;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Moq;
-using MySvc.Framework.Domain.Core;
-using MySvc.Framework.Domain.Core.Attributes;
+﻿using MySvc.Framework.Domain.Core.Attributes;
 using MySvc.Framework.Domain.Core.Specification;
 using MySvc.Framework.Infrastructure.Crosscutting.Exceptions;
-using MySvc.Framework.Infrastructure.Crosscutting.Options;
-using MySvc.Framework.Infrastructure.Data.MongoDB;
-using MySvc.Framework.Infrastructure.Data.MongoDB.Impl;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using Xunit;
 
 
 namespace Infrastructure.Data.MongoDB.Tests

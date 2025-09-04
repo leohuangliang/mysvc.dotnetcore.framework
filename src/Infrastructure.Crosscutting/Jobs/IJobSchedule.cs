@@ -4,6 +4,7 @@ using System.Text;
 
 namespace MySvc.Framework.Infrastructure.Crosscutting.Jobs
 {
+    [Obsolete("已不再支持，请参考 Hangfire 官方支持", false)]
     public interface IJobSchedule
     {
         /// <summary>

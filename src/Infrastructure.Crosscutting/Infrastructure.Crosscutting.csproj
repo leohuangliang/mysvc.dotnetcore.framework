@@ -1,11 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>MySvc.Framework.Infrastructure.Crosscutting</RootNamespace>
     <AssemblyName>MySvc.Framework.Infrastructure.Crosscutting</AssemblyName>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Copyright>@2018 MySvc.cc</Copyright>
-    <Version>8.0.0-beta4</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <WarningLevel>2</WarningLevel>

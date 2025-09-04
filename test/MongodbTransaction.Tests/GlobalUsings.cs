@@ -1,0 +1,10 @@
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Reflection;
+global using Xunit;
+global using Xunit.Abstractions;
+global using Microsoft.Extensions.Options;
+global using MongoDB.Driver;
+global using MySvc.Framework.Infrastructure.Data.MongoDB;
+global using MySvc.Framework.Infrastructure.Crosscutting.Options;

@@ -52,6 +52,13 @@
             <param name="permissions"></param>
             <param name="isOr">true=或关系;false=且关系</param>
         </member>
+        <member name="M:MySvc.Framework.Infrastructure.Authorization.Merchant.Permissions.PermissionManage.GetPermissions(System.String)">
+            <summary>
+            根据角色获取Permission
+            </summary>
+            <param name="role">角色</param>
+            <returns></returns>
+        </member>
         <member name="T:MySvc.Framework.Infrastructure.Authorization.Merchant.PermissionsAuthorizationRequirement">
             <summary>
             
@@ -79,13 +86,6 @@
             </summary>
             <param name="requiredPermissions"></param>
             <param name="isOr"></param>
-        </member>
-        <member name="M:MySvc.Framework.Infrastructure.Authorization.Merchant.Permissions.PermissionManage.GetPermissions(System.String)">
-            <summary>
-            根据角色获取Permission
-            </summary>
-            <param name="role">角色</param>
-            <returns></returns>
         </member>
         <member name="F:MySvc.Framework.Infrastructure.Authorization.Merchant.RoleConst.WalletOwner">
             <summary>

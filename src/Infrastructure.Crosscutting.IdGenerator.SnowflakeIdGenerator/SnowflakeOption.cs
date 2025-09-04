@@ -1,4 +1,6 @@
-﻿namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator
+﻿using System;
+
+namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator
 {
     public class SnowflakeOption
     {

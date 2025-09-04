@@ -1,27 +1,31 @@
 <Project>
+  <!-- Directory.Packages.props 会被 .NET SDK 自动导入，无需手动导入 -->
+  
   <PropertyGroup>
-    <TargetFrameworks>net8.0</TargetFrameworks>
-    <Copyright>@2018 Mysvc.cc</Copyright>
-    <Authors>Leo Huang(hnhl@163.com)</Authors>
+    <TargetFramework>net8.0</TargetFramework>
+    <!-- 引用中央包管理中的元数据 -->
+    <Copyright>$(PackageCopyright)</Copyright>
+    <Authors>$(PackageAuthors)</Authors>
     <Company>MySvc.cc</Company>
     <SignAssembly>false</SignAssembly>
-    <LatestVersion>8.0.0-beta4</LatestVersion>
-    <Version>$(LatestVersion)</Version>
-    <PackageVersion>$(LatestVersion)</PackageVersion>
-    <AssemblyVersion>8.0.0.0</AssemblyVersion>
-    <FileVersion>8.0.0.0</FileVersion>
+    <!-- 引用中央包管理中的版本 -->
+    <Version>$(CurrentVersion)</Version>
+    <PackageVersion>$(CurrentVersion)</PackageVersion>
+    <AssemblyVersion>$(AssemblyNumericVersion)</AssemblyVersion>
+    <FileVersion>$(AssemblyNumericVersion)</FileVersion>
     <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <WarningsAsErrors />
     <WarningsNotAsErrors />
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/mysvc/mysvc.dotnetcore.framework</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mysvc/mysvc.dotnetcore.framework</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>mysvc;framework;ddd;microservices;dotnet</PackageTags>
+    <PackageTags>$(PackageTags)</PackageTags>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <RestoreLockedMode Condition="'$(CI)' == 'true'">true</RestoreLockedMode>
   </PropertyGroup>
@@ -36,12 +40,12 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
     <Optimize>true</Optimize>
   </PropertyGroup>
 

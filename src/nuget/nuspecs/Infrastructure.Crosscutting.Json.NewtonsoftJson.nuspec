@@ -1,29 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
-    <id>
-      MySvc.Framework.Infrastructure.NewtonsoftJson
-    </id>
-    <version>8.0.0-beta6</version>
-    <title>
-      MySvc.Framework.Infrastructure.NewtonsoftJson
-    </title>
-    <authors>liang.huang</authors>
-    <owners>liang.huang</owners>
-    <requireLicenseAcceptance>
-      false
-    </requireLicenseAcceptance>
+    <id>MySvc.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson</id>
+    <version>$(CurrentVersion)</version>
+    <title>$(PackageTitle)</title>
+    <authors>$(PackageAuthors)</authors>
+    <owners>$(PackageOwners)</owners>
+    <requireLicenseAcceptance>$(PackageRequireLicenseAcceptance)</requireLicenseAcceptance>
     <description>封装了Json.net</description>
-    <releaseNotes>版本 8.0.0-beta6 发布</releaseNotes>
-    <copyright>Copyright 2018 (c) MySVC.cc All rights reserved.</copyright>
-    <tags>MySVC.cc</tags>
-    <serviceable>
-      true
-    </serviceable>
+    <releaseNotes>$(PackageReleaseNotes)</releaseNotes>
+    <copyright>$(PackageCopyright)</copyright>
+    <tags>$(PackageTags)</tags>
+    <serviceable>$(PackageServiceable)</serviceable>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="8.0.0-beta6" />
-        <dependency id="Microsoft.AspNetCore.Mvc.NewtonsoftJson" version="8.0.8" />
+        <dependency id="MySvc.Framework.Infrastructure.Crosscutting" version="$(CurrentVersion)" />
+        <dependency id="Microsoft.AspNetCore.Mvc.NewtonsoftJson" version="$(MicrosoftAspNetCoreMvcNewtonsoftJsonVersion)" />
       </group>
     </dependencies>
   </metadata>

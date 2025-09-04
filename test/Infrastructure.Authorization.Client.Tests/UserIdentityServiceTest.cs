@@ -1,9 +1,6 @@
-﻿using MySvc.Framework.Infrastructure.Authorization.Client;
-using Moq;
-using System;
+using MySvc.Framework.Infrastructure.Authorization.Client;
 using System.Net.Http;
 using System.Security.Principal;
-using Xunit;
 using Moq.Contrib.HttpClient;
 namespace Infrastructure.Authorization.Client.Tests
 {
