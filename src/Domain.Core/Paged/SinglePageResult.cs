@@ -81,27 +81,27 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// <summary>
         /// 确定两个对象是否相等。
         /// </summary>
-        /// <param name="a">待确定的第一个对象。</param>
-        /// <param name="b">待确定的另一个对象。</param>
+        /// <param name="left">待确定的第一个对象。</param>
+        /// <param name="right">待确定的另一个对象。</param>
         /// <returns>如果两者相等，则返回true，否则返回false。</returns>
-        public static bool operator ==(SinglePageResult<T> a, SinglePageResult<T> b)
+        public static bool operator ==(SinglePageResult<T>? left, SinglePageResult<T>? right)
         {
-            if (ReferenceEquals(a, b))
+            if (ReferenceEquals(left, right))
                 return true;
-            if (a is null || b is null)
+            if (left is null || right is null)
                 return false;
-            return a.Equals(b);
+            return left.Equals(right);
         }
 
         /// <summary>
         /// 确定两个对象是否不相等。
         /// </summary>
-        /// <param name="a">待确定的第一个对象。</param>
-        /// <param name="b">待确定的另一个对象。</param>
+        /// <param name="left">待确定的第一个对象。</param>
+        /// <param name="right">待确定的另一个对象。</param>
         /// <returns>如果两者不相等，则返回true，否则返回false。</returns>
-        public static bool operator !=(SinglePageResult<T> a, SinglePageResult<T> b)
+        public static bool operator !=(SinglePageResult<T>? left, SinglePageResult<T>? right)
         {
-            return !(a == b);
+            return !(left == right);
         }
 
         #endregion
