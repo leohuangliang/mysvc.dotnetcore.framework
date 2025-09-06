@@ -111,27 +111,33 @@ namespace MySvc.Framework.Domain.Core.Impl
         }
 
         /// <summary>
-        /// 
+        /// 相等操作符，支持可空类型
         /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
-        public static bool operator ==(ValueObject<TValueObject> left, ValueObject<TValueObject> right)
+        /// <param name="left">左操作数</param>
+        /// <param name="right">右操作数</param>
+        /// <returns>如果两个值对象相等则返回true，否则返回false</returns>
+        public static bool operator ==(ValueObject<TValueObject>? left, ValueObject<TValueObject>? right)
         {
-            if (Equals(left, null))
-                return (Equals(right, null));
+            // 如果两个都是null，返回true
+            if (ReferenceEquals(left, null) && ReferenceEquals(right, null))
+                return true;
+            
+            // 如果其中一个是null，返回false
+            if (ReferenceEquals(left, null) || ReferenceEquals(right, null))
+                return false;
+            
+            // 都不是null时，调用Equals方法
             return left.Equals(right);
         }
 
         /// <summary>
-        /// 
+        /// 不等操作符，支持可空类型
         /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
-        public static bool operator !=(ValueObject<TValueObject> left, ValueObject<TValueObject> right)
+        /// <param name="left">左操作数</param>
+        /// <param name="right">右操作数</param>
+        /// <returns>如果两个值对象不相等则返回true，否则返回false</returns>
+        public static bool operator !=(ValueObject<TValueObject>? left, ValueObject<TValueObject>? right)
         {
-
             return !(left == right);
         }
     }
