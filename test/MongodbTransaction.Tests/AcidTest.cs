@@ -38,7 +38,7 @@ namespace MongodbTransaction.Tests
 
                     session.CommitTransaction();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     session.AbortTransaction();
                     throw;
@@ -68,7 +68,7 @@ namespace MongodbTransaction.Tests
 
                     session.CommitTransaction();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     session.AbortTransaction();
                     throw;
@@ -105,7 +105,7 @@ namespace MongodbTransaction.Tests
 
                     session.CommitTransaction();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     session.AbortTransaction();
                     throw;
@@ -139,7 +139,7 @@ namespace MongodbTransaction.Tests
 
                     session.CommitTransaction();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     session.AbortTransaction();
                     throw;
@@ -160,7 +160,7 @@ namespace MongodbTransaction.Tests
 
                     session.CommitTransaction();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     session.AbortTransaction();
                     throw;
@@ -192,7 +192,7 @@ namespace MongodbTransaction.Tests
                     collection.InsertOne(session, user);
                     session.CommitTransaction();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     session.AbortTransaction();
                     throw;
@@ -216,7 +216,7 @@ namespace MongodbTransaction.Tests
                     }
                     session.CommitTransaction();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     session.AbortTransaction();
 
@@ -248,7 +248,7 @@ namespace MongodbTransaction.Tests
                     productCollection.InsertOne(session, product);
                     throw new Exception("Mock Exception");
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     session.AbortTransaction();
                 }
@@ -281,7 +281,7 @@ namespace MongodbTransaction.Tests
                     productCollection.InsertOne(session, product);
                     session.CommitTransaction();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     session.AbortTransaction();
                 }
@@ -315,7 +315,7 @@ namespace MongodbTransaction.Tests
                     productCollection.InsertOne(session, product);
                     session.CommitTransaction();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     session.AbortTransaction();
                 }
@@ -332,7 +332,7 @@ namespace MongodbTransaction.Tests
                     productCollection.InsertOne(session, product2);
                     session.CommitTransaction();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     session.AbortTransaction();
                 }
@@ -367,7 +367,7 @@ namespace MongodbTransaction.Tests
                     Assert.NotNull(newUser);
                     throw new Exception("Mock Exception");
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     session.AbortTransaction();
                 }
@@ -389,7 +389,7 @@ namespace MongodbTransaction.Tests
         }
 
         public string Id { get; private set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public int Version { get; set; }
     }
 
@@ -402,9 +402,9 @@ namespace MongodbTransaction.Tests
         }
 
         public string Id { get; private set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
-        public Catalog Catalog { get; set; }
+        public Catalog Catalog { get; set; } = new Catalog(string.Empty, string.Empty);
     }
 
     public record Catalog

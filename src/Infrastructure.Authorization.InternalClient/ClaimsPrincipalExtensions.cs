@@ -1,4 +1,4 @@
-﻿using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
+using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 using System.Security.Claims;
 
 namespace MySvc.Framework.Infrastructure.Authorization.InternalClient
@@ -10,7 +10,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.InternalClient
             string result = "";
             if (user != null && !string.IsNullOrWhiteSpace(claimName))
             {
-                Claim claim = user.FindFirst(claimName);
+                Claim? claim = user.FindFirst(claimName);
                 if (claim != null)
                 {
                     result = claim.Value;

@@ -4,9 +4,9 @@ namespace Domain.Core.Tests
 {
     public class Address: ValueObject<Address>
     {
-        public Address(string country, string province, string city, string district, string addressLine)
+        public Address(string country, string? province, string city, string district, string addressLine)
         {
-            this.Country = Country;
+            this.Country = country;
             this.Province = province;
             this.City = city;
             this.District = district;
@@ -21,7 +21,7 @@ namespace Domain.Core.Tests
         /// <summary>
         /// 省
         /// </summary>
-        public string Province { get; private set; }
+        public string? Province { get; private set; }
 
         /// <summary>
         /// 市

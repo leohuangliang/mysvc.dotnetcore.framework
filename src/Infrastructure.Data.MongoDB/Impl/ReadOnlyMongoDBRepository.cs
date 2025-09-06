@@ -1,4 +1,4 @@
-﻿using MongoDB.Driver;
+using MongoDB.Driver;
 using MongoDB.Driver.Core.Operations;
 using MySvc.Framework.Domain.Core;
 using MySvc.Framework.Domain.Core.Paged;
@@ -62,16 +62,17 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="specification">条件参数</param>
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>聚合根实例，如果未找到则返回null。</returns>
-        public virtual async Task<TAggregateRoot?> GetAsync(Domain.Core.Specification.ISpecification<TAggregateRoot> specification, CancellationToken cancellationToken = default)
+        public virtual async Task<TAggregateRoot?> GetAsync(Domain.Core.Specification.ISpecification<TAggregateRoot>? specification, CancellationToken cancellationToken = default)
         {
             var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
+            var expression = specification.GetExpressionOrDefault();
 
             if (_isBaseOnSession)
             {
-                return await collection.Find(_mongoDBContext.Session, specification.GetExpression()).FirstOrDefaultAsync(cancellationToken: cancellationToken);
+                return await collection.Find(_mongoDBContext.Session, expression).FirstOrDefaultAsync(cancellationToken: cancellationToken);
             }
 
-            return await collection.Find(specification.GetExpression()).FirstOrDefaultAsync(cancellationToken: cancellationToken);
+            return await collection.Find(expression).FirstOrDefaultAsync(cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -80,7 +81,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="sortCriteriaDefinition">排序条件（可选）</param>
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>聚合根实例列表</returns>
-        public virtual Task<List<TAggregateRoot>> GetAllAsync(SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
+        public virtual Task<List<TAggregateRoot>> GetAllAsync(SortCriteriaDefinition<TAggregateRoot>? sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
         {
             return GetAllAsync<TAggregateRoot>(sortCriteriaDefinition, cancellationToken);
         }
@@ -91,7 +92,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="sortCriteriaDefinition">排序条件（可选）</param>
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>聚合根投影实例的列表</returns>
-        public virtual async Task<List<TProjection>> GetAllAsync<TProjection>(SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default) where TProjection : class
+        public virtual async Task<List<TProjection>> GetAllAsync<TProjection>(SortCriteriaDefinition<TAggregateRoot>? sortCriteriaDefinition = null, CancellationToken cancellationToken = default) where TProjection : class
         {
             var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
 
@@ -132,7 +133,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="maxResultCount">获取的最大数量限制，默认为0，表示不限制</param>
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>聚合根实例列表</returns>
-        public virtual Task<List<TAggregateRoot>> GetListAsync(ISpecification<TAggregateRoot> specification, SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null,
+        public virtual Task<List<TAggregateRoot>> GetListAsync(ISpecification<TAggregateRoot>? specification, SortCriteriaDefinition<TAggregateRoot>? sortCriteriaDefinition = null,
             int maxResultCount = 0, CancellationToken cancellationToken = default)
         {
             return GetListAsync<TAggregateRoot>(specification, sortCriteriaDefinition, maxResultCount, cancellationToken);
@@ -147,7 +148,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="maxResultCount">获取的最大数量限制，默认为0，表示不限制</param>
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>聚合根投影实例的列表</returns>
-        public virtual async Task<List<TProjection>> GetListAsync<TProjection>(ISpecification<TAggregateRoot> specification, SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null,
+        public virtual async Task<List<TProjection>> GetListAsync<TProjection>(ISpecification<TAggregateRoot>? specification, SortCriteriaDefinition<TAggregateRoot>? sortCriteriaDefinition = null,
             int maxResultCount = 0, CancellationToken cancellationToken = default) where TProjection : class
         {
             var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
@@ -176,13 +177,14 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 
             IAsyncCursor<TProjection> asyncCursor;
 
+            var expression = specification.GetExpressionOrDefault();
             if (_isBaseOnSession)
             {
-                asyncCursor = await collection.FindAsync(_mongoDBContext.Session, specification.GetExpression(), findOption, cancellationToken);
+                asyncCursor = await collection.FindAsync(_mongoDBContext.Session, expression, findOption, cancellationToken);
             }
             else
             {
-                asyncCursor = await collection.FindAsync(specification.GetExpression(), findOption, cancellationToken);
+                asyncCursor = await collection.FindAsync(expression, findOption, cancellationToken);
             }
 
             return await asyncCursor.ToListAsync(cancellationToken: cancellationToken); ;
@@ -200,7 +202,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         public virtual async Task<PagedResult<TAggregateRoot>> FindInPageAsync(
             int pageNumber,
             int pageSize,
-            ISpecification<TAggregateRoot> specification,
+            ISpecification<TAggregateRoot>? specification,
             Dictionary<Expression<Func<TAggregateRoot, dynamic>>, SortOrder> orderBys)
         {
             ValidPageNumberAndSize(pageNumber, pageSize);
@@ -214,17 +216,24 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             int take = pageSize;
             int totalPages = ((int)totalCount + pageSize - 1) / pageSize;
 
-            specification = specification ?? Specification<TAggregateRoot>.Eval(x => true);
+            var expression = specification.GetExpressionOrDefault();
 
             //排序构建
             var sortBuilder = Builders<TAggregateRoot>.Sort;
-            SortDefinition<TAggregateRoot> sortDefinition = null;
+            SortDefinition<TAggregateRoot>? sortDefinition = null;
 
             if (orderBys != null && orderBys.Count > 0)
             {
                 foreach (var item in orderBys)
                 {
-                    sortDefinition = item.Value == SortOrder.Descending ? sortBuilder.Descending(item.Key) : sortBuilder.Ascending(item.Key);
+                    if (sortDefinition == null)
+                    {
+                        sortDefinition = item.Value == SortOrder.Descending ? sortBuilder.Descending(item.Key) : sortBuilder.Ascending(item.Key);
+                    }
+                    else
+                    {
+                        sortDefinition = item.Value == SortOrder.Descending ? sortDefinition.Descending(item.Key) : sortDefinition.Ascending(item.Key);
+                    }
                 }
             }
 
@@ -239,11 +248,11 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 
             if (_isBaseOnSession)
             {
-                asyncCursor = await collection.FindAsync(_mongoDBContext.Session, specification.GetExpression(), findOptions);
+                asyncCursor = await collection.FindAsync(_mongoDBContext.Session, expression, findOptions);
             }
             else
             {
-                asyncCursor = await collection.FindAsync(specification.GetExpression(), findOptions);
+                asyncCursor = await collection.FindAsync(expression, findOptions);
             }
 
             var pageList = await asyncCursor.ToListAsync();
@@ -265,7 +274,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>分页结果</returns>
         public virtual Task<SinglePageResult<TAggregateRoot>> FindInPageWithoutCountAsync(int pageNumber, int pageSize,
-            ISpecification<TAggregateRoot> specification, SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
+            ISpecification<TAggregateRoot>? specification, SortCriteriaDefinition<TAggregateRoot>? sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
         {
             return FindInPageWithoutCountAsync<TAggregateRoot>(pageNumber, pageSize, specification, sortCriteriaDefinition, cancellationToken);
         }
@@ -282,7 +291,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>分页结果</returns>
         public virtual async Task<SinglePageResult<TProjection>> FindInPageWithoutCountAsync<TProjection>(int pageNumber, int pageSize,
-            ISpecification<TAggregateRoot> specification, SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
+            ISpecification<TAggregateRoot>? specification, SortCriteriaDefinition<TAggregateRoot>? sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
         {
             ValidPageNumberAndSize(pageNumber, pageSize);
 
@@ -293,7 +302,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             specification ??= Specification<TAggregateRoot>.Eval(x => true);
 
             //排序构建
-            var sortDefinition = BuildSortDefinition(sortCriteriaDefinition);
+            var sortDefinition = sortCriteriaDefinition != null ? BuildSortDefinition(sortCriteriaDefinition) : null;
             var pageList = await FindAndGetListAsync<TProjection>(skip, take, specification, sortDefinition, cancellationToken);
 
             return new SinglePageResult<TProjection>(pageNumber, pageSize, pageList);
@@ -309,7 +318,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>数据分页结果</returns>
         public virtual Task<PagedResult<TAggregateRoot>> FindInPageAsync(int pageNumber, int pageSize,
-            ISpecification<TAggregateRoot> specification, SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
+            ISpecification<TAggregateRoot>? specification, SortCriteriaDefinition<TAggregateRoot>? sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
         {
             return FindInPageAsync<TAggregateRoot>(pageNumber, pageSize, specification, sortCriteriaDefinition, cancellationToken);
         }
@@ -325,7 +334,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>数据分页结果</returns>
         public virtual async Task<PagedResult<TProjection>> FindInPageAsync<TProjection>(int pageNumber, int pageSize,
-            ISpecification<TAggregateRoot> specification, SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
+            ISpecification<TAggregateRoot>? specification, SortCriteriaDefinition<TAggregateRoot>? sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
         {
             ValidPageNumberAndSize(pageNumber, pageSize);
 
@@ -339,38 +348,38 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             specification ??= Specification<TAggregateRoot>.Eval(x => true);
 
             //排序构建
-            var sortDefinition = BuildSortDefinition(sortCriteriaDefinition);
+            var sortDefinition = sortCriteriaDefinition != null ? BuildSortDefinition(sortCriteriaDefinition) : null;
             var pageList = await FindAndGetListAsync<TProjection>(skip, take, specification, sortDefinition, cancellationToken);
 
             return new PagedResult<TProjection>(totalCount, totalPages, pageNumber, pageSize, pageList);
         }
 
         /// <summary>
-        /// 根据指定的规约，排序字段和排序方式，同时基于上一个查询到的<see cref="TAggregateRoot"/>对象，向后再查询<paramref name="pageSize"/>个，符合条件的聚合根实体对象列表数据。
+        /// 根据指定的规约，排序字段和排序方式，同时基于上一个查询到的<typeparamref name="TAggregateRoot"/>对象，向后再查询<paramref name="pageSize"/>个，符合条件的聚合根实体对象列表数据。
         /// </summary>
         /// <param name="specification">查询条件</param>
         /// <param name="sortCriteriaDefinition">排序条件（可选）</param>
-        /// <param name="lastAggregateEntity">上一个<see cref="TAggregateRoot"/>对象信息</param>
+        /// <param name="lastAggregateEntity">上一个<typeparamref name="TAggregateRoot"/>对象信息</param>
         /// <param name="pageSize">获取的数量</param>
         /// <param name="cancellationToken">取消令牌</param>
-        /// <returns><see cref="TAggregateRoot"/>对象信息列表</returns>
-        public virtual Task<List<TAggregateRoot>> FindAfterAsync(int pageSize, ISpecification<TAggregateRoot> specification, TAggregateRoot lastAggregateEntity,
-            SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
+        /// <returns><typeparamref name="TAggregateRoot"/>对象信息列表</returns>
+        public virtual Task<List<TAggregateRoot>> FindAfterAsync(int pageSize, ISpecification<TAggregateRoot>? specification, TAggregateRoot lastAggregateEntity,
+            SortCriteriaDefinition<TAggregateRoot>? sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
         {
             return FindAfterAsync<TAggregateRoot>(pageSize, specification, lastAggregateEntity, sortCriteriaDefinition, cancellationToken);
         }
 
         /// <summary>
-        /// 根据指定的规约，排序字段和排序方式，同时基于上一个查询到的<see cref="TAggregateRoot"/>对象，向后再查询<paramref name="pageSize"/>个，符合条件的聚合根实体的【投影】对象列表数据。
+        /// 根据指定的规约，排序字段和排序方式，同时基于上一个查询到的<typeparamref name="TAggregateRoot"/>对象，向后再查询<paramref name="pageSize"/>个，符合条件的聚合根实体的【投影】对象列表数据。
         /// </summary>
         /// <param name="specification">查询条件</param>
         /// <param name="sortCriteriaDefinition">排序条件（可选）</param>
-        /// <param name="lastAggregateEntity">上一个<see cref="TAggregateRoot"/>对象信息</param>
+        /// <param name="lastAggregateEntity">上一个<typeparamref name="TAggregateRoot"/>对象信息</param>
         /// <param name="pageSize">获取的数量</param>
         /// <param name="cancellationToken">取消令牌</param>
-        /// <returns><see cref="TAggregateRoot"/>对象信息列表</returns>
-        public virtual async Task<List<TProjection>> FindAfterAsync<TProjection>(int pageSize, ISpecification<TAggregateRoot> specification, TAggregateRoot lastAggregateEntity,
-            SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
+        /// <returns><typeparamref name="TAggregateRoot"/>对象信息列表</returns>
+        public virtual async Task<List<TProjection>> FindAfterAsync<TProjection>(int pageSize, ISpecification<TAggregateRoot>? specification, TAggregateRoot lastAggregateEntity,
+            SortCriteriaDefinition<TAggregateRoot>? sortCriteriaDefinition = null, CancellationToken cancellationToken = default)
         {
             var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
 
@@ -386,7 +395,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             }
 
             //过滤条件
-            FilterDefinition<TAggregateRoot> filterDefinition = new ExpressionFilterDefinition<TAggregateRoot>(specification.GetExpression());
+            FilterDefinition<TAggregateRoot> filterDefinition = new ExpressionFilterDefinition<TAggregateRoot>(specification.GetExpressionOrDefault());
 
             //叠加Last查询, 如果为空，则表示获取第一页。
             if (lastAggregateEntity != null)
@@ -439,18 +448,20 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="specification">查询条件规约</param>
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>如果符合指定规约条件的聚合根存在，则返回true，否则返回false。</returns>
-        public async Task<bool> ExistsAsync(Domain.Core.Specification.ISpecification<TAggregateRoot> specification, CancellationToken cancellationToken = default)
+        public async Task<bool> ExistsAsync(Domain.Core.Specification.ISpecification<TAggregateRoot>? specification, CancellationToken cancellationToken = default)
         {
-            Check.Argument.IsNotNull(specification, "specification");
+            if (specification == null)
+                return false;
 
             var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
 
+            var expression = specification.GetExpressionOrDefault();
             if (_isBaseOnSession)
             {
-                return (await collection.Find(_mongoDBContext.Session, specification.GetExpression()).FirstOrDefaultAsync(cancellationToken: cancellationToken)) != null;
+                return (await collection.Find(_mongoDBContext.Session, expression).FirstOrDefaultAsync(cancellationToken: cancellationToken)) != null;
             }
 
-            return (await collection.Find(specification.GetExpression()).FirstOrDefaultAsync(cancellationToken: cancellationToken)) != null;
+            return (await collection.Find(expression).FirstOrDefaultAsync(cancellationToken: cancellationToken)) != null;
         }
 
         /// <summary>
@@ -470,7 +481,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="specification">查询条件规约</param>
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>聚合根的数量</returns>
-        public async Task<long> CountAsync(ISpecification<TAggregateRoot> specification, CancellationToken cancellationToken = default)
+        public async Task<long> CountAsync(ISpecification<TAggregateRoot>? specification, CancellationToken cancellationToken = default)
         {
             if (specification == null)
             {
@@ -479,12 +490,13 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 
             var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
 
+            var expression = specification.GetExpressionOrDefault();
             if (_mongoDBContext.Session != null)
             {
-                return await collection.CountDocumentsAsync(_mongoDBContext.Session, specification.GetExpression(), cancellationToken: cancellationToken);
+                return await collection.CountDocumentsAsync(_mongoDBContext.Session, expression, cancellationToken: cancellationToken);
             }
 
-            return await collection.CountDocumentsAsync(specification.GetExpression(), cancellationToken: cancellationToken);
+            return await collection.CountDocumentsAsync(expression, cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -494,8 +506,11 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <param name="maxLimit">最大限制数量（0为不限制）</param>
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns>聚合根的计数结果</returns>
-        public virtual async Task<CountResult> CountAsync(ISpecification<TAggregateRoot> specification, long maxLimit, CancellationToken cancellationToken = default)
+        public virtual async Task<CountResult> CountAsync(ISpecification<TAggregateRoot>? specification, long maxLimit, CancellationToken cancellationToken = default)
         {
+            if (specification == null)
+                return new CountResult(0, maxLimit, false);
+
             long count = 0;
 
             if (maxLimit <= 0)
@@ -511,13 +526,14 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 
             var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
 
+            var expression = specification.GetExpressionOrDefault();
             if (_mongoDBContext.Session != null)
             {
-                count = await collection.CountDocumentsAsync(_mongoDBContext.Session, specification.GetExpression(), countOptions, cancellationToken);
+                count = await collection.CountDocumentsAsync(_mongoDBContext.Session, expression, countOptions, cancellationToken);
             }
             else
             {
-                count = await collection.CountDocumentsAsync(specification.GetExpression(), countOptions, cancellationToken);
+                count = await collection.CountDocumentsAsync(expression, countOptions, cancellationToken);
             }
 
             return new CountResult(count > maxLimit ? maxLimit : count, maxLimit, count > maxLimit);
@@ -532,7 +548,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// </summary>
         /// <param name="sortCriteriaDefinition">排序条件定义</param>
         /// <returns></returns>
-        protected virtual SortDefinition<TAggregateRoot> BuildSortDefinition(SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition)
+        protected virtual SortDefinition<TAggregateRoot>? BuildSortDefinition(SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition)
         {
             return sortCriteriaDefinition != null ? BuildSortDefinition(sortCriteriaDefinition.GetSortCriteria()) : null;
         }
@@ -542,11 +558,11 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// </summary>
         /// <param name="sortCriteria">排序条件</param>
         /// <returns></returns>
-        protected virtual SortDefinition<TAggregateRoot> BuildSortDefinition(IList<SortCriteria<TAggregateRoot>> sortCriteria)
+        protected virtual SortDefinition<TAggregateRoot>? BuildSortDefinition(IList<SortCriteria<TAggregateRoot>> sortCriteria)
         {
             //排序构建
             var sortBuilder = Builders<TAggregateRoot>.Sort;
-            SortDefinition<TAggregateRoot> sortDefinition = null;
+            SortDefinition<TAggregateRoot>? sortDefinition = null;
 
             if (sortCriteria is { Count: > 0 })
             {
@@ -569,11 +585,11 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <summary>
         /// 构建排序定义 SortDefinition,  基于 Dictionary&lt;Expression&lt;Func&lt;TAggregateRoot, dynamic&gt;&gt; 
         /// </summary>
-        protected virtual SortDefinition<TAggregateRoot> BuildSortDefinition(Dictionary<Expression<Func<TAggregateRoot, dynamic>>, SortOrder> orderBys)
+        protected virtual SortDefinition<TAggregateRoot>? BuildSortDefinition(Dictionary<Expression<Func<TAggregateRoot, dynamic>>, SortOrder> orderBys)
         {
             //排序构建
             var sortBuilder = Builders<TAggregateRoot>.Sort;
-            SortDefinition<TAggregateRoot> sortDefinition = null;
+            SortDefinition<TAggregateRoot>? sortDefinition = null;
 
             if (orderBys is { Count: > 0 })
             {
@@ -623,8 +639,13 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             return Builders<TAggregateRoot>.Projection.As<TProjection>();
         }
 
-        protected virtual FilterDefinition<TAggregateRoot> BuildSearchAfterFilterDefinition(SortCriteriaDefinition<TAggregateRoot> sortCriteriaDefinition, TAggregateRoot lastObj)
+        protected virtual FilterDefinition<TAggregateRoot> BuildSearchAfterFilterDefinition(SortCriteriaDefinition<TAggregateRoot>? sortCriteriaDefinition, TAggregateRoot? lastObj)
         {
+            if (lastObj == null)
+            {
+                return Builders<TAggregateRoot>.Filter.Empty;
+            }
+
             var sortCriteriaList = sortCriteriaDefinition?.GetSortCriteria();
 
             if (sortCriteriaList != null && sortCriteriaList.Any())
@@ -656,7 +677,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                 //通过两层循环来生成过滤条件，从单个字段开始，到多个字段的条件。如 先生成 （4）小于时间， 再生成 （3）等于时间，大于用户.....
                 for (int i = 1; i <= sortCount; i++)
                 {
-                    FilterDefinition<TAggregateRoot> fieldKeyDefinition = null;
+                    FilterDefinition<TAggregateRoot>? fieldKeyDefinition = null;
 
                     //二层遍历
                     for (int j = 1; j <= i; j++)
@@ -685,7 +706,10 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                         }
                     }
 
-                    filterDefinitions.Add(fieldKeyDefinition);
+                    if (fieldKeyDefinition != null)
+                    {
+                        filterDefinitions.Add(fieldKeyDefinition);
+                    }
                 }
 
                 return Builders<TAggregateRoot>.Filter.Or(filterDefinitions.ToArray());
@@ -699,8 +723,11 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
             }
         }
 
-        private async Task<List<TProjection>> FindAndGetListAsync<TProjection>(int skip, int take, ISpecification<TAggregateRoot> specification, SortDefinition<TAggregateRoot> sortDefinition, CancellationToken cancellationToken = default)
+        private async Task<List<TProjection>> FindAndGetListAsync<TProjection>(int skip, int take, ISpecification<TAggregateRoot>? specification, SortDefinition<TAggregateRoot>? sortDefinition, CancellationToken cancellationToken = default)
         {
+            if (specification == null)
+                return new List<TProjection>();
+
             IAsyncCursor<TProjection> asyncCursor;
             var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
 
@@ -716,13 +743,14 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
                 findOptions.Projection = BuildProjectionDefinition<TProjection>();
             }
 
+            var expression = specification.GetExpressionOrDefault();
             if (_isBaseOnSession)
             {
-                asyncCursor = await collection.FindAsync(_mongoDBContext.Session, specification.GetExpression(), findOptions, cancellationToken);
+                asyncCursor = await collection.FindAsync(_mongoDBContext.Session, expression, findOptions, cancellationToken);
             }
             else
             {
-                asyncCursor = await collection.FindAsync(specification.GetExpression(), findOptions, cancellationToken);
+                asyncCursor = await collection.FindAsync(expression, findOptions, cancellationToken);
             }
 
             return await asyncCursor.ToListAsync(cancellationToken: cancellationToken);

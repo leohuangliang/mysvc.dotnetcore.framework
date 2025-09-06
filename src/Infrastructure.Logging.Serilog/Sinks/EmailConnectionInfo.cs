@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Net;
 
 namespace MySvc.Framework.Infrastructure.Serilog.Sinks
@@ -26,12 +26,15 @@ namespace MySvc.Framework.Infrastructure.Serilog.Sinks
             Port = DefaultPort;
             EmailSubject = DefaultSubject;
             IsBodyHtml = false;
+            FromEmail = string.Empty;
+            ToEmail = string.Empty;
+            MailServer = string.Empty;
         }
 
         /// <summary>
         /// Gets or sets the credentials used for authentication.
         /// </summary>
-        public ICredentialsByHost NetworkCredentials { get; set; }
+        public ICredentialsByHost? NetworkCredentials { get; set; }
 
         /// <summary>
         /// Gets or sets the port used for the connection.
@@ -70,7 +73,7 @@ namespace MySvc.Framework.Infrastructure.Serilog.Sinks
         /// `System.Net.ServicePointManager.ServerCertificateValidationCallback`
         /// manually.
         /// </remarks>
-        public System.Net.Security.RemoteCertificateValidationCallback ServerCertificateValidationCallback { get; set; }
+        public System.Net.Security.RemoteCertificateValidationCallback? ServerCertificateValidationCallback { get; set; }
 
         /// <summary>
         /// The SMTP email server to use.

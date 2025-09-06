@@ -16,9 +16,9 @@ namespace MySvc.Framework.Domain.Core.Impl
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
-        public bool Equals(TValueObject other)
+        public bool Equals(TValueObject? other)
         {
-            if ((object)other == null)
+            if (other is null)
                 return false;
 
             if (ReferenceEquals(this, other))
@@ -33,8 +33,8 @@ namespace MySvc.Framework.Domain.Core.Impl
             {
                 return publicProperties.All(p =>
                 {
-                    var left = p.GetValue(this, null);
-                    var right = p.GetValue(other, null);
+                    object? left = p.GetValue(this, null);
+                    object? right = p.GetValue(other, null);
 
                     if (Equals(left, null))
                         return (Equals(right, null));
@@ -55,7 +55,7 @@ namespace MySvc.Framework.Domain.Core.Impl
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null)
                 return false;
@@ -63,10 +63,10 @@ namespace MySvc.Framework.Domain.Core.Impl
             if (ReferenceEquals(this, obj))
                 return true;
 
-            var item = obj as ValueObject<TValueObject>;
+            ValueObject<TValueObject>? item = obj as ValueObject<TValueObject>;
 
-            if ((object)item != null)
-                return Equals((TValueObject)item);
+            if (item is not null)
+                return Equals((TValueObject)item!);
             return false;
         }
 

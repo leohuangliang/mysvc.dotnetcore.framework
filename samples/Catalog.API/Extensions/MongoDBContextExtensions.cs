@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MySvc.Framework.Domain.Core;
@@ -28,7 +28,7 @@ namespace Catalog.API.Extensions
 
 
                     //创建集合
-                    maongoDbManager.CreateCollections();
+                    maongoDbManager?.CreateCollections();
 
 
                     logger.LogInformation($"Migrated database associated");

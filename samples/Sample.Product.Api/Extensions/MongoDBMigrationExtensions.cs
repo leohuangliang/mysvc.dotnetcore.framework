@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using MySvc.Framework.Infrastructure.Data.MongoDB;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,7 +28,7 @@ namespace Sample.Product.Api.Extensions
                 {
 
                     //创建集合
-                    maongoDbManager.CreateCollections();
+                    maongoDbManager?.CreateCollections();
 
 
                     logger.LogInformation($"Migrated database associated");

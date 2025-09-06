@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
@@ -36,7 +36,6 @@ namespace Catalog.API.Extensions
                 options.Filters.Add(typeof(HttpGlobalExceptionFilter));
             })
             .AddNewtonsoftJson()
-            .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
             .AddControllersAsServices();
 
             services.AddCors(options =>

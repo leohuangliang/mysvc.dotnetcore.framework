@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MySvc.Framework.Domain.Core;
@@ -28,7 +28,8 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB
 
         public IMongoCollection<TAggregateRoot> GetCollection<TAggregateRoot>() where TAggregateRoot : IAggregateRoot
         {
-            return Database.GetCollection<TAggregateRoot>(GetAttributeCollectionName(typeof(TAggregateRoot)) ?? this.Pluralize(typeof(TAggregateRoot)));
+            var collectionName = GetAttributeCollectionName(typeof(TAggregateRoot)) ?? this.Pluralize(typeof(TAggregateRoot));
+            return Database.GetCollection<TAggregateRoot>(collectionName);
         }
 
 
@@ -76,7 +77,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB
             }
         }
 
-        public List<string> GetAllCollectionNames(List<string> assemblyNames = null)
+        public List<string> GetAllCollectionNames(List<string>? assemblyNames = null)
         {
             List<string> names = new List<string>();
             List<Assembly> assList = new List<Assembly>();
@@ -122,19 +123,19 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB
         /// <summary>
         /// 根据类型名转化成复数
         /// </summary>
-        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="type">集合类型</param>
         /// <returns></returns>
         private string Pluralize(Type type)
         {
-            return (type.Name.Pluralize()).Camelize();
+            return (type.Name.Pluralize() ?? type.Name).Camelize();
         }
 
         /// <summary>
         /// 返回集合名称
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <param name="t">类型</param>
         /// <returns></returns>
-        private string GetAttributeCollectionName(Type t)
+        private string? GetAttributeCollectionName(Type t)
         {
             return (t.GetTypeInfo()
                                      .GetCustomAttributes(typeof(AggregateRootNameAttribute))

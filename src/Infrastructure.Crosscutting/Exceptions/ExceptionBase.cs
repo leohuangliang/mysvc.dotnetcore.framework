@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -14,20 +14,22 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Exceptions
         {
         }
 
+#pragma warning disable SYSLIB0051 // Type or member is obsolete
         protected ExceptionBase(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+#pragma warning restore SYSLIB0051 // Type or member is obsolete
 
         protected ExceptionBase(string errorCode)
         {
-            Init(errorCode, null);
+            Init(errorCode, string.Empty);
         }
 
         protected ExceptionBase(string errorCode, Exception innerException)
-            : base(null, innerException)
+            : base(string.Empty, innerException)
         {
-            Init(errorCode, null);
+            Init(errorCode, string.Empty);
         }
 
         protected ExceptionBase(string errorCode, string message)
@@ -61,14 +63,14 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Exceptions
         /// <summary>
         /// 错误代码
         /// </summary>
-        public string ErrorCode
+        public string? ErrorCode
         {
             get;
             private set;
         }
 
 
-        public string CustomMessage { get; private set; }
+        public string? CustomMessage { get; private set; }
 
         public abstract override string Message
         {

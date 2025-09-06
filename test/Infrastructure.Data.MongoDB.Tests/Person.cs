@@ -13,6 +13,6 @@ namespace Infrastructure.Data.MongoDB.Tests
         }
         public string Name { get; protected set; }
 
-        public string Name1 { get; set; }
+        public string Name1 { get; set; } = string.Empty;
     }
 }

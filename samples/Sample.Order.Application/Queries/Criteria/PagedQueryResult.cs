@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Sample.Order.Application.Queries.Criteria
 {
@@ -30,6 +30,6 @@ namespace Sample.Order.Application.Queries.Criteria
         /// <summary>
         /// 数据列表
         /// </summary>
-        public IList<T> Data { get; set; }
+        public required IList<T> Data { get; set; }
     }
 }

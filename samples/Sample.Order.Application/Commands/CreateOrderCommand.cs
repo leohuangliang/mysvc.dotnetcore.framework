@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using MediatR;
 using Sample.Order.Application.Common.Models;
 using Sample.Order.Application.ViewModels;
@@ -13,22 +13,22 @@ namespace Sample.Order.Application.Commands
         /// <summary>
         /// 买家
         /// </summary>
-        public string Buyer { get; set; }
+        public required string Buyer { get; set; }
 
         /// <summary>
         /// 地址
         /// </summary>
-        public Address Address { get; set; }
+        public required Address Address { get; set; }
 
         /// <summary>
         /// 订单项
         /// </summary>
-        public IList<OrderItemDTO> OrderItems { get; set; }
+        public required IList<OrderItemDTO> OrderItems { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        public string Remark { get; set; }
+        public required string Remark { get; set; }
     }
 
     public class OrderItemDTO
@@ -36,12 +36,12 @@ namespace Sample.Order.Application.Commands
         /// <summary>
         /// 产品SKU
         /// </summary>
-        public string SKU { get; set; }
+        public required string SKU { get; set; }
 
         /// <summary>
         /// 产品标题
         /// </summary>
-        public string Title { get; set; }
+        public required string Title { get; set; }
 
         /// <summary>
         /// 单位价格

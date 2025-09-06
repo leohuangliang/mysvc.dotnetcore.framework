@@ -47,7 +47,8 @@ namespace Sample.Order.Application.Commands.Handlers
                 }
             }
 
-            var order = new Domain.AggregatesModel.OrderAggregate.Order(command.Buyer, command.Address.ToDomain(), orderItemList);
+            var domainAddress = command.Address?.ToDomain() ?? throw new ArgumentNullException(nameof(command.Address));
+            var order = new Domain.AggregatesModel.OrderAggregate.Order(command.Buyer, domainAddress, orderItemList);
 
             await _orderRepository.AddAsync(order);
             await _dbContext.CommitAsync();

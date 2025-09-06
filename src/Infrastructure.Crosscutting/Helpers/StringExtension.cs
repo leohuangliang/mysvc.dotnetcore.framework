@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -218,7 +218,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         }
 
         /// <summary>
-        /// 消除标点符号(" ", ",", ".", "&", "%", "#", "@", "!", "*", "(", ")")
+        /// 消除标点符号(空格, 逗号, 句号, &amp;, %, #, @, !, *, (, )) 使用英文标点符号
         /// </summary>
         /// <param name="str">源字符串</param>
         /// <returns>消除标点符号后的字符串</returns>
@@ -262,7 +262,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns>A hash.</returns>
-        public static byte[] Sha256(this byte[] input)
+        public static byte[]? Sha256(this byte[]? input)
         {
             if (input == null)
             {

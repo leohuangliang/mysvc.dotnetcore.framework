@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MySvc.Framework.Domain.Core;
@@ -61,6 +61,10 @@ namespace Catalog.API.Controllers
         {
             _dbContext.BeginTransaction();
             var product = await _productRepository.GetAsync(new MatchProductSKUSpecification(sku));
+            if (product is null)
+            {
+                return NotFound();
+            }
             product.SetPrice(newPrice);
             await _productRepository.UpdateAsync(product);
             await _dbContext.CommitAsync();

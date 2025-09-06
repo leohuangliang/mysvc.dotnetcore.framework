@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
-    <id>MySvc.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson</id>
+    <id>MySvc.Framework.Infrastructure.NewtonsoftJson</id>
     <version>$(CurrentVersion)</version>
     <title>$(PackageTitle)</title>
     <authors>$(PackageAuthors)</authors>

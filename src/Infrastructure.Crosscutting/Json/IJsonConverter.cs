@@ -22,7 +22,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Json
         /// <param name="value">json字符串</param>
         /// <typeparam name="T">反序列化的类型</typeparam>
         /// <returns>反序列化出的对象</returns>
-        T DeserializeObject<T>(string value);
+        T? DeserializeObject<T>(string value);
 
         /// <summary>
         /// 从Stream流读取，进行反序列化
@@ -30,7 +30,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Json
         /// <param name="type">反序列化的类型</param>
         /// <param name="stream">Stream流</param>
         /// <returns>反序列化出的对象</returns>
-        object DeserializeFromStream(Type type, Stream stream);
+        object? DeserializeFromStream(Type type, Stream stream);
 
         /// <summary>
         /// Json字符串反序列化为指定Type类型的对象
@@ -38,7 +38,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Json
         /// <param name="value">JSON字符串</param>
         /// <param name="type">数据类型</param>
         /// <returns>反序列化出的对象</returns>
-        object DeserializeFromString(string value, Type type);
+        object? DeserializeFromString(string value, Type type);
 
         /// <summary>
         /// 反序列化为动态对象

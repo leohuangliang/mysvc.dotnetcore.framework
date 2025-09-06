@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using MySvc.Framework.Domain.Core.Impl;
 using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 
@@ -37,7 +37,7 @@ namespace MySvc.Framework.Domain.Core.Models
         /// <returns></returns>
         public Money Clone()
         {
-            return new Money(this.Currency, this.Amount);
+            return new Money(this.Currency, this.Amount, null);
         }
 
         /// <summary>
@@ -50,47 +50,57 @@ namespace MySvc.Framework.Domain.Core.Models
         }
 
         /// <summary>
-        /// 
+        /// 加法运算符重载
         /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
-        public static Money operator +(Money left, Money right)
+        /// <param name="left">左操作数</param>
+        /// <param name="right">右操作数</param>
+        /// <returns>运算结果</returns>
+        /// <exception cref="ArgumentNullException">当操作数为null时抛出</exception>
+        /// <exception cref="ArgumentException">当币种不同时抛出</exception>
+        public static Money operator +(Money? left, Money? right)
         {
-            Money amountInfo = null;
-            if (left.Currency == right.Currency)
-            {
-                amountInfo = new Money(left.Currency, left.Amount + right.Amount, null);
-            }
-            else
-            {
-                throw new ArgumentException("不支持不同币种之间加法运算： ", nameof(left));
-            }
+            // 如果全为null，抛出异常
+            if (left is null && right is null)
+                throw new ArgumentException("操作数不能全为null");
 
-            return amountInfo;
+            // 如果其中一个为null，将null视为0，币种使用不为null的币种
+            if (left is null)
+                return new Money(right!.Currency, right.Amount, null);
+            if (right is null)
+                return new Money(left.Currency, left.Amount, null);
+
+            // 两个都不为null时，检查币种是否相同
+            if (left.Currency != right.Currency)
+                throw new ArgumentException("币种不同，无法进行运算");
+
+            return new Money(left.Currency, left.Amount + right.Amount, null);
         }
 
         /// <summary>
-        /// 
+        /// 减法运算符重载
         /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
-        public static Money operator -(Money left, Money right)
+        /// <param name="left">左操作数</param>
+        /// <param name="right">右操作数</param>
+        /// <returns>运算结果</returns>
+        /// <exception cref="ArgumentNullException">当操作数为null时抛出</exception>
+        /// <exception cref="ArgumentException">当币种不同时抛出</exception>
+        public static Money operator -(Money? left, Money? right)
         {
-            Money amountInfo = null;
-            if (left.Currency == right.Currency)
-            {
-                amountInfo = new Money(left.Currency, left.Amount - right.Amount, null);
-            }
-            else
-            {
-                throw new ArgumentException("不支持不同币种之间减法运算： ", nameof(left));
-            }
+            // 如果全为null，抛出异常
+            if (left is null && right is null)
+                throw new ArgumentException("操作数不能全为null");
 
-            return amountInfo;
+            // 如果其中一个为null，将null视为0，币种使用不为null的币种
+            if (left is null)
+                return new Money(right!.Currency, -right.Amount, null);
+            if (right is null)
+                return new Money(left.Currency, left.Amount, null);
+
+            // 两个都不为null时，检查币种是否相同
+            if (left.Currency != right.Currency)
+                throw new ArgumentException("币种不同，无法进行运算");
+
+            return new Money(left.Currency, left.Amount - right.Amount, null);
         }
     }
 }

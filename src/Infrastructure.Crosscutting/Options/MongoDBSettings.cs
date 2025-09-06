@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,12 +12,12 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Options
         /// <summary>
         /// MongoDB连接字符串
         /// </summary>
-        public string ConnectionString { get; set; }
+        public required string ConnectionString { get; set; }
 
         /// <summary>
         /// 指定的MongoDB数据库
         /// </summary>
-        public string Database { get; set; }
+        public required string Database { get; set; }
 
         /// <summary>
         /// 是否禁用数据行的并发控制

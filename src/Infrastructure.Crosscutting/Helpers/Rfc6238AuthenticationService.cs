@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Net;
 using System.Security.Cryptography;
@@ -63,7 +63,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
             return (ulong)(delta.Ticks / _timestep.Ticks);
         }
 
-        public static int GenerateCode(byte[] securityToken, string modifier = null)
+        public static int GenerateCode(byte[] securityToken, string modifier = "")
         {
             if (securityToken == null)
             {
@@ -78,7 +78,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
             }
         }
 
-        public static bool ValidateCode(byte[] securityToken, int code, string modifier = null)
+        public static bool ValidateCode(byte[] securityToken, int code, string modifier = "")
         {
             if (securityToken == null)
             {

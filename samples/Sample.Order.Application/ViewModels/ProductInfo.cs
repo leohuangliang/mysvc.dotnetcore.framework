@@ -8,11 +8,11 @@
         /// <summary>
         /// 产品SKU
         /// </summary>
-        public string SKU { get; set; }
+        public required string SKU { get; set; }
 
         /// <summary>
         /// 产品标题
         /// </summary>
-        public string Title { get; set; }
+        public required string Title { get; set; }
     }
 }

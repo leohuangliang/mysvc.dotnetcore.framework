@@ -1,4 +1,4 @@
-﻿using MySvc.Framework.Domain.Core.Impl;
+using MySvc.Framework.Domain.Core.Impl;
 
 namespace Sample.Order.Domain.Common.Models
 {
@@ -9,6 +9,13 @@ namespace Sample.Order.Domain.Common.Models
     {
         private Address()
         {
+            Street1 = string.Empty;
+            Street2 = string.Empty;
+            Street3 = string.Empty;
+            City = string.Empty;
+            Province = string.Empty;
+            Country = string.Empty;
+            Postcode = string.Empty;
         }
 
         public Address(string country, string city,

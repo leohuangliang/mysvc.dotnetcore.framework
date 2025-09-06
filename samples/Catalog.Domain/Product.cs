@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using MySvc.Framework.Domain.Core.Attributes;
 using MySvc.Framework.Domain.Core.Impl;
 using Catalog.Domain.DomainEvents;
@@ -16,14 +16,14 @@ namespace Catalog.Domain
         //testtest
 
         public string SKU { get; private set; }
-        public string HeadLine { get; set; }
+        public string HeadLine { get; set; } = string.Empty;
         public decimal Price { get; private set; }
 
         public void SetPrice(decimal price)
         {
             if (!this.IsTransient())
             {
-                if (this.Price != price)
+                if (!this.Price.Equals(price))
                 {
                     AddDomainEvent(new ProductPriceChangedDomainEvent(this.SKU,price, this.Price));
                 }

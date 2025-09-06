@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace MySvc.Framework.Domain.Core.Specification
@@ -33,8 +33,8 @@ namespace MySvc.Framework.Domain.Core.Specification
         #region Protected Methods
         protected override Expression VisitParameter(ParameterExpression p)
         {
-            ParameterExpression replacement;
-            if (_map.TryGetValue(p, out replacement))
+            ParameterExpression? replacement;
+            if (_map.TryGetValue(p, out replacement) && replacement != null)
             {
                 p = replacement;
             }

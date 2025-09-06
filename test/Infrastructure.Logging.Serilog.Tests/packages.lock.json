@@ -1002,7 +1002,7 @@
           "xunit.extensibility.core": "[2.4.2]"
         }
       },
-      "MySvc.Framework.Infrastructure.Logging.Serilog": {
+      "MySvc.Framework.Infrastructure.Serilog": {
         "type": "Project",
         "dependencies": {
           "MailKit": "[4.8.0, )",

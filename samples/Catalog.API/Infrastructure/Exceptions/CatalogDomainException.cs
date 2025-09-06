@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MySvc.Framework.Infrastructure.Crosscutting.Exceptions;
@@ -7,6 +7,6 @@ namespace Catalog.API.Infrastructure.Exceptions
 {
     public class CatalogDomainException : ExceptionBase
     {
-        public override string Message { get; }
+        public override string Message { get; } = string.Empty;
     }
 }

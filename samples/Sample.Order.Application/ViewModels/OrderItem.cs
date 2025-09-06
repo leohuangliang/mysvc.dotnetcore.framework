@@ -8,7 +8,7 @@
         /// <summary>
         /// 产品信息
         /// </summary>
-        public ProductInfo Product { get; set; }
+        public required ProductInfo Product { get; set; }
 
         /// <summary>
         /// 单位价格

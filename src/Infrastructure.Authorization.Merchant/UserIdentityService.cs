@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Security.Authentication;
@@ -62,7 +62,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant
         /// <exception cref="AuthenticationException"></exception>
         public UserIdentity GetUserIdentity()
         {
-            if (!_contextAccessor.HttpContext.User.Identity.IsAuthenticated)
+            if (_contextAccessor.HttpContext?.User.Identity?.IsAuthenticated != true)
             {
                 throw new AuthenticationException("unauthorized");
             }
@@ -87,12 +87,12 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant
                 throw new ArgumentNullException(nameof(_contextAccessor.HttpContext));
             }
 
-            if (_contextAccessor.HttpContext.User == null)
+            if (_contextAccessor.HttpContext?.User == null)
             {
                 _logger.LogError("_contextAccessor.HttpContext.User is null");
                 throw new ArgumentNullException(nameof(_contextAccessor.HttpContext.User));
             }
-            if (!_contextAccessor.HttpContext.User.Identity.IsAuthenticated)
+            if (_contextAccessor.HttpContext?.User.Identity?.IsAuthenticated != true)
             {
                 throw new AuthenticationException("unauthorized");
             }
@@ -109,7 +109,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant
             }
 
             string cacheKey = $"user_profile_{tenantUserId}";
-            UserProfile userProfile = null;
+            UserProfile? userProfile = null;
             var json = await _distributedCache.GetStringAsync(cacheKey);
             if (!string.IsNullOrWhiteSpace(json))
             {
@@ -164,27 +164,27 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant
         private UserIdentity MapTenantUser()
         {
 
-            string clientId = _contextAccessor.HttpContext.User.GetClaimValue("client_id");
-            string tenantUserId = _contextAccessor.HttpContext.User.GetClaimValue("sub");
-            string tenantCode = _contextAccessor.HttpContext.User.GetClaimValue("tenantcode");
-            string tenantName = _contextAccessor.HttpContext.User.GetClaimValue("tenantname");
+            string clientId = _contextAccessor.HttpContext?.User.GetClaimValue("client_id") ?? string.Empty;
+            string tenantUserId = _contextAccessor.HttpContext?.User.GetClaimValue("sub") ?? string.Empty;
+            string tenantCode = _contextAccessor.HttpContext?.User.GetClaimValue("tenantcode") ?? string.Empty;
+            string tenantName = _contextAccessor.HttpContext?.User.GetClaimValue("tenantname") ?? string.Empty;
 
             if (string.IsNullOrWhiteSpace(tenantCode))
             {
-                tenantCode = _contextAccessor.HttpContext.User.GetClaimValue("client_tenantcode");
+                tenantCode = _contextAccessor.HttpContext?.User.GetClaimValue("client_tenantcode") ?? string.Empty;
             }
-            string userName = _contextAccessor.HttpContext.User.GetClaimValue(ClaimTypes.Name);
+            string userName = _contextAccessor.HttpContext?.User.GetClaimValue(ClaimTypes.Name) ?? string.Empty;
             
-            string role = _contextAccessor.HttpContext.User.GetClaimValue(ClaimTypes.Role);
-            string fullName = _contextAccessor.HttpContext.User.GetClaimValue("full_name");
-            string email = _contextAccessor.HttpContext.User.GetClaimValue(ClaimTypes.Email);
-            string dialcode = _contextAccessor.HttpContext.User.GetClaimValue("dialcode");
-            string phone_number = _contextAccessor.HttpContext.User.GetClaimValue("phone_number");
-            string email_verified = _contextAccessor.HttpContext.User.GetClaimValue("email_verified");
-            string phone_number_verified = _contextAccessor.HttpContext.User.GetClaimValue("phone_number_verified");
+            string role = _contextAccessor.HttpContext?.User.GetClaimValue(ClaimTypes.Role) ?? string.Empty;
+            string fullName = _contextAccessor.HttpContext?.User.GetClaimValue("full_name") ?? string.Empty;
+            string email = _contextAccessor.HttpContext?.User.GetClaimValue(ClaimTypes.Email) ?? string.Empty;
+            string dialcode = _contextAccessor.HttpContext?.User.GetClaimValue("dialcode") ?? string.Empty;
+            string phone_number = _contextAccessor.HttpContext?.User.GetClaimValue("phone_number") ?? string.Empty;
+            string email_verified = _contextAccessor.HttpContext?.User.GetClaimValue("email_verified") ?? string.Empty;
+            string phone_number_verified = _contextAccessor.HttpContext?.User.GetClaimValue("phone_number_verified") ?? string.Empty;
 
-            string hasPaymentPassword = _contextAccessor.HttpContext.User.GetClaimValue("HasPaymentPassword");
-            string uid = _contextAccessor.HttpContext.User.GetClaimValue("UID");
+            string hasPaymentPassword = _contextAccessor.HttpContext?.User.GetClaimValue("HasPaymentPassword") ?? string.Empty;
+            string uid = _contextAccessor.HttpContext?.User.GetClaimValue("UID") ?? string.Empty;
 
             if (string.IsNullOrWhiteSpace(tenantCode))
             {

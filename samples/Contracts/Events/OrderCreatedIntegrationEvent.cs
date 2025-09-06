@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace Contracts.Events
@@ -13,7 +13,7 @@ namespace Contracts.Events
         /// <summary>
         /// 订单编号
         /// </summary>
-        public string OrderNo { get; set; }
+        public required string OrderNo { get; set; }
 
         /// <summary>
         /// 下单时间
@@ -23,7 +23,7 @@ namespace Contracts.Events
         /// <summary>
         /// 订单项
         /// </summary>
-        public OrderItem[] OrderItems { get; set; }
+        public required OrderItem[] OrderItems { get; set; }
 
     }
 
@@ -32,12 +32,12 @@ namespace Contracts.Events
         /// <summary>
         /// 产品SKU
         /// </summary>
-        public string SKU { get; set; }
+        public required string SKU { get; set; }
 
         /// <summary>
         /// 产品标题
         /// </summary>
-        public string Title { get; set; }
+        public required string Title { get; set; }
 
         /// <summary>
         /// 单位数量

@@ -17,7 +17,10 @@ namespace MySvc.Framework.Infrastructure.Authorization.InternalClient
             this.UserName = userName;
             this.FullName = fullName;
             this.Email = email;
+            this.ConfirmEmail = confirmEmail;
+            this.DialCode = dialCode;
             this.PhoneNumber = phoneNumber;
+            this.ConfirmPhoneNumber = confirmPhoneNumber;
             this.Role = role;
             this.Permissions = permissions ?? new List<string>();
         }

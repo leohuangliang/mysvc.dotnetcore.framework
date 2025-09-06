@@ -1,4 +1,4 @@
-﻿
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
@@ -44,7 +44,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
 
         public UserIdentity GetUserIdentity()
         {
-            if (!_contextAccessor.HttpContext.User.Identity.IsAuthenticated)
+            if (_contextAccessor.HttpContext?.User.Identity?.IsAuthenticated != true)
             {
                 throw new AuthenticationException("unauthorized");
             }
@@ -67,7 +67,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
                 _logger.LogError("_contextAccessor.HttpContext.User is null");
                 throw new ArgumentNullException(nameof(_contextAccessor.HttpContext.User));
             }
-            if (!_contextAccessor.HttpContext.User.Identity.IsAuthenticated)
+            if (_contextAccessor.HttpContext.User.Identity?.IsAuthenticated != true)
             {
                 throw new AuthenticationException("unauthorized");
             }
@@ -75,7 +75,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
             string tenantUserId = _contextAccessor.HttpContext.User.GetClaimValue("sub");
             string tenantCode = _contextAccessor.HttpContext.User.GetClaimValue("tenantcode");
             string cacheKey = $"user_profile_{tenantUserId}";
-            UserProfile userProfile = null;
+            UserProfile? userProfile = null;
             var json = await _distributedCache.GetStringAsync(cacheKey);
             if (!string.IsNullOrWhiteSpace(json))
             {
@@ -132,17 +132,17 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
         {
 
 
-            string tenantUserId = _contextAccessor.HttpContext.User.GetClaimValue("sub");
-            string tenantCode = _contextAccessor.HttpContext.User.GetClaimValue("tenantcode");
-            string userName = _contextAccessor.HttpContext.User.GetClaimValue("unique_name");
-            string role = _contextAccessor.HttpContext.User.GetClaimValue("role");
-            string fullName = _contextAccessor.HttpContext.User.GetClaimValue("full_name");
-            string email = _contextAccessor.HttpContext.User.GetClaimValue("email");
-            string dialcode = _contextAccessor.HttpContext.User.GetClaimValue("dialcode");
-            string phone_number = _contextAccessor.HttpContext.User.GetClaimValue("phone_number");
-            string email_verified = _contextAccessor.HttpContext.User.GetClaimValue("email_verified");
-            string phone_number_verified = _contextAccessor.HttpContext.User.GetClaimValue("phone_number_verified");
-            string hasPaymentPassword = _contextAccessor.HttpContext.User.GetClaimValue("HasPaymentPassword");
+            string tenantUserId = _contextAccessor.HttpContext?.User.GetClaimValue("sub") ?? string.Empty;
+            string tenantCode = _contextAccessor.HttpContext?.User.GetClaimValue("tenantcode") ?? string.Empty;
+            string userName = _contextAccessor.HttpContext?.User.GetClaimValue("unique_name") ?? string.Empty;
+            string role = _contextAccessor.HttpContext?.User.GetClaimValue("role") ?? string.Empty;
+            string fullName = _contextAccessor.HttpContext?.User.GetClaimValue("full_name") ?? string.Empty;
+            string email = _contextAccessor.HttpContext?.User.GetClaimValue("email") ?? string.Empty;
+            string dialcode = _contextAccessor.HttpContext?.User.GetClaimValue("dialcode") ?? string.Empty;
+            string phone_number = _contextAccessor.HttpContext?.User.GetClaimValue("phone_number") ?? string.Empty;
+            string email_verified = _contextAccessor.HttpContext?.User.GetClaimValue("email_verified") ?? string.Empty;
+            string phone_number_verified = _contextAccessor.HttpContext?.User.GetClaimValue("phone_number_verified") ?? string.Empty;
+            string hasPaymentPassword = _contextAccessor.HttpContext?.User.GetClaimValue("HasPaymentPassword") ?? string.Empty;
 
 
             if (string.IsNullOrWhiteSpace(tenantUserId) || string.IsNullOrWhiteSpace(tenantCode) || string.IsNullOrWhiteSpace(userName))

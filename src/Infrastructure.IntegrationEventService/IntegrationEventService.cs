@@ -1,4 +1,4 @@
-﻿using MassTransit;
+using MassTransit;
 using Microsoft.Extensions.Logging;
 using MySvc.Framework.Domain.Core;
 using MySvc.Framework.Domain.Core.Impl;
@@ -29,20 +29,20 @@ namespace MySvc.Framework.Infrastructure.IntegrationEventService
         {
             _messageQueue = new Queue<KeyValuePair<Guid, dynamic>>();
             _publishEndpoint = publishEndpoint ?? throw new ArgumentNullException(nameof(publishEndpoint));
-            if (integrationEventLogRepository != null) _integrationEventLogRepository = integrationEventLogRepository;
-            if (integrationEventLogManager != null) _integrationEventLogManager = integrationEventLogManager;
-            if (logger != null) _logger = logger;
-            if (jsonConverter != null) _jsonConverter = jsonConverter;
+            _integrationEventLogRepository = integrationEventLogRepository ?? throw new ArgumentNullException(nameof(integrationEventLogRepository));
+            _integrationEventLogManager = integrationEventLogManager ?? throw new ArgumentNullException(nameof(integrationEventLogManager));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _jsonConverter = jsonConverter ?? throw new ArgumentNullException(nameof(jsonConverter));
         }
 
         /// <summary>
         /// 保存事件，确保在本地事物内完成
         /// </summary>
         /// <param name="event">集成事件</param>
-        public async Task SaveIntegrationEvent<T>(T @event) where T : class, new()
+        public async Task SaveIntegrationEvent<T>(T @event) where T : class
         {
 
-            var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, @event.GetType().FullName,
+            var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, @event.GetType().FullName ?? string.Empty,
                 _jsonConverter.SerializeObject(@event));
             await _integrationEventLogRepository.AddAsync(integrationEventLog);
             //事件入内存队列
@@ -55,10 +55,10 @@ namespace MySvc.Framework.Infrastructure.IntegrationEventService
         /// 保存事件，确保在本地事物内完成
         /// </summary>
         /// <param name="event">集成事件</param>
-        public async Task SaveIntegrationEvent<T>(object @event) where T : class, new()
+        public async Task SaveIntegrationEvent<T>(object @event) where T : class
         {
 
-            var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, typeof(T).FullName,
+            var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, typeof(T).FullName ?? string.Empty,
                 _jsonConverter.SerializeObject(@event));
             await _integrationEventLogRepository.AddAsync(integrationEventLog);
             //事件入内存队列
@@ -71,13 +71,13 @@ namespace MySvc.Framework.Infrastructure.IntegrationEventService
         /// 批量保存集成事件
         /// </summary>
         /// <param name="evts">集成事件对象列表</param>
-        public async Task SaveIntegrationEvent<T>(IList<T> evts) where T : class, new()
+        public async Task SaveIntegrationEvent<T>(IList<T> evts) where T : class
         {
             if (evts != null && evts.Any())
             {
                 foreach (var integrationEvent in evts)
                 {
-                    var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, integrationEvent.GetType().FullName,
+                    var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, integrationEvent.GetType().FullName ?? string.Empty,
                         _jsonConverter.SerializeObject(integrationEvent));
                     await _integrationEventLogRepository.AddAsync(integrationEventLog);
                     //事件入内存队列
@@ -91,13 +91,13 @@ namespace MySvc.Framework.Infrastructure.IntegrationEventService
         /// 批量保存集成事件
         /// </summary>
         /// <param name="evts">集成事件对象列表</param>
-        public async Task SaveIntegrationEvent<T>(IList<object> evts) where T : class, new()
+        public async Task SaveIntegrationEvent<T>(IList<object> evts) where T : class
         {
             if (evts != null && evts.Any())
             {
                 foreach (var integrationEvent in evts)
                 {
-                    var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, typeof(T).FullName,
+                    var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, typeof(T).FullName ?? string.Empty,
                         _jsonConverter.SerializeObject(integrationEvent));
                     await _integrationEventLogRepository.AddAsync(integrationEventLog);
                     //事件入内存队列
@@ -126,7 +126,7 @@ namespace MySvc.Framework.Infrastructure.IntegrationEventService
             return task;
         }
 
-        public Task PublishIntegrationEventWithoutSave<T>(T @event) where T : class, new()
+        public Task PublishIntegrationEventWithoutSave<T>(T @event) where T : class
         {
             if (@event != null)
             {
@@ -136,7 +136,7 @@ namespace MySvc.Framework.Infrastructure.IntegrationEventService
             return Task.CompletedTask;
 
         }
-        public Task PublishIntegrationEventWithoutSave<T>(object @event) where T : class, new()
+        public Task PublishIntegrationEventWithoutSave<T>(object @event) where T : class
         {
             if (@event != null)
             {

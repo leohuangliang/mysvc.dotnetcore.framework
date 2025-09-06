@@ -1,4 +1,4 @@
-﻿using Sample.Order.Application.Common.Models;
+using Sample.Order.Application.Common.Models;
 
 namespace Sample.Order.Application.Extensions
 {
@@ -10,7 +10,7 @@ namespace Sample.Order.Application.Extensions
         /// <summary>
         /// DTO的Address转换为Domian的Address
         /// </summary>
-        public static Domain.Common.Models.Address ToDomain(this Address address)
+        public static Domain.Common.Models.Address? ToDomain(this Address address)
         {
             if (address == null)
             {

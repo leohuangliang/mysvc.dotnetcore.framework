@@ -22,7 +22,7 @@ namespace Infrastructure.Data.MongoDB.Tests
             _mockLogger = new Mock<ILogger<MongoDBContext>>();
             //ILogger 很多扩展方法，但是扩展方法无法moq，直接moq最底部
             _mockLogger.Setup(m => m.Log(It.IsAny<LogLevel>(), It.IsAny<EventId>(), It.IsAny<MongoDBContext>(),
-                It.IsAny<Exception>(), It.IsAny<Func<MongoDBContext, Exception, string>>()));
+                It.IsAny<Exception>(), It.IsAny<Func<MongoDBContext, Exception?, string>>()));
             _mockLogger.Setup(m => m.IsEnabled(It.IsAny<LogLevel>())).Returns(true);
 
         }
@@ -45,8 +45,11 @@ namespace Infrastructure.Data.MongoDB.Tests
 
             context.BeginTransaction();
             var employee2 = await personRepository.GetByKeyAsync(employee.Id) as Employee;
-            employee2.Dimission();
-            await personRepository.UpdateAsync(employee2);
+            if (employee2 is not null)
+            {
+                employee2.Dimission();
+                await personRepository.UpdateAsync(employee2);
+            }
             await context.CommitAsync();
 
         }

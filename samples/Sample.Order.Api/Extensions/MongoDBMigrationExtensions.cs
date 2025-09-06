@@ -28,7 +28,7 @@ namespace Sample.Order.Api.Extensions
                 {
                     logger.LogInformation($"Migrating database");
 
-                    mongoDbManager.CreateCollections();
+                    mongoDbManager?.CreateCollections();
 
                     logger.LogInformation($"Migrated database associated");
                 }

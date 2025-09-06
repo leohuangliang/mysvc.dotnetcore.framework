@@ -10,8 +10,8 @@ namespace Infrastructure.Data.MongoDB.Tests
         private readonly string _connectionString = "mongodb://admin:admin123456@127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/?connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1";
         private readonly string _dbName = "framework-core-test";
         private readonly IOptions<MongoDBSettings> _options;
-        private IContainer _container;
-        private IMediator _mediator;
+        private IContainer? _container;
+        private IMediator _mediator = null!;
         private readonly ITestOutputHelper _output;
         private readonly Mock<ILogger<MongoDBContext>> _mockLogger;
         private readonly IEntityIdGenerator _entityIdGenerator;
@@ -34,7 +34,7 @@ namespace Infrastructure.Data.MongoDB.Tests
             _mockLogger = new Mock<ILogger<MongoDBContext>>();
             //ILogger 很多扩展方法，但是扩展方法无法moq，直接moq最底部
             _mockLogger.Setup(m => m.Log(It.IsAny<LogLevel>(), It.IsAny<EventId>(), It.IsAny<MongoDBContext>(),
-                It.IsAny<Exception>(), It.IsAny<Func<MongoDBContext, Exception, string>>()));
+                It.IsAny<Exception>(), It.IsAny<Func<MongoDBContext, Exception?, string>>()));
             _mockLogger.Setup(m => m.IsEnabled(It.IsAny<LogLevel>())).Returns(true);
 
         }
@@ -52,7 +52,7 @@ namespace Infrastructure.Data.MongoDB.Tests
 
             var person2 = await personRepository.GetByKeyAsync(person.Id);
 
-            Assert.Equal(person2.Name, person.Name);
+            Assert.Equal(person2?.Name, person.Name);
 
         }
 
@@ -69,7 +69,7 @@ namespace Infrastructure.Data.MongoDB.Tests
 
             var person2 = await personRepository.GetByKeyAsync(person.Id);
 
-            Assert.Equal((string)person2.Name, person.Name);
+            Assert.Equal((string?)person2?.Name, person.Name);
 
             var employee2 = person2 as Employee;
             Assert.NotNull(employee2);
@@ -109,25 +109,25 @@ namespace Infrastructure.Data.MongoDB.Tests
             await personRepository.AddAsync(person);
             await context.CommitAsync();
 
-            Person person1 = await personRepository.GetByKeyAsync(person.Id);
-            string version1 = person1.Timestamp;
+            Person? person1 = await personRepository.GetByKeyAsync(person.Id);
+            string version1 = person1?.Timestamp ?? string.Empty;
 
-            Person person2 = await personRepository.GetByKeyAsync(person.Id);
-            string version2 = person1.Timestamp;
+            Person? person2 = await personRepository.GetByKeyAsync(person.Id);
+            string version2 = person1?.Timestamp ?? string.Empty;
 
             Assert.Equal(version1, version2);
             context.BeginTransaction();
-            person1.Name1 = "hello";
+            person1!.Name1 = "hello";
             await personRepository.UpdateAsync(person1);
             await context.CommitAsync();
 
 
             person1 = await personRepository.GetByKeyAsync(person.Id);
 
-            Assert.NotEqual(version1, person1.Timestamp);
+            Assert.NotEqual(version1, person1?.Timestamp);
 
             context.BeginTransaction();
-            person2.Name1 = "concurrency";
+            person2!.Name1 = "concurrency";
 
             await Assert.ThrowsAnyAsync<ConcurrencyException>(() => personRepository.UpdateAsync(person2));
         }
@@ -220,7 +220,10 @@ namespace Infrastructure.Data.MongoDB.Tests
                     var name = (item.GetTypeInfo()
                         .GetCustomAttributes(typeof(AggregateRootNameAttribute))
                         .FirstOrDefault() as AggregateRootNameAttribute)?.Name;
-                    names.Add(name);
+                    if (name != null)
+                    {
+                        names.Add(name);
+                    }
                 }
             }
 

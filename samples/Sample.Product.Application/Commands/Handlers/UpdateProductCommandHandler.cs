@@ -1,7 +1,8 @@
-﻿using MediatR;
+using MediatR;
 using MySvc.Framework.Domain.Core;
 using Sample.Product.Domain.AggregatesModel.ProductAggregate.Specifications;
 using Sample.Product.Domain.Repositories;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -29,6 +30,11 @@ namespace Sample.Product.Application.Commands.Handlers
         public async Task Handle(UpdateProductCommand command, CancellationToken cancellationToken)
         {
             var product = await _productRepository.GetAsync(new MatchProductBySKUSpecification(command.SKU));
+            if (product is null)
+            {
+                throw new InvalidOperationException($"Product with SKU {command.SKU} not found.");
+            }
+            
             product.ChangeStockQty(command.StockQty);
             product.ChangeTitle(command.Title);
             product.Desc = command.Desc;

@@ -102,9 +102,9 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator
                 }
 
                 long id = 0L;
-                var work = _workId.Value << _indexLength;
-                var time = currentTimeStamp << (_indexLength + _workIdLength);
-                id = time | work | lastIndex;
+                var work = (long)(_workId ?? 0) << _indexLength;
+                var time = (long)currentTimeStamp << (_indexLength + _workIdLength);
+                id = time | work | (long)lastIndex;
                 lastIndex++;
                 return id;
             }

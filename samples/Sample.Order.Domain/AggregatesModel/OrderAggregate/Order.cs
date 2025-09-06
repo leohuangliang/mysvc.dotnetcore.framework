@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MySvc.Framework.Domain.Core.Attributes;
@@ -16,6 +16,9 @@ namespace Sample.Order.Domain.AggregatesModel.OrderAggregate
     {
         private Order()
         {
+            OrderNo = string.Empty;
+            Buyer = string.Empty;
+            Remark = string.Empty;
             Address = new Address("", "", "", "", "", "", "");
 
             _orderItems = new List<OrderItem>();
@@ -61,7 +64,7 @@ namespace Sample.Order.Domain.AggregatesModel.OrderAggregate
         /// <summary>
         /// 备注
         /// </summary>
-        public string Remark { get;set; }
+        public string Remark { get;set; } = string.Empty;
 
         /// <summary>
         /// 下单时间

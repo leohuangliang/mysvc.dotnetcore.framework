@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace MySvc.Framework.Domain.Core.Paged
@@ -53,14 +53,14 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// <returns>如果指定的Object与当前Object相等，则返回true，否则返回false。</returns>
         /// <remarks>有关此函数的更多信息，请参见：http://msdn.microsoft.com/zh-cn/library/system.object.equals。
         /// </remarks>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (ReferenceEquals(this, obj))
                 return true;
-            if (obj == (object)null)
+            if (obj == null)
                 return false;
-            var other = obj as SinglePageResult<T>;
-            if (other == (object)null)
+            SinglePageResult<T>? other = obj as SinglePageResult<T>;
+            if (other is null)
                 return false;
             return this.PageSize == other.PageSize &&
                    this.Data == other.Data;
@@ -88,7 +88,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         {
             if (ReferenceEquals(a, b))
                 return true;
-            if ((object)a == null || (object)b == null)
+            if (a is null || b is null)
                 return false;
             return a.Equals(b);
         }

@@ -78,7 +78,8 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 
         public IMongoCollection<TAggregateRoot> GetCollection<TAggregateRoot>() where TAggregateRoot : IAggregateRoot
         {
-            return Database.GetCollection<TAggregateRoot>(GetAttributeCollectionName(typeof(TAggregateRoot)) ?? this.Pluralize(typeof(TAggregateRoot)));
+            var collectionName = GetAttributeCollectionName(typeof(TAggregateRoot)) ?? this.Pluralize(typeof(TAggregateRoot));
+            return Database.GetCollection<TAggregateRoot>(collectionName);
         }
 
         /// <summary> 
@@ -225,7 +226,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
 
                 if (!DisableConcurrencyControl)
                 {
-                    if (res == null || !res.IsAcknowledged || (res.ModifiedCount == 0 &&  await collection.CountDocumentsAsync(r=> r.Id == obj.Id) == 1))
+                    if (!res.IsAcknowledged || (res.ModifiedCount == 0 &&  await collection.CountDocumentsAsync(r=> r.Id == obj.Id) == 1))
                     {
                         throw new ConcurrencyException($"Object Type: [{obj.GetType()}], ObjectId: [{ obj.Id}], 更新时发生并发性错误, OriginVersion: {originVersion}");
                     }
@@ -559,20 +560,20 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <summary>
         /// 根据类型名转化成复数
         /// </summary>
-        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="type">集合类型</param>
         /// <returns></returns>
         private string Pluralize(Type type)
         {
-            return (type.Name.Pluralize()).Camelize();
+            return (type.Name.Pluralize() ?? type.Name).Camelize();
         }
 
 
         /// <summary>
         /// 返回集合名称
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <param name="t">类型参数</param>
         /// <returns></returns>
-        private string GetAttributeCollectionName(Type t)
+        private string? GetAttributeCollectionName(Type t)
         {
             return (t.GetTypeInfo()
                                      .GetCustomAttributes(typeof(AggregateRootNameAttribute))

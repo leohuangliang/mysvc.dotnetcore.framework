@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -34,7 +34,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant.Permissions
                     Console.WriteLine(i);
                 }
 
-                using (Stream stream = typeof(PermissionManage).GetTypeInfo().Assembly.GetManifestResourceStream("MySvc.Framework.Infrastructure.Authorization.Client.Permissions.Permission.xml"))
+                using (Stream? stream = typeof(PermissionManage).GetTypeInfo().Assembly.GetManifestResourceStream("MySvc.Framework.Infrastructure.Authorization.Client.Permissions.Permission.xml"))
                 {
                     if (stream == null)
                     {
@@ -47,18 +47,21 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant.Permissions
                             xmlDoc.Load(sr);
                         }
 
-                        foreach (XmlNode node in xmlDoc.SelectNodes("//Permission"))
+                        var permissionNodes = xmlDoc.SelectNodes("//Permission");
+                        if (permissionNodes != null)
                         {
-                            string roles = node.Attributes["Roles"].Value;
+                            foreach (XmlNode node in permissionNodes)
+                        {
+                            string roles = node.Attributes?["Roles"]?.Value ?? string.Empty;
                             if (roles == "all")
                             {
                                 _roleList.AddRange(new List<RolePermission>()
                                  {
-                                     new RolePermission(){ Role = RoleConst.WalletOwner,Permission= node.Attributes["Name"].Value },
-                                     new RolePermission(){ Role = RoleConst.WalletAdmin,Permission= node.Attributes["Name"].Value  },
-                                     new RolePermission(){ Role = RoleConst.FinancialStaff  ,Permission= node.Attributes["Name"].Value },
-                                     new RolePermission(){ Role = RoleConst.OperationalStaff ,Permission= node.Attributes["Name"].Value },
-                                     new RolePermission(){ Role = RoleConst.ViewOnly ,Permission= node.Attributes["Name"].Value },
+                                     new RolePermission(){ Role = RoleConst.WalletOwner,Permission= node.Attributes?["Name"]?.Value ?? string.Empty },
+                                     new RolePermission(){ Role = RoleConst.WalletAdmin,Permission= node.Attributes?["Name"]?.Value ?? string.Empty  },
+                                     new RolePermission(){ Role = RoleConst.FinancialStaff  ,Permission= node.Attributes?["Name"]?.Value ?? string.Empty },
+                                     new RolePermission(){ Role = RoleConst.OperationalStaff ,Permission= node.Attributes?["Name"]?.Value ?? string.Empty },
+                                     new RolePermission(){ Role = RoleConst.ViewOnly ,Permission= node.Attributes?["Name"]?.Value ?? string.Empty },
 
                                  });
                             }
@@ -69,10 +72,11 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant.Permissions
                                 {
                                     foreach (var item in roleList)
                                     {
-                                        _roleList.Add(new RolePermission() { Role = item, Permission = node.Attributes["Name"].Value });
+                                        _roleList.Add(new RolePermission() { Role = item, Permission = node.Attributes?["Name"]?.Value ?? string.Empty });
                                     }
                                 }
                             }
+                        }
                         }
                     }
                 }
@@ -85,8 +89,8 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant.Permissions
     }
     public class RolePermission
     {
-        public string Role { get; set; }
-        public string Permission { get; set; }
+        public string Role { get; set; } = string.Empty;
+        public string Permission { get; set; } = string.Empty;
     }
 
 }

@@ -12,7 +12,7 @@ namespace MySvc.Framework.Infrastructure.NewtonsoftJson
     /// </summary>
     public class NewtonsoftJsonConverter : IJsonConverter
     {
-        private JsonSerializerSettings SerializerSettings { get; set; }
+        private JsonSerializerSettings SerializerSettings { get; set; } = new JsonSerializerSettings();
 
         public NewtonsoftJsonConverter()
         {
@@ -44,7 +44,7 @@ namespace MySvc.Framework.Infrastructure.NewtonsoftJson
         /// <param name="value">json字符串</param>
         /// <typeparam name="T">反序列化的类型</typeparam>
         /// <returns>反序列化出的对象</returns>
-        public T DeserializeObject<T>(string value)
+        public T? DeserializeObject<T>(string value)
         {
             if (SerializerSettings != null)
             {
@@ -60,7 +60,7 @@ namespace MySvc.Framework.Infrastructure.NewtonsoftJson
         /// <param name="type">反序列化的类型</param>
         /// <param name="stream">Stream流</param>
         /// <returns>反序列化出的对象</returns>
-        public object DeserializeFromStream(Type type, Stream stream)
+        public object? DeserializeFromStream(Type type, Stream stream)
         {
             using (StreamReader reader = new StreamReader(stream))
             {
@@ -79,7 +79,7 @@ namespace MySvc.Framework.Infrastructure.NewtonsoftJson
         /// <param name="value">JSON字符串</param>
         /// <param name="type">数据类型</param>
         /// <returns>反序列化出的对象</returns>
-        public object DeserializeFromString(string value, Type type)
+        public object? DeserializeFromString(string value, Type type)
         {
             if (SerializerSettings != null)
             {

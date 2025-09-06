@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -33,7 +33,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.InternalClient.Permission
                     Console.WriteLine(i);
                 }
 
-                using (Stream stream = typeof(PermissionManage).GetTypeInfo().Assembly.GetManifestResourceStream("MySvc.DotNetCore.Framework.Infrastructure.Authorization.InternalClient.Permissions.Permission.xml"))
+                using (Stream? stream = typeof(PermissionManage).GetTypeInfo().Assembly.GetManifestResourceStream("MySvc.DotNetCore.Framework.Infrastructure.Authorization.InternalClient.Permissions.Permission.xml"))
                 {
                     if (stream == null)
                     {
@@ -46,14 +46,17 @@ namespace MySvc.Framework.Infrastructure.Authorization.InternalClient.Permission
                             xmlDoc.Load(sr);
                         }
 
-                        foreach (XmlNode node in xmlDoc.SelectNodes("//Permission"))
+                        var permissionNodes = xmlDoc.SelectNodes("//Permission");
+                        if (permissionNodes != null)
                         {
-                            string roles = node.Attributes["Roles"].Value;
+                            foreach (XmlNode node in permissionNodes)
+                        {
+                            string roles = node.Attributes?["Roles"]?.Value ?? string.Empty;
                             if (roles == "all")
                             {
                                 _roleList.AddRange(new List<RolePermission>()
                                  {
-                                     new RolePermission(){ Role = RoleConst.Admin,Permission= node.Attributes["Name"].Value },
+                                     new RolePermission(){ Role = RoleConst.Admin,Permission= node.Attributes?["Name"]?.Value ?? string.Empty },
 
                                  });
                             }
@@ -64,10 +67,11 @@ namespace MySvc.Framework.Infrastructure.Authorization.InternalClient.Permission
                                 {
                                     foreach (var item in roleList)
                                     {
-                                        _roleList.Add(new RolePermission() { Role = item, Permission = node.Attributes["Name"].Value });
+                                        _roleList.Add(new RolePermission() { Role = item, Permission = node.Attributes?["Name"]?.Value ?? string.Empty });
                                     }
                                 }
                             }
+                        }
                         }
                     }
                 }
@@ -80,8 +84,8 @@ namespace MySvc.Framework.Infrastructure.Authorization.InternalClient.Permission
     }
     public class RolePermission
     {
-        public string Role { get; set; }
-        public string Permission { get; set; }
+        public required string Role { get; set; }
+        public required string Permission { get; set; }
     }
 
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using MySvc.Framework.Infrastructure.Crosscutting.Jobs;
@@ -55,7 +55,7 @@ namespace MySvc.Framework.Infrastructure.Job.Hangfire
         /// <param name="obj"></param>
         /// <param name="cronExpression">cron表达式</param>
         /// <param name="recurringJobId">周期任务的jobid</param>
-        public string Recurring<TParam>( TParam obj, string cronExpression, string recurringJobId = null)
+        public string Recurring<TParam>( TParam obj, string cronExpression, string? recurringJobId = null)
         {
             if (string.IsNullOrEmpty(recurringJobId))
             {
@@ -66,7 +66,7 @@ namespace MySvc.Framework.Infrastructure.Job.Hangfire
             return recurringJobId;
         }
 
-        public string Recurring<TParam>(TParam obj, string cronExpression, TimeZoneInfo timeZoneInfo, string recurringJobId = null)
+        public string Recurring<TParam>(TParam obj, string cronExpression, TimeZoneInfo timeZoneInfo, string? recurringJobId = null)
         {
             if (string.IsNullOrEmpty(recurringJobId))
             {
@@ -77,7 +77,7 @@ namespace MySvc.Framework.Infrastructure.Job.Hangfire
             return recurringJobId;
         }
 
-        public string Recurring<TJob, TParam>(TParam param, string cronExpression, string recurringJobId = null) where TJob : IRecurringJob<TParam>
+        public string Recurring<TJob, TParam>(TParam param, string cronExpression, string? recurringJobId = null) where TJob : IRecurringJob<TParam>
         {
             if (string.IsNullOrEmpty(recurringJobId))
             {
@@ -89,7 +89,7 @@ namespace MySvc.Framework.Infrastructure.Job.Hangfire
         }
 
         public string Recurring<TJob, TParam>(TParam param, string cronExpression, TimeZoneInfo timeZoneInfo,
-            string recurringJobId = null) where TJob : IRecurringJob<TParam>
+            string? recurringJobId = null) where TJob : IRecurringJob<TParam>
         {
             if (string.IsNullOrEmpty(recurringJobId))
             {

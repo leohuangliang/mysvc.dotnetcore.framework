@@ -326,13 +326,6 @@
           "Microsoft.Extensions.Caching.Abstractions": "[8.0.0, )"
         }
       },
-      "MySvc.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson": {
-        "type": "Project",
-        "dependencies": {
-          "MySvc.Framework.Infrastructure.Crosscutting": "[1.0.0, )",
-          "Newtonsoft.Json": "[13.0.3, )"
-        }
-      },
       "MySvc.Framework.Infrastructure.Data.MongoDB": {
         "type": "Project",
         "dependencies": {
@@ -343,6 +336,13 @@
           "MongoDB.Driver": "[2.29.0, )",
           "MySvc.Framework.Domain.Core": "[1.0.0, )",
           "MySvc.Framework.Infrastructure.Crosscutting": "[1.0.0, )"
+        }
+      },
+      "MySvc.Framework.Infrastructure.NewtonsoftJson": {
+        "type": "Project",
+        "dependencies": {
+          "MySvc.Framework.Infrastructure.Crosscutting": "[1.0.0, )",
+          "Newtonsoft.Json": "[13.0.3, )"
         }
       },
       "MediatR": {

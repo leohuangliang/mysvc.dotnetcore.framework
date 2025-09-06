@@ -1,5 +1,6 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MySvc.Framework.Domain.Core.Paged
 {
@@ -36,7 +37,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// <param name="pageSize">页面大小。</param>
         /// <param name="pageNumber">页码。</param>
         /// <param name="data">当前页面的数据。</param>
-        public PagedResult(long totalRecords, int totalPages, int pageSize, int pageNumber, List<T> data)
+        public PagedResult(long totalRecords, int totalPages, int pageSize, int pageNumber, List<T>? data)
         {
             this.TotalPages = totalPages;
             this.TotalRecords = totalRecords;
@@ -72,7 +73,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// <summary>
         /// 获取或设置当前页面的数据。
         /// </summary>
-        public List<T> Data { get; set; }
+        public List<T>? Data { get; set; } = new List<T>();
 
         #endregion
 
@@ -85,14 +86,14 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// <returns>如果指定的Object与当前Object相等，则返回true，否则返回false。</returns>
         /// <remarks>有关此函数的更多信息，请参见：http://msdn.microsoft.com/zh-cn/library/system.object.equals。
         /// </remarks>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (ReferenceEquals(this, obj))
                 return true;
-            if (obj == (object)null)
+            if (obj == null)
                 return false;
-            var other = obj as PagedResult<T>;
-            if (other == (object)null)
+            PagedResult<T>? other = obj as PagedResult<T>;
+            if (other is null)
                 return false;
             return this.TotalPages == other.TotalPages &&
                    this.TotalRecords == other.TotalRecords &&
@@ -125,7 +126,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         {
             if (ReferenceEquals(a, b))
                 return true;
-            if ((object)a == null || (object)b == null)
+            if (a is null || b is null)
                 return false;
             return a.Equals(b);
         }
@@ -151,7 +152,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// <returns>一个可用于循环访问集合的 IEnumerator 对象。</returns>
         public IEnumerator<T> GetEnumerator()
         {
-            return this.Data.GetEnumerator();
+            return this.Data?.GetEnumerator() ?? Enumerable.Empty<T>().GetEnumerator();
         }
 
         #endregion
@@ -164,7 +165,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// <returns>一个可用于循环访问集合的 IEnumerator 对象。</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return this.Data.GetEnumerator();
+            return this.Data?.GetEnumerator() ?? Enumerable.Empty<T>().GetEnumerator();
         }
 
         #endregion
@@ -177,7 +178,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// <param name="item">要添加到 ICollection{T} 的对象。</param>
         public void Add(T item)
         {
-            this.Data.Add(item);
+            this.Data?.Add(item);
         }
 
         /// <summary>
@@ -185,7 +186,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// </summary>
         public void Clear()
         {
-            this.Data.Clear();
+            this.Data?.Clear();
         }
 
         /// <summary>
@@ -195,7 +196,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// <returns>如果在 ICollection{T} 中找到 item，则为 true；否则为 false。</returns>
         public bool Contains(T item)
         {
-            return this.Data.Contains(item);
+            return this.Data?.Contains(item) ?? false;
         }
 
         /// <summary>
@@ -205,7 +206,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// <param name="arrayIndex">array 中从零开始的索引，从此索引处开始进行复制。</param>
         public void CopyTo(T[] array, int arrayIndex)
         {
-            this.Data.CopyTo(array, arrayIndex);
+            this.Data?.CopyTo(array, arrayIndex);
         }
 
         /// <summary>
@@ -213,7 +214,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// </summary>
         public int Count
         {
-            get { return this.Data.Count; }
+            get { return this.Data?.Count ?? 0; }
         }
 
         /// <summary>
@@ -231,7 +232,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// <returns>如果已从 ICollection{T} 中成功移除 item，则为 true；否则为 false。 如果在原始 ICollection{T} 中没有找到 item，该方法也会返回 false。 </returns>
         public bool Remove(T item)
         {
-            return this.Data.Remove(item);
+            return this.Data?.Remove(item) ?? false;
         }
 
         #endregion        

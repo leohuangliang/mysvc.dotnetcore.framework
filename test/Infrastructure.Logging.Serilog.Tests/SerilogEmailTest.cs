@@ -6,7 +6,7 @@ namespace Infrastructure.Logging.Serilog.Tests
 {
     public class SerilogEmailTest
     {
-        [Fact]
+        [Fact(Skip = "Email configuration required for this test")]
         public void Works()
         {
             var selfLogMessages = new List<string>();

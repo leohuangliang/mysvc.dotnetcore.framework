@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,12 +9,12 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
         /// <summary>
         /// 用户名
         /// </summary>
-        public string UserName { get; set; }
+        public string UserName { get; set; } = string.Empty;
 
         /// <summary>
         /// 姓名
         /// </summary>
-        public string FullName { get; set; }
+        public string FullName { get; set; } = string.Empty;
 
         /// <summary>
         /// 注册时间
@@ -24,12 +24,12 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
         /// <summary>
         /// 电话
         /// </summary>
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; } = string.Empty;
 
         /// <summary>
         /// 区号
         /// </summary>
-        public string DialCode { get; set; }
+        public string DialCode { get; set; } = string.Empty;
 
         /// <summary>
         /// 手机号是否绑定
@@ -39,7 +39,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
         /// <summary>
         /// 邮箱
         /// </summary>
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
         /// <summary>
         /// 邮箱是否确认
@@ -54,16 +54,16 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
         /// <summary>
         /// 角色
         /// </summary>
-        public string Role { get; set; }
+        public string Role { get; set; } = string.Empty;
 
         /// <summary>
         /// 头像地址
         /// </summary>
-        public string Photo { get; set; }
+        public string Photo { get; set; } = string.Empty;
 
         /// <summary>
         /// 权限集
         /// </summary>
-        public List<string> Permissions { get; set; }
+        public List<string> Permissions { get; set; } = new List<string>();
     }
 }

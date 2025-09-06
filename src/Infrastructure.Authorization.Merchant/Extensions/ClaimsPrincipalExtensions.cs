@@ -1,4 +1,4 @@
-﻿using System.Security.Claims;
+using System.Security.Claims;
 using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 
 namespace MySvc.Framework.Infrastructure.Authorization.Merchant.Extensions
@@ -10,7 +10,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant.Extensions
             string result = "";
             if (user != null && !string.IsNullOrWhiteSpace(claimName))
             {
-                Claim claim = user.FindFirst(claimName);
+                Claim? claim = user.FindFirst(claimName);
                 if (claim != null)
                 {
                     result = claim.Value;

@@ -1,4 +1,4 @@
-﻿using MediatR;
+using MediatR;
 
 namespace Sample.Product.Application.Commands
 {
@@ -10,12 +10,12 @@ namespace Sample.Product.Application.Commands
         /// <summary>
         /// SKU 唯一标识
         /// </summary>
-        public string SKU { get; private set; }
+        public string SKU { get; private set; } = string.Empty;
 
         /// <summary>
         /// 产品Title
         /// </summary>
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
         /// <summary>
         /// 库存数量
@@ -25,7 +25,7 @@ namespace Sample.Product.Application.Commands
         /// <summary>
         /// 产品描述
         /// </summary>
-        public string Desc { get; set; }
+        public string Desc { get; set; } = string.Empty;
 
         public void SetSKU(string sku)
         {

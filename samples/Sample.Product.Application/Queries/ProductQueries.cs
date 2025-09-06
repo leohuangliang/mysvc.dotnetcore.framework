@@ -55,9 +55,12 @@ namespace Sample.Product.Application.Queries
             var result = await _productRepository.FindInPageAsync(criteria.PageIndex, criteria.PageSize, specification, sortOrder);
 
             var products = new List<ViewModels.Product>();
-            foreach (var product in result.Data)
+            if (result.Data != null)
             {
-                products.Add(_mapper.Map<ViewModels.Product>(product));
+                foreach (var product in result.Data)
+                {
+                    products.Add(_mapper.Map<ViewModels.Product>(product));
+                }
             }
 
             return new PagedQueryResult<ViewModels.Product>()

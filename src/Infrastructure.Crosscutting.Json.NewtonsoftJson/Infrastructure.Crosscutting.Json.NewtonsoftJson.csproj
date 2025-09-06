@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <RootNamespace>MySvc.Framework.Infrastructure.NewtonsoftJson</RootNamespace>
-    <AssemblyName>MySvc.Framework.Infrastructure.Crosscutting.Json.NewtonsoftJson</AssemblyName>
+    <AssemblyName>MySvc.Framework.Infrastructure.NewtonsoftJson</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>

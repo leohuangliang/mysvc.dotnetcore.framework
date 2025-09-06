@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
-    <id>MySvc.Framework.Infrastructure.Logging.Serilog</id>
+    <id>MySvc.Framework.Infrastructure.Serilog</id>
     <version>$(CurrentVersion)</version>
     <title>$(PackageTitle)</title>
     <authors>$(PackageAuthors)</authors>

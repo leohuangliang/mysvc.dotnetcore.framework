@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Distributed;
 using MySvc.Framework.Infrastructure.Crosscutting.Cache;
 using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
 using MySvc.Framework.Infrastructure.Crosscutting.Json;
@@ -20,7 +20,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis
             _jsonConverter = jsonConverter ?? throw new ArgumentNullException(nameof(jsonConverter));
         }
 
-        public async Task<T> GetAsync<T>(string key, CancellationToken token = default)
+        public async Task<T?> GetAsync<T>(string key, CancellationToken token = default)
         {
             var result = await _distributedCache.GetStringAsync(key, token);
             if (string.IsNullOrWhiteSpace(result)) return default(T);

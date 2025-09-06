@@ -28,7 +28,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Admin
         }
         public UserIdentity GetUserIdentity()
         {
-            if (!_contextAccessor.HttpContext.User.Identity.IsAuthenticated)
+            if (_contextAccessor.HttpContext?.User.Identity?.IsAuthenticated != true)
             {
                 throw new AuthenticationException("unauthorized");
             }
@@ -46,15 +46,15 @@ namespace MySvc.Framework.Infrastructure.Authorization.Admin
         /// <returns></returns>
         private UserIdentity MapUser()
         {
-            string userId = _contextAccessor.HttpContext.User.GetClaimValue("sub");
-            string userName = _contextAccessor.HttpContext.User.GetClaimValue(ClaimTypes.Name);
-            string role = _contextAccessor.HttpContext.User.GetClaimValue(ClaimTypes.Role);
-            string fullName = _contextAccessor.HttpContext.User.GetClaimValue("full_name");
-            string email = _contextAccessor.HttpContext.User.GetClaimValue(ClaimTypes.Email);
-            string dialcode = _contextAccessor.HttpContext.User.GetClaimValue("dialcode");
-            string phone_number = _contextAccessor.HttpContext.User.GetClaimValue("phone_number");
-            string email_verified = _contextAccessor.HttpContext.User.GetClaimValue("email_verified");
-            string phone_number_verified = _contextAccessor.HttpContext.User.GetClaimValue("phone_number_verified");
+            string userId = _contextAccessor.HttpContext?.User.GetClaimValue("sub") ?? string.Empty;
+            string userName = _contextAccessor.HttpContext?.User.GetClaimValue(ClaimTypes.Name) ?? string.Empty;
+            string role = _contextAccessor.HttpContext?.User.GetClaimValue(ClaimTypes.Role) ?? string.Empty;
+            string fullName = _contextAccessor.HttpContext?.User.GetClaimValue("full_name") ?? string.Empty;
+            string email = _contextAccessor.HttpContext?.User.GetClaimValue(ClaimTypes.Email) ?? string.Empty;
+            string dialcode = _contextAccessor.HttpContext?.User.GetClaimValue("dialcode") ?? string.Empty;
+            string phone_number = _contextAccessor.HttpContext?.User.GetClaimValue("phone_number") ?? string.Empty;
+            string email_verified = _contextAccessor.HttpContext?.User.GetClaimValue("email_verified") ?? string.Empty;
+            string phone_number_verified = _contextAccessor.HttpContext?.User.GetClaimValue("phone_number_verified") ?? string.Empty;
 
             bool bool_email_verified = false;
             bool.TryParse(email_verified, out bool_email_verified);

@@ -25,14 +25,18 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers.Comparer
         {             
         }
         
-        public bool Equals(T x, T y)
+        public bool Equals(T? x, T? y)
         {
+            if (x == null && y == null) return true;
+            if (x == null || y == null) return false;
             return comparer.Equals(keySelector(x), keySelector(y));
         }
 
         public int GetHashCode(T obj)
         {
-            return comparer.GetHashCode(keySelector(obj));
+            if (obj == null) return 0;
+            var key = keySelector(obj);
+            return key == null ? 0 : comparer.GetHashCode(key);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Sample.Product.Application.ViewModels
+namespace Sample.Product.Application.ViewModels
 {
     /// <summary>
     /// 产品
@@ -8,12 +8,12 @@
         /// <summary>
         /// SKU 唯一标识
         /// </summary>
-        public string SKU { get; set; }
+        public string SKU { get; set; } = string.Empty;
 
         /// <summary>
         /// 产品Title
         /// </summary>
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
         /// <summary>
         /// 库存数量
@@ -23,6 +23,6 @@
         /// <summary>
         /// 产品描述
         /// </summary>
-        public string Desc { get; set; }
+        public string Desc { get; set; } = string.Empty;
     }
 }

@@ -1,4 +1,4 @@
-﻿using MySvc.Framework.Infrastructure.Serilog.Sinks;
+using MySvc.Framework.Infrastructure.Serilog.Sinks;
 using Serilog.Configuration;
 using Serilog.Events;
 using Serilog.Formatting.Display;
@@ -50,7 +50,7 @@ namespace MySvc.Framework.Infrastructure.Serilog
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
             int batchPostingLimit = DefaultBatchPostingLimit,
             TimeSpan? period = null,
-            IFormatProvider formatProvider = null,
+            IFormatProvider? formatProvider = null,
             string mailSubject = EmailConnectionInfo.DefaultSubject)
         {
             if (loggerConfiguration == null) throw new ArgumentNullException("loggerConfiguration");
@@ -96,12 +96,12 @@ namespace MySvc.Framework.Infrastructure.Serilog
             string fromEmail,
             string toEmail,
             string mailServer,
-            ICredentialsByHost networkCredential = null,
+            ICredentialsByHost? networkCredential = null,
             string outputTemplate = DefaultOutputTemplate,
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
             int batchPostingLimit = DefaultBatchPostingLimit,
             TimeSpan? period = null,
-            IFormatProvider formatProvider = null,
+            IFormatProvider? formatProvider = null,
             string mailSubject = EmailConnectionInfo.DefaultSubject)
         {
             if (loggerConfiguration == null) throw new ArgumentNullException("loggerConfiguration");
@@ -149,12 +149,12 @@ namespace MySvc.Framework.Infrastructure.Serilog
             string fromEmail,
             IEnumerable<string> toEmails,
             string mailServer,
-            ICredentialsByHost networkCredential = null,
+            ICredentialsByHost? networkCredential = null,
             string outputTemplate = DefaultOutputTemplate,
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
             int batchPostingLimit = DefaultBatchPostingLimit,
             TimeSpan? period = null,
-            IFormatProvider formatProvider = null,
+            IFormatProvider? formatProvider = null,
             string mailSubject = EmailConnectionInfo.DefaultSubject)
         {
             if (loggerConfiguration == null) throw new ArgumentNullException("loggerConfiguration");
@@ -197,7 +197,7 @@ namespace MySvc.Framework.Infrastructure.Serilog
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
             int batchPostingLimit = DefaultBatchPostingLimit,
             TimeSpan? period = null,
-            IFormatProvider formatProvider = null,
+            IFormatProvider? formatProvider = null,
             string mailSubject = EmailConnectionInfo.DefaultSubject)
         {
             if (connectionInfo == null) throw new ArgumentNullException("connectionInfo");

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
@@ -64,9 +64,9 @@ namespace Catalog.API.Infrastructure.Filters
 
         private class JsonErrorResponse
         {
-            public string[] Messages { get; set; }
+            public string[] Messages { get; set; } = Array.Empty<string>();
 
-            public object DeveloperMeesage { get; set; }
+            public object DeveloperMeesage { get; set; } = new object();
         }
     }
 }

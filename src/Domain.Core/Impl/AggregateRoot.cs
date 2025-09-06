@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using MySvc.Framework.Domain.Core.DomainEvents;
 using MySvc.Framework.Domain.Core.Models;
 using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
@@ -32,7 +32,7 @@ namespace MySvc.Framework.Domain.Core.Impl
 
         }
 
-        private List<IDomainEvent> _domainEvents;
+        private List<IDomainEvent>? _domainEvents;
 
         /// <summary>
         /// 
@@ -87,15 +87,15 @@ namespace MySvc.Framework.Domain.Core.Impl
         /// <summary>
         /// 创建人
         /// </summary>
-        public Operator Creator { get; protected set; }
+        public Operator Creator { get; protected set; } = Operator.CreateSystemOperator();
 
         /// <summary>
         /// 最后更新人
         /// </summary>
-        public Operator ModifiedBy { get; protected set; }
+        public Operator ModifiedBy { get; protected set; } = Operator.CreateSystemOperator();
 
 
-        protected HashSet<string> _keywords;
+        protected HashSet<string> _keywords = new HashSet<string>();
         /// <summary>
         /// 关键字 用来查询
         /// </summary>
@@ -117,7 +117,7 @@ namespace MySvc.Framework.Domain.Core.Impl
         /// <remarks>
         ///     有关此函数的更多信息，请参见：http://msdn.microsoft.com/zh-cn/library/system.object.equals。
         /// </remarks>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null)
                 return false;
@@ -149,8 +149,8 @@ namespace MySvc.Framework.Domain.Core.Impl
         /// <returns></returns>
         public static bool operator ==(AggregateRoot left, AggregateRoot right)
         {
-            if (Equals(left, null))
-                return (Equals(right, null)) ? true : false;
+            if (left is null)
+                return right is null;
             return left.Equals(right);
         }
 

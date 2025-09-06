@@ -1,4 +1,5 @@
-﻿using System.Threading;
+using System;
+using System.Threading;
 using System.Threading.Tasks;
 using MySvc.Framework.Domain.Core;
 using MediatR;
@@ -30,6 +31,11 @@ namespace Sample.Product.Application.Commands.Handlers
                 foreach (var item in request.ReduceProductStockItems)
                 {
                     var product = await _productRepository.GetAsync(new MatchProductBySKUSpecification(item.SKU));
+                    if (product is null)
+                    {
+                        throw new InvalidOperationException($"Product with SKU {item.SKU} not found.");
+                    }
+                    
                     product.DeductingStockQty(item.Qty); //扣减库存
 
                     await _productRepository.UpdateAsync(product);

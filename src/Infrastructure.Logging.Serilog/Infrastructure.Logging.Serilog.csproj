@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <RootNamespace>MySvc.Framework.Infrastructure.Serilog</RootNamespace>
-    <AssemblyName>MySvc.Framework.Infrastructure.Logging.Serilog</AssemblyName>
+    <AssemblyName>MySvc.Framework.Infrastructure.Serilog</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Serilog" />

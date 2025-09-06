@@ -1,7 +1,8 @@
-﻿using AutoMapper;
+using AutoMapper;
 using MediatR;
 using MySvc.Framework.Domain.Core;
 using Sample.Product.Domain.Repositories;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using DomainProduct = Sample.Product.Domain.AggregatesModel.ProductAggregate;
@@ -21,9 +22,9 @@ namespace Sample.Product.Application.Commands.Handlers
 
         public CreateProductCommandHandler(IDBContext dbContext, IProductRepository productRepository, IMapper mapper)
         {
-            _dbContext = dbContext;
-            _productRepository = productRepository;
-            _mapper = mapper;
+            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            _productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         public async Task<ViewModels.Product> Handle(CreateProductCommand command, CancellationToken cancellationToken)

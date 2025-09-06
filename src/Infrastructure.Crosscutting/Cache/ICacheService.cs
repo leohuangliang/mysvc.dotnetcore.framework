@@ -13,7 +13,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Cache
     /// </summary>
     public interface ICacheService
     {
-        Task<T> GetAsync<T>(string key, CancellationToken token = default(CancellationToken));
+        Task<T?> GetAsync<T>(string key, CancellationToken token = default(CancellationToken));
 
         Task SetAsync<T>(string key, T data, CancellationToken token = default(CancellationToken));
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace MySvc.Framework.Domain.Core.Impl
 {
@@ -37,7 +37,7 @@ namespace MySvc.Framework.Domain.Core.Impl
         /// <summary>
         /// 时间戳
         /// </summary>
-        public string Timestamp { get; set; }
+        public string Timestamp { get; set; } = string.Empty;
 
         /// <summary>
         /// 设置ID

@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 
 using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +25,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            if (!context.HttpContext.User.Identity.IsAuthenticated)
+            if (context.HttpContext.User.Identity?.IsAuthenticated != true)
             {
                 context.Result = new ForbidResult();
                 return;

@@ -9,7 +9,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis
         private readonly string _instance;
         private readonly RedisOption _options;
         private readonly SemaphoreSlim _connectionLock = new SemaphoreSlim(initialCount: 1, maxCount: 1);
-        private volatile ConnectionMultiplexer _connection;
+        private volatile ConnectionMultiplexer? _connection;
         private readonly ConcurrentDictionary<int, IDatabase> _dataBases = new ConcurrentDictionary<int, IDatabase>();
 
         public RedisClient( IOptions<RedisOption> options)
@@ -21,9 +21,9 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis
         private async Task<IDatabase> ConnectAsync(int db = -1, CancellationToken token = default)
         {
             db = db < 0 ? _options.Database : db;
-            if (_dataBases.TryGetValue(db, out IDatabase cache))
+            if (_dataBases.TryGetValue(db, out IDatabase? cache) && cache != null)
             {
-                if (_connection.IsConnected)
+                if (_connection?.IsConnected == true)
                 {
                     return cache;
                 }
@@ -31,9 +31,9 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis
             await _connectionLock.WaitAsync(token);
             try
             {
-                if (_dataBases.TryGetValue(db, out cache))
+                if (_dataBases.TryGetValue(db, out cache) && cache != null)
                 {
-                    if (_connection.IsConnected)
+                    if (_connection?.IsConnected == true)
                     {
                         return cache;
                     }
@@ -85,7 +85,10 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator.Redis
             var dic = new Dictionary<string, double>();
             foreach (var entry in result)
             {
-                dic.Add(entry.Element, entry.Score);
+                if (entry.Element.HasValue && !entry.Element.IsNull)
+                {
+                    dic.Add(entry.Element!, entry.Score);
+                }
             }
             return dic;
         }

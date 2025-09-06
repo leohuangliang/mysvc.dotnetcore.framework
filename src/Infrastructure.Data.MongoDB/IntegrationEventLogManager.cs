@@ -36,11 +36,12 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB
         /// <returns></returns>
         public async Task MarkEventLogAsPublishedAsync(Guid eventId)
         {
-            var collection = Database.GetCollection<IntegrationEventLog>(GetAttributeCollectionName(typeof(IntegrationEventLog)) ?? this.Pluralize(typeof(IntegrationEventLog)));
+            var collectionName = GetAttributeCollectionName(typeof(IntegrationEventLog)) ?? Pluralize(typeof(IntegrationEventLog));
+            var collection = Database.GetCollection<IntegrationEventLog>(collectionName);
 
-            var eventLogEntry =
+            IntegrationEventLog? eventLogEntry =
                 await collection.Find(Builders<IntegrationEventLog>.Filter.Eq(c => c.EventId, eventId)).FirstOrDefaultAsync();
-            if (eventLogEntry != null)
+            if (eventLogEntry is not null)
             {
                 eventLogEntry.TimesSent++;
                 eventLogEntry.SetPublished();
@@ -54,7 +55,7 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB
                 var res = await collection.ReplaceOneAsync(filter, eventLogEntry,
                     new ReplaceOptions() { IsUpsert = false });
 
-                if (res == null)
+                if (res.ModifiedCount == 0)
                 {
                     throw new ConcurrencyException($"{eventLogEntry.GetType().ToString()} Id:  {eventLogEntry.Id}, 更新时发生并发性错误, OriginVersion: {originVersion}");
                 }
@@ -64,20 +65,20 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB
         /// <summary>
         /// 根据类型名转化成复数
         /// </summary>
-        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="type">集合类型</param>
         /// <returns></returns>
         private string Pluralize(Type type)
         {
-            return (type.Name.Pluralize()).Camelize();
+            return (type.Name.Pluralize() ?? type.Name).Camelize();
         }
 
 
         /// <summary>
         /// 返回集合名称
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <param name="t">类型</param>
         /// <returns></returns>
-        private string GetAttributeCollectionName(Type t)
+        private string? GetAttributeCollectionName(Type t)
         {
             return (t.GetTypeInfo()
                 .GetCustomAttributes(typeof(AggregateRootNameAttribute))

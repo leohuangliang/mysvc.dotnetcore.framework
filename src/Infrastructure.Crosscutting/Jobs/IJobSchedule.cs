@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -40,7 +40,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Jobs
         /// <param name="obj"></param>
         /// <param name="cronExpression">cron表达式</param>
         /// <param name="recurringJobId">周期任务的jobid</param>
-        string Recurring<TParam>(TParam obj, string cronExpression, string recurringJobId = null);
+        string Recurring<TParam>(TParam obj, string cronExpression, string? recurringJobId = null);
 
         /// <summary>
         /// 周期任务
@@ -50,7 +50,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Jobs
         /// <param name="cronExpression">cron表达式</param>
         /// <param name="timeZoneInfo">TimeZoneInfo 信息</param>
         /// <param name="recurringJobId">周期任务的jobid</param>
-        string Recurring<TParam>(TParam obj, string cronExpression,TimeZoneInfo timeZoneInfo, string recurringJobId = null);
+        string Recurring<TParam>(TParam obj, string cronExpression,TimeZoneInfo timeZoneInfo, string? recurringJobId = null);
 
         /// <summary>
         /// 周期任务
@@ -59,7 +59,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Jobs
         /// <typeparam name="TParam"></typeparam>
         /// <param name="cronExpression">cron表达式</param>
         /// <param name="recurringJobId">周期任务的jobid</param>
-        string Recurring<TJob, TParam>(TParam param, string cronExpression, string recurringJobId = null) where TJob : IRecurringJob<TParam>;
+        string Recurring<TJob, TParam>(TParam param, string cronExpression, string? recurringJobId = null) where TJob : IRecurringJob<TParam>;
 
         /// <summary>
         /// 周期任务
@@ -69,7 +69,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Jobs
         /// <param name="cronExpression">cron表达式</param>
         /// <param name="timeZoneInfo">timezone信息</param>
         /// <param name="recurringJobId">周期任务的jobid</param>
-        string Recurring<TJob, TParam>(TParam param, string cronExpression, TimeZoneInfo timeZoneInfo, string recurringJobId = null) where TJob : IRecurringJob<TParam>;
+        string Recurring<TJob, TParam>(TParam param, string cronExpression, TimeZoneInfo timeZoneInfo, string? recurringJobId = null) where TJob : IRecurringJob<TParam>;
 
         /// <summary>
         /// 删除周期任务

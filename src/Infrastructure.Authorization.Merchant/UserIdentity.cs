@@ -44,7 +44,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant
 
         public string TenantUserId { get;  init; }
         public string TenantCode { get; init; }
-        public string TenantName { get; init; }
+        public string TenantName { get; init; } = string.Empty;
         public string ClientId { get; init; }
 
         public string UserName { get; init; }
@@ -61,7 +61,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Merchant
 
         public bool HasPaymentPassword { get; init; }
 
-        public string UID { get; init; }
+        public string UID { get; init; } = string.Empty;
 
     }
 }

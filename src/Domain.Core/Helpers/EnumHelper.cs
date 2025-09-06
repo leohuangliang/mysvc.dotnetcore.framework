@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Reflection;
 
@@ -20,7 +20,7 @@ namespace MySvc.Framework.Domain.Core.Helpers
         public static string GetDescription(this Enum em)
         {
             Type type = em.GetType();
-            FieldInfo fd = type.GetField(em.ToString());
+            FieldInfo? fd = type.GetField(em.ToString());
             if (fd == null)
                 return string.Empty;
             object[] attrs = fd.GetCustomAttributes(typeof(DescriptionAttribute), false);
@@ -39,7 +39,7 @@ namespace MySvc.Framework.Domain.Core.Helpers
         /// <returns></returns>
         [Obsolete("已废弃,请使用MySvc.DotNetCore.Framework.Infrastructure.Crosscutting.Helpers.EnumHelper.GetName", true)]
 
-        public static string GetName(this Enum em)
+        public static string? GetName(this Enum em)
         {
             return Enum.GetName(em.GetType(), em);
         }

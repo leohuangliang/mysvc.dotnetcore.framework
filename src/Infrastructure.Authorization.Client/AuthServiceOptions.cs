@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,7 +9,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
         /// <summary>
         /// 获取用户Profile API相对路径
         /// </summary>
-        public string GetUserProfilePath { get; set; }
+        public string GetUserProfilePath { get; set; } = string.Empty;
 
     }
 }

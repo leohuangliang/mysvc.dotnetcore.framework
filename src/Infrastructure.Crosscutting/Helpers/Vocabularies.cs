@@ -1,4 +1,4 @@
-﻿//The Inflector class was cloned from Inflector (https://github.com/srkirkland/Inflector)
+//The Inflector class was cloned from Inflector (https://github.com/srkirkland/Inflector)
 
 //The MIT License (MIT)
 
@@ -265,7 +265,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// <param name="word">Word to be pluralized</param>
         /// <param name="inputIsKnownToBeSingular">Normally you call Pluralize on singular words; but if you're unsure call it with false</param>
         /// <returns></returns>
-        public string Pluralize(string word, bool inputIsKnownToBeSingular = true)
+        public string? Pluralize(string word, bool inputIsKnownToBeSingular = true)
         {
             var result = ApplyRules(_plurals, word);
 
@@ -273,7 +273,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
                 return result;
 
             var asSingular = ApplyRules(_singulars, word);
-            var asSingularAsPlural = ApplyRules(_plurals, asSingular);
+            var asSingularAsPlural = asSingular != null ? ApplyRules(_plurals, asSingular) : null;
             if (asSingular != null && asSingular != word && asSingular + "s" != word && asSingularAsPlural == word && result != word)
                 return word;
 
@@ -286,7 +286,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// <param name="word">Word to be singularized</param>
         /// <param name="inputIsKnownToBePlural">Normally you call Singularize on plural words; but if you're unsure call it with false</param>
         /// <returns></returns>
-        public string Singularize(string word, bool inputIsKnownToBePlural = true)
+        public string? Singularize(string word, bool inputIsKnownToBePlural = true)
         {
             var result = ApplyRules(_singulars, word);
 
@@ -295,14 +295,14 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
 
             // the Plurality is unknown so we should check all possibilities
             var asPlural = ApplyRules(_plurals, word);
-            var asPluralAsSingular = ApplyRules(_singulars, asPlural);
+            var asPluralAsSingular = asPlural != null ? ApplyRules(_singulars, asPlural) : null;
             if (asPlural != word && word + "s" != asPlural && asPluralAsSingular == word && result != word)
                 return word;
 
             return result ?? word;
         }
 
-        private string ApplyRules(IList<Rule> rules, string word)
+        private string? ApplyRules(IList<Rule> rules, string word)
         {
             if (word == null)
                 return null;
@@ -335,7 +335,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
                 _replacement = replacement;
             }
 
-            public string Apply(string word)
+            public string? Apply(string word)
             {
                 if (!_regex.IsMatch(word))
                     return null;
@@ -356,7 +356,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// <param name="word">Word to be pluralized</param>
         /// <param name="inputIsKnownToBeSingular">Normally you call Pluralize on singular words; but if you're unsure call it with false</param>
         /// <returns></returns>
-        public static string Pluralize(this string word, bool inputIsKnownToBeSingular = true)
+        public static string? Pluralize(this string word, bool inputIsKnownToBeSingular = true)
         {
             return Vocabularies.Default.Pluralize(word, inputIsKnownToBeSingular);
         }
@@ -367,7 +367,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// <param name="word">Word to be singularized</param>
         /// <param name="inputIsKnownToBePlural">Normally you call Singularize on plural words; but if you're unsure call it with false</param>
         /// <returns></returns>
-        public static string Singularize(this string word, bool inputIsKnownToBePlural = true)
+        public static string? Singularize(this string word, bool inputIsKnownToBePlural = true)
         {
             return Vocabularies.Default.Singularize(word, inputIsKnownToBePlural);
         }

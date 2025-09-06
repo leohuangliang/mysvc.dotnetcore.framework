@@ -21,7 +21,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
             }
             catch (ReflectionTypeLoadException e)
             {
-                return e.Types.Where(t => t != null);
+                return e.Types.OfType<Type>();
             }
         }
 

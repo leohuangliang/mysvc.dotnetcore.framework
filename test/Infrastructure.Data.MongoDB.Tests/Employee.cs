@@ -13,7 +13,7 @@ namespace Infrastructure.Data.MongoDB.Tests
             this.NameInfo = new NameInfo(name);
 
         }
-        public string EmployeeNo { set; get; }
+        public string EmployeeNo { set; get; } = string.Empty;
 
         public  bool IsDimission { get; private set; }
 
