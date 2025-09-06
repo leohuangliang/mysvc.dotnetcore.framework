@@ -56,21 +56,21 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Exceptions
 
         void Init(string errorCode, string message)
         {
-            ErrorCode = errorCode;
-            CustomMessage = message;
+            ErrorCode = errorCode ?? string.Empty;
+            CustomMessage = message ?? string.Empty;
         }
 
         /// <summary>
         /// 错误代码
         /// </summary>
-        public string? ErrorCode
+        public string ErrorCode
         {
             get;
             private set;
-        }
+        } = string.Empty;
 
 
-        public string? CustomMessage { get; private set; }
+        public string CustomMessage { get; private set; } = string.Empty;
 
         public abstract override string Message
         {

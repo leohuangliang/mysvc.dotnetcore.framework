@@ -40,11 +40,16 @@ namespace MySvc.Framework.Infrastructure.Data.MongoDB.Impl
         /// <summary>
         /// 根据聚合根的ID值，从仓储中读取聚合根。
         /// </summary>
-        /// <param name="key">聚合根的ID值。</param>
+        /// <param name="key">聚合根的ID值，可以为null。</param>
         /// <param name="cancellationToken">取消令牌</param>
-        /// <returns>聚合根实例，如果未找到则返回null。</returns>
-        public virtual async Task<TAggregateRoot?> GetByKeyAsync(string key, CancellationToken cancellationToken = default)
+        /// <returns>聚合根实例，如果未找到或key为null则返回null。</returns>
+        public virtual async Task<TAggregateRoot?> GetByKeyAsync(string? key, CancellationToken cancellationToken = default)
         {
+            if (key == null)
+            {
+                return null;
+            }
+
             var collection = _mongoDBContext.GetCollection<TAggregateRoot>();
             var filter = Builders<TAggregateRoot>.Filter.Eq(c => c.Id, key);
 
