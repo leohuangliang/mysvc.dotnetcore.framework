@@ -1,8 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>MySvc.Framework.Infrastructure.AutoMapper</AssemblyName>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>8.0.0-beta4</Version>
     <RootNamespace>MySvc.Framework.Infrastructure.AutoMapper</RootNamespace>
   </PropertyGroup>
   <ItemGroup>

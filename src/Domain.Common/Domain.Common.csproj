@@ -3,7 +3,6 @@
   <PropertyGroup>
     <AssemblyName>MySvc.Framework.Domain.Common</AssemblyName>
     <RootNamespace>MySvc.Framework.Domain.Common</RootNamespace>
-    <Version>8.0.0-beta4</Version>
   </PropertyGroup>
 
 

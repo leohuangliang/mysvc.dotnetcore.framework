@@ -3,7 +3,6 @@
   <PropertyGroup>
     <AssemblyName>MySvc.Framework.Applications.Common</AssemblyName>
     <RootNamespace>MySvc.Framework.Applications.Common</RootNamespace>
-    <Version>8.0.0-beta4</Version>
   </PropertyGroup>
 
 

@@ -2,7 +2,6 @@
   <PropertyGroup>
     <RootNamespace>MySvc.Framework.Infrastructure.NewtonsoftJson</RootNamespace>
     <AssemblyName>MySvc.Framework.Infrastructure.NewtonsoftJson</AssemblyName>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" />
