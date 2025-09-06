@@ -4,10 +4,10 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     
     <!-- 当前框架版本 -->
-    <CurrentVersion>8.0.4</CurrentVersion>
+    <CurrentVersion>8.0.5</CurrentVersion>
     
     <!-- 程序集版本（纯数字版本） -->
-    <AssemblyNumericVersion>8.0.4.0</AssemblyNumericVersion>
+    <AssemblyNumericVersion>8.0.5.0</AssemblyNumericVersion>
     
     <!-- NuGet包元数据变量 -->
     <PackageAuthors>liang.huang</PackageAuthors>
