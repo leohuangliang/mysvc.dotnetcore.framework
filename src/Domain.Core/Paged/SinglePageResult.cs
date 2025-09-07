@@ -42,7 +42,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// <summary>
         /// 获取或设置当前页面的数据。
         /// </summary>
-        public List<T> Data { get; set; }
+        public List<T> Data { get; set; } = new List<T>();
 
         #region Public Methods
 

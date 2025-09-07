@@ -43,7 +43,7 @@ namespace MySvc.Framework.Domain.Core.Paged
             this.TotalRecords = totalRecords;
             this.PageSize = pageSize;
             this.PageNumber = pageNumber;
-            this.Data = data;
+            this.Data = data ?? new List<T>();
         }
 
         #endregion
@@ -73,7 +73,7 @@ namespace MySvc.Framework.Domain.Core.Paged
         /// <summary>
         /// 获取或设置当前页面的数据。
         /// </summary>
-        public List<T>? Data { get; set; } = new List<T>();
+        public List<T> Data { get; set; } = new List<T>();
 
         #endregion
 
