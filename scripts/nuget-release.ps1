@@ -44,16 +44,14 @@ function Get-NuGetApiKey($envVar) {
 # 包定义
 $packages = @(
   @{ Name = "Domain.Core"; NuspecFile = "Domain.Core.nuspec"; PackageName = "MySvc.Framework.Domain.Core" },
-  @{ Name = "Infrastructure.Adapter.AutoMapper"; NuspecFile = "Infrastructure.Adapter.AutoMapper.nuspec"; PackageName = "MySvc.Framework.Infrastructure.AutoMapper" },
+
   @{ Name = "Infrastructure.Authorization.Client"; NuspecFile = "Infrastructure.Authorization.Client.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Authorization.Client" },
   @{ Name = "Infrastructure.Authorization.Admin"; NuspecFile = "Infrastructure.Authorization.Admin.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Authorization.Admin" },
   @{ Name = "Infrastructure.Authorization.InternalClient"; NuspecFile = "Infrastructure.Authorization.InternalClient.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Authorization.InternalClient" },
   @{ Name = "Infrastructure.Authorization.Merchant"; NuspecFile = "Infrastructure.Authorization.Merchant.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Authorization.Merchant" },
   @{ Name = "Infrastructure.Crosscutting"; NuspecFile = "Infrastructure.Crosscutting.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Crosscutting" },
-  @{ Name = "Infrastructure.Crosscutting.Json.NewtonsoftJson"; NuspecFile = "Infrastructure.Crosscutting.Json.NewtonsoftJson.nuspec"; PackageName = "MySvc.Framework.Infrastructure.NewtonsoftJson" },
-  @{ Name = "Infrastructure.Crosscutting.Cache.StackExchangeRedis"; NuspecFile = "Infrastructure.Crosscutting.Cache.StackExchangeRedis.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Crosscutting.StackExchangeRedis" },
+
   @{ Name = "Infrastructure.Data.MongoDB"; NuspecFile = "Infrastructure.Data.MongoDB.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Data.MongoDB" },
-  @{ Name = "Infrastructure.Job.Hangfire"; NuspecFile = "Infrastructure.Job.Hangfire.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Job.Hangfire" },
   @{ Name = "Infrastructure.IntegrationEventService"; NuspecFile = "Infrastructure.IntegrationEventService.nuspec"; PackageName = "MySvc.Framework.Infrastructure.IntegrationEventService" },
   @{ Name = "Infrastructure.Logging.Serilog"; NuspecFile = "Infrastructure.Logging.Serilog.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Serilog" },
   @{ Name = "Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator"; NuspecFile = "Infrastructure.Crosscutting.IdGenerator.SnowflakeIdGenerator.nuspec"; PackageName = "MySvc.Framework.Infrastructure.Crosscutting.SnowflakeIdGenerator" },

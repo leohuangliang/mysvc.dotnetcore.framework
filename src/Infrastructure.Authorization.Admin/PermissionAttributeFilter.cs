@@ -1,9 +1,9 @@
-﻿using System.Linq;
+using System.Linq;
 using MySvc.Framework.Infrastructure.Authorization.Admin.Permissions;
-using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
+using System.Text.Json;
 
 namespace MySvc.Framework.Infrastructure.Authorization.Admin
 {

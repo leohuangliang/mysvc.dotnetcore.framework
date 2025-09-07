@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Security.Authentication;
 using MySvc.Framework.Infrastructure.Authorization.Admin.Permissions;
 using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
-using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Security.Claims;
@@ -13,16 +12,14 @@ namespace MySvc.Framework.Infrastructure.Authorization.Admin
     public class UserIdentityService : IUserIdentityService
     {
         private IHttpContextAccessor _contextAccessor;
-        private readonly IJsonConverter _jsonConverter;
         //private readonly IPermissionProvider _permissionProvider;
 
         private readonly ILogger<UserIdentityService> _logger;
-        public UserIdentityService(IHttpContextAccessor contextAccessor, IJsonConverter jsonConverter,
+        public UserIdentityService(IHttpContextAccessor contextAccessor,
             //IPermissionProvider permissionProvider,
             ILogger<UserIdentityService> logger)
         {
             _contextAccessor = contextAccessor ?? throw new ArgumentNullException(nameof(contextAccessor));
-            _jsonConverter = jsonConverter ?? throw new ArgumentNullException(nameof(jsonConverter));
             //_permissionProvider = permissionProvider ?? throw new ArgumentNullException(nameof(permissionProvider));
             _logger = logger;
         }

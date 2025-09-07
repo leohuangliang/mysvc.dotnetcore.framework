@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using System;
 using System.Collections.Generic;
 using System.Security.Authentication;
@@ -11,14 +10,12 @@ namespace MySvc.Framework.Infrastructure.Authorization.InternalClient
     public class UserIdentityService : IUserIdentityService
     {
         private IHttpContextAccessor _contextAccessor;
-        private readonly IJsonConverter _jsonConverter;
 
         private readonly ILogger<UserIdentityService> _logger;
-        public UserIdentityService(IHttpContextAccessor contextAccessor, IJsonConverter jsonConverter,
+        public UserIdentityService(IHttpContextAccessor contextAccessor,
             ILogger<UserIdentityService> logger)
         {
             _contextAccessor = contextAccessor ?? throw new ArgumentNullException(nameof(contextAccessor));
-            _jsonConverter = jsonConverter ?? throw new ArgumentNullException(nameof(jsonConverter));
             _logger = logger;
         }
         public UserIdentity GetUserIdentity()

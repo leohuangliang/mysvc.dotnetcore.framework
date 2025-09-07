@@ -14,7 +14,7 @@
     <serviceable>$(PackageServiceable)</serviceable>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="Microsoft.CSharp" version="$(MicrosoftCSharpVersion)" />
+
         <dependency id="Microsoft.Extensions.Caching.Abstractions" version="$(MicrosoftExtensionsCachingAbstractionsVersion)" />
       </group>
     </dependencies>

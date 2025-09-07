@@ -27,9 +27,10 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// <param name="target">string to format</param>
         /// <param name="args">Arguments to replace in the string.</param>
         /// <returns>Formatted string.</returns>
-        public static string FormatWith(this string target, params object[] args)
+        public static string FormatWith(this string? target, params object?[] args)
         {
-            Check.Argument.IsNotNullOrEmpty(target, "target");
+            if (string.IsNullOrEmpty(target))
+                return string.Empty;
             return string.Format(target, args);
         }
 
@@ -38,8 +39,9 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// </summary>
         /// <param name="target">String containing a value that could be an e-mail address.</param>
         /// <returns>True if the value is a valid e-mail. Otherwise, false.</returns>
-        public static bool IsEmail(this string target)
+        public static bool IsEmail(this string? target)
         {
+            if (target == null) return false;
             return DataValidator.IsEmail(target);
         }
 
@@ -49,7 +51,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// <param name="str">string</param>
         /// <returns>True if the value through verification, Otherwise, false.</returns>
         [Obsolete("Use string.IsNullOrWhiteSpace(str) instead. This method will be removed in a future version.", false)]
-        public static bool IsNullOrBlank(this string str)
+        public static bool IsNullOrBlank(this string? str)
         {
             return string.IsNullOrWhiteSpace(str);
         }
@@ -60,13 +62,14 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// <param name="str">string</param>
         /// <returns>True if the value through verification, Otherwise, false.</returns>
         [Obsolete("Use !string.IsNullOrWhiteSpace(str) instead. This method will be removed in a future version.", false)]
-        public static bool NotNullOrBlank(this string str)
+        public static bool NotNullOrBlank(this string? str)
         {
             return !string.IsNullOrWhiteSpace(str);
         }
 
-        public static bool ContainsNoASCIIChar(this string str)
+        public static bool ContainsNoASCIIChar(this string? str)
         {
+            if (str == null) return false;
             return RegexConst.NO_ASCII_CHAR.Match(str).Success;
         }
 
@@ -77,23 +80,22 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// <param name="split">连接符</param>
         /// <param name="value">需要串接的字符</param>
         /// <returns>串接后的字符</returns>
-        public static string JoinString(this string str, string split, string value)
+        public static string JoinString(this string? str, string? split, string? value)
         {
-            if (string.IsNullOrWhiteSpace(value)) return str;
+            if (string.IsNullOrWhiteSpace(value)) return str ?? string.Empty;
             if (string.IsNullOrWhiteSpace(str))
             {
-                str = value;
-                return str;
+                return value ?? string.Empty;
             }
-            str += split + value;
-            return str;
+            return str + (split ?? string.Empty) + value;
         }
 
         /// <summary>
         ///  正则替换
         /// </summary>
-        public static string RegexReplace(this string str, string pattern, string replacement)
+        public static string RegexReplace(this string? str, string pattern, string replacement)
         {
+            if (str == null) return string.Empty;
             return Regex.Replace(str, pattern, replacement);
         }
 
@@ -103,7 +105,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// <param name="str">要搜索匹配项的字符串</param>
         /// <param name="pattern">要匹配的正则表达式模式(字符串形式表示)。</param>
         /// <returns>如果正则表达式找到匹配项，则为 true；否则，为 false。</returns>
-        public static bool IsMatch(this string str, string pattern)
+        public static bool IsMatch(this string? str, string pattern)
         {
             if (string.IsNullOrWhiteSpace(str))
             {
@@ -120,7 +122,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// <param name="str">要搜索匹配项的字符串</param>
         /// <param name="regex">要匹配的正则表达式</param>
         /// <returns>如果正则表达式找到匹配项，则为 true；否则，为 false。</returns>
-        public static bool IsMatch(this string str, Regex regex)
+        public static bool IsMatch(this string? str, Regex regex)
         {
             if (string.IsNullOrWhiteSpace(str))
             {
@@ -136,8 +138,9 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// <param name="str">原字符串</param>
         /// <param name="subString">子字符串</param>
         /// <returns>检查结果</returns>
-        public static bool ContainsIgnoreCase(this string str, string subString)
+        public static bool ContainsIgnoreCase(this string? str, string? subString)
         {
+            if (str == null || subString == null) return false;
             return str.ToUpper().Contains(subString.ToUpper());
         }
 
@@ -149,8 +152,9 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// <param name="input">源字符串</param>
         /// <param name="compare">用于比较的字符串</param>
         /// <returns>字符串compare 在 input字符串中出现的次数</returns>
-        public static int GetStringCount(this string input, string compare)
+        public static int GetStringCount(this string? input, string? compare)
         {
+            if (input == null || compare == null) return 0;
             int index = input.IndexOf(compare);
             if (index != -1)
             {
@@ -169,8 +173,9 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// <param name="pattern">模式字符串</param>
         /// <param name="replacement">用于替换的字符串</param>
         /// <returns>返回被替换后的结果</returns>
-        public static string Replace(this string input, string pattern, string replacement)
+        public static string Replace(this string? input, string pattern, string replacement)
         {
+            if (input == null) return string.Empty;
             Regex regex = new Regex(pattern);
             return regex.Replace(input, replacement);
         }
@@ -181,8 +186,9 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// <param name="input">源字符串</param>
         /// <param name="pattern">模式字符串</param>
         /// <returns>拆分的字符串数组</returns>
-        public static string[] Split(this string input, string pattern)
+        public static string[] Split(this string? input, string pattern)
         {
+            if (input == null) return new string[0];
             Regex regex = new Regex(pattern);
             return regex.Split(input);
         }
@@ -192,8 +198,9 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// </summary>
         /// <param name="input">需要计算的字符串</param>
         /// <returns>返回字符串的长度</returns>
-        public static int GetCount(this string input)
+        public static int GetCount(this string? input)
         {
+            if (input == null) return 0;
             return Regex.Replace(input, @"[\u4e00-\u9fa5/g]", "aa").Length;
         }
 
@@ -202,8 +209,10 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// </summary>
         /// <param name="str">源字符串</param>
         /// <param name="comparedStr">比较的字符串</param>
-        public static bool EqualsIgnoreCase(this string str, string comparedStr)
+        public static bool EqualsIgnoreCase(this string? str, string? comparedStr)
         {
+            if (str == null && comparedStr == null) return true;
+            if (str == null || comparedStr == null) return false;
             return str.Equals(comparedStr, StringComparison.OrdinalIgnoreCase);
         }
 
@@ -212,8 +221,9 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// </summary>
         /// <param name="str">源字符串</param>
         /// <param name="comparedStr">比较的字符串</param>
-        public static bool StartsWithIgnoreCase(this string str, string comparedStr)
+        public static bool StartsWithIgnoreCase(this string? str, string? comparedStr)
         {
+            if (str == null || comparedStr == null) return false;
             return str.StartsWith(comparedStr, StringComparison.OrdinalIgnoreCase);
         }
 
@@ -222,16 +232,18 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// </summary>
         /// <param name="str">源字符串</param>
         /// <returns>消除标点符号后的字符串</returns>
-        public static string CleanSymbol(this string str)
+        public static string CleanSymbol(this string? str)
         {
+            if (str == null) return string.Empty;
             return SYMBOL_FILTERS.Aggregate(str, (current, s) => current.Replace(s, ""));
         }
 
         /// <summary>
         /// 清除常见转义字符(\r \n \t)，多个空格变成一个
         /// </summary>
-        public static string ClearNormal(this string str)
+        public static string ClearNormal(this string? str)
         {
+            if (str == null) return string.Empty;
             return RegexConst.SPACE_MORE_THAN_ONE_CHAR.Replace(
                 RegexConst.LINE_FEED.Replace(str.Trim(),
                 ONE_SPACE_CHAR),
@@ -243,7 +255,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns>A hash</returns>
-        public static string Sha256(this string input)
+        public static string Sha256(this string? input)
         {
             if (string.IsNullOrWhiteSpace(input)) return string.Empty;
 
@@ -280,7 +292,7 @@ namespace MySvc.Framework.Infrastructure.Crosscutting.Helpers
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns>A hash</returns>
-        public static string Sha512(this string input)
+        public static string Sha512(this string? input)
         {
             if (string.IsNullOrWhiteSpace(input)) return string.Empty;
 

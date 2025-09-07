@@ -14,7 +14,6 @@
     <serviceable>$(PackageServiceable)</serviceable>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="Microsoft.CSharp" version="$(MicrosoftCSharpVersion)" />
         <dependency id="Microsoft.Extensions.Options" version="$(MicrosoftExtensionsOptionsVersion)" />
         <dependency id="Microsoft.Extensions.DependencyInjection" version="$(MicrosoftExtensionsDependencyInjectionVersion)" />
         <dependency id="Microsoft.Extensions.Logging" version="$(MicrosoftExtensionsLoggingVersion)" />

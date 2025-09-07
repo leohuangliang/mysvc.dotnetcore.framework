@@ -1,6 +1,4 @@
-﻿using Autofac;
-using MySvc.Framework.Infrastructure.Crosscutting.Json;
-using MySvc.Framework.Infrastructure.NewtonsoftJson;
+using Autofac;
 
 namespace Sample.Product.Api.DI.AutofacModules
 {
@@ -15,8 +13,7 @@ namespace Sample.Product.Api.DI.AutofacModules
         /// <param name="builder"></param>
         protected override void Load(ContainerBuilder builder)
         {
-            //JSON转换器
-            builder.RegisterType<NewtonsoftJsonConverter>().As<IJsonConverter>().SingleInstance();
+            // JSON 转换器已移除，现在使用 System.Text.Json
 
 
         }

@@ -1,19 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using MySvc.Framework.Infrastructure.Crosscutting.Json;
 
 namespace MySvc.Framework.Infrastructure.Authorization.InternalClient
 {
     public class PermissionAttributeFilter : IAuthorizationFilter
     {
 
-        private readonly IJsonConverter _jsonConverter;
         private readonly PermissionsAuthorizationRequirement _requiredPermissions;
         private readonly IUserIdentityService _userIdentityService;
 
-        public PermissionAttributeFilter(IJsonConverter jsonConverter, PermissionsAuthorizationRequirement requiredPermissions, IUserIdentityService userIdentityService)
+        public PermissionAttributeFilter(PermissionsAuthorizationRequirement requiredPermissions, IUserIdentityService userIdentityService)
         {
-            _jsonConverter = jsonConverter;
             _requiredPermissions = requiredPermissions;
             _userIdentityService = userIdentityService;
         }

@@ -3,10 +3,10 @@ using Microsoft.Extensions.Logging;
 using MySvc.Framework.Domain.Core;
 using MySvc.Framework.Domain.Core.Impl;
 using MySvc.Framework.Infrastructure.Crosscutting.EventBus;
-using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace MySvc.Framework.Infrastructure.IntegrationEventService
@@ -17,22 +17,19 @@ namespace MySvc.Framework.Infrastructure.IntegrationEventService
         private readonly IIntegrationEventLogRepository _integrationEventLogRepository;
         private readonly IIntegrationEventLogManager _integrationEventLogManager;
         private readonly ILogger<IntegrationEventService> _logger;
-        private readonly IJsonConverter _jsonConverter;
 
         private readonly Queue<KeyValuePair<Guid, object>> _messageQueue;
 
         public IntegrationEventService(IPublishEndpoint publishEndpoint,
             IIntegrationEventLogRepository integrationEventLogRepository,
             IIntegrationEventLogManager integrationEventLogManager,
-            ILogger<IntegrationEventService> logger,
-            IJsonConverter jsonConverter)
+            ILogger<IntegrationEventService> logger)
         {
             _messageQueue = new Queue<KeyValuePair<Guid, dynamic>>();
             _publishEndpoint = publishEndpoint ?? throw new ArgumentNullException(nameof(publishEndpoint));
             _integrationEventLogRepository = integrationEventLogRepository ?? throw new ArgumentNullException(nameof(integrationEventLogRepository));
             _integrationEventLogManager = integrationEventLogManager ?? throw new ArgumentNullException(nameof(integrationEventLogManager));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _jsonConverter = jsonConverter ?? throw new ArgumentNullException(nameof(jsonConverter));
         }
 
         /// <summary>
@@ -43,7 +40,7 @@ namespace MySvc.Framework.Infrastructure.IntegrationEventService
         {
 
             var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, @event.GetType().FullName ?? string.Empty,
-                _jsonConverter.SerializeObject(@event));
+                JsonSerializer.Serialize(@event));
             await _integrationEventLogRepository.AddAsync(integrationEventLog);
             //事件入内存队列
 
@@ -58,8 +55,8 @@ namespace MySvc.Framework.Infrastructure.IntegrationEventService
         public async Task SaveIntegrationEvent<T>(object @event) where T : class
         {
 
-            var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, typeof(T).FullName ?? string.Empty,
-                _jsonConverter.SerializeObject(@event));
+            var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, @event.GetType().FullName ?? string.Empty,
+                JsonSerializer.Serialize(@event));
             await _integrationEventLogRepository.AddAsync(integrationEventLog);
             //事件入内存队列
 
@@ -78,7 +75,7 @@ namespace MySvc.Framework.Infrastructure.IntegrationEventService
                 foreach (var integrationEvent in evts)
                 {
                     var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, integrationEvent.GetType().FullName ?? string.Empty,
-                        _jsonConverter.SerializeObject(integrationEvent));
+                        JsonSerializer.Serialize(integrationEvent));
                     await _integrationEventLogRepository.AddAsync(integrationEventLog);
                     //事件入内存队列
 
@@ -98,7 +95,7 @@ namespace MySvc.Framework.Infrastructure.IntegrationEventService
                 foreach (var integrationEvent in evts)
                 {
                     var integrationEventLog = new IntegrationEventLog(Guid.NewGuid(), DateTime.UtcNow, typeof(T).FullName ?? string.Empty,
-                        _jsonConverter.SerializeObject(integrationEvent));
+                        JsonSerializer.Serialize(integrationEvent));
                     await _integrationEventLogRepository.AddAsync(integrationEventLog);
                     //事件入内存队列
 

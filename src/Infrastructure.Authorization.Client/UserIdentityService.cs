@@ -6,11 +6,11 @@ using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
 using MySvc.Framework.Infrastructure.Authorization.Client.Exceptions;
 using MySvc.Framework.Infrastructure.Crosscutting.Helpers;
-using MySvc.Framework.Infrastructure.Crosscutting.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Security.Authentication;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace MySvc.Framework.Infrastructure.Authorization.Client
@@ -19,7 +19,6 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
     {
         private IHttpContextAccessor _contextAccessor;
         private readonly IDistributedCache _distributedCache;
-        private readonly IJsonConverter _jsonConverter;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILogger<UserIdentityService> _logger;
         private readonly IOptions<AuthServiceOptions> _authServiceOptionsAccessor;
@@ -27,7 +26,6 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
         public UserIdentityService(
             IHttpContextAccessor contextAccessor,
             IDistributedCache distributedCache,
-            IJsonConverter jsonConverter,
             IHttpClientFactory httpClientFactory,
             ILogger<UserIdentityService> logger,
 
@@ -35,7 +33,6 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
         {
             _contextAccessor = contextAccessor ?? throw new ArgumentNullException(nameof(contextAccessor));
             _distributedCache = distributedCache ?? throw new ArgumentNullException(nameof(distributedCache));
-            _jsonConverter = jsonConverter ?? throw new ArgumentNullException(nameof(jsonConverter));
             _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
 
             _logger = logger;
@@ -79,7 +76,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
             var json = await _distributedCache.GetStringAsync(cacheKey);
             if (!string.IsNullOrWhiteSpace(json))
             {
-                userProfile = _jsonConverter.DeserializeObject<UserProfile>(json);
+                userProfile = JsonSerializer.Deserialize<UserProfile>(json);
             }
             else
             {
@@ -97,17 +94,17 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
 
                     _logger.LogInformation($"获取鉴权信息(BaseAddress:{authClient.BaseAddress}, Path:{_authServiceOptionsAccessor.Value.GetUserProfilePath}, Token:{authorization.ToString()}");
                     HttpResponseMessage response = await authClient.GetAsync(_authServiceOptionsAccessor.Value.GetUserProfilePath);
-                    string stringData = _jsonConverter.SerializeObject(response);
+                    string stringData = JsonSerializer.Serialize(response);
                     _logger.LogInformation($"Get User Profile:{stringData}");
                     if (response.IsSuccessStatusCode)
                     {
                         stringData = await response.Content.ReadAsStringAsync();
                         _logger.LogInformation($"GetUserProfile：{stringData}");
-                        userProfile = _jsonConverter.DeserializeObject<UserProfile>(stringData);
+                        userProfile = JsonSerializer.Deserialize<UserProfile>(stringData);
                     }
                     else
                     {
-                        stringData = _jsonConverter.SerializeObject(response);
+                        stringData = JsonSerializer.Serialize(response);
                         _logger.LogError(stringData);
                         throw new AuthValidationError(Error.Codes.RequestUserProfileFailed, Error.Names.RequestUserProfileFailed);
                     }
@@ -162,7 +159,7 @@ namespace MySvc.Framework.Infrastructure.Authorization.Client
             var userIdentity = new UserIdentity(tenantUserId, tenantCode, userName, fullName,
                 email, bool_email_verified, dialcode, phone_number, bool_phone_number_verified, bool_hasPaymentPassword, role, new List<string>());
 
-            _logger.LogDebug(_jsonConverter.SerializeObject(userIdentity));
+            _logger.LogDebug(JsonSerializer.Serialize(userIdentity));
             return userIdentity;
         }
 

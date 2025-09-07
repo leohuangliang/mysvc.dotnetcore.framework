@@ -12,7 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Infrastructure.Authorization.Client\Infrastructure.Authorization.Client.csproj" />
-    <ProjectReference Include="..\..\src\Infrastructure.Crosscutting.Json.NewtonsoftJson\Infrastructure.Crosscutting.Json.NewtonsoftJson.csproj" />
+
   </ItemGroup>
   <ItemGroup>
     <Content Update="nlog.config">

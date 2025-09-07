@@ -4,10 +4,10 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     
     <!-- 当前框架版本 -->
-    <CurrentVersion>8.0.8</CurrentVersion>
+    <CurrentVersion>8.1.0</CurrentVersion>
     
     <!-- 程序集版本（纯数字版本） -->
-    <AssemblyNumericVersion>8.0.8.0</AssemblyNumericVersion>
+    <AssemblyNumericVersion>8.1.0.0</AssemblyNumericVersion>
     
     <!-- NuGet包元数据变量 -->
     <PackageAuthors>liang.huang</PackageAuthors>
@@ -54,7 +54,7 @@
     <PackageVersion Include="Serilog.Sinks.PeriodicBatching" Version="$(SerilogSinksPeriodicBatchingVersion)" />
     <PackageVersion Include="MailKit" Version="$(MailKitVersion)" />
     <PackageVersion Include="System.Text.RegularExpressions" Version="$(SystemTextRegularExpressionsVersion)" />
-    <PackageVersion Include="Microsoft.CSharp" Version="$(MicrosoftCSharpVersion)" />
+
     <PackageVersion Include="Microsoft.Extensions.Options" Version="$(MicrosoftExtensionsOptionsVersion)" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="$(MicrosoftExtensionsDependencyInjectionVersion)" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="$(MicrosoftExtensionsLoggingVersion)" />
@@ -133,7 +133,7 @@
     <PackageReference Update="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="$(MicrosoftExtensionsVersion)" />
     <PackageReference Update="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="$(MicrosoftAspNetCoreMvcNewtonsoftJsonVersion)" />
     <PackageReference Update="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
-    <PackageReference Update="Microsoft.CSharp" Version="4.7.0" />
+
     
     <!-- 依赖注入 -->
     <PackageReference Update="Autofac.Extensions.DependencyInjection" Version="$(AutofacVersion)" />

@@ -19,7 +19,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Infrastructure.Crosscutting.Json.NewtonsoftJson\Infrastructure.Crosscutting.Json.NewtonsoftJson.csproj" />
+
     <ProjectReference Include="..\..\src\Infrastructure.IntegrationEventService\Infrastructure.IntegrationEventService.csproj" />
     <ProjectReference Include="..\Sample.Product.Application\Sample.Product.Application.csproj" />
     <ProjectReference Include="..\Sample.Product.Repository.MongoDB\Sample.Product.Repository.MongoDB.csproj" />

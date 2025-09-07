@@ -19,7 +19,7 @@
     <PackageReference Include="xunit.runner.visualstudio" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" />
     <PackageReference Include="MediatR" />
-    <PackageReference Include="Microsoft.CSharp" />
+
     <PackageReference Include="Moq" />
     <PackageReference Include="Newtonsoft.Json" />
     <PackageReference Include="System.Linq.Expressions" />
