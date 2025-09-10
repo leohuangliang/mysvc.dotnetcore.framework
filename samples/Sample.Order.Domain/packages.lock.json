@@ -21,7 +21,7 @@
         "type": "Project",
         "dependencies": {
           "MediatR": "[12.5.0, )",
-          "MySvc.Framework.Infrastructure.Crosscutting": "[8.0.0-beta4, )"
+          "MySvc.Framework.Infrastructure.Crosscutting": "[1.0.0, )"
         }
       },
       "MySvc.Framework.Infrastructure.Crosscutting": {

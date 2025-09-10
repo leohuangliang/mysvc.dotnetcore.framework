@@ -95,7 +95,7 @@
         "dependencies": {
           "Microsoft.Extensions.Hosting.Abstractions": "[8.0.0, )",
           "Microsoft.Extensions.Options": "[8.0.0, )",
-          "MySvc.Framework.Infrastructure.Crosscutting": "[8.0.0-beta4, )"
+          "MySvc.Framework.Infrastructure.Crosscutting": "[1.0.0, )"
         }
       },
       "Microsoft.Extensions.Caching.Abstractions": {

@@ -58,12 +58,6 @@
           "System.Net.Http.Json": "6.0.0"
         }
       },
-      "Newtonsoft.Json": {
-        "type": "Direct",
-        "requested": "[13.0.3, )",
-        "resolved": "13.0.3",
-        "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
-      },
       "xunit": {
         "type": "Direct",
         "requested": "[2.4.2, )",
@@ -248,6 +242,11 @@
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XDocument": "4.3.0"
         }
+      },
+      "Newtonsoft.Json": {
+        "type": "Transitive",
+        "resolved": "13.0.1",
+        "contentHash": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A=="
       },
       "Newtonsoft.Json.Bson": {
         "type": "Transitive",
@@ -1133,7 +1132,7 @@
       "MySvc.Framework.Infrastructure.Authorization.Client": {
         "type": "Project",
         "dependencies": {
-          "MySvc.Framework.Infrastructure.Crosscutting": "[8.0.0-beta4, )"
+          "MySvc.Framework.Infrastructure.Crosscutting": "[1.0.0, )"
         }
       },
       "MySvc.Framework.Infrastructure.Crosscutting": {

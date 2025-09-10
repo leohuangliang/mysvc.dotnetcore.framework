@@ -1,14 +1,12 @@
-﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MySvc.Framework.Infrastructure.Authorization.Client;
-using MySvc.Framework.Infrastructure.Crosscutting.Json;
-using MySvc.Framework.Infrastructure.NewtonsoftJson;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System;
 using System.Collections.Generic;
 
@@ -29,23 +27,18 @@ namespace Auth.ClientTestApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc()
-                ////全局配置Json序列化处理
-                //.AddJsonOptions(options =>
-                //{
-                //    //忽略循环引用
-                //    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                //    //设置时间格式
-                //    //options.SerializerSettings.DateFormatString = "yyyy-MM-dd";
-                //    //不使用驼峰样式的key
-                //    //options.SerializerSettings.ContractResolver = new DefaultContractResolver();
-
-                //    //自定义序列化
-                //    var convers = options.SerializerSettings.Converters ?? new List<JsonConverter>();
-                //    convers.Add(new StringEnumConverter());
-
-                //    options.SerializerSettings.Converters = convers;
-                //})
-                .AddNewtonsoftJson();
+                // 全局配置Json序列化处理 - 使用System.Text.Json
+                .AddJsonOptions(options =>
+                {
+                    // 忽略循环引用
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                    // 设置属性命名策略为驼峰命名
+                    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                    // 枚举转换为字符串
+                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                    // 允许读取注释
+                    options.JsonSerializerOptions.ReadCommentHandling = JsonCommentHandling.Skip;
+                });
 
             services.AddCustomAuthentication(Configuration);
             services.AddCustomSwagger(Configuration, this.WebHostEnvironment);

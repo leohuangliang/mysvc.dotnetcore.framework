@@ -21,7 +21,7 @@
     <PackageReference Include="MediatR" />
 
     <PackageReference Include="Moq" />
-    <PackageReference Include="Newtonsoft.Json" />
+
     <PackageReference Include="System.Linq.Expressions" />
   </ItemGroup>
   <ItemGroup>

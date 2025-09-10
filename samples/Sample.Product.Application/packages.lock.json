@@ -128,7 +128,7 @@
         "type": "Project",
         "dependencies": {
           "MediatR": "[12.5.0, )",
-          "MySvc.Framework.Infrastructure.Crosscutting": "[8.0.0-beta4, )"
+          "MySvc.Framework.Infrastructure.Crosscutting": "[1.0.0, )"
         }
       },
       "MySvc.Framework.Infrastructure.Crosscutting": {
@@ -140,7 +140,7 @@
       "sample.product.domain": {
         "type": "Project",
         "dependencies": {
-          "MySvc.Framework.Domain.Core": "[8.0.0-beta4, )"
+          "MySvc.Framework.Domain.Core": "[1.0.0, )"
         }
       },
       "Microsoft.Extensions.Caching.Abstractions": {

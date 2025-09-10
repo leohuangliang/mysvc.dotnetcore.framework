@@ -50,7 +50,7 @@ namespace Infrastructure.Authorization.Client.Tests
             {
                 string stringData = await response.Content.ReadAsStringAsync();
 
-                userProfile = Newtonsoft.Json.JsonConvert.DeserializeObject<UserProfile>(stringData);
+                userProfile = System.Text.Json.JsonSerializer.Deserialize<UserProfile>(stringData);
             }
             else
             {

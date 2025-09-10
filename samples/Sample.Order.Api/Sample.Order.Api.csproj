@@ -10,7 +10,7 @@
     <PackageReference Include="MassTransit" />
     <PackageReference Include="MassTransit.MongoDb" />
     <PackageReference Include="MassTransit.RabbitMQ" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+
     <PackageReference Include="NLog.Web.AspNetCore" />
     <PackageReference Include="Swashbuckle.AspNetCore" />
   </ItemGroup>

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,7 +36,11 @@ namespace Catalog.API.Extensions
                 options.EnableEndpointRouting = false;
                 options.Filters.Add(typeof(HttpGlobalExceptionFilter));
             })
-            .AddNewtonsoftJson()
+            .AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                options.JsonSerializerOptions.WriteIndented = true;
+            })
             .AddControllersAsServices();
 
             services.AddCors(options =>

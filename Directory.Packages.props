@@ -4,10 +4,10 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     
     <!-- 当前框架版本 -->
-    <CurrentVersion>8.1.0</CurrentVersion>
+    <CurrentVersion>8.1.1</CurrentVersion>
     
     <!-- 程序集版本（纯数字版本） -->
-    <AssemblyNumericVersion>8.1.0.0</AssemblyNumericVersion>
+    <AssemblyNumericVersion>8.1.1.0</AssemblyNumericVersion>
     
     <!-- NuGet包元数据变量 -->
     <PackageAuthors>liang.huang</PackageAuthors>
@@ -18,7 +18,6 @@
     <PackageServiceable>true</PackageServiceable>
     
     <!-- 定义全局包版本变量 -->
-    <NewtonsoftJsonVersion>13.0.3</NewtonsoftJsonVersion>
     <AutoMapperVersion>13.0.1</AutoMapperVersion>
     <MediatRVersion>12.5.0</MediatRVersion>
     <HangfireCoreVersion>1.8.14</HangfireCoreVersion>
@@ -32,7 +31,7 @@
     <MicrosoftExtensionsDependencyInjectionVersion>8.0.0</MicrosoftExtensionsDependencyInjectionVersion>
     <MicrosoftExtensionsLoggingVersion>8.0.0</MicrosoftExtensionsLoggingVersion>
     <MicrosoftExtensionsVersion>8.0.0</MicrosoftExtensionsVersion>
-    <MicrosoftAspNetCoreMvcNewtonsoftJsonVersion>8.0.0</MicrosoftAspNetCoreMvcNewtonsoftJsonVersion>
+
     <XunitVersion>2.0.3</XunitVersion>
     <XunitRunnerVersion>3.1.1</XunitRunnerVersion>
     <CoverletCollectorVersion>6.0.2</CoverletCollectorVersion>
@@ -47,7 +46,7 @@
 
   <ItemGroup>
     <PackageVersion Include="MediatR" Version="$(MediatRVersion)" />
-    <PackageVersion Include="Newtonsoft.Json" Version="$(NewtonsoftJsonVersion)" />
+
     <PackageVersion Include="AutoMapper" Version="$(AutoMapperVersion)" />
     <PackageVersion Include="IdentityServer4" Version="$(IdentityServer4Version)" />
     <PackageVersion Include="Serilog" Version="$(SerilogVersion)" />
@@ -59,7 +58,7 @@
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="$(MicrosoftExtensionsDependencyInjectionVersion)" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="$(MicrosoftExtensionsLoggingVersion)" />
     <PackageVersion Include="MongoDB.Driver" Version="$(MongoDBDriverVersion)" />
-    <PackageVersion Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="$(MicrosoftAspNetCoreMvcNewtonsoftJsonVersion)" />
+
     <PackageVersion Include="Microsoft.Extensions.Caching.Abstractions" Version="$(MicrosoftExtensionsVersion)" />
     <PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="$(MicrosoftExtensionsVersion)" />
     <PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="$(MicrosoftExtensionsVersion)" />
@@ -92,8 +91,7 @@
 
 
   <ItemGroup>
-    <!-- JSON 序列化 -->
-    <PackageReference Update="Newtonsoft.Json" Version="$(NewtonsoftJsonVersion)" />
+
     
     <!-- 对象映射 -->
     <PackageReference Update="AutoMapper" Version="$(AutoMapperVersion)" />
@@ -131,7 +129,7 @@
     <PackageReference Update="Microsoft.Extensions.Http" Version="$(MicrosoftExtensionsVersion)" />
     <PackageReference Update="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Update="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="$(MicrosoftExtensionsVersion)" />
-    <PackageReference Update="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="$(MicrosoftAspNetCoreMvcNewtonsoftJsonVersion)" />
+
     <PackageReference Update="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
 
     

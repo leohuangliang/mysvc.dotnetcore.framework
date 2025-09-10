@@ -19,7 +19,7 @@
     <PackageReference Include="Microsoft.Extensions.Http" />
     <PackageReference Include="Moq" />
     <PackageReference Include="Moq.Contrib.HttpClient" />
-    <PackageReference Include="Newtonsoft.Json" />
+
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Infrastructure.Authorization.Client\Infrastructure.Authorization.Client.csproj" />

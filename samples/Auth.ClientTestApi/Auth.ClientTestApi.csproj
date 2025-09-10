@@ -7,7 +7,7 @@
     <PackageReference Include="NLog.Web.AspNetCore" />
     <PackageReference Include="Swashbuckle.AspNetCore" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" />
   </ItemGroup>
   <ItemGroup>

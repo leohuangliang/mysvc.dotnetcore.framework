@@ -10,7 +10,7 @@
     <PackageReference Include="Autofac.Extensions.DependencyInjection" />
     <PackageReference Include="AutoMapper" />
     <PackageReference Include="MassTransit" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+
     <PackageReference Include="Swashbuckle.AspNetCore" />
   </ItemGroup>
   <ItemGroup>
